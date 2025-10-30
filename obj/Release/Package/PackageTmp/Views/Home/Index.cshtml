@@ -1,0 +1,830 @@
+﻿<div class="fullbox">
+    <div class="mycontainer" style="font-family:'Times New Roman'">
+        <div class="row">
+            <div class="col-10">
+                <div style="
+    font-weight: bold;
+">
+                    CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+                </div>
+                <div style="
+    text-align: center;
+">
+                    Độc lập-Tự do-Hạnh phúc
+                </div>
+                <hr>
+                <div style="
+    font-weight: 600;
+">
+                    TỜ KHAI THUẾ GIÁ TRỊ GIA TĂNG (MẫU SỐ 01/GTGT)
+                </div>
+                <div style="
+    font-style: italic;
+">
+                    (Áp dụng đối với người nộp thuế tính thuế theo phương pháp khấu trừ có hoạt động sản xuất kinh doanh)
+                </div>
+                <div>
+                    <strong> [01a]</strong> Tên hoạt động sản xuất kinh doanh: Hoạt động sản xuất kinh doanh thông thường
+                </div>
+                <div>
+                    <strong> [01b]</strong> Kỳ tính thuế: Quý 3 năm 2025
+                </div>
+                <div>
+                    <strong>[02]</strong> Lần đầu: [X] [03] Bổ sung lần thứ: [ ]
+                </div>
+
+            </div>
+            <div class="col-2">
+                <div style="
+    font-size: 10px;
+    border: 1px solid;
+    padding: 10px 5px;
+">
+                    <div>
+                        Mẫu số:
+                    </div>
+                    <div style="
+    font-weight: bold;
+">
+                        01/GTGT
+                    </div>
+                    <div>
+                        (Ban hành kèm theo Thông tư số 80/2021/TT-BTC ngày 29 tháng 9 năm 2021 của Bộ trưởng Bộ Tài chính)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <strong>[04]</strong> Tên người nộp thuế:
+            </div>
+            <div class="col-8">
+                <input id="TenCty" class="myinput" value="@Model.TenCty" />
+            </div>
+            <div class="col-4">
+                <strong>[05]</strong> Mã số thuế:
+            </div>
+            <div class="col-8">
+                <input class="myinput" value="3500779171" />
+            </div>
+            <div class="col-4">
+                <strong>[06]</strong> Tên đại lý thuế (nếu có):
+            </div>
+            <div class="col-8">
+                <input class="myinput" value="" />
+            </div>
+            <div class="col-4">
+                <strong>[07]</strong> Mã số thuế:
+            </div>
+            <div class="col-8">
+                <input class="myinput" value="" />
+            </div>
+            <div class="col-12">
+                <strong>[09]</strong>   Tên đơn vị phụ thuộc/địa điểm kinh doanh của hoạt động sản xuất kinh doanh khác tỉnh nơi đóng trụ sở chính:
+            </div>
+
+        </div>
+
+        <div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            STT
+                        </th>
+                        <th width="250">
+                            Chỉ tiêu
+                        </th>
+                        <th colspan="2" >
+                            Giá trị hàng hóa, dịch vụ
+                            (chưa có thuế giá trị gia tăng)
+                        </th>
+                        <th colspan="2" width="350">
+                            Thuế giá trị gia tăng
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <strong> A</strong>
+                        </td>
+                        <td>
+                            <strong> Không phát sinh hoạt động mua, bán trong kỳ</strong> (đánh dấu "X")
+                        </td>
+                        <td class="tdwidth">
+                            [21]
+                        </td>
+                        <td colspan="3">
+                            []
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong> B</strong>
+                        </td>
+                        <td colspan="3">
+                            <strong>Thuế giá trị gia tăng còn được khấu trừ kỳ trước chuyển sang</strong>
+                        </td>
+                        <td class="tdwidth">
+                            [22]
+                        </td>
+                        <td>
+                            <input id="col22" class="myinput" value="@Model.N22" onblur="formatNumber(this)" onfocus="removeFormat(this)" onchange="refresh()" />
+
+                        </td>
+                    </tr>
+                    <tr class="difftr">
+                        <td>
+                            <strong>C</strong>
+                        </td>
+                        <td colspan="5">
+                            <strong> Kê khai thuế giá trị gia tăng phải nộp ngân sách nhà nước</strong>
+                        </td>
+
+                    </tr>
+                    <tr class="difftr">
+                        <td>
+                            <strong> I</strong>
+                        </td>
+                        <td colspan="5">
+                            <strong> Hàng hoá, dịch vụ mua vào trong kỳ</strong>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>1</strong>
+                        </td>
+                        <td>
+                            Giá trị và thuế giá trị gia tăng của hàng hóa, dịch vụ mua vào
+                        </td>
+                        <td class="tdwidth">
+                            <strong>[23]</strong>
+                        </td>
+                        <td>
+                            <input id="col23" value="@Model.N23" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+                        <td class="tdwidth">
+                            <strong> [24]</strong>
+                        </td>
+                        <td>
+                            <input id="col24" value="@Model.N24" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            Trong đó: hàng hóa, dịch vụ nhập khẩu
+                        </td>
+                        <td class="tdwidth">
+                            <strong>[23a]</strong>
+                        </td>
+                        <td>
+                            <input id="col23a" class="myinput" value="0" />
+                        </td>
+                        <td class="tdwidth">
+                            <strong> [24a]</strong>
+                        </td>
+                        <td>
+                            <input id="col24a" class="myinput" value="0" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>
+                                2
+                            </strong>
+                        </td>
+                        <td colspan="3">
+                            Thuế giá trị gia tăng của hàng hóa, dịch vụ mua vào được khấu trừ kỳ này
+                        </td>
+                        <td class="tdwidth">
+                            <strong> [25]</strong>
+                        </td>
+                        <td>
+                            <input id="col25" value="@Model.N25" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" onchange="refresh()" />
+                        </td>
+                    </tr>
+                    <tr class="difftr">
+                        <td>
+                            <strong>
+                                II
+                            </strong>
+                        </td>
+                        <td colspan="5">
+                            Hàng hoá, dịch vụ bán ra trong kỳ
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>1</strong>
+                        </td>
+                        <td>
+                            Hàng hóa, dịch vụ bán ra không chịu thuế giá trị gia tăng
+                        </td>
+                        <td class="tdwidth">
+                            <strong>[26]</strong>
+                        </td>
+                        <td>
+                            <input id="col26" class="myinput" value="0" />
+                        </td>
+                        <td colspan="2">
+                        </td>
+                    </tr>
+                    <tr class="difftr">
+                        <td>
+                            <strong>2</strong>
+                        </td>
+                        <td>
+                            Hàng hóaHàng hóa, dịch vụ bán ra chịu thuế giá trị gia tăng
+                            ([27]=[29]+[30]+[32]+[32a]; [28]=[31]+[33])
+                        </td>
+                        <td class="tdwidth">
+                            <strong>[27]</strong>
+                        </td>
+                        <td>
+                            <input id="col27" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+                        <td class="tdwidth">
+                            <strong>[28]</strong>
+                        </td>
+                        <td>
+                            <input id="col28" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" onchange="refresh()" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            a
+                        </td>
+                        <td>
+                            Hàng hoá, dịch vụ bán ra chịu thuế suất 0%
+                        </td>
+                        <td class="tdwidth">
+                            <strong>[29]</strong>
+                        </td>
+                        <td>
+                            <input id="col29" value="@Model.N29" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" onchange="refresh()" />
+                        </td>
+                        <td colspan="2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            b
+                        </td>
+                        <td>
+                            Hàng hoá, dịch vụ bán ra chịu thuế suất 5%
+                        </td>
+                        <td class="tdwidth">
+                            <strong>[30]</strong>
+                        </td>
+                        <td>
+                            <input id="col30" value="@Model.N30" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" onchange="refresh()" />
+                        </td>
+                        <td class="tdwidth">
+                            <strong>[31]</strong>
+                        </td>
+                        <td>
+                            <input id="col31" value="@Model.N31" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" onchange="refresh()" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            c
+                        </td>
+                        <td>
+                            Hàng hoá, dịch vụ bán ra chịu thuế suất 10%
+                        </td>
+                        <td class="tdwidth">
+                            <strong>[32]</strong>
+                        </td>
+                        <td>
+                            <input id="col32" value="@Model.N32" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" onchange="refresh()" />
+                        </td>
+                        <td class="tdwidth">
+                            <strong>[33]</strong>
+                        </td>
+                        <td>
+                            <input id="col33" value="@Model.N33" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" onchange="refresh()" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            d
+                        </td>
+                        <td>
+                            Hàng hoá, dịch vụ bán ra không tính thuế
+                        </td>
+                        <td class="tdwidth">
+                            <strong>[32a]</strong>
+                        </td>
+                        <td>
+                            <input id="col32a" class="myinput" value="0" onchange="Sumcol27()" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+                        <td colspan="2">
+                        </td>
+                    </tr>
+                    <tr class="difftr">
+                        <td>
+                            <strong>3</strong>
+                        </td>
+                        <td>
+                            Tổng doanh thu và thuế giá trị gia tăng của hàng hóa, dịch vụ bán ra
+                            ([34]=[26]+[27]; [35]=[28])
+                        </td>
+                        <td class="tdwidth">
+                            <strong>[34]</strong>
+                        </td>
+                        <td>
+                            <input id="col34" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+                        <td class="tdwidth">
+                            <strong>[35]</strong>
+                        </td>
+                        <td>
+                            <input id="col35" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)"  />
+                        </td>
+                    </tr>
+                    <tr class="difftr">
+                        <td>
+                            <strong>
+                                III
+                            </strong>
+                        </td>
+                        <td colspan="3">
+                            <strong>Thuế giá trị gia tăng phát sinh trong kỳ ([36]=[35]-[25])</strong>
+                        </td>
+                        <td>
+                            <strong>[36]</strong>
+                        </td>
+                        <td>
+                            <input id="col36" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)"/>
+                        </td>
+                    </tr>
+                    <tr class="difftr">
+                        <td>
+                            <strong>
+                                IV
+                            </strong>
+                        </td>
+                        <td colspan="5">
+                            <strong>Điều chỉnh tăng, giảm thuế giá trị gia tăng còn được khấu trừ của các kỳ trước</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>
+                                1
+                            </strong>
+                        </td>
+                        <td colspan="3">
+                            Điều chỉnh giảm
+                        </td>
+                        <td>
+                            <strong>[37]</strong>
+                        </td>
+                        <td>
+                            <input id="col37" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" onchange="refresh()" />
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>
+                                2
+                            </strong>
+                        </td>
+                        <td colspan="3">
+                            Điều chỉnh tăng
+                        </td>
+                        <td>
+                            <strong>[38]</strong>
+                        </td>
+                        <td>
+                            <input id="col38" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)"  onchange="refresh()"/>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>
+                                V
+                            </strong>
+                        </td>
+                        <td colspan="3">
+                            <strong>Thuế giá trị gia tăng nhận bàn giao được khấu trừ trong kỳ</strong>
+                        </td>
+                        <td>
+                            <strong>[39a]</strong>
+                        </td>
+                        <td>
+                            <input id="col39a" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>
+                                VI
+                            </strong>
+                        </td>
+                        <td colspan="5">
+                            <strong>Xác định nghĩa vụ thuế giá trị gia tăng phải nộp trong kỳ:</strong>
+                        </td>
+
+                    </tr>
+                    <tr class="difftr">
+                        <td>
+                            <strong>
+                                1
+                            </strong>
+                        </td>
+                        <td colspan="3">
+                            <strong>
+                                Thuế giá trị gia tăng phải nộp của hoạt động sản xuất kinh doanh trong kỳ
+                                {[40a]=([36]-[22]+[37]-[38]-[39a]) ≥ 0}
+                            </strong>
+                        </td>
+                        <td>
+                            <strong>[40a]</strong>
+                        </td>
+                        <td>
+                            <input id="col40a" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>
+                                2
+                            </strong>
+                        </td>
+                        <td colspan="3">
+                            <strong>
+                                Thuế giá trị gia tăng mua vào của dự án đầu tư được bù trừ với thuế GTGT còn phải nộp của hoạt động sản xuất kinh doanh cùng kỳ tính thuế ([40b]≤[40a])
+                            </strong>
+                        </td>
+                        <td>
+                            <strong>[40b]</strong>
+                        </td>
+                        <td>
+                            <input id="col40b" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+
+                    </tr>
+                    <tr class="difftr">
+                        <td>
+                            <strong>
+                                3
+                            </strong>
+                        </td>
+                        <td colspan="3">
+                            <strong>
+                                Thuế giá trị gia tăng còn phải nộp trong kỳ ([40]=[40a]-[40b])
+                            </strong>
+                        </td>
+                        <td>
+                            <strong>[40]</strong>
+                        </td>
+                        <td>
+                            <input id="col40" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+
+                    </tr>
+                    <tr class="difftr">
+                        <td>
+                            <strong>
+                                4
+                            </strong>
+                        </td>
+                        <td colspan="3">
+                            <strong>
+                                Thuế giá trị gia tăng chưa khấu trừ hết kỳ này
+                                {[41]=([36]-[22]+[37]-[38]-[39a]) ≤ 0}
+                            </strong>
+                        </td>
+                        <td>
+                            <strong>[41]</strong>
+                        </td>
+                        <td>
+                            <input id="col41" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+
+                    </tr>
+                    <tr >
+                        <td>
+                            <strong>
+                                4.1
+                            </strong>
+                        </td>
+                        <td colspan="3">
+                            <strong>
+                                Thuế giá trị gia tăng đề nghị hoàn ([42] ≤ [41])
+                            </strong>
+                        </td>
+                        <td>
+                            <strong>[42]</strong>
+                        </td>
+                        <td>
+                            <input id="col42" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+
+                    </tr>
+                    <tr class="difftr">
+                        <td>
+                            <strong>
+                                4.2
+                            </strong>
+                        </td>
+                        <td colspan="3">
+                            <strong>
+                                Thuế giá trị gia tăng còn được khấu trừ chuyển kỳ sau ([43]=[41]-[42])
+                            </strong>
+                        </td>
+                        <td>
+                            <strong>[43]</strong>
+                        </td>
+                        <td>
+                            <input id="col43" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <input id="tendaily" placeholder="Tên người đại diện" />
+        <div class="text-end">
+            <button onclick="exportXML()"
+                    class="btn btn-warning">
+                📥 Xuất file XML
+            </button>
+        </div>
+    </div>
+</div>
+<input id="path" />
+<script>
+    function exportXML() {
+        const inputs = document.querySelectorAll('.myinput');
+        inputs.forEach(input => {
+            removeFormat(input); // Xóa định dạng trước khi lấy giá trị
+        });
+
+
+        const url = '@Url.Action("CreateTaxXMLFull", "Home")' +
+            '?path=' + $("#path").val() +
+            '&tencty=' + $("#TenCty").val() +
+            '&tendaily=' + $("#tendaily").val() +
+        '&N22=' + $("#col22").val() +
+        '&N23=' + $("#col23").val() +
+        '&N24=' + $("#col24").val() +
+        '&N23a=' + $("#col23a").val() +
+        '&N24a=' + $("#col24a").val() +
+        '&N25=' + $("#col25").val() +
+        '&N26=' + $("#col26").val() +
+        '&N27=' + $("#col27").val() +
+        '&N28=' + $("#col28").val() +
+        '&N29=' + $("#col29").val() +
+        '&N30=' + $("#col30").val() +
+        '&N31=' + $("#col31").val() +
+        '&N32=' + $("#col32").val() +
+        '&N33=' + $("#col33").val() +
+        '&N32a=' + $("#col32a").val() +
+        '&N34=' + $("#col34").val() +
+        '&N35=' + $("#col35").val() +
+        '&N36=' + $("#col36").val() +
+        '&N37=' + $("#col37").val() +
+        '&N38=' + $("#col38").val() +
+        '&N39a=' + $("#col39a").val() +
+        '&N40=' + $("#col40").val() +
+        '&N40a=' + $("#col40a").val() +
+        '&N40b=' + $("#col40b").val() +
+        '&N41=' + $("#col41").val() +
+        '&N42=' + $("#col42").val() +
+        '&N43=' + $("#col43").val();
+
+    window.open(url);
+}
+</script>
+<style>
+    .mycontainer {
+        max-width: 60%;
+        width: 60%;
+        margin: 0px auto;
+        background-color: white;
+        padding: 20px 20px;
+    }
+
+    .myinput {
+        width: 100%;
+        max-width: 100%;
+        border: none;
+        border-bottom: 1px solid #eee;
+        outline: none;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+        table th {
+            font-weight: bold;
+            text-align: center;
+        }
+
+    .tdwidth {
+        width: 50px;
+    }
+
+    table input {
+        text-align: right;
+    }
+
+    table td, table th {
+        vertical-align: middle;
+    }
+    table td{
+        padding:3px 10px!important;
+    }
+    .difftr {
+        background-color: #E8F4FA;
+        color: #084298;
+        font-weight: bold;
+    }
+        .difftr input {
+            color: #084298;
+            font-weight: bold;
+            background-color: transparent;
+        }
+    body {
+        background-color: #414141;
+    }
+</style>
+<script src="~/Scripts/jquery-3.7.0.min.js"></script>
+<script>
+    function getPathFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const path = urlParams.get('path');
+        return path ? decodeURIComponent(path) : null;
+    }
+
+    function ExportXML() {
+       
+        $.ajax({
+            url: '/Home/CreateTaxXMLFull', // URL API export
+            type: 'GET',
+            data: {
+                path: getPathFromURL(),
+                tencty: $("#TenCty").val(),
+                N22: $("#col22").val(),
+            },
+            dataType:"html",
+            success: function (data) {
+                // Tạo URL cho file blob
+                const url = window.URL.createObjectURL(data);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'Test_UTF8.xml'; // Tên file để tải về
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                window.URL.revokeObjectURL(url); // Giải phóng URL
+            },
+            error: function () {
+                alert('Lỗi khi export XML!');
+                $('#loading').hide();
+            }
+        });
+    }
+    // Hàm để định dạng số
+    function formatNumber(input) {
+        let value = parseFloat(input.value.replace(/\./g, '').replace(/,/g, '.'));
+        if (!isNaN(value)) {
+            input.value = value.toLocaleString('de-DE', { minimumFractionDigits: 0, maximumFractionDigits: 0 }); // Định dạng theo số thập phân
+        }
+    }
+
+    // Hàm để xóa định dạng
+    function removeFormat(input) {
+        input.value = input.value.replace(/\./g, ''); // Xóa định dạng khi lấy lại
+    }
+
+    // Định dạng số ngay khi tải trang
+    window.onload = function () {
+        const inputs = document.querySelectorAll('.myinput');
+        inputs.forEach(input => {
+            formatNumber(input); // Định dạng ngay khi tải
+        });
+    };
+    function Change36() {
+        Sumcol27();
+    }
+    function Changecol22() {
+        Sumcol27();
+    }
+    function refresh() { 
+        Sumcol27();
+    }
+    let isCal = true;
+    let Sumcol27 = () => { 
+        if (isCal == true) {
+            isCal = false;
+            let parseValue = (value) => {
+                return parseFloat(value.replace(/\./g, '').replace(/,/g, '.')) || 0; // Chuyển đổi giá trị
+            };
+
+            let valuecol27 =
+                parseValue($("#col29").val()) +
+                parseValue($("#col30").val()) +
+                parseValue($("#col32").val()) +
+                parseValue($("#col32a").val());
+
+            // Gán kết quả vào ô có id 'col27' và kích hoạt sự kiện change
+            $("#col27").val(valuecol27).change();
+            // Format the number in #col27
+            formatNumber(document.getElementById('col27'));
+
+            Sumcol28();
+            Sumcol35();
+            Sumcol34();
+            Sumcol36();
+            Sumcol40a();
+            Sumcol40();
+            isCal = true;
+        }
+       
+    };
+    let Sumcol28 = () => {
+        let parseValue = (value) => {
+            return parseFloat(value.replace(/\./g, '').replace(/,/g, '.')) || 0; // Chuyển đổi giá trị
+        };
+        let valuecol28 =
+            parseValue($("#col31").val()) + parseValue($("#col33").val());
+
+        // Nếu cần, gán kết quả vào một phần tử nào đó, ví dụ:
+        $("#col28").val(valuecol28).change(); // Gán kết quả vào ô có id 'result'
+        formatNumber(document.getElementById('col28')); 
+    };
+    let Sumcol34 = () => {
+        let parseValue = (value) => {
+            return parseFloat(value.replace(/\./g, '').replace(/,/g, '.')) || 0; // Chuyển đổi giá trị
+        };
+        let valuecol34 =
+            parseValue($("#col26").val()) + parseValue($("#col27").val());
+        // Nếu cần, gán kết quả vào một phần tử nào đó, ví dụ:
+        $("#col34").val(valuecol34).change(); // Gán kết quả vào ô có id 'result'
+        formatNumber(document.getElementById('col34'));
+
+    };
+    let Sumcol35 = () => {
+        let parseValue = (value) => {
+            return parseFloat(value.replace(/\./g, '').replace(/,/g, '.')) || 0; // Chuyển đổi giá trị
+        };
+        let valuecol35 =
+            parseValue($("#col28").val()) ;
+        // Nếu cần, gán kết quả vào một phần tử nào đó, ví dụ:
+        $("#col35").val(valuecol35).change(); // Gán kết quả vào ô có id 'result'
+        formatNumber(document.getElementById('col35'));
+
+    };
+    let Sumcol36 = () => {
+        let parseValue = (value) => {
+            return parseFloat(value.replace(/\./g, '').replace(/,/g, '.')) || 0; // Chuyển đổi giá trị
+        };
+        let valuecol36 =
+            parseValue($("#col35").val()) - parseValue($("#col25").val());
+        // Nếu cần, gán kết quả vào một phần tử nào đó, ví dụ:
+        $("#col36").val(valuecol36).change(); // Gán kết quả vào ô có id 'result'
+        formatNumber(document.getElementById('col36'));
+       
+    };
+
+    let Sumcol40a = () => {
+
+        let parseValue = (value) => {
+            return parseFloat(value.replace(/\./g, '').replace(/,/g, '.')) || 0; // Chuyển đổi giá trị
+        };
+        let valuecol40a =
+            parseValue($("#col36").val()) - parseValue($("#col22").val()) + parseValue($("#col37").val()) - parseValue($("#col38").val()) - parseValue($("#col39a").val());
+        // Nếu cần, gán kết quả vào một phần tử nào đó, ví dụ:
+        $("#col40a").val(valuecol40a).change(); // Gán kết quả vào ô có id 'result'
+        formatNumber(document.getElementById('col40a'));
+
+    };
+    let Sumcol40 = () => {
+        let parseValue = (value) => {
+            return parseFloat(value.replace(/\./g, '').replace(/,/g, '.')) || 0; // Chuyển đổi giá trị
+        };
+        let valuecol40a =
+            parseValue($("#col40a").val()) - parseValue($("#col40b").val());
+        // Nếu cần, gán kết quả vào một phần tử nào đó, ví dụ:
+        $("#col40").val(valuecol40a).change(); // Gán kết quả vào ô có id 'result'
+        formatNumber(document.getElementById('col40'));
+
+    };
+    $(document).ready(function () {
+        Sumcol27();
+        $("#path").val(getPathFromURL())
+    })
+</script>
