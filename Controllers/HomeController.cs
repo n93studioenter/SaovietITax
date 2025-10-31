@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -34,6 +36,8 @@ namespace Taxweb.Controllers
         string password, connectionString;
         public int ExecuteQueryResult(string query, params OleDbParameter[] parameters)
         {
+            string password = "1@35^7*9)1";
+            connectionString = $@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={dbPath};Jet OLEDB:Database Password={password};";
             System.Data.DataTable dataTable = new System.Data.DataTable();
 
             using (OleDbConnection connection = new OleDbConnection(connectionString))
@@ -79,16 +83,86 @@ namespace Taxweb.Controllers
                 default: throw new ArgumentOutOfRangeException(nameof(quarter), "Quý phải trong khoảng từ 1 đến 4.");
             }
         }
+        public class YourDataModel
+        {
+            public string TenHH { get; set; }
+            public double  GT1 { get; set; }
+            public double GT2 { get; set; }
+        }
+        [HttpPost]
+        public ActionResult SaveDataPL(string path,string tableData)
+        {
+            dbPath = path;  
+            // Giải mã chuỗi JSON thành danh sách các đối tượng
+            var data = JsonConvert.DeserializeObject<List<YourDataModel>>(tableData);
 
+            // Xử lý dữ liệu và xuất XML
+            // Tạo file XML và trả về cho người dùng
+            string qr = @"Delete from tbPL1";
+            var rowsAffected = ExecuteQueryResult(qr);
+            foreach (var item in data)
+            {
+                if (!string.IsNullOrEmpty(item.TenHH))
+                {
+                    string query = @"INSERT INTO tbPL1 (TenHH,GT1,GT2) 
+                           VALUES (?,?,?)";
+
+                    var parameters = new OleDbParameter[]
+                    {
+                        new OleDbParameter("@TenHH", item.TenHH),
+                        new OleDbParameter("@GT1", item.GT1),
+                        new OleDbParameter("@GT2", item.GT2),
+                    };
+
+                     rowsAffected = ExecuteQueryResult(query, parameters);
+                }
+
+              }
+
+            return Json(new { success = true, message = "Dữ liệu đã được xử lý" });
+        }
+        [HttpPost]
+        public ActionResult SaveDataPL2(string path,string tableData)
+        {
+            dbPath = path;
+            // Giải mã chuỗi JSON thành danh sách các đối tượng
+            var data = JsonConvert.DeserializeObject<List<YourDataModel>>(tableData);
+            string qr = @"Delete from tbPL2";
+            var rowsAffected = ExecuteQueryResult(qr);
+            foreach (var item in data)
+            {
+                if (!string.IsNullOrEmpty(item.TenHH))
+                {
+                    string query = @"INSERT INTO tbPL2 (TenHH,GT1,GT2) 
+                           VALUES (?,?,?)";
+
+                    var parameters = new OleDbParameter[]
+                    {
+                        new OleDbParameter("@TenHH", item.TenHH),
+                        new OleDbParameter("@GT1", item.GT1),
+                        new OleDbParameter("@GT2", item.GT2),
+                    };
+
+                     rowsAffected = ExecuteQueryResult(query, parameters);
+                }
+                   
+            }
+
+            return Json(new { success = true, message = "Dữ liệu đã được xử lý" });
+        }
         [HttpGet] // THAY ĐỔI THÀNH GET
         public ActionResult CreateTaxXMLFull(string path,string ky,DateTime ngayky,string tencty,string tendaily, double N22, double N23, double N24, double N23a, double N24a, double N25,
     double N26, double N27, double N28, double N29, double N30, double N31, double N32, double N33, double N32a, double N34,
-    double N35, double N36, double N37, double N38, double N39a, double N40, double N40a, double N40b, double N41, double N42, double N43)
+    double N35, double N36, double N37, double N38, double N39a, double N40, double N40a, double N40b, double N41, double N42, double N43,string tableData)
         {
             dbPath = path;
             string querys = "SELECT * FROM License";
             DataTable tbLicence = ExecuteQuery(querys, null);
 
+            string qrtbPL1= "SELECT * FROM tbPL1";
+            DataTable tbPL1 = ExecuteQuery(qrtbPL1, null);
+            string qrtbPL2 = "SELECT * FROM tbPL2";
+            DataTable tbPL2 = ExecuteQuery(qrtbPL2, null);
             //Kiểm tra tbThongTinToKhai năm hiện tại có chưa
 
             string query = @"SELECT * FROM tbThongTinToKhai   WHERE  Nam= ?";
@@ -320,7 +394,43 @@ namespace Taxweb.Controllers
 <kyKKhaiDenThang/>
 </KyKKhaiThue>";
             }
+            var sbdv = new StringBuilder();
+            string dv = "";
+            int i = 1;
+            foreach (DataRow item in tbPL1.Rows)
+            {
+                dv += $@"<BangKeTenHHDV ID=""ID_{i}"">
+<tenHHDVMuaVao>{item.Field<string>("TenHH")}</tenHHDVMuaVao>
+<giaTriHHDVMuaVao>{item.Field<double>("GT1")}</giaTriHHDVMuaVao>
+<thueGTGTHHDV>{item.Field<double>("GT2")}</thueGTGTHHDV>
+</BangKeTenHHDV>";
+                i++;
+            }
+            dv += $@"<tongCongGiaTriHHDVMuaVao>{tbPL1.AsEnumerable().Sum(m=>m.Field<double>("GT1"))}</tongCongGiaTriHHDVMuaVao>";
+            dv += $@"<tongCongThueGTGTHHDV>{tbPL1.AsEnumerable().Sum(m => m.Field<double>("GT2"))}</tongCongThueGTGTHHDV>";
+            string dt1 = @"
+<BangKeTenHHDV ID=""ID_1"">
+<tenHHDVMuaVao>Sơn, bột trét</tenHHDVMuaVao>
+<giaTriHHDVMuaVao>2357914513</giaTriHHDVMuaVao>
+<thueGTGTHHDV>188633164</thueGTGTHHDV>
+</BangKeTenHHDV>";
 
+
+            var sbdr = new StringBuilder();
+            string dv2 = "";
+            i = 1;
+            foreach (DataRow item in tbPL2.Rows)
+            {
+                dv2 += $@"<BangKeTenHHDV ID=""ID_1"">
+<tenHHDV>{item.Field<string>("TenHH")}</tenHHDV>
+<giaTriHHDV>{item.Field<double>("GT1")}</giaTriHHDV>
+<thueSuatTheoQuyDinh>10</thueSuatTheoQuyDinh>
+<thueSuatSauGiam>8</thueSuatSauGiam>
+<thueGTGTDuocGiam>{item.Field<double>("GT2")}</thueGTGTDuocGiam>
+</BangKeTenHHDV>";
+            }
+            dv2 += $@"<tongCongGiaTriHHDV>{tbPL2.AsEnumerable().Sum(m => m.Field<double>("GT1"))}</tongCongGiaTriHHDV>";
+            dv2 += $@"<tongCongThueGTGTDuocGiam>{tbPL2.AsEnumerable().Sum(m => m.Field<double>("GT2"))}</tongCongThueGTGTDuocGiam>";
                 // Tạo XML string đúng y hệt mẫu
                 string xmlContent = $@"<HSoThueDTu xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns=""http://kekhaithue.gdt.gov.vn/TKhaiThue"" >
 <HSoKhaiThue id=""ID_1"">
@@ -425,45 +535,11 @@ namespace Taxweb.Controllers
 </CTieuTKhaiChinh>
 <PLuc>
 <PL_NQ142_GTGT>
-<HH_DV_MuaVaoTrongKy>
-<BangKeTenHHDV ID=""ID_1"">
-<tenHHDVMuaVao>Sơn, bột trét</tenHHDVMuaVao>
-<giaTriHHDVMuaVao>2357914513</giaTriHHDVMuaVao>
-<thueGTGTHHDV>188633164</thueGTGTHHDV>
-</BangKeTenHHDV>
-<BangKeTenHHDV ID=""ID_2"">
-<tenHHDVMuaVao>Xăng</tenHHDVMuaVao>
-<giaTriHHDVMuaVao>5359199</giaTriHHDVMuaVao>
-<thueGTGTHHDV>428736</thueGTGTHHDV>
-</BangKeTenHHDV>
-<BangKeTenHHDV ID=""ID_3"">
-<tenHHDVMuaVao>Sửa chữa, bảo dưỡng xe ô tô</tenHHDVMuaVao>
-<giaTriHHDVMuaVao>16370370</giaTriHHDVMuaVao>
-<thueGTGTHHDV>1309630</thueGTGTHHDV>
-</BangKeTenHHDV>
-<BangKeTenHHDV ID=""ID_4"">
-<tenHHDVMuaVao>Gia hạn chữ ký số</tenHHDVMuaVao>
-<giaTriHHDVMuaVao>4744444</giaTriHHDVMuaVao>
-<thueGTGTHHDV>379556</thueGTGTHHDV>
-</BangKeTenHHDV>
-<BangKeTenHHDV ID=""ID_5"">
-<tenHHDVMuaVao>Cọ lăn</tenHHDVMuaVao>
-<giaTriHHDVMuaVao>23446346</giaTriHHDVMuaVao>
-<thueGTGTHHDV>1875708</thueGTGTHHDV>
-</BangKeTenHHDV>
-<tongCongGiaTriHHDVMuaVao>2407834872</tongCongGiaTriHHDVMuaVao>
-<tongCongThueGTGTHHDV>192626794</tongCongThueGTGTHHDV>
+<HH_DV_MuaVaoTrongKy> 
+{sbdv.Append(dv)} 
 </HH_DV_MuaVaoTrongKy>
 <HH_DV_BanRaTrongKy>
-<BangKeTenHHDV ID=""ID_1"">
-<tenHHDV>Sơn, bột trét</tenHHDV>
-<giaTriHHDV>2718141480</giaTriHHDV>
-<thueSuatTheoQuyDinh>10</thueSuatTheoQuyDinh>
-<thueSuatSauGiam>8</thueSuatSauGiam>
-<thueGTGTDuocGiam>54362830</thueGTGTDuocGiam>
-</BangKeTenHHDV>
-<tongCongGiaTriHHDV>2718141480</tongCongGiaTriHHDV>
-<tongCongThueGTGTDuocGiam>54362830</tongCongThueGTGTDuocGiam>
+{sbdr.Append(dv2)} 
 </HH_DV_BanRaTrongKy>
 <ChenhLech>
 <ct9>-138263964</ct9>
@@ -934,7 +1010,8 @@ namespace Taxweb.Controllers
             public double TTrcthue { get; set; }
             public double TThue { get; set; }
         }
-        List<Phuluc1> lstPhuluc1=new List<Phuluc1>();   
+        List<Phuluc1> lstPhuluc1=new List<Phuluc1>();
+        List<Phuluc1> lstPhuluc2 = new List<Phuluc1>();
         public ActionResult Index(string path,string ky)
         {
             if (!string.IsNullOrEmpty(ky))
@@ -1076,7 +1153,9 @@ namespace Taxweb.Controllers
                 int Quy = int.Parse(ky.Replace("Q", ""));
                 var getsql = GetInvoiceQuery(DateTime.Now.Year, Quy);
                 var kqs = ExecuteQuery(getsql, null);
-                foreach(DataRow item in kqs.Rows)
+                var kqdv = kqs.AsEnumerable().Where(m => m["Loai"].ToString() == "-1").ToList();
+                var kqdr = kqs.AsEnumerable().Where(m => m["Loai"].ToString() =="1").ToList();
+                foreach (DataRow item in kqdv)
                 {
                     //Tìm dòng chung tu
                     var find1 = tbChungtu.AsEnumerable().Where(m => m.Field<int>("MaSo") == item.Field<int>("MaSo")).FirstOrDefault();
@@ -1113,9 +1192,54 @@ namespace Taxweb.Controllers
                TThue = g.Sum(x => x.TThue)
            })
            .ToList();
-                ViewBag.Phuluc1= result;    
+                ViewBag.Phuluc1= result;
+
+
+
+                //Tính đầu ra
+
+                foreach (DataRow item in kqdr)
+                {
+                    //Tìm dòng chung tu
+                    var find1 = tbChungtu.AsEnumerable().Where(m => m.Field<int>("MaSo") == item.Field<int>("MaSo")).FirstOrDefault();
+                    if (find1 != null)
+                    {
+                        //Tìm MACT
+                        int MaCT = find1.Field<int>("MaCT");
+                        //Lọc lại danh sách theo MaCT
+                        var getlistChungTu = tbChungtu.AsEnumerable().Where(m => m.Field<int>("MaCT") == MaCT).ToList();
+                        Phuluc1 Phuluc1 = new Phuluc1();
+                        Phuluc1.Tenhang = Helpers.ConvertVniToUnicode(item.Field<string>("MatHang"));
+                        int step = 1;
+                        foreach (var it in getlistChungTu)
+                        {
+                            if (step == 1)
+                            {
+                                Phuluc1.TTrcthue = it.Field<double>("SoPS");
+                            }
+                            else
+                            {
+                                Phuluc1.TThue = Math.Round(Phuluc1.TTrcthue * 0.02);
+                            }
+                            step++;
+                        }
+                        lstPhuluc2.Add(Phuluc1);
+                    }
+                }
+                 result = lstPhuluc2
+           .GroupBy(i => i.Tenhang)
+           .Select(g => new Phuluc1
+           {
+               Tenhang = g.Key,
+               TTrcthue = g.Sum(x => x.TTrcthue),
+               TThue = g.Sum(x => x.TThue)
+           })
+           .ToList();
+                ViewBag.Phuluc2 = result;
                 return View(model);
             }
+
+        
             catch (Exception ex)
             {
                 //return Redirect("Contact");

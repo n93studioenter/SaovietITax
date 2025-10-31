@@ -574,9 +574,9 @@
                         <th width="30%">Tên hàng hóa, dịch vụ</th>
                         <th>Giá trị hàng hóa, dịch vụ mua vào chưa có thuế GTGT được khấu trừ trong kỳ</th>
                         <th>Thuế GTGT của hàng hóa, dịch vụ mua vào được khấu trừ trong kỳ</th>
-                       <th>
-                           Xoá
-                       </th>
+                        <th>
+                            Xoá
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -594,11 +594,11 @@
                         {
                             <tr>
                                 <td>1</td>
-                                <td><input class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@item.Tenhang" /></td>
-                                <td><input class="myinput ip_ttrcthue" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@item.TTrcthue" onchange="TinhTongPhuluc1()" /></td>
-                                <td><input class="myinput ip_tthue" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@item.TThue" onchange="TinhTongPhuluc2()" /></td>
+                                <td><input data-name="TenHH" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@item.Tenhang" /></td>
+                                <td><input data-name="GT1" class="myinput ip_ttrcthue" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@item.TTrcthue" onchange="TinhTongPhuluc1()" /></td>
+                                <td><input data-name="GT2" class="myinput ip_tthue" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@item.TThue" onchange="TinhTongPhuluc2()" /></td>
                                 <td>
-                                    <a class="btn btn-danger btn-sm" onclick="deleterow(this)">
+                                    <a class="btn btn-danger btn-sm" onclick="deleterow(this)" style="height: 22px; line-height: 10px; ">
                                         -
                                     </a>
                                 </td>
@@ -633,7 +633,7 @@
             </strong>
         </div>
         <div>
-            <table class="table table-bordered">
+            <table class="table table-bordered" id="myTable2">
                 <thead>
                     <tr>
                         <th>STT</th>
@@ -642,33 +642,58 @@
                         <th>Thuế suất thuế GTGT theo quy định (%)</th>
                         <th>Thuế suất thuế GTGT sau giảm (%)</th>
                         <th>Thuế GTGT của hàng hóa, dịch vụ bán ra được giảm (VNĐ)</th>
+                        <th>
+
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Hàng hóa A</td>
-                        <td>10,000,000 VNĐ</td>
-                        <td>10%</td>
-                        <td>8%</td>
-                        <td>200,000 VNĐ</td>
+                    @if (ViewBag.Phuluc1 != null)
+                    {
+                        int i = 1;
+                        foreach (var item in ViewBag.Phuluc2)
+                        {
+                            <tr>
+                                <td>@i</td>
+                                <td width="300">
+                                    <textarea data-name="TenHH" class="myinput">@item.Tenhang</textarea>
+                                </td>
+                                <td width="100"> <input data-name="GT1" class="myinput ip_ttrcthue2" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@item.TTrcthue" onchange="TinhTongPhuluc3()" /></td>
+                                <td>10%</td>
+                                <td>8%</td>
+                                <td><input data-name="GT2" class="myinput ip_tthue2" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@item.TThue" onchange="TinhTongPhuluc4()" /></td>
+                                <td>
+                                    <a class="btn btn-danger btn-sm" onclick="deleterow(this)" style="height: 22px; line-height: 10px; ">
+                                        -
+                                    </a>
+                                </td>
+                            </tr>
+                            i++;
+                        }
+                    }
+                    <tr id="totalRow2">
+                        <td>
+                        </td>
+                        <td>
+                            <strong>Tổng cộng:</strong>
+                        </td>
+                        <td>
+                            <input id="tong3" disabled class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="0" />
+                        <td>
+                        <td>
+                        </td>
+                        <td>
+                            <input id="tong4" disabled class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="0" />
+                        </td>
+
+
+                        <td>
+                            <a onclick="addRow2()" class="btn btn-sm btn-success">
+                                +
+                            </a>
+                        </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Dịch vụ B</td>
-                        <td>5,000,000 VNĐ</td>
-                        <td>10%</td>
-                        <td>8%</td>
-                        <td>100,000 VNĐ</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Hàng hóa C</td>
-                        <td>15,000,000 VNĐ</td>
-                        <td>10%</td>
-                        <td>8%</td>
-                        <td>300,000 VNĐ</td>
-                    </tr>
+
                 </tbody>
             </table>
         </div>
@@ -677,6 +702,14 @@
 </div>
 
 <style>
+    textarea {
+        width: 100%; /* Đảm bảo chiếm toàn bộ chiều rộng của ô */
+        box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước */
+        resize: none; /* Ngăn người dùng thay đổi kích thước bằng tay */
+        max-height: 100px; /* Chiều cao tối đa */
+        overflow-y: auto; /* Hiển thị thanh cuộn khi cần */
+    }
+
     .fullbox ul {
         background-color: #cdcdcd;
         margin: 0px;
@@ -698,7 +731,7 @@
 </style>
 <div class="mycontainer" style="font-family:'Times New Roman'">
     <div class="text-end">
-        <button onclick="exportXML()"
+        <button onclick="savedataPl()"
                 class="btn btn-sm btn-primary">
             Kết xuất
         </button>
@@ -740,6 +773,40 @@
         // Cập nhật số thứ tự cho các hàng
         updateRowNumbers();
     }
+    function addRow2() {
+        // Tạo hàng mới
+        let newRow = `
+        <tr>
+            <td></td> <!-- Số thứ tự sẽ được cập nhật tự động -->
+            <td width="300">
+                <textarea class="myinput"></textarea>
+            </td>
+            <td>
+                <input class="myinput ip_ttrcthue2" onblur="formatNumber(this)" onfocus="removeFormat(this)" onchange="TinhTongPhuluc3()" />
+            </td>
+            <td>10%</td> <!-- Giá trị cố định cho thuế -->
+            <td>8%</td>  <!-- Giá trị cố định cho thuế -->
+            <td>
+                <input class="myinput ip_tthue2" onblur="formatNumber(this)" onfocus="removeFormat(this)" onchange="TinhTongPhuluc4()" />
+            </td>
+            <td>
+                <a class="btn btn-danger btn-sm" onclick="deleterow(this)" style="height: 22px; line-height: 10px;">
+                    -
+                </a>
+            </td>
+        </tr>
+    `;
+        // Thêm hàng mới vào tbody
+        $("#totalRow2").before(newRow);
+
+        // Cập nhật số thứ tự cho các hàng
+    }
+
+    function updateRowNumbers() {
+        $("#myTable tbody tr").each(function (index) {
+            $(this).find('td:first').text(index + 1); // Cập nhật số thứ tự
+        });
+    }
     function updateRowNumbers() {
         $("#myTable tbody tr").each(function (index) {
             $(this).find('td:first').text(index + 1); // Cập nhật số thứ tự
@@ -759,6 +826,63 @@
 <input id="path" type="hidden" />
 <input id="ky" value="@ViewBag.ky" type="hidden" />
 <script>
+ function collectTableData(tableId) {
+    const tableData = [];
+    document.querySelectorAll(`${tableId} tbody tr`).forEach(row => {
+        const rowData = {};
+        row.querySelectorAll('.myinput').forEach(input => {
+            const dataName = input.getAttribute('data-name'); // Lấy giá trị của data-name
+            let formattedValue = input.value; // Khởi tạo giá trị gốc
+            if (dataName !== "TenHH") {
+                formattedValue = removeFormat2(input.value); // Xóa định dạng trước khi lưu
+            }
+            rowData[dataName] = formattedValue; // Gán giá trị vào object
+        });
+        tableData.push(rowData); // Thêm hàng dữ liệu vào mảng
+    });
+    return tableData;
+}
+
+function savedataPl() {
+    // Thu thập dữ liệu từ bảng đầu tiên
+    const tableData1 = collectTableData('#myTable');
+
+    // Gửi dữ liệu qua AJAX cho bảng đầu tiên
+    $.ajax({
+        type: "POST",
+        url: '@Url.Action("SaveDataPL", "Home")', // Địa chỉ controller
+        data: {
+            path: $("#path").val(),
+            tableData: JSON.stringify(tableData1) // Chuyển đổi dữ liệu thành chuỗi JSON
+        },
+        success: function(response) {
+            console.log("Dữ liệu đã được gửi thành công:", response);
+
+            // Thu thập dữ liệu từ bảng thứ hai
+            const tableData2 = collectTableData('#myTable2');
+
+            // Gửi dữ liệu qua AJAX cho bảng thứ hai
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("SaveDataPL2", "Home")', // Địa chỉ controller
+                data: {
+                    path: $("#path").val(),
+                    tableData: JSON.stringify(tableData2) // Chuyển đổi dữ liệu thành chuỗi JSON
+                },
+                success: function(response) {
+                    console.log("Dữ liệu đã được gửi thành công:", response);
+                    exportXML();
+                },
+                error: function(xhr, status, error) {
+                    console.error("Có lỗi xảy ra khi gửi dữ liệu:", error);
+                }
+            });
+        },
+        error: function(xhr, status, error) {
+            console.error("Có lỗi xảy ra khi gửi dữ liệu:", error);
+        }
+    });
+}
     function exportXML() {
         const inputs = document.querySelectorAll('.myinput');
         inputs.forEach(input => {
@@ -770,6 +894,7 @@
             get36 = get36.slice(1, -1);
             soam = true;
         }
+
         const url = '@Url.Action("CreateTaxXMLFull", "Home")' +
             '?path=' + $("#path").val() +
             '&ky=' + $("#ky").val() +
@@ -803,7 +928,6 @@
         '&N41=' + $("#col41").val() +
         '&N42=' + $("#col42").val() +
         '&N43=' + $("#col43").val();
-
     window.open(url);
 }
 </script>
@@ -914,7 +1038,13 @@
     function removeFormat(input) {
         input.value = input.value.replace(/\./g, ''); // Xóa định dạng khi lấy lại
     }
-
+    function removeFormat2(value) {
+        // Kiểm tra xem giá trị có phải là chuỗi không
+        if (typeof value === 'string') {
+            return value.replace(/\./g, ''); // Xóa tất cả các dấu chấm
+        }
+        return value; // Trả về giá trị không thay đổi nếu không phải chuỗi
+    }
     // Định dạng số ngay khi tải trang
     window.onload = function () {
         const inputs = document.querySelectorAll('.myinput');
@@ -1108,6 +1238,8 @@
         $("#tab2").hide();
         TinhTongPhuluc1();
         TinhTongPhuluc2();
+        TinhTongPhuluc3();
+        TinhTongPhuluc4();
     })
     function setDefaultValue() {
         const inputFields = document.querySelectorAll('.myInput');
@@ -1124,6 +1256,8 @@
         $(button).closest('tr').remove();
         TinhTongPhuluc1();
         TinhTongPhuluc2();
+        TinhTongPhuluc3();
+        TinhTongPhuluc4();
     }
     function TinhTongPhuluc1() {
         let tong = 0;
@@ -1167,6 +1301,51 @@
         // Cập nhật giá trị tổng vào input có id "tong2"
         $("#tong2").val(tongHienTai);
         formatNumber(document.getElementById('tong2'));
+        return tongHienTai; // Nếu cần trả về tổng
+    }
+
+
+    function TinhTongPhuluc3() {
+        let tong = 0;
+
+        $(".ip_ttrcthue2").each(function () {
+            // Lấy giá trị của input và loại bỏ định dạng phần nghìn
+            let value = $(this).val().replace(/\./g, ''); // Xóa dấu chấm
+            value = parseFloat(value); // Chuyển đổi thành số
+
+            if (!isNaN(value)) {
+                tong += value; // Cộng dồn vào tổng
+            }
+        });
+        // Làm tròn tổng với 2 chữ số thập phân
+        let tongHienTai = parseFloat(tong.toFixed(2));
+        console.log("Tổng:", tongHienTai);
+
+        // Cập nhật giá trị tổng vào input có id "tong1"
+        $("#tong3").val(tongHienTai);
+        formatNumber(document.getElementById('tong3'));
+        return tongHienTai; // Nếu cần trả về tổng
+    }
+    function TinhTongPhuluc4() {
+        let tong = 0;
+
+        $(".ip_tthue2").each(function () {
+            // Lấy giá trị của input và loại bỏ định dạng phần nghìn
+            let value = $(this).val().replace(/\./g, ''); // Xóa dấu chấm phần nghìn
+            value = parseFloat(value.replace(',', '.')); // Chuyển đổi thành số, thay dấu phẩy bằng dấu chấm cho thập phân
+
+            if (!isNaN(value)) {
+                tong += value; // Cộng dồn vào tổng
+            }
+        });
+
+        // Làm tròn tổng với 2 chữ số thập phân
+        let tongHienTai = parseFloat(tong.toFixed(2));
+        console.log("Tổng:", tongHienTai);
+
+        // Cập nhật giá trị tổng vào input có id "tong2"
+        $("#tong4").val(tongHienTai);
+        formatNumber(document.getElementById('tong4'));
         return tongHienTai; // Nếu cần trả về tổng
     }
 </script>
