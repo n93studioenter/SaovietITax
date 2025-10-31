@@ -27,7 +27,7 @@
                     <strong> [01a]</strong> Tên hoạt động sản xuất kinh doanh: Hoạt động sản xuất kinh doanh thông thường
                 </div>
                 <div>
-                    <strong> [01b]</strong> Kỳ tính thuế: @(ViewBag.ky!=null? ViewBag.ky:"")
+                    <strong>[01b]</strong> Kỳ tính thuế: @((ViewBag.ky as string) ?? "Không có thông tin")
                 </div>
                 <div>
                     <strong>[02]</strong> Lần đầu: [X] [03] Bổ sung lần thứ: [ ]
@@ -88,7 +88,7 @@
         <div>
             <table class="table table-bordered">
                 <thead>
-                    <tr>
+                    <tr style="background-color:#b7b7b7">
                         <th>
                             STT
                         </th>
@@ -569,8 +569,8 @@
         <div>
             <table class="table table-bordered" id="myTable">
                 <thead>
-                    <tr>
-                        <th>STT</th>
+                    <tr style="background-color: #b7b7b7;font-size:12px;">
+                        <th>STT <a onclick="MergeData()" class="btn btn-sm">Gộp</a></th>
                         <th width="30%">Tên hàng hóa, dịch vụ</th>
                         <th>Giá trị hàng hóa, dịch vụ mua vào chưa có thuế GTGT được khấu trừ trong kỳ</th>
                         <th>Thuế GTGT của hàng hóa, dịch vụ mua vào được khấu trừ trong kỳ</th>
@@ -580,7 +580,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr style="background-color: #b7b7b7;font-size:12px;">
                         <td>(1)</td>
                         <td class="text-center">(2)</td>
                         <td class="text-center">(3)</td>
@@ -590,10 +590,11 @@
                     </tr>
                     @if (ViewBag.Phuluc1 != null)
                     {
+                        int i = 1;
                         foreach (var item in ViewBag.Phuluc1)
                         {
                             <tr>
-                                <td>1</td>
+                                <td width="60">@i <input  type="checkbox" class="float-end row-checkbox" style=" position: relative; top: 4px;" /></td>
                                 <td><input data-name="TenHH" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@item.Tenhang" /></td>
                                 <td><input data-name="GT1" class="myinput ip_ttrcthue" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@item.TTrcthue" onchange="TinhTongPhuluc1()" /></td>
                                 <td><input data-name="GT2" class="myinput ip_tthue" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@item.TThue" onchange="TinhTongPhuluc2()" /></td>
@@ -603,22 +604,23 @@
                                     </a>
                                 </td>
                             </tr>
+                            i++;
                         }
                     }
-                    <tr id="totalRow">
+                    <tr id="totalRow" style="background-color: #E8F4FA">
                         <td>
                         </td>
                         <td>
                             <strong>Tổng cộng:</strong>
                         </td>
                         <td>
-                            <input id="tong1" disabled class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="0" />
+                            <input style="font-weight: bold; color: #084298" id="tong1" disabled class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="0" />
                         </td>
                         <td>
-                            <input id="tong2" disabled class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="0" />
+                            <input style="font-weight: bold; color: #084298" id="tong2" disabled class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="0" />
                         </td>
                         <td>
-                            <a onclick="addRow()" class="btn btn-sm btn-success">
+                            <a onclick="addRow()" class="btn btn-sm btn-primary" style="width: 23px; height: 22px; line-height: 14px; ">
                                 +
                             </a>
                         </td>
@@ -635,8 +637,8 @@
         <div>
             <table class="table table-bordered" id="myTable2">
                 <thead>
-                    <tr>
-                        <th>STT</th>
+                    <tr style="background-color: #b7b7b7;font-size:12px; ">
+                        <th>STT <a onclick="MergeData()" class="btn btn-sm ">Gộp</a></th>
                         <th>Tên hàng hóa, dịch vụ</th>
                         <th>Giá trị hàng hóa, dịch vụ chưa có thuế GTGT</th>
                         <th>Thuế suất thuế GTGT theo quy định (%)</th>
@@ -648,15 +650,24 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr style="background-color: #b7b7b7;font-size:12px; ">
+                        <td>(1)</td>
+                        <td>(2)</td>
+                        <td>(3)</td>
+                        <td>(4)</td>
+                        <td>(5)=(4)x80%</td>
+                        <td>6)=(3)x[(4)-(5)]</td>
+                        <td></td>
+                    </tr>
                     @if (ViewBag.Phuluc1 != null)
                     {
                         int i = 1;
                         foreach (var item in ViewBag.Phuluc2)
                         {
                             <tr>
-                                <td>@i</td>
-                                <td width="300">
-                                    <textarea data-name="TenHH" class="myinput">@item.Tenhang</textarea>
+                                <td width="60">@i <input type="checkbox" class="float-end row-checkbox" style=" position: relative; top: 4px;" /></td>
+                                <td width="280">
+                                    <textarea data-name="TenHH" class="myinput" oninput="autoResize(this)">@item.Tenhang</textarea>
                                 </td>
                                 <td width="100"> <input data-name="GT1" class="myinput ip_ttrcthue2" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@item.TTrcthue" onchange="TinhTongPhuluc3()" /></td>
                                 <td>10%</td>
@@ -671,24 +682,24 @@
                             i++;
                         }
                     }
-                    <tr id="totalRow2">
+                    <tr id="totalRow2"  style="background-color: #E8F4FA">
                         <td>
                         </td>
                         <td>
                             <strong>Tổng cộng:</strong>
                         </td>
                         <td>
-                            <input id="tong3" disabled class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="0" />
+                            <input style="font-weight: bold; color: #084298;" id="tong3" disabled class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="0" />
                         <td>
                         <td>
                         </td>
                         <td>
-                            <input id="tong4" disabled class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="0" />
+                            <input style="font-weight: bold; color: #084298;" id="tong4" disabled class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="0" />
                         </td>
 
 
                         <td>
-                            <a onclick="addRow2()" class="btn btn-sm btn-success">
+                            <a onclick="addRow2()" class="btn btn-sm btn-primary" style="width: 23px; height: 22px; line-height: 14px;">
                                 +
                             </a>
                         </td>
@@ -700,7 +711,73 @@
     </div>
 
 </div>
+<script>
 
+    function MergeData() {
+        const checkboxes = $('.row-checkbox:checked');
+        let totalGT1 = 0;
+        let totalGT2 = 0;
+        let firstName = '';
+
+        // Kiểm tra nếu có ít nhất một checkbox được chọn
+        if (checkboxes.length > 0) {
+            checkboxes.each(function (index) {
+                const row = $(this).closest('tr'); // Lấy hàng cha của checkbox
+                const price1 = parseFloat(removeFormat2(row.find('input[data-name="GT1"]').val())) || 0; // Lấy giá 1 
+                const price2 = parseFloat(removeFormat2(row.find('input[data-name="GT2"]').val())) || 0; // Lấy giá 2
+
+                // Lấy tên từ hàng đầu tiên được chọn
+                if (index === 0) {
+                    firstName = row.find('input[data-name="TenHH"]').val(); // Lấy tên từ ô nhập liệu
+                }
+
+                // Cộng giá từ tất cả các hàng được chọn
+                totalGT1 += price1;
+                totalGT2 += price2;
+            });
+
+            // Cập nhật lại giá cho hàng đầu tiên
+            const firstRow = $(checkboxes[0]).closest('tr');
+            firstRow.find('input[data-name="TenHH"]').val(firstName); // Cập nhật tên
+            firstRow.find('input[data-name="GT1"]').val(totalGT1); // Cập nhật giá 1
+            firstRow.find('input[data-name="GT2"]').val(totalGT2); // Cập nhật giá 2
+
+            // Xóa các hàng được chọn (trừ hàng đầu tiên)
+            checkboxes.each(function (index) {
+                if (index > 0) {
+                    $(this).closest('tr').remove(); // Xóa hàng
+                }
+            });
+        }
+        const inputs = document.querySelectorAll('.myinput');
+        inputs.forEach(input => {
+            formatNumber(input); // Định dạng ngay khi tải
+        });
+        // Hiển thị kết quả trong console
+        console.log(`Tên: ${firstName}`);
+        console.log(`Tổng Giá 1: ${totalGT1}`);
+        console.log(`Tổng Giá 2: ${totalGT2}`);
+        updateRowNumbers();
+    }
+    function autoResize(textarea) {
+        // Reset chiều cao
+        textarea.style.height = 'auto';
+
+        // Tính chiều cao mới + thêm 1 dòng (khoảng 20-25px)
+        const lineHeight = 25; // Adjust theo line-height của bạn
+        const newHeight = textarea.scrollHeight + lineHeight;
+
+        // Áp dụng chiều cao mới
+        textarea.style.height = Math.min(newHeight, 600) + 'px'; // Giới hạn tối đa 400px
+    }
+
+    // Gọi hàm autoResize khi trang load để xử lý textarea có sẵn
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('textarea.myinput').forEach(function (textarea) {
+            autoResize(textarea);
+        });
+    });
+</script>
 <style>
     textarea {
         width: 100%; /* Đảm bảo chiếm toàn bộ chiều rộng của ô */
@@ -724,10 +801,14 @@
 
             .fullbox ul li a {
                 display: block;
-                background-color: #eee;
+                background-color: #8b8b8b;
                 padding: 5px 5px;
                 cursor: pointer;
+                color: white !important;
             }
+                .fullbox ul li a.actv {
+                    background-color: #4e4e4e;
+                }
 </style>
 <div class="mycontainer" style="font-family:'Times New Roman'">
     <div class="text-end">
@@ -741,12 +822,12 @@
     <div class="mycontainer" style="font-family:'Times New Roman'">
         <ul>
             <li>
-                <a onclick="opentab(1)">
+                <a id="acl1" onclick="opentab(1)" class="actv">
                     Tờ khai
                 </a>
             </li>
             <li>
-                <a onclick="opentab(2)">
+                <a id="acl2" onclick="opentab(2)">
                     Phụ lục
                 </a>
             </li>
@@ -803,23 +884,37 @@
     }
 
     function updateRowNumbers() {
+        // Cập nhật số thứ tự và thêm checkbox cho bảng đầu tiên
         $("#myTable tbody tr").each(function (index) {
-            $(this).find('td:first').text(index + 1); // Cập nhật số thứ tự
+            if (index > 0) {
+                $(this).find('td:first').html((index) + ' <input type="checkbox" class="float-end row-checkbox" style="position: relative; top: 4px;" />');
+            }
+            // Cập nhật số thứ tự
+
+        });
+
+        // Cập nhật số thứ tự và thêm checkbox cho bảng thứ hai
+        $("#myTable2 tbody tr").each(function (index) {
+            // Cập nhật số thứ tự
+            if (index > 0) {
+                $(this).find('td:first').html((index) + ' <input type="checkbox" class="float-end row-checkbox" style="position: relative; top: 4px;" />');
+
+            }
         });
     }
-    function updateRowNumbers() {
-        $("#myTable tbody tr").each(function (index) {
-            $(this).find('td:first').text(index + 1); // Cập nhật số thứ tự
-        });
-    }
+
     function opentab(id) {
         if (id == 1) {
             $("#tab1").show();
             $("#tab2").hide();
+            $("#acl2").removeClass("actv");
+            $("#acl1").addClass("actv");
         }
         else {
             $("#tab1").hide();
             $("#tab2").show();
+            $("#acl1").removeClass("actv");
+            $("#acl2").addClass("actv");
         }
     }
 </script>
@@ -986,6 +1081,7 @@ function savedataPl() {
         }
 
     body {
+        color: #084298;
         background-color: #414141;
     }
 </style>
@@ -1258,6 +1354,8 @@ function savedataPl() {
         TinhTongPhuluc2();
         TinhTongPhuluc3();
         TinhTongPhuluc4();
+        //Tính lại số thứ tự
+        updateRowNumbers();
     }
     function TinhTongPhuluc1() {
         let tong = 0;

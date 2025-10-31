@@ -1012,7 +1012,7 @@ namespace Taxweb.Controllers
         }
         List<Phuluc1> lstPhuluc1=new List<Phuluc1>();
         List<Phuluc1> lstPhuluc2 = new List<Phuluc1>();
-        public ActionResult Index(string path,string ky)
+        public ActionResult Index(string path, string ky)
         {
             if (!string.IsNullOrEmpty(ky))
             {
@@ -1025,228 +1025,230 @@ namespace Taxweb.Controllers
                     ViewBag.ky = $"Quý {ky.Replace("Q", "")} năm {DateTime.Now.Year}";
                 }
             }
-         
-            try
+            else
             {
-                Noidungtax model = new Noidungtax();
-                if (!string.IsNullOrEmpty(path))
+                ViewBag.ky = "";
+            }
+
+                try
                 {
-                    dbPath = path;
-                    string query = "SELECT * FROM License";
-                    DataTable tbLicence = ExecuteQuery(query, null);
-                    if (tbLicence.Rows.Count > 0)
-                    { 
-                        model.TenCty = Helpers.ConvertVniToUnicode(tbLicence.Rows[0].Field<string>("TenCty"));
-                        model.Mst = tbLicence.Rows[0].Field<string>("MaSoThue");
-
-                    }
-                    query = "SELECT * FROM ToKhaiThue";
-                    DataTable ToKhaiThue = ExecuteQuery(query, null);
-                    if (ToKhaiThue.Rows.Count > 0)
+                    Noidungtax model = new Noidungtax();
+                    if (!string.IsNullOrEmpty(path))
                     {
-                        model.N22 = ToKhaiThue.Rows[0].Field<double>("N11");
-                        model.N23 = ToKhaiThue.Rows[0].Field<double>("N12");
-                        model.N24 = ToKhaiThue.Rows[0].Field<double>("N13");
-                        model.N25 = ToKhaiThue.Rows[0].Field<double>("N13");
-                        model.N29 = ToKhaiThue.Rows[0].Field<double>("N29");
-                        model.N30 = ToKhaiThue.Rows[0].Field<double>("N30");
-                        model.N31 = ToKhaiThue.Rows[0].Field<double>("N31");
-                        model.N32 = ToKhaiThue.Rows[0].Field<double>("N32");
-                        model.N33 = ToKhaiThue.Rows[0].Field<double>("N33");
-                    }
-                     query = @"SELECT * FROM tbThongTinToKhai   WHERE  Nam= ?";
+                        dbPath = path;
+                        string query = "SELECT * FROM License";
+                        DataTable tbLicence = ExecuteQuery(query, null);
+                        if (tbLicence.Rows.Count > 0)
+                        {
+                            model.TenCty = Helpers.ConvertVniToUnicode(tbLicence.Rows[0].Field<string>("TenCty"));
+                            model.Mst = tbLicence.Rows[0].Field<string>("MaSoThue");
 
-                    var parameterss = new OleDbParameter[]
-                    {
+                        }
+                        query = "SELECT * FROM ToKhaiThue";
+                        DataTable ToKhaiThue = ExecuteQuery(query, null);
+                        if (ToKhaiThue.Rows.Count > 0)
+                        {
+                            model.N22 = ToKhaiThue.Rows[0].Field<double>("N11");
+                            model.N23 = ToKhaiThue.Rows[0].Field<double>("N12");
+                            model.N24 = ToKhaiThue.Rows[0].Field<double>("N13");
+                            model.N25 = ToKhaiThue.Rows[0].Field<double>("N13");
+                            model.N29 = ToKhaiThue.Rows[0].Field<double>("N29");
+                            model.N30 = ToKhaiThue.Rows[0].Field<double>("N30");
+                            model.N31 = ToKhaiThue.Rows[0].Field<double>("N31");
+                            model.N32 = ToKhaiThue.Rows[0].Field<double>("N32");
+                            model.N33 = ToKhaiThue.Rows[0].Field<double>("N33");
+                        }
+                        query = @"SELECT * FROM tbThongTinToKhai   WHERE  Nam= ?";
+
+                        var parameterss = new OleDbParameter[]
+                        {
                  new OleDbParameter("?", DateTime.Now.Year.ToString())
-                    }; 
-                    var kq = ExecuteQuery(query, parameterss);
-                    if (kq.Rows.Count > 0)
-                        model.Nguoiky = kq.Rows[0].Field<string>("NguoiKy");
-                    //Load cho số dư trước
-                    if (1 > 2)
-                    {
-                        if (ky.Contains("Q"))
+                        };
+                        var kq = ExecuteQuery(query, parameterss);
+                        if (kq.Rows.Count > 0)
+                            model.Nguoiky = kq.Rows[0].Field<string>("NguoiKy");
+                        //Load cho số dư trước
+                        if (1 > 2)
                         {
-                            //Lấy từ năm trước
-                            if (ky == "Q1")
+                            if (ky.Contains("Q"))
                             {
+                                //Lấy từ năm trước
+                                if (ky == "Q1")
+                                {
 
+                                }
+                                //Lấy từ Q1
+                                if (ky == "Q2")
+                                {
+                                    model.N22 = kq.Rows[0].Field<double>("Quy1");
+                                }
+                                //Lấy từ Q2
+                                if (ky == "Q3")
+                                {
+                                    model.N22 = kq.Rows[0].Field<double>("Quy2");
+                                }
+                                //Lấy từ Q3
+                                if (ky == "Q4")
+                                {
+                                    model.N22 = kq.Rows[0].Field<double>("Quy3");
+                                }
                             }
-                            //Lấy từ Q1
-                            if (ky == "Q2")
+                            if (ky.Contains("T"))
                             {
-                                model.N22 = kq.Rows[0].Field<double>("Quy1");
-                            }
-                            //Lấy từ Q2
-                            if (ky == "Q3")
-                            {
-                                model.N22 = kq.Rows[0].Field<double>("Quy2");
-                            }
-                            //Lấy từ Q3
-                            if (ky == "Q4")
-                            {
-                                model.N22 = kq.Rows[0].Field<double>("Quy3");
+                                if (ky == "T1")
+                                {
+                                }
+                                if (ky == "T2")
+                                {
+                                    model.N22 = kq.Rows[0].Field<double>("T1");
+                                }
+                                if (ky == "T3")
+                                {
+                                    model.N22 = kq.Rows[0].Field<double>("T2");
+                                }
+                                if (ky == "T4")
+                                {
+                                    model.N22 = kq.Rows[0].Field<double>("T3");
+                                }
+                                if (ky == "T5")
+                                {
+                                    model.N22 = kq.Rows[0].Field<double>("T4");
+                                }
+                                if (ky == "T6")
+                                {
+                                    model.N22 = kq.Rows[0].Field<double>("T5");
+                                }
+                                if (ky == "T7")
+                                {
+                                    model.N22 = kq.Rows[0].Field<double>("T6");
+                                }
+                                if (ky == "T8")
+                                {
+                                    model.N22 = kq.Rows[0].Field<double>("T7");
+                                }
+                                if (ky == "T9")
+                                {
+                                    model.N22 = kq.Rows[0].Field<double>("T8");
+                                }
+                                if (ky == "T10")
+                                {
+                                    model.N22 = kq.Rows[0].Field<double>("T9");
+                                }
+                                if (ky == "T11")
+                                {
+                                    model.N22 = kq.Rows[0].Field<double>("T10");
+                                }
+                                if (ky == "T12")
+                                {
+                                    model.N22 = kq.Rows[0].Field<double>("T11");
+                                }
                             }
                         }
-                        if (ky.Contains("T"))
+
+                    }
+                    else
+                    {
+                        //return Redirect("Contact");
+                    }
+
+                    //Lấy danh sách hoá đơn
+                    string qrct = "SELECT * FROM ChungTu";
+                    DataTable tbChungtu = ExecuteQuery(qrct, null);
+                    int Quy = int.Parse(ky.Replace("Q", ""));
+                    var getsql = GetInvoiceQuery(DateTime.Now.Year, Quy);
+                    var kqs = ExecuteQuery(getsql, null);
+                    var kqdv = kqs.AsEnumerable().Where(m => m["Loai"].ToString() == "-1").ToList();
+                    var kqdr = kqs.AsEnumerable().Where(m => m["Loai"].ToString() == "1").ToList();
+                    foreach (DataRow item in kqdv)
+                    {
+                        //Tìm dòng chung tu
+                        var find1 = tbChungtu.AsEnumerable().Where(m => m.Field<int>("MaSo") == item.Field<int>("MaSo")).FirstOrDefault();
+                        if (find1 != null)
                         {
-                            if (ky == "T1")
+                            //Tìm MACT
+                            int MaCT = find1.Field<int>("MaCT");
+                            //Lọc lại danh sách theo MaCT
+                            var getlistChungTu = tbChungtu.AsEnumerable().Where(m => m.Field<int>("MaCT") == MaCT).ToList();
+                            Phuluc1 Phuluc1 = new Phuluc1();
+                            Phuluc1.Tenhang = Helpers.ConvertVniToUnicode(item.Field<string>("MatHang"));
+                            int step = 1;
+                            foreach (var it in getlistChungTu)
                             {
+                                if (step == 1)
+                                {
+                                    Phuluc1.TTrcthue = it.Field<double>("SoPS");
+                                }
+                                else
+                                {
+                                    Phuluc1.TThue = it.Field<double>("SoPS");
+                                }
+                                step++;
                             }
-                            if (ky == "T2")
-                            {
-                                model.N22 = kq.Rows[0].Field<double>("T1");
-                            }
-                            if (ky == "T3")
-                            {
-                                model.N22 = kq.Rows[0].Field<double>("T2");
-                            }
-                            if (ky == "T4")
-                            {
-                                model.N22 = kq.Rows[0].Field<double>("T3");
-                            }
-                            if (ky == "T5")
-                            {
-                                model.N22 = kq.Rows[0].Field<double>("T4");
-                            }
-                            if (ky == "T6")
-                            {
-                                model.N22 = kq.Rows[0].Field<double>("T5");
-                            }
-                            if (ky == "T7")
-                            {
-                                model.N22 = kq.Rows[0].Field<double>("T6");
-                            }
-                            if (ky == "T8")
-                            {
-                                model.N22 = kq.Rows[0].Field<double>("T7");
-                            }
-                            if (ky == "T9")
-                            {
-                                model.N22 = kq.Rows[0].Field<double>("T8");
-                            }
-                            if (ky == "T10")
-                            {
-                                model.N22 = kq.Rows[0].Field<double>("T9");
-                            }
-                            if (ky == "T11")
-                            {
-                                model.N22 = kq.Rows[0].Field<double>("T10");
-                            }
-                            if (ky == "T12")
-                            {
-                                model.N22 = kq.Rows[0].Field<double>("T11");
-                            }
+                            lstPhuluc1.Add(Phuluc1);
                         }
                     }
-                   
+                    var result = lstPhuluc1
+               .GroupBy(i => i.Tenhang)
+               .Select(g => new Phuluc1
+               {
+                   Tenhang = g.Key,
+                   TTrcthue = g.Sum(x => x.TTrcthue),
+                   TThue = g.Sum(x => x.TThue)
+               })
+               .ToList();
+                    ViewBag.Phuluc1 = result;
+
+                    //Tính đầu ra
+
+                    foreach (DataRow item in kqdr)
+                    {
+                        //Tìm dòng chung tu
+                        var find1 = tbChungtu.AsEnumerable().Where(m => m.Field<int>("MaSo") == item.Field<int>("MaSo")).FirstOrDefault();
+                        if (find1 != null)
+                        {
+                            //Tìm MACT
+                            int MaCT = find1.Field<int>("MaCT");
+                            //Lọc lại danh sách theo MaCT
+                            var getlistChungTu = tbChungtu.AsEnumerable().Where(m => m.Field<int>("MaCT") == MaCT).ToList();
+                            Phuluc1 Phuluc1 = new Phuluc1();
+                            Phuluc1.Tenhang = Helpers.ConvertVniToUnicode(item.Field<string>("MatHang"));
+                            int step = 1;
+                            foreach (var it in getlistChungTu)
+                            {
+                                if (step == 1)
+                                {
+                                    Phuluc1.TTrcthue = it.Field<double>("SoPS");
+                                }
+                                else
+                                {
+                                    Phuluc1.TThue = Math.Round(Phuluc1.TTrcthue * 0.02);
+                                }
+                                step++;
+                            }
+                            lstPhuluc2.Add(Phuluc1);
+                        }
+                    }
+                    result = lstPhuluc2
+              .GroupBy(i => i.Tenhang)
+              .Select(g => new Phuluc1
+              {
+                  Tenhang = g.Key,
+                  TTrcthue = g.Sum(x => x.TTrcthue),
+                  TThue = g.Sum(x => x.TThue)
+              })
+              .ToList();
+                    ViewBag.Phuluc2 = result;
+                    return View(model);
                 }
-                else
+
+
+                catch (Exception ex)
                 {
                     //return Redirect("Contact");
+                    // throw ex;
                 }
 
-                //Lấy danh sách hoá đơn
-                string qrct = "SELECT * FROM ChungTu";
-                DataTable tbChungtu= ExecuteQuery(qrct, null);  
-                int Quy = int.Parse(ky.Replace("Q", ""));
-                var getsql = GetInvoiceQuery(DateTime.Now.Year, Quy);
-                var kqs = ExecuteQuery(getsql, null);
-                var kqdv = kqs.AsEnumerable().Where(m => m["Loai"].ToString() == "-1").ToList();
-                var kqdr = kqs.AsEnumerable().Where(m => m["Loai"].ToString() =="1").ToList();
-                foreach (DataRow item in kqdv)
-                {
-                    //Tìm dòng chung tu
-                    var find1 = tbChungtu.AsEnumerable().Where(m => m.Field<int>("MaSo") == item.Field<int>("MaSo")).FirstOrDefault();
-                    if (find1 != null)
-                    {
-                        //Tìm MACT
-                        int MaCT = find1.Field<int>("MaCT");
-                        //Lọc lại danh sách theo MaCT
-                        var getlistChungTu = tbChungtu.AsEnumerable().Where(m => m.Field<int>("MaCT") == MaCT).ToList();
-                        Phuluc1 Phuluc1 = new Phuluc1();
-                        Phuluc1.Tenhang = Helpers.ConvertVniToUnicode(item.Field<string>("MatHang")); 
-                        int step = 1;
-                        foreach (var it in getlistChungTu)
-                        {
-                            if (step == 1)
-                            {
-                                Phuluc1.TTrcthue = it.Field<double>("SoPS");
-                            }
-                            else
-                            {
-                                Phuluc1.TThue = it.Field<double>("SoPS");
-                            }
-                            step++;
-                        }
-                        lstPhuluc1.Add(Phuluc1);
-                    }
-                }
-                var result = lstPhuluc1
-           .GroupBy(i => i.Tenhang)
-           .Select(g => new Phuluc1
-           {
-               Tenhang = g.Key,
-               TTrcthue = g.Sum(x => x.TTrcthue),
-               TThue = g.Sum(x => x.TThue)
-           })
-           .ToList();
-                ViewBag.Phuluc1= result;
-
-
-
-                //Tính đầu ra
-
-                foreach (DataRow item in kqdr)
-                {
-                    //Tìm dòng chung tu
-                    var find1 = tbChungtu.AsEnumerable().Where(m => m.Field<int>("MaSo") == item.Field<int>("MaSo")).FirstOrDefault();
-                    if (find1 != null)
-                    {
-                        //Tìm MACT
-                        int MaCT = find1.Field<int>("MaCT");
-                        //Lọc lại danh sách theo MaCT
-                        var getlistChungTu = tbChungtu.AsEnumerable().Where(m => m.Field<int>("MaCT") == MaCT).ToList();
-                        Phuluc1 Phuluc1 = new Phuluc1();
-                        Phuluc1.Tenhang = Helpers.ConvertVniToUnicode(item.Field<string>("MatHang"));
-                        int step = 1;
-                        foreach (var it in getlistChungTu)
-                        {
-                            if (step == 1)
-                            {
-                                Phuluc1.TTrcthue = it.Field<double>("SoPS");
-                            }
-                            else
-                            {
-                                Phuluc1.TThue = Math.Round(Phuluc1.TTrcthue * 0.02);
-                            }
-                            step++;
-                        }
-                        lstPhuluc2.Add(Phuluc1);
-                    }
-                }
-                 result = lstPhuluc2
-           .GroupBy(i => i.Tenhang)
-           .Select(g => new Phuluc1
-           {
-               Tenhang = g.Key,
-               TTrcthue = g.Sum(x => x.TTrcthue),
-               TThue = g.Sum(x => x.TThue)
-           })
-           .ToList();
-                ViewBag.Phuluc2 = result;
-                return View(model);
-            }
-
-        
-            catch (Exception ex)
-            {
-                //return Redirect("Contact");
-                throw ex;
-            }
-
-          
+            return View();
 
         }
         public static string GetInvoiceQuery(int year, int quarter)
