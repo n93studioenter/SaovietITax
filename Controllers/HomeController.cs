@@ -15,6 +15,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using System.Xml;
+using System.Xml.Linq;
 using Taxweb.Models;
 
 namespace Taxweb.Controllers
@@ -151,7 +152,7 @@ namespace Taxweb.Controllers
             return Json(new { success = true, message = "Dữ liệu đã được xử lý" });
         }
         [HttpGet] // THAY ĐỔI THÀNH GET
-        public ActionResult CreateTaxXMLFull(string path,string ky,DateTime ngayky,string tencty,string tendaily, double N22, double N23, double N24, double N23a, double N24a, double N25,
+        public ActionResult CreateTaxXMLFull(string path,int khoasl,string ky,DateTime ngayky,string tencty,string tendaily, double N22, double N23, double N24, double N23a, double N24a, double N25,
     double N26, double N27, double N28, double N29, double N30, double N31, double N32, double N33, double N32a, double N34,
     double N35, double N36, double N37, double N38, double N39a, double N40, double N40a, double N40b, double N41, double N42, double N43,string tableData)
         {
@@ -178,15 +179,16 @@ namespace Taxweb.Controllers
             double[] Thang = { T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12 };
              
              tendaily = string.IsNullOrEmpty(tendaily) ? "Không xác định" : tendaily;
-            
+            int k1 = 0, k2 = 0, k3 = 0, k4 = 0;
             if (kq.Rows.Count == 0)
             {
                 // Kiểm tra và khởi tạo tendaily
                
 
-                query = @"INSERT INTO tbThongTinToKhai (Quy1,Quy2,Quy3,Quy4,T1,T2,T3,T4,T5,T6,T7,T8,T9,T10,T11,T12,NguoiKy,Nam) 
-              VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                query = @"INSERT INTO tbThongTinToKhai (Quy1,Quy2,Quy3,Quy4,T1,T2,T3,T4,T5,T6,T7,T8,T9,T10,T11,T12,NguoiKy,Nam,k1,k2,k3,k4) 
+              VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
+             
                 try
                 {
                     if (ky.Contains("Quý"))
@@ -196,13 +198,29 @@ namespace Taxweb.Controllers
                         {
                             int soQuy = int.Parse(match.Groups[1].Value); // 4
                             if (soQuy == 1)
+                            {
                                 Quy1 = N43;
+                                if (khoasl == 1)
+                                    k1 = 1;
+                            }
                             if (soQuy == 2)
+                            {
                                 Quy2 = N43;
+                                if (khoasl == 1)
+                                    k2 = 1;
+                            }
                             if (soQuy == 3)
+                            {
                                 Quy3 = N43;
+                                if (khoasl == 1)
+                                    k3 = 1;
+                            }
                             if (soQuy == 4)
+                            {
                                 Quy4 = N43;
+                                if (khoasl == 1)
+                                    k4 = 1;
+                            }
                         }
                     }
                     else
@@ -223,24 +241,28 @@ namespace Taxweb.Controllers
                     }
                     var parameters = new OleDbParameter[]
                     {
-            new OleDbParameter("@Quy1", Quy1),
-            new OleDbParameter("@Quy2", Quy2),
-            new OleDbParameter("@Quy3", Quy3),
-            new OleDbParameter("@Quy4", Quy4),
-            new OleDbParameter("@T1", T1),
-            new OleDbParameter("@T2", T2),
-            new OleDbParameter("@T3", T3),
-            new OleDbParameter("@T4", T4),
-            new OleDbParameter("@T5", T5),
-            new OleDbParameter("@T6", T6),
-            new OleDbParameter("@T7", T7),
-            new OleDbParameter("@T8", T8),
-            new OleDbParameter("@T9", T9),
-            new OleDbParameter("@T10", T10),
-            new OleDbParameter("@T11", T11),
-            new OleDbParameter("@T12", T12),
-            new OleDbParameter("@NguoiKy", tendaily),
-            new OleDbParameter("@Nam", DateTime.Now.Year)
+                        new OleDbParameter("@Quy1", Quy1),
+                        new OleDbParameter("@Quy2", Quy2),
+                        new OleDbParameter("@Quy3", Quy3),
+                        new OleDbParameter("@Quy4", Quy4),
+                        new OleDbParameter("@T1", T1),
+                        new OleDbParameter("@T2", T2),
+                        new OleDbParameter("@T3", T3),
+                        new OleDbParameter("@T4", T4),
+                        new OleDbParameter("@T5", T5),
+                        new OleDbParameter("@T6", T6),
+                        new OleDbParameter("@T7", T7),
+                        new OleDbParameter("@T8", T8),
+                        new OleDbParameter("@T9", T9),
+                        new OleDbParameter("@T10", T10),
+                        new OleDbParameter("@T11", T11),
+                        new OleDbParameter("@T12", T12),
+                        new OleDbParameter("@NguoiKy", tendaily),
+                        new OleDbParameter("@Nam", DateTime.Now.Year),
+                        new OleDbParameter("@k1", k1),
+                        new OleDbParameter("@k2", k2),
+                        new OleDbParameter("@k3", k3),
+                        new OleDbParameter("@k4", k4),
                     };
 
                     var rowsAffected = ExecuteQueryResult(query, parameters);
@@ -258,7 +280,7 @@ namespace Taxweb.Controllers
               SET Quy1 = ?, Quy2 = ?, Quy3 = ?, Quy4 = ?,
                   T1 = ?, T2 = ?, T3 = ?, T4 = ?, T5 = ?, T6 = ?,
                   T7 = ?, T8 = ?, T9 = ?, T10 = ?, T11 = ?, T12 = ?,
-                  NguoiKy = ?, Nam = ?
+                  NguoiKy = ?, Nam = ?,k1=?,k2=?,k3=?,k4=?
               WHERE Id = ?"; // Giả sử có trường Id làm khóa chính
 
                 DataRow row = kq.Rows[0];
@@ -282,7 +304,10 @@ namespace Taxweb.Controllers
                 T10 = row.Field<double>("T10");
                 T11 = row.Field<double>("T11");
                 T12 = row.Field<double>("T12");
-
+                k1 = int.Parse(row.Field<string>("k1"));
+                k2 = int.Parse(row.Field<string>("k2"));
+                k3 = int.Parse(row.Field<string>("k3"));
+                k4 = int.Parse(row.Field<string>("k4"));
                 // Gán giá trị cho NguoiKy (string)
                 tendaily = tendaily;
 
@@ -294,13 +319,38 @@ namespace Taxweb.Controllers
                     {
                         int soQuy = int.Parse(match.Groups[1].Value); // 4
                         if (soQuy == 1)
+                        {
                             Quy1 = N43;
+                            if (khoasl == 1)
+                                k1 = 1;
+                            else
+                                k1 = 0;
+                        }
+                           
                         if (soQuy == 2)
+                        {
                             Quy2 = N43;
+                            if (khoasl == 1)
+                                k2 = 1;
+                            else
+                                k2 = 0;
+                        }
                         if (soQuy == 3)
+                        {
                             Quy3 = N43;
+                            if (khoasl == 1)
+                                k3 = 1;
+                            else
+                                k3 = 0;
+                        }
                         if (soQuy == 4)
+                        {
                             Quy4 = N43;
+                            if (khoasl == 1)
+                                k4 = 1;
+                            else
+                                k4 = 0;
+                        }
                     }
                 }
                 else
@@ -339,6 +389,10 @@ namespace Taxweb.Controllers
         new OleDbParameter("?", T12),
         new OleDbParameter("?", tendaily),
         new OleDbParameter("?", DateTime.Now.Year),
+        new OleDbParameter("?", k1),
+        new OleDbParameter("?", k2),
+        new OleDbParameter("?", k3),
+         new OleDbParameter("?", k4),
         new OleDbParameter("?", kq.Rows[0]["Id"]) // Lấy Id từ dòng đầu tiên
                 };
 
@@ -569,7 +623,57 @@ namespace Taxweb.Controllers
 
             // Trả về file XML để download
             byte[] fileBytes = Encoding.UTF8.GetBytes(xmlContent);
-            return File(fileBytes, "application/xml", "HSoThueDTu.xml");
+            //Lưu xml contents
+            if (ky.Contains("Q"))
+            {
+                int soQuy = 0;
+                string xml1="";string xml2="";string xml3="";string xml4 = "";
+                if (kq.Rows.Count > 0)
+                {
+                    DataRow row = kq.Rows[0];
+
+                    xml1 = row.Field<string>("xml1");
+                    xml2 = row.Field<string>("xml2");
+                    xml3 = row.Field<string>("xml3");
+                    xml4 = row.Field<string>("xml4");
+                }
+               
+                Match match = Regex.Match(ky, @"Quý\s+(\d+)");
+                if (match.Success)
+                {
+                    soQuy = int.Parse(match.Groups[1].Value);
+                    if (soQuy == 1)
+                    {
+                        xml1 = xmlContent;
+                    }
+                    if (soQuy == 2)
+                    {
+                        xml2 = xmlContent;
+                    }
+                    if (soQuy == 3)
+                    {
+                        xml3 = xmlContent;
+                    }
+                    if (soQuy == 4)
+                    {
+                        xml4 = xmlContent;
+                    }
+                    query = @"UPDATE tbThongTinToKhai 
+              SET xml1 = ?,xml2=?,xml3=?,xml4=?
+              WHERE Id = ?"; // Giả sử có trường Id làm khóa chính
+                    var parameters = new OleDbParameter[]
+               {
+        new OleDbParameter("?", xml1!=null?xml1:""),
+        new OleDbParameter("?", xml2!=null?xml2:""),
+        new OleDbParameter("?", xml3 != null ? xml3 : ""),
+        new OleDbParameter("?", xml4 != null ? xml4 : ""),
+        new OleDbParameter("?", kq.Rows[0]["Id"]) // Lấy Id từ dòng đầu tiên
+               };
+
+                    var rowsAffected = ExecuteQueryResult(query, parameters);
+                }
+            }
+                return File(fileBytes, "application/xml", "HSoThueDTu.xml");
         }
 
         private void WriteXMLContent(XmlWriter writer)
@@ -1064,6 +1168,58 @@ namespace Taxweb.Controllers
                         }
                         query = "SELECT * FROM ToKhaiThue";
                         DataTable ToKhaiThue = ExecuteQuery(query, null);
+                    //Kiểm tra xem có chốt chưa, nếu chưa thì lấy từ tờ khai thuế
+                    query = @"SELECT * FROM tbThongTinToKhai   WHERE  Nam= ?";
+
+                    var parameterss = new OleDbParameter[]
+                    {
+                 new OleDbParameter("?", DateTime.Now.Year.ToString())
+                    };
+                    var kq = ExecuteQuery(query, parameterss);
+                    string contentXMl = "";
+                    if (kq.Rows.Count > 0)
+                    {
+                        model.Nguoiky = kq.Rows[0].Field<string>("NguoiKy");
+                        if (ky == "Q1")
+                        {
+                            string khoa1 = kq.Rows[0].Field<string>("k1");
+                            if (khoa1 == "1")
+                            {
+                                ViewBag.khoa = 1;
+                                contentXMl = kq.Rows[0].Field<string>("xml1");
+                            }
+                        }
+                        if (ky == "Q2")
+                        {
+                            string khoa1 = kq.Rows[0].Field<string>("k2");
+                            if (khoa1 == "1")
+                            {
+                                ViewBag.khoa = 1;
+                                contentXMl = kq.Rows[0].Field<string>("xml2");
+                            }
+                        }
+                        if (ky == "Q3")
+                        {
+                            string khoa1 = kq.Rows[0].Field<string>("k3");
+                            if (khoa1 == "1")
+                            {
+                                ViewBag.khoa = 1;
+                                contentXMl = kq.Rows[0].Field<string>("xml3");
+                            }
+                        }
+                        if (ky == "Q4")
+                        {
+                            string khoa1 = kq.Rows[0].Field<string>("k4");
+                            if (khoa1 == "1")
+                            {
+                                ViewBag.khoa = 1;
+                                contentXMl = kq.Rows[0].Field<string>("xml4");
+                            }
+                        }
+                    }
+
+                    if (contentXMl == "")
+                    {
                         if (ToKhaiThue.Rows.Count > 0)
                         {
                             model.N22 = ToKhaiThue.Rows[0].Field<double>("N11");
@@ -1076,92 +1232,99 @@ namespace Taxweb.Controllers
                             model.N32 = ToKhaiThue.Rows[0].Field<double>("N32");
                             model.N33 = ToKhaiThue.Rows[0].Field<double>("N33");
                         }
-                        query = @"SELECT * FROM tbThongTinToKhai   WHERE  Nam= ?";
+                    }
+                    else
+                    {
+                        //Đọc file xml
+                        model.N22 = double.Parse(GetValue(contentXMl, "ct22").ToString());
+                        model.N23 = double.Parse(GetValue(contentXMl, "ct23").ToString());
+                        model.N24 = double.Parse(GetValue(contentXMl, "ct24").ToString());
+                        model.N25 = double.Parse(GetValue(contentXMl, "ct25").ToString()); 
+                        model.N29 = double.Parse(GetValue(contentXMl, "ct29").ToString());
+                        model.N30 = double.Parse(GetValue(contentXMl, "ct30").ToString());
+                        model.N31 = double.Parse(GetValue(contentXMl, "ct31").ToString());
+                        model.N32 = double.Parse(GetValue(contentXMl, "ct32").ToString());
+                        model.N33 = double.Parse(GetValue(contentXMl, "ct33").ToString());
+                    }
 
-                        var parameterss = new OleDbParameter[]
+
+                    //Load cho số dư trước
+                    if (1 < 2 && (kq.Rows.Count > 0))
+                    {
+                        if (ky.Contains("Q"))
                         {
-                 new OleDbParameter("?", DateTime.Now.Year.ToString())
-                        };
-                        var kq = ExecuteQuery(query, parameterss);
-                        if (kq.Rows.Count > 0)
-                            model.Nguoiky = kq.Rows[0].Field<string>("NguoiKy");
-                        //Load cho số dư trước
-                        if (1 > 2)
-                        {
-                            if (ky.Contains("Q"))
+                            //Lấy từ năm trước
+                            if (ky == "Q1")
                             {
-                                //Lấy từ năm trước
-                                if (ky == "Q1")
-                                {
 
-                                }
-                                //Lấy từ Q1
-                                if (ky == "Q2")
-                                {
-                                    model.N22 = kq.Rows[0].Field<double>("Quy1");
-                                }
-                                //Lấy từ Q2
-                                if (ky == "Q3")
-                                {
-                                    model.N22 = kq.Rows[0].Field<double>("Quy2");
-                                }
-                                //Lấy từ Q3
-                                if (ky == "Q4")
-                                {
-                                    model.N22 = kq.Rows[0].Field<double>("Quy3");
-                                }
                             }
-                            if (ky.Contains("T"))
+                            //Lấy từ Q1
+                            if (ky == "Q2")
                             {
-                                if (ky == "T1")
-                                {
-                                }
-                                if (ky == "T2")
-                                {
-                                    model.N22 = kq.Rows[0].Field<double>("T1");
-                                }
-                                if (ky == "T3")
-                                {
-                                    model.N22 = kq.Rows[0].Field<double>("T2");
-                                }
-                                if (ky == "T4")
-                                {
-                                    model.N22 = kq.Rows[0].Field<double>("T3");
-                                }
-                                if (ky == "T5")
-                                {
-                                    model.N22 = kq.Rows[0].Field<double>("T4");
-                                }
-                                if (ky == "T6")
-                                {
-                                    model.N22 = kq.Rows[0].Field<double>("T5");
-                                }
-                                if (ky == "T7")
-                                {
-                                    model.N22 = kq.Rows[0].Field<double>("T6");
-                                }
-                                if (ky == "T8")
-                                {
-                                    model.N22 = kq.Rows[0].Field<double>("T7");
-                                }
-                                if (ky == "T9")
-                                {
-                                    model.N22 = kq.Rows[0].Field<double>("T8");
-                                }
-                                if (ky == "T10")
-                                {
-                                    model.N22 = kq.Rows[0].Field<double>("T9");
-                                }
-                                if (ky == "T11")
-                                {
-                                    model.N22 = kq.Rows[0].Field<double>("T10");
-                                }
-                                if (ky == "T12")
-                                {
-                                    model.N22 = kq.Rows[0].Field<double>("T11");
-                                }
+                                model.N22 = kq.Rows[0].Field<double>("Quy1");
+                            }
+                            //Lấy từ Q2
+                            if (ky == "Q3")
+                            {
+                                model.N22 = kq.Rows[0].Field<double>("Quy2");
+                            }
+                            //Lấy từ Q3
+                            if (ky == "Q4")
+                            {
+                                model.N22 = kq.Rows[0].Field<double>("Quy3");
                             }
                         }
+                        if (ky.Contains("T"))
+                        {
+                            if (ky == "T1")
+                            {
+                            }
+                            if (ky == "T2")
+                            {
+                                model.N22 = kq.Rows[0].Field<double>("T1");
+                            }
+                            if (ky == "T3")
+                            {
+                                model.N22 = kq.Rows[0].Field<double>("T2");
+                            }
+                            if (ky == "T4")
+                            {
+                                model.N22 = kq.Rows[0].Field<double>("T3");
+                            }
+                            if (ky == "T5")
+                            {
+                                model.N22 = kq.Rows[0].Field<double>("T4");
+                            }
+                            if (ky == "T6")
+                            {
+                                model.N22 = kq.Rows[0].Field<double>("T5");
+                            }
+                            if (ky == "T7")
+                            {
+                                model.N22 = kq.Rows[0].Field<double>("T6");
+                            }
+                            if (ky == "T8")
+                            {
+                                model.N22 = kq.Rows[0].Field<double>("T7");
+                            }
+                            if (ky == "T9")
+                            {
+                                model.N22 = kq.Rows[0].Field<double>("T8");
+                            }
+                            if (ky == "T10")
+                            {
+                                model.N22 = kq.Rows[0].Field<double>("T9");
+                            }
+                            if (ky == "T11")
+                            {
+                                model.N22 = kq.Rows[0].Field<double>("T10");
+                            }
+                            if (ky == "T12")
+                            {
+                                model.N22 = kq.Rows[0].Field<double>("T11");
+                            }
+                        }
+                    }
 
                     }
                     else
@@ -1266,6 +1429,24 @@ ORDER BY
                 
             return View();
 
+        }
+        static string GetValue(string xml, string tagName)
+        {
+            // Tạo chuỗi tìm kiếm cho thẻ mở và thẻ đóng
+            string startTag = $"<{tagName}>";
+            string endTag = $"</{tagName}>";
+
+            // Tìm vị trí của thẻ mở
+            int startIndex = xml.IndexOf(startTag);
+            if (startIndex == -1) return null; // Thẻ không tồn tại
+
+            // Tìm vị trí của thẻ đóng
+            int endIndex = xml.IndexOf(endTag, startIndex);
+            if (endIndex == -1) return null; // Thẻ không tồn tại
+
+            // Lấy giá trị giữa thẻ mở và thẻ đóng
+            startIndex += startTag.Length; // Chuyển đến vị trí sau thẻ mở
+            return xml.Substring(startIndex, endIndex - startIndex);
         }
         public static string GetInvoiceQuery(int year, int quarter)
         {

@@ -830,17 +830,10 @@
                     background-color: #4e4e4e;
                 }
 </style>
-<div class="mycontainer" style="font-family:'Times New Roman'">
-    <div class="text-end">
-        <button onclick="savedataPl()"
-                class="btn btn-sm btn-primary">
-            Kết xuất
-        </button>
-    </div>
-</div>
+
 <div class="fullbox" style=" position: sticky; bottom: 0px;">
     <div class="mycontainer" style="font-family:'Times New Roman'">
-        <ul>
+        <ul class="float-start">
             <li>
                 <a id="acl1" onclick="opentab(1)" class="actv">
                     Tờ khai
@@ -852,7 +845,23 @@
                 </a>
             </li>
         </ul>
+        <ul class="float-end">
+            <li>
+                <span>Khoá số liệu</span>
+                <input type="checkbox" id="khoasl" />
+            </li>
+            <li>
+                <button onclick="savedataPl()"
+                        class="btn btn-sm btn-dark">
+                    Kết xuất
+                </button>
+            </li>
+        </ul>
+        <div class="clearfix">
+
+        </div>
     </div>
+   
 </div>
 <script>
     function addRow() {
@@ -1009,9 +1018,16 @@ function savedataPl() {
             get36 = get36.slice(1, -1);
             soam = true;
         }
-
+        var khoasl = 1;
+        if ($("#khoasl").prop("checked")==true) {
+            khoasl = 1;
+        }
+        else {
+            khoasl = 0;
+        }
         const url = '@Url.Action("CreateTaxXMLFull", "Home")' +
             '?path=' + $("#path").val() +
+            '&khoasl=' + khoasl +
             '&ky=' + $("#ky").val() +
             '&ngayky=' + $("#ngayky").val() +
             '&tencty=' + $("#TenCty").val() +
@@ -1356,7 +1372,15 @@ function savedataPl() {
         TinhTongPhuluc2();
         TinhTongPhuluc3();
         TinhTongPhuluc4();
+        if ('@ViewBag.khoa' == 1) {
+            khoadulieu()
+        }
+
     })
+    let khoadulieu = () => {
+        $("#khoasl").prop("checked", true);
+        $(".myinput").attr("disabled", "disabled");
+    }
     function setDefaultValue() {
         const inputFields = document.querySelectorAll('.myInput');
         inputFields.forEach(inputField => {
