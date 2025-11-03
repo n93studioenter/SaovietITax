@@ -574,9 +574,9 @@
                         <th width="30%">Tên hàng hóa, dịch vụ</th>
                         <th>Giá trị hàng hóa, dịch vụ mua vào chưa có thuế GTGT được khấu trừ trong kỳ</th>
                         <th>Thuế GTGT của hàng hóa, dịch vụ mua vào được khấu trừ trong kỳ</th>
-                        <th>
+                        @*<th>
                             Xoá
-                        </th>
+                        </th>*@
                     </tr>
                 </thead>
                 <tbody>
@@ -585,16 +585,16 @@
                         <td class="text-center">(2)</td>
                         <td class="text-center">(3)</td>
                         <td class="text-center">(4)</td>
-                        <td>
-                        </td>
+                        @*<td>
+            </td>*@
                     </tr>
                     @if (ViewBag.Phuluc1 != null)
                     {
                         int i = 1;
                         foreach (var item in ViewBag.Phuluc1)
                         {
-                            <tr>
-                                <td width="60">@i <input  type="checkbox" class="float-end row-checkbox" style=" position: relative; top: 4px;" /></td>
+                            <tr style="display:none">
+                                <td width="60">@i <input type="checkbox" class="float-end row-checkbox" style=" position: relative; top: 4px;" /></td>
                                 <td><input data-name="TenHH" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@item.Tenhang" /></td>
                                 <td><input data-name="GT1" class="myinput ip_ttrcthue" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@item.TTrcthue" onchange="TinhTongPhuluc1()" /></td>
                                 <td><input data-name="GT2" class="myinput ip_tthue" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@item.TThue" onchange="TinhTongPhuluc2()" /></td>
@@ -607,6 +607,15 @@
                             i++;
                         }
                     }
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        Hàng hóa, dịch vụ mua vào trong kỳ được áp dụng mức thuế suất thuế giá trị gia tăng 8%
+                    </td>
+                    <td><input data-name="TenHH" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@ViewBag.Sum1" onchange="tinhtong1(this)" /></td>
+                    <td><input data-name="TenHH" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@ViewBag.Sum2" onchange="tinhtong2(this)" /></td>
+                </tr>
                     <tr id="totalRow" style="background-color: #E8F4FA">
                         <td>
                         </td>
@@ -619,11 +628,11 @@
                         <td>
                             <input style="font-weight: bold; color: #084298" id="tong2" disabled class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="0" />
                         </td>
-                        <td>
-                            <a onclick="addRow()" class="btn btn-sm btn-primary" style="width: 23px; height: 22px; line-height: 14px; ">
-                                +
-                            </a>
-                        </td>
+                        @*<td>
+                <a onclick="addRow()" class="btn btn-sm btn-primary" style="width: 23px; height: 22px; line-height: 14px; ">
+                    +
+                </a>
+            </td>*@
                     </tr>
 
                 </tbody>
@@ -644,9 +653,9 @@
                         <th>Thuế suất thuế GTGT theo quy định (%)</th>
                         <th>Thuế suất thuế GTGT sau giảm (%)</th>
                         <th>Thuế GTGT của hàng hóa, dịch vụ bán ra được giảm (VNĐ)</th>
-                        <th>
+                        @*<th>
 
-                        </th>
+                        </th>*@
                     </tr>
                 </thead>
                 <tbody>
@@ -657,14 +666,14 @@
                         <td>(4)</td>
                         <td>(5)=(4)x80%</td>
                         <td>6)=(3)x[(4)-(5)]</td>
-                        <td></td>
+                        @*<td></td>*@
                     </tr>
                     @if (ViewBag.Phuluc1 != null)
                     {
                         int i = 1;
                         foreach (var item in ViewBag.Phuluc2)
                         {
-                            <tr>
+                            <tr style="display:none">
                                 <td width="60">@i <input type="checkbox" class="float-end row-checkbox" style=" position: relative; top: 4px;" /></td>
                                 <td width="280">
                                     <textarea data-name="TenHH" class="myinput" oninput="autoResize(this)">@item.Tenhang</textarea>
@@ -682,7 +691,18 @@
                             i++;
                         }
                     }
-                    <tr id="totalRow2"  style="background-color: #E8F4FA">
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        Hàng hóa, dịch vụ bán ra trong kỳ được áp dụng mức thuế suất thuế giá trị gia tăng 8%
+                    </td>
+                    <td><input data-name="TenHH" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@ViewBag.Sum3" onchange="tinhtong3(this)" /></td>
+                    <td></td>
+                    <td></td>
+                    <td><input data-name="TenHH" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@ViewBag.Sum4" onchange="tinhtong4(this)" /></td>
+                </tr>
+                    <tr id="totalRow2" style="background-color: #E8F4FA">
                         <td>
                         </td>
                         <td>
@@ -698,11 +718,11 @@
                         </td>
 
 
-                        <td>
-                            <a onclick="addRow2()" class="btn btn-sm btn-primary" style="width: 23px; height: 22px; line-height: 14px;">
-                                +
-                            </a>
-                        </td>
+                        @*<td>
+                <a onclick="addRow2()" class="btn btn-sm btn-primary" style="width: 23px; height: 22px; line-height: 14px;">
+                    +
+                </a>
+            </td>*@
                     </tr>
 
                 </tbody>
@@ -1425,25 +1445,34 @@ function savedataPl() {
         return tongHienTai; // Nếu cần trả về tổng
     }
     function TinhTongPhuluc4() {
-        let tong = 0;
-
-        $(".ip_tthue2").each(function () {
-            // Lấy giá trị của input và loại bỏ định dạng phần nghìn
-            let value = $(this).val().replace(/\./g, ''); // Xóa dấu chấm phần nghìn
-            value = parseFloat(value.replace(',', '.')); // Chuyển đổi thành số, thay dấu phẩy bằng dấu chấm cho thập phân
-
-            if (!isNaN(value)) {
-                tong += value; // Cộng dồn vào tổng
-            }
-        });
-
+        let tong = 0; 
+        var tong3 = parseInt($("#tong3").val().replace(/\./g, ''), 10);
         // Làm tròn tổng với 2 chữ số thập phân
-        let tongHienTai = parseFloat(tong.toFixed(2));
+        let tongHienTai = tong3 * 0.02;
         console.log("Tổng:", tongHienTai);
 
         // Cập nhật giá trị tổng vào input có id "tong2"
-        $("#tong4").val(tongHienTai);
+        $("#tong4").val(Math.round(tongHienTai));
         formatNumber(document.getElementById('tong4'));
         return tongHienTai; // Nếu cần trả về tổng
+    }
+</script>
+<script>
+    function tinhtong1(dis) {
+        $("#tong1").val($(dis).val());
+        formatNumber(document.getElementById('tong1'));
+    }
+    function tinhtong2(dis) {
+        $("#tong2").val($(dis).val());
+        formatNumber(document.getElementById('tong2'));
+    }
+    function tinhtong3(dis) {
+        $("#tong3").val($(dis).val());
+        formatNumber(document.getElementById('tong3'));
+        TinhTongPhuluc4();
+    }
+    function tinhtong4(dis) {
+        $("#tong4").val($(dis).val());
+        formatNumber(document.getElementById('tong4'));
     }
 </script>

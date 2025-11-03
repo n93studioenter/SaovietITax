@@ -284,7 +284,7 @@ namespace Taxweb.Controllers
                 T12 = row.Field<double>("T12");
 
                 // Gán giá trị cho NguoiKy (string)
-                tendaily = row.Field<string>("NguoiKy");
+                tendaily = tendaily;
 
 
                 if (ky.Contains("Quý"))
@@ -406,6 +406,13 @@ namespace Taxweb.Controllers
 </BangKeTenHHDV>";
                 i++;
             }
+            dv = "";
+            dv += $@"<BangKeTenHHDV ID=""ID_{i}"">
+<tenHHDVMuaVao>Hàng hóa, dịch vụ mua vào trong kỳ được áp dụng mức thuế suất thuế giá trị gia tăng 8%</tenHHDVMuaVao>
+<giaTriHHDVMuaVao>{tbPL1.AsEnumerable().Sum(m => m.Field<double>("GT1"))}</giaTriHHDVMuaVao>
+<thueGTGTHHDV>{tbPL1.AsEnumerable().Sum(m => m.Field<double>("GT2"))}</thueGTGTHHDV>
+</BangKeTenHHDV>";
+
             dv += $@"<tongCongGiaTriHHDVMuaVao>{tbPL1.AsEnumerable().Sum(m=>m.Field<double>("GT1"))}</tongCongGiaTriHHDVMuaVao>";
             dv += $@"<tongCongThueGTGTHHDV>{tbPL1.AsEnumerable().Sum(m => m.Field<double>("GT2"))}</tongCongThueGTGTHHDV>";
             string dt1 = @"
@@ -429,8 +436,19 @@ namespace Taxweb.Controllers
 <thueGTGTDuocGiam>{item.Field<double>("GT2")}</thueGTGTDuocGiam>
 </BangKeTenHHDV>";
             }
-            dv2 += $@"<tongCongGiaTriHHDV>{tbPL2.AsEnumerable().Sum(m => m.Field<double>("GT1"))}</tongCongGiaTriHHDV>";
-            dv2 += $@"<tongCongThueGTGTDuocGiam>{tbPL2.AsEnumerable().Sum(m => m.Field<double>("GT2"))}</tongCongThueGTGTDuocGiam>";
+            dv2 = "";
+            decimal tong3 = decimal.Parse(tbPL2.AsEnumerable().Sum(m => m.Field<double>("GT1")).ToString());
+            var tong4 = Math.Round(tong3 * 0.02m);
+            dv2 += $@"<BangKeTenHHDV ID=""ID_1"">
+<tenHHDV>Hàng hóa, dịch vụ bán ra trong kỳ được áp dụng mức thuế suất thuế giá trị gia tăng 8%</tenHHDV>
+<giaTriHHDV>{tbPL2.AsEnumerable().Sum(m => m.Field<double>("GT1"))}</giaTriHHDV>
+<thueSuatTheoQuyDinh>10</thueSuatTheoQuyDinh>
+<thueSuatSauGiam>8</thueSuatSauGiam>
+<thueGTGTDuocGiam>{tong4}</thueGTGTDuocGiam>
+</BangKeTenHHDV>";
+         
+            dv2 += $@"<tongCongGiaTriHHDV>{tong3}</tongCongGiaTriHHDV>";
+            dv2 += $@"<tongCongThueGTGTDuocGiam>{tong4}</tongCongThueGTGTDuocGiam>";
                 // Tạo XML string đúng y hệt mẫu
                 string xmlContent = $@"<HSoThueDTu xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns=""http://kekhaithue.gdt.gov.vn/TKhaiThue"" >
 <HSoKhaiThue id=""ID_1"">
@@ -1029,7 +1047,7 @@ namespace Taxweb.Controllers
             {
                 ViewBag.ky = "";
             }
-
+            
                 try
                 {
                     Noidungtax model = new Noidungtax();
@@ -1151,43 +1169,54 @@ namespace Taxweb.Controllers
                         //return Redirect("Contact");
                     }
 
-                    //Lấy danh sách hoá đơn
-                    string qrct = "SELECT * FROM ChungTu";
-                    DataTable tbChungtu = ExecuteQuery(qrct, null);
-                    int Quy = int.Parse(ky.Replace("Q", ""));
-                    var getsql = GetInvoiceQuery(DateTime.Now.Year, Quy);
-                    var kqs = ExecuteQuery(getsql, null);
-                    var kqdv = kqs.AsEnumerable().Where(m => m["Loai"].ToString() == "-1").ToList();
-                    var kqdr = kqs.AsEnumerable().Where(m => m["Loai"].ToString() == "1").ToList();
-                    foreach (DataRow item in kqdv)
-                    {
-                        //Tìm dòng chung tu
-                        var find1 = tbChungtu.AsEnumerable().Where(m => m.Field<int>("MaSo") == item.Field<int>("MaSo")).FirstOrDefault();
-                        if (find1 != null)
-                        {
-                            //Tìm MACT
-                            int MaCT = find1.Field<int>("MaCT");
-                            //Lọc lại danh sách theo MaCT
-                            var getlistChungTu = tbChungtu.AsEnumerable().Where(m => m.Field<int>("MaCT") == MaCT).ToList();
-                            Phuluc1 Phuluc1 = new Phuluc1();
-                            Phuluc1.Tenhang = Helpers.ConvertVniToUnicode(item.Field<string>("MatHang"));
-                            int step = 1;
-                            foreach (var it in getlistChungTu)
-                            {
-                                if (step == 1)
-                                {
-                                    Phuluc1.TTrcthue = it.Field<double>("SoPS");
-                                }
-                                else
-                                {
-                                    Phuluc1.TThue = it.Field<double>("SoPS");
-                                }
-                                step++;
-                            }
-                            lstPhuluc1.Add(Phuluc1);
-                        }
-                    }
-                    var result = lstPhuluc1
+                //Lấy danh sách hoá đơn
+                string sql = @"
+SELECT DISTINCTROW 
+    KyHieu,
+    SoHD,
+    ChungTu.NgayCT as NgayPH,
+    MatHang,
+    SoLuong,
+    ThanhTien,
+    KhachHang.Ten,
+    KhachHang.MST,
+    ChungTu.SoHieu,
+    SoPS,
+    KhachHang.DiaChi,
+    TyLe,
+    HTTT,
+    MauSo,
+    MaCT,
+    HoaDon.MaSo,
+    KCT 
+FROM  
+    (HoaDon 
+    INNER JOIN ChungTu ON HoaDon.MaSo = ChungTu.MaSo) 
+    LEFT JOIN KhachHang ON HoaDon.MaKhachHang = KhachHang.MaSo  
+WHERE 
+    Loai = -1 
+    AND HD = 1 
+    AND ThangCT >= 7 
+    AND ThangCT <= 9
+    AND (HDBL = 0 OR KCT = 0) 
+    AND (HoaDon.DC = 0 OR HD = 1)
+    AND TyLe = 8 
+ORDER BY 
+    NgayPH,
+    MaCT";
+                DataTable kqdv = ExecuteQuery(sql, null);
+                foreach (DataRow item in kqdv.Rows)
+                {
+                    //Tìm dòng chung tu
+                    Phuluc1 Phuluc1 = new Phuluc1();
+                    Phuluc1.Tenhang = Helpers.ConvertVniToUnicode(item.Field<string>("MatHang"));
+                    int step = 1;
+                    Phuluc1.TTrcthue = item.Field<double>("ThanhTien");
+                    Phuluc1.TThue = item.Field<double>("SoPs");
+
+                    lstPhuluc1.Add(Phuluc1);
+                }
+                var result = lstPhuluc1
                .GroupBy(i => i.Tenhang)
                .Select(g => new Phuluc1
                {
@@ -1197,48 +1226,35 @@ namespace Taxweb.Controllers
                })
                .ToList();
                     ViewBag.Phuluc1 = result;
+                ViewBag.Sum1 = result.Sum(m => m.TTrcthue);
+                ViewBag.Sum2 = result.Sum(m => m.TThue);
+                //Tính đầu ra
+                sql = @"SELECT DISTINCTROW HoaDon.KyHieu,SoHD,ChungTu.NgayCT as NgayPH,MatHang,SoLuong,ThanhTien,KhachHang.Ten,KhachHang.MST,ChungTu.SoHieu,IIF(TK_ID=3007,SoPS,-SoPS) AS Thue,ChungTu.MauSoHD as DiaChi,TyLe,HTTT,MauSo,MaCT,KCT FROM  ((HoaDon INNER JOIN ChungTu ON HoaDon.MaSo=ChungTu.MaSo) LEFT JOIN HethongTK ON ChungTu.MaTKCo=HethongTK.MaSo) LEFT JOIN KhachHang ON HoaDon.MaKhachHang=KhachHang.MaSo  WHERE HoaDon.Loai=1 AND  (ThangCT>=7 AND ThangCT<=9)  AND (HoaDon.DC=0 OR HD=1) and TyLe=8  ORDER BY NgayPH";
+                DataTable kqdr = ExecuteQuery(sql, null);
+                foreach (DataRow item in kqdr.Rows)
+                {
 
-                    //Tính đầu ra
-
-                    foreach (DataRow item in kqdr)
-                    {
-                        //Tìm dòng chung tu
-                        var find1 = tbChungtu.AsEnumerable().Where(m => m.Field<int>("MaSo") == item.Field<int>("MaSo")).FirstOrDefault();
-                        if (find1 != null)
-                        {
-                            //Tìm MACT
-                            int MaCT = find1.Field<int>("MaCT");
-                            //Lọc lại danh sách theo MaCT
-                            var getlistChungTu = tbChungtu.AsEnumerable().Where(m => m.Field<int>("MaCT") == MaCT).ToList();
-                            Phuluc1 Phuluc1 = new Phuluc1();
-                            Phuluc1.Tenhang = Helpers.ConvertVniToUnicode(item.Field<string>("MatHang"));
-                            int step = 1;
-                            foreach (var it in getlistChungTu)
-                            {
-                                if (step == 1)
-                                {
-                                    Phuluc1.TTrcthue = it.Field<double>("SoPS");
-                                }
-                                else
-                                {
-                                    Phuluc1.TThue = Math.Round(Phuluc1.TTrcthue * 0.02);
-                                }
-                                step++;
-                            }
-                            lstPhuluc2.Add(Phuluc1);
-                        }
-                    }
-                    result = lstPhuluc2
+                    //Tìm dòng chung tu
+                    Phuluc1 Phuluc1 = new Phuluc1();
+                    Phuluc1.Tenhang = Helpers.ConvertVniToUnicode(item.Field<string>("MatHang"));
+                    int step = 1;
+                    Phuluc1.TTrcthue = item.Field<double>("ThanhTien"); 
+                    lstPhuluc2.Add(Phuluc1);
+                }
+                result = lstPhuluc2
               .GroupBy(i => i.Tenhang)
               .Select(g => new Phuluc1
               {
                   Tenhang = g.Key,
                   TTrcthue = g.Sum(x => x.TTrcthue),
-                  TThue = g.Sum(x => x.TThue)
+                  TThue = g.Sum(x => x.TTrcthue) * 0.02f
               })
               .ToList();
                     ViewBag.Phuluc2 = result;
-                    return View(model);
+                decimal s3 = (decimal)result.Sum(m => m.TTrcthue);
+                ViewBag.Sum3=s3;
+                ViewBag.Sum4 = Math.Round(s3 * 0.02m);
+                return View(model);
                 }
 
 
@@ -1247,7 +1263,7 @@ namespace Taxweb.Controllers
                     //return Redirect("Contact");
                     // throw ex;
                 }
-
+                
             return View();
 
         }
@@ -1300,7 +1316,7 @@ namespace Taxweb.Controllers
                         if (parameters != null)
                         {
                             command.Parameters.AddRange(parameters);
-                        }
+                        }   
 
                         using (OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command))
                         {

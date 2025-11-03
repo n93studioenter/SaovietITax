@@ -1,4 +1,4 @@
-﻿<div class="fullbox">
+﻿<div class="fullbox" id="tab1">
     <div class="mycontainer" style="font-family:'Times New Roman'">
         <div class="row">
             <div class="col-10">
@@ -27,7 +27,7 @@
                     <strong> [01a]</strong> Tên hoạt động sản xuất kinh doanh: Hoạt động sản xuất kinh doanh thông thường
                 </div>
                 <div>
-                    <strong> [01b]</strong> Kỳ tính thuế: Quý 3 năm 2025
+                    <strong>[01b]</strong> Kỳ tính thuế: @((ViewBag.ky as string) ?? "Không có thông tin")
                 </div>
                 <div>
                     <strong>[02]</strong> Lần đầu: [X] [03] Bổ sung lần thứ: [ ]
@@ -88,14 +88,14 @@
         <div>
             <table class="table table-bordered">
                 <thead>
-                    <tr>
+                    <tr style="background-color:#b7b7b7">
                         <th>
                             STT
                         </th>
                         <th width="250">
                             Chỉ tiêu
                         </th>
-                        <th colspan="2" >
+                        <th colspan="2">
                             Giá trị hàng hóa, dịch vụ
                             (chưa có thuế giá trị gia tăng)
                         </th>
@@ -245,13 +245,13 @@
                             <strong>[27]</strong>
                         </td>
                         <td>
-                            <input id="col27" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                            <input disabled="disabled" id="col27" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                         <td class="tdwidth">
                             <strong>[28]</strong>
                         </td>
                         <td>
-                            <input id="col28" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" onchange="refresh()" />
+                            <input disabled="disabled" id="col28" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" onchange="refresh()" />
                         </td>
                     </tr>
                     <tr>
@@ -281,7 +281,7 @@
                             <strong>[30]</strong>
                         </td>
                         <td>
-                            <input id="col30" value="@Model.N30" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" onchange="refresh()" />
+                            <input id="col30" value="@Model.N30" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" onchange="Changecol30()" />
                         </td>
                         <td class="tdwidth">
                             <strong>[31]</strong>
@@ -301,7 +301,7 @@
                             <strong>[32]</strong>
                         </td>
                         <td>
-                            <input id="col32" value="@Model.N32" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" onchange="refresh()" />
+                            <input id="col32" value="@Model.N32" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" onchange="Changecol32()" />
                         </td>
                         <td class="tdwidth">
                             <strong>[33]</strong>
@@ -338,13 +338,13 @@
                             <strong>[34]</strong>
                         </td>
                         <td>
-                            <input id="col34" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                            <input disabled="disabled" id="col34" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                         <td class="tdwidth">
                             <strong>[35]</strong>
                         </td>
                         <td>
-                            <input id="col35" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)"  />
+                            <input disabled="disabled" id="col35" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                     </tr>
                     <tr class="difftr">
@@ -360,7 +360,7 @@
                             <strong>[36]</strong>
                         </td>
                         <td>
-                            <input id="col36" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)"/>
+                            <input disabled="disabled" id="col36" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                     </tr>
                     <tr class="difftr">
@@ -403,7 +403,7 @@
                             <strong>[38]</strong>
                         </td>
                         <td>
-                            <input id="col38" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)"  onchange="refresh()"/>
+                            <input id="col38" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" onchange="refresh()" />
                         </td>
 
                     </tr>
@@ -451,7 +451,7 @@
                             <strong>[40a]</strong>
                         </td>
                         <td>
-                            <input id="col40a" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                            <input disabled="disabled" id="col40a" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
 
                     </tr>
@@ -489,7 +489,7 @@
                             <strong>[40]</strong>
                         </td>
                         <td>
-                            <input id="col40" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                            <input disabled="disabled" id="col40" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
 
                     </tr>
@@ -509,11 +509,11 @@
                             <strong>[41]</strong>
                         </td>
                         <td>
-                            <input id="col41" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                            <input disabled="disabled" id="col41" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
 
                     </tr>
-                    <tr >
+                    <tr>
                         <td>
                             <strong>
                                 4.1
@@ -528,7 +528,7 @@
                             <strong>[42]</strong>
                         </td>
                         <td>
-                            <input id="col42" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                            <input id="col42" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" onchange="refresh()" />
                         </td>
 
                     </tr>
@@ -547,33 +547,473 @@
                             <strong>[43]</strong>
                         </td>
                         <td>
-                            <input id="col43" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                            <input disabled="disabled" id="col43" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
 
                     </tr>
                 </tbody>
             </table>
         </div>
-        <input id="tendaily" placeholder="Tên người đại diện" />
-        <div class="text-end">
-            <button onclick="exportXML()"
-                    class="btn btn-warning">
-                📥 Xuất file XML
-            </button>
+        <div class="text-end" style="margin-bottom:10px;">
+            <input id="tendaily" placeholder="Người ký" value="@Model.Nguoiky" />
+            <input id="ngayky" placeholder="Ngày ký" type="date" />
         </div>
+
     </div>
 </div>
-<input id="path" />
+<div class="fullbox" id="tab2">
+    <div class="mycontainer" style="font-family:'Times New Roman'">
+        <div>
+            <strong> I. Hàng hóa, dịch vụ mua vào trong kỳ được áp dụng mức thuế suất thuế giá trị gia tăng 8% (áp dụng cho người nộp thuế kê khai theo phương pháp khấu trừ thuế)</strong>
+        </div>
+        <div>
+            <table class="table table-bordered" id="myTable">
+                <thead>
+                    <tr style="background-color: #b7b7b7;font-size:12px;">
+                        <th>STT <a onclick="MergeData()" class="btn btn-sm">Gộp</a></th>
+                        <th width="30%">Tên hàng hóa, dịch vụ</th>
+                        <th>Giá trị hàng hóa, dịch vụ mua vào chưa có thuế GTGT được khấu trừ trong kỳ</th>
+                        <th>Thuế GTGT của hàng hóa, dịch vụ mua vào được khấu trừ trong kỳ</th>
+                        @*<th>
+                            Xoá
+                        </th>*@
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #b7b7b7;font-size:12px;">
+                        <td>(1)</td>
+                        <td class="text-center">(2)</td>
+                        <td class="text-center">(3)</td>
+                        <td class="text-center">(4)</td>
+                        @*<td>
+            </td>*@
+                    </tr>
+                    @if (ViewBag.Phuluc1 != null)
+                    {
+                        int i = 1;
+                        foreach (var item in ViewBag.Phuluc1)
+                        {
+                            <tr style="display:none">
+                                <td width="60">@i <input type="checkbox" class="float-end row-checkbox" style=" position: relative; top: 4px;" /></td>
+                                <td><input data-name="TenHH" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@item.Tenhang" /></td>
+                                <td><input data-name="GT1" class="myinput ip_ttrcthue" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@item.TTrcthue" onchange="TinhTongPhuluc1()" /></td>
+                                <td><input data-name="GT2" class="myinput ip_tthue" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@item.TThue" onchange="TinhTongPhuluc2()" /></td>
+                                <td>
+                                    <a class="btn btn-danger btn-sm" onclick="deleterow(this)" style="height: 22px; line-height: 10px; ">
+                                        -
+                                    </a>
+                                </td>
+                            </tr>
+                            i++;
+                        }
+                    }
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        Tổng hàng mua vào
+                    </td>
+                    <td><input data-name="TenHH" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@ViewBag.Sum1" onchange="tinhtong1(this)" /></td>
+                    <td><input data-name="TenHH" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@ViewBag.Sum2" onchange="tinhtong2(this)" /></td>
+                </tr>
+                    <tr id="totalRow" style="background-color: #E8F4FA">
+                        <td>
+                        </td>
+                        <td>
+                            <strong>Tổng cộng:</strong>
+                        </td>
+                        <td>
+                            <input style="font-weight: bold; color: #084298" id="tong1" disabled class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="0" />
+                        </td>
+                        <td>
+                            <input style="font-weight: bold; color: #084298" id="tong2" disabled class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="0" />
+                        </td>
+                        @*<td>
+                <a onclick="addRow()" class="btn btn-sm btn-primary" style="width: 23px; height: 22px; line-height: 14px; ">
+                    +
+                </a>
+            </td>*@
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <strong>
+                II. Hàng hóa, dịch vụ bán ra trong kỳ
+            </strong>
+        </div>
+        <div>
+            <table class="table table-bordered" id="myTable2">
+                <thead>
+                    <tr style="background-color: #b7b7b7;font-size:12px; ">
+                        <th>STT <a onclick="MergeData()" class="btn btn-sm ">Gộp</a></th>
+                        <th>Tên hàng hóa, dịch vụ</th>
+                        <th>Giá trị hàng hóa, dịch vụ chưa có thuế GTGT</th>
+                        <th>Thuế suất thuế GTGT theo quy định (%)</th>
+                        <th>Thuế suất thuế GTGT sau giảm (%)</th>
+                        <th>Thuế GTGT của hàng hóa, dịch vụ bán ra được giảm (VNĐ)</th>
+                        @*<th>
+
+                        </th>*@
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #b7b7b7;font-size:12px; ">
+                        <td>(1)</td>
+                        <td>(2)</td>
+                        <td>(3)</td>
+                        <td>(4)</td>
+                        <td>(5)=(4)x80%</td>
+                        <td>6)=(3)x[(4)-(5)]</td>
+                        @*<td></td>*@
+                    </tr>
+                    @if (ViewBag.Phuluc1 != null)
+                    {
+                        int i = 1;
+                        foreach (var item in ViewBag.Phuluc2)
+                        {
+                            <tr style="display:none">
+                                <td width="60">@i <input type="checkbox" class="float-end row-checkbox" style=" position: relative; top: 4px;" /></td>
+                                <td width="280">
+                                    <textarea data-name="TenHH" class="myinput" oninput="autoResize(this)">@item.Tenhang</textarea>
+                                </td>
+                                <td width="100"> <input data-name="GT1" class="myinput ip_ttrcthue2" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@item.TTrcthue" onchange="TinhTongPhuluc3()" /></td>
+                                <td>10%</td>
+                                <td>8%</td>
+                                <td><input data-name="GT2" class="myinput ip_tthue2" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@item.TThue" onchange="TinhTongPhuluc4()" /></td>
+                                <td>
+                                    <a class="btn btn-danger btn-sm" onclick="deleterow(this)" style="height: 22px; line-height: 10px; ">
+                                        -
+                                    </a>
+                                </td>
+                            </tr>
+                            i++;
+                        }
+                    }
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        Tổng hàng bán ra
+                    </td>
+                    <td><input data-name="TenHH" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@ViewBag.Sum3" onchange="tinhtong3(this)" /></td>
+                    <td></td>
+                    <td></td>
+                    <td><input data-name="TenHH" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="@ViewBag.Sum4" onchange="tinhtong4(this)" /></td>
+                </tr>
+                    <tr id="totalRow2" style="background-color: #E8F4FA">
+                        <td>
+                        </td>
+                        <td>
+                            <strong>Tổng cộng:</strong>
+                        </td>
+                        <td>
+                            <input style="font-weight: bold; color: #084298;" id="tong3" disabled class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="0" />
+                        <td>
+                        <td>
+                        </td>
+                        <td>
+                            <input style="font-weight: bold; color: #084298;" id="tong4" disabled class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="0" />
+                        </td>
+
+
+                        @*<td>
+                <a onclick="addRow2()" class="btn btn-sm btn-primary" style="width: 23px; height: 22px; line-height: 14px;">
+                    +
+                </a>
+            </td>*@
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
 <script>
+
+    function MergeData() {
+        const checkboxes = $('.row-checkbox:checked');
+        let totalGT1 = 0;
+        let totalGT2 = 0;
+        let firstName = '';
+
+        // Kiểm tra nếu có ít nhất một checkbox được chọn
+        if (checkboxes.length > 0) {
+            checkboxes.each(function (index) {
+                const row = $(this).closest('tr'); // Lấy hàng cha của checkbox
+                const price1 = parseFloat(removeFormat2(row.find('input[data-name="GT1"]').val())) || 0; // Lấy giá 1 
+                const price2 = parseFloat(removeFormat2(row.find('input[data-name="GT2"]').val())) || 0; // Lấy giá 2
+
+                // Lấy tên từ hàng đầu tiên được chọn
+                if (index === 0) {
+                    firstName = row.find('input[data-name="TenHH"]').val(); // Lấy tên từ ô nhập liệu
+                }
+
+                // Cộng giá từ tất cả các hàng được chọn
+                totalGT1 += price1;
+                totalGT2 += price2;
+            });
+
+            // Cập nhật lại giá cho hàng đầu tiên
+            const firstRow = $(checkboxes[0]).closest('tr');
+            firstRow.find('input[data-name="TenHH"]').val(firstName); // Cập nhật tên
+            firstRow.find('input[data-name="GT1"]').val(totalGT1); // Cập nhật giá 1
+            firstRow.find('input[data-name="GT2"]').val(totalGT2); // Cập nhật giá 2
+
+            // Xóa các hàng được chọn (trừ hàng đầu tiên)
+            checkboxes.each(function (index) {
+                if (index > 0) {
+                    $(this).closest('tr').remove(); // Xóa hàng
+                }
+            });
+        }
+        const inputs = document.querySelectorAll('.myinput');
+        inputs.forEach(input => {
+            formatNumber(input); // Định dạng ngay khi tải
+        });
+        // Hiển thị kết quả trong console
+        console.log(`Tên: ${firstName}`);
+        console.log(`Tổng Giá 1: ${totalGT1}`);
+        console.log(`Tổng Giá 2: ${totalGT2}`);
+        updateRowNumbers();
+    }
+    function autoResize(textarea) {
+        // Reset chiều cao
+        textarea.style.height = 'auto';
+
+        // Tính chiều cao mới + thêm 1 dòng (khoảng 20-25px)
+        const lineHeight = 25; // Adjust theo line-height của bạn
+        const newHeight = textarea.scrollHeight + lineHeight;
+
+        // Áp dụng chiều cao mới
+        textarea.style.height = Math.min(newHeight, 600) + 'px'; // Giới hạn tối đa 400px
+    }
+
+    // Gọi hàm autoResize khi trang load để xử lý textarea có sẵn
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('textarea.myinput').forEach(function (textarea) {
+            autoResize(textarea);
+        });
+    });
+</script>
+<style>
+    textarea {
+        width: 100%; /* Đảm bảo chiếm toàn bộ chiều rộng của ô */
+        box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước */
+        resize: none; /* Ngăn người dùng thay đổi kích thước bằng tay */
+        max-height: 100px; /* Chiều cao tối đa */
+        overflow-y: auto; /* Hiển thị thanh cuộn khi cần */
+    }
+
+    .fullbox ul {
+        background-color: #cdcdcd;
+        margin: 0px;
+        padding: 0px;
+    }
+
+        .fullbox ul li {
+            display: inline-block;
+            margin: 0px;
+            padding: 0px;
+        }
+
+            .fullbox ul li a {
+                display: block;
+                background-color: #8b8b8b;
+                padding: 5px 5px;
+                cursor: pointer;
+                color: white !important;
+            }
+                .fullbox ul li a.actv {
+                    background-color: #4e4e4e;
+                }
+</style>
+<div class="mycontainer" style="font-family:'Times New Roman'">
+    <div class="text-end">
+        <button onclick="savedataPl()"
+                class="btn btn-sm btn-primary">
+            Kết xuất
+        </button>
+    </div>
+</div>
+<div class="fullbox" style=" position: sticky; bottom: 0px;">
+    <div class="mycontainer" style="font-family:'Times New Roman'">
+        <ul>
+            <li>
+                <a id="acl1" onclick="opentab(1)" class="actv">
+                    Tờ khai
+                </a>
+            </li>
+            <li>
+                <a id="acl2" onclick="opentab(2)">
+                    Phụ lục
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    function addRow() {
+        // Tạo hàng mới
+        let newRow = `
+        <tr>
+            <td></td> <!-- Số thứ tự sẽ được cập nhật tự động -->
+            <td><input class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="" /></td>
+            <td><input class="myinput ip_ttrcthue" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="" onchange="TinhTongPhuluc1()" /></td>
+            <td><input class="myinput ip_tthue" onblur="formatNumber(this)" onfocus="removeFormat(this)" value="" onchange="TinhTongPhuluc2()" /></td>
+            <td>
+                <a class="btn btn-danger btn-sm" onclick="deleterow(this)">-</a>
+            </td>
+        </tr>
+    `;
+        // Thêm hàng mới vào tbody
+        $("#totalRow").before(newRow);
+
+        // Cập nhật số thứ tự cho các hàng
+        updateRowNumbers();
+    }
+    function addRow2() {
+        // Tạo hàng mới
+        let newRow = `
+        <tr>
+            <td></td> <!-- Số thứ tự sẽ được cập nhật tự động -->
+            <td width="300">
+                <textarea class="myinput"></textarea>
+            </td>
+            <td>
+                <input class="myinput ip_ttrcthue2" onblur="formatNumber(this)" onfocus="removeFormat(this)" onchange="TinhTongPhuluc3()" />
+            </td>
+            <td>10%</td> <!-- Giá trị cố định cho thuế -->
+            <td>8%</td>  <!-- Giá trị cố định cho thuế -->
+            <td>
+                <input class="myinput ip_tthue2" onblur="formatNumber(this)" onfocus="removeFormat(this)" onchange="TinhTongPhuluc4()" />
+            </td>
+            <td>
+                <a class="btn btn-danger btn-sm" onclick="deleterow(this)" style="height: 22px; line-height: 10px;">
+                    -
+                </a>
+            </td>
+        </tr>
+    `;
+        // Thêm hàng mới vào tbody
+        $("#totalRow2").before(newRow);
+
+        // Cập nhật số thứ tự cho các hàng
+    }
+
+    function updateRowNumbers() {
+        // Cập nhật số thứ tự và thêm checkbox cho bảng đầu tiên
+        $("#myTable tbody tr").each(function (index) {
+            if (index > 0) {
+                $(this).find('td:first').html((index) + ' <input type="checkbox" class="float-end row-checkbox" style="position: relative; top: 4px;" />');
+            }
+            // Cập nhật số thứ tự
+
+        });
+
+        // Cập nhật số thứ tự và thêm checkbox cho bảng thứ hai
+        $("#myTable2 tbody tr").each(function (index) {
+            // Cập nhật số thứ tự
+            if (index > 0) {
+                $(this).find('td:first').html((index) + ' <input type="checkbox" class="float-end row-checkbox" style="position: relative; top: 4px;" />');
+
+            }
+        });
+    }
+
+    function opentab(id) {
+        if (id == 1) {
+            $("#tab1").show();
+            $("#tab2").hide();
+            $("#acl2").removeClass("actv");
+            $("#acl1").addClass("actv");
+        }
+        else {
+            $("#tab1").hide();
+            $("#tab2").show();
+            $("#acl1").removeClass("actv");
+            $("#acl2").addClass("actv");
+        }
+    }
+</script>
+<input id="path" type="hidden" />
+<input id="ky" value="@ViewBag.ky" type="hidden" />
+<script>
+ function collectTableData(tableId) {
+    const tableData = [];
+    document.querySelectorAll(`${tableId} tbody tr`).forEach(row => {
+        const rowData = {};
+        row.querySelectorAll('.myinput').forEach(input => {
+            const dataName = input.getAttribute('data-name'); // Lấy giá trị của data-name
+            let formattedValue = input.value; // Khởi tạo giá trị gốc
+            if (dataName !== "TenHH") {
+                formattedValue = removeFormat2(input.value); // Xóa định dạng trước khi lưu
+            }
+            rowData[dataName] = formattedValue; // Gán giá trị vào object
+        });
+        tableData.push(rowData); // Thêm hàng dữ liệu vào mảng
+    });
+    return tableData;
+}
+
+function savedataPl() {
+    // Thu thập dữ liệu từ bảng đầu tiên
+    const tableData1 = collectTableData('#myTable');
+
+    // Gửi dữ liệu qua AJAX cho bảng đầu tiên
+    $.ajax({
+        type: "POST",
+        url: '@Url.Action("SaveDataPL", "Home")', // Địa chỉ controller
+        data: {
+            path: $("#path").val(),
+            tableData: JSON.stringify(tableData1) // Chuyển đổi dữ liệu thành chuỗi JSON
+        },
+        success: function(response) {
+            console.log("Dữ liệu đã được gửi thành công:", response);
+
+            // Thu thập dữ liệu từ bảng thứ hai
+            const tableData2 = collectTableData('#myTable2');
+
+            // Gửi dữ liệu qua AJAX cho bảng thứ hai
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("SaveDataPL2", "Home")', // Địa chỉ controller
+                data: {
+                    path: $("#path").val(),
+                    tableData: JSON.stringify(tableData2) // Chuyển đổi dữ liệu thành chuỗi JSON
+                },
+                success: function(response) {
+                    console.log("Dữ liệu đã được gửi thành công:", response);
+                    exportXML();
+                },
+                error: function(xhr, status, error) {
+                    console.error("Có lỗi xảy ra khi gửi dữ liệu:", error);
+                }
+            });
+        },
+        error: function(xhr, status, error) {
+            console.error("Có lỗi xảy ra khi gửi dữ liệu:", error);
+        }
+    });
+}
     function exportXML() {
         const inputs = document.querySelectorAll('.myinput');
         inputs.forEach(input => {
             removeFormat(input); // Xóa định dạng trước khi lấy giá trị
         });
 
+        var get36 = $("#col36").val();
+        if (get36.startsWith('(')) {
+            get36 = get36.slice(1, -1);
+            soam = true;
+        }
 
         const url = '@Url.Action("CreateTaxXMLFull", "Home")' +
             '?path=' + $("#path").val() +
+            '&ky=' + $("#ky").val() +
+            '&ngayky=' + $("#ngayky").val() +
             '&tencty=' + $("#TenCty").val() +
             '&tendaily=' + $("#tendaily").val() +
         '&N22=' + $("#col22").val() +
@@ -592,8 +1032,8 @@
         '&N33=' + $("#col33").val() +
         '&N32a=' + $("#col32a").val() +
         '&N34=' + $("#col34").val() +
-        '&N35=' + $("#col35").val() +
-        '&N36=' + $("#col36").val() +
+            '&N35=' + $("#col35").val() +
+            '&N36=' + parseFloat(get36) +
         '&N37=' + $("#col37").val() +
         '&N38=' + $("#col38").val() +
         '&N39a=' + $("#col39a").val() +
@@ -603,7 +1043,6 @@
         '&N41=' + $("#col41").val() +
         '&N42=' + $("#col42").val() +
         '&N43=' + $("#col43").val();
-
     window.open(url);
 }
 </script>
@@ -644,20 +1083,25 @@
     table td, table th {
         vertical-align: middle;
     }
-    table td{
-        padding:3px 10px!important;
+
+    table td {
+        padding: 3px 10px !important;
     }
+
     .difftr {
         background-color: #E8F4FA;
         color: #084298;
         font-weight: bold;
     }
+
         .difftr input {
             color: #084298;
             font-weight: bold;
             background-color: transparent;
         }
+
     body {
+        color: #084298;
         background-color: #414141;
     }
 </style>
@@ -670,7 +1114,7 @@
     }
 
     function ExportXML() {
-       
+
         $.ajax({
             url: '/Home/CreateTaxXMLFull', // URL API export
             type: 'GET',
@@ -679,7 +1123,7 @@
                 tencty: $("#TenCty").val(),
                 N22: $("#col22").val(),
             },
-            dataType:"html",
+            dataType: "html",
             success: function (data) {
                 // Tạo URL cho file blob
                 const url = window.URL.createObjectURL(data);
@@ -703,13 +1147,20 @@
         if (!isNaN(value)) {
             input.value = value.toLocaleString('de-DE', { minimumFractionDigits: 0, maximumFractionDigits: 0 }); // Định dạng theo số thập phân
         }
+        setDefaultValue();
     }
 
     // Hàm để xóa định dạng
     function removeFormat(input) {
         input.value = input.value.replace(/\./g, ''); // Xóa định dạng khi lấy lại
     }
-
+    function removeFormat2(value) {
+        // Kiểm tra xem giá trị có phải là chuỗi không
+        if (typeof value === 'string') {
+            return value.replace(/\./g, ''); // Xóa tất cả các dấu chấm
+        }
+        return value; // Trả về giá trị không thay đổi nếu không phải chuỗi
+    }
     // Định dạng số ngay khi tải trang
     window.onload = function () {
         const inputs = document.querySelectorAll('.myinput');
@@ -717,17 +1168,29 @@
             formatNumber(input); // Định dạng ngay khi tải
         });
     };
+    function Changecol30() {
+        Sumcol27();
+        var getdata = parseFloat($("#col30").val()) * 5 / 100;
+        $("#col31").val(getdata).change();
+        formatNumber(document.getElementById('col31'));
+    }
+    function Changecol32() {
+        Sumcol27();
+        var getdata = parseFloat($("#col32").val()) * 10 / 100;
+        $("#col33").val(getdata).change();
+        formatNumber(document.getElementById('col33'));
+    }
     function Change36() {
         Sumcol27();
     }
     function Changecol22() {
         Sumcol27();
     }
-    function refresh() { 
+    function refresh() {
         Sumcol27();
     }
     let isCal = true;
-    let Sumcol27 = () => { 
+    let Sumcol27 = () => {
         if (isCal == true) {
             isCal = false;
             let parseValue = (value) => {
@@ -751,9 +1214,11 @@
             Sumcol36();
             Sumcol40a();
             Sumcol40();
+            Sumcol41();
+            Sumcol43();
             isCal = true;
         }
-       
+
     };
     let Sumcol28 = () => {
         let parseValue = (value) => {
@@ -764,7 +1229,7 @@
 
         // Nếu cần, gán kết quả vào một phần tử nào đó, ví dụ:
         $("#col28").val(valuecol28).change(); // Gán kết quả vào ô có id 'result'
-        formatNumber(document.getElementById('col28')); 
+        formatNumber(document.getElementById('col28'));
     };
     let Sumcol34 = () => {
         let parseValue = (value) => {
@@ -782,7 +1247,7 @@
             return parseFloat(value.replace(/\./g, '').replace(/,/g, '.')) || 0; // Chuyển đổi giá trị
         };
         let valuecol35 =
-            parseValue($("#col28").val()) ;
+            parseValue($("#col28").val());
         // Nếu cần, gán kết quả vào một phần tử nào đó, ví dụ:
         $("#col35").val(valuecol35).change(); // Gán kết quả vào ô có id 'result'
         formatNumber(document.getElementById('col35'));
@@ -790,24 +1255,41 @@
     };
     let Sumcol36 = () => {
         let parseValue = (value) => {
-            return parseFloat(value.replace(/\./g, '').replace(/,/g, '.')) || 0; // Chuyển đổi giá trị
+            return parseFloat(value.replace(/\./g, '').replace(/,/g, '.')) || 0; // Convert value
         };
-        let valuecol36 =
-            parseValue($("#col35").val()) - parseValue($("#col25").val());
-        // Nếu cần, gán kết quả vào một phần tử nào đó, ví dụ:
-        $("#col36").val(valuecol36).change(); // Gán kết quả vào ô có id 'result'
+
+        let valuecol36 = parseValue($("#col35").val()) - parseValue($("#col25").val());
+
+        // Format negative numbers with parentheses
+        if (valuecol36 < 0) {
+            valuecol36 = `(${Math.abs(valuecol36)})`; // Remove negative sign and add parentheses
+        }
+
+        // Assign the result to the element with id 'col36'
+        $("#col36").val(valuecol36).change();
         formatNumber(document.getElementById('col36'));
-       
     };
 
     let Sumcol40a = () => {
-
+        var soam = false;
+        var get36 = $("#col36").val();
+        if (get36.startsWith('(')) {
+            get36 = get36.slice(1, -1);
+            soam = true;
+        }
         let parseValue = (value) => {
             return parseFloat(value.replace(/\./g, '').replace(/,/g, '.')) || 0; // Chuyển đổi giá trị
         };
+        var num36 = 0;
+        if (soam == false)
+            num36 = parseValue(get36)
+        else
+            num36 = parseValue(get36) * (-1)
         let valuecol40a =
-            parseValue($("#col36").val()) - parseValue($("#col22").val()) + parseValue($("#col37").val()) - parseValue($("#col38").val()) - parseValue($("#col39a").val());
+            num36 - parseValue($("#col22").val()) + parseValue($("#col37").val()) - parseValue($("#col38").val()) - parseValue($("#col39a").val());
         // Nếu cần, gán kết quả vào một phần tử nào đó, ví dụ:
+        if (valuecol40a <= 0)
+            valuecol40a = 0
         $("#col40a").val(valuecol40a).change(); // Gán kết quả vào ô có id 'result'
         formatNumber(document.getElementById('col40a'));
 
@@ -823,8 +1305,174 @@
         formatNumber(document.getElementById('col40'));
 
     };
+    let Sumcol41 = () => {
+        var soam = false;
+        var get36 = $("#col36").val();
+        if (get36.startsWith('(')) {
+            get36 = get36.slice(1, -1);
+            soam = true;
+        }
+        let parseValue = (value) => {
+            return parseFloat(value.replace(/\./g, '').replace(/,/g, '.')) || 0; // Chuyển đổi giá trị
+        };
+        var num36 = 0;
+        if (soam == false)
+            num36 = parseValue(get36)
+        else
+            num36 = parseValue(get36) * (-1)
+        let valuecol41 =
+            num36 - parseValue($("#col22").val()) + parseValue($("#col37").val()) - parseValue($("#col38").val()) - parseValue($("#col39a").val());
+        if (valuecol41 < 0) {
+            valuecol41 = Math.abs(valuecol41)
+            // Nếu cần, gán kết quả vào một phần tử nào đó, ví dụ:
+            $("#col41").val(valuecol41).change(); // Gán kết quả vào ô có id 'result'
+            formatNumber(document.getElementById('col41'));
+        }
+        else {
+            $("#col41").val(0).change(); // Gán kết quả vào ô có id 'result'
+            formatNumber(document.getElementById('col41'));
+        }
+
+    };
+
+    let Sumcol43 = () => {
+
+        let parseValue = (value) => {
+            return parseFloat(value.replace(/\./g, '').replace(/,/g, '.')) || 0; // Chuyển đổi giá trị
+        };
+        let valuecol43 = parseValue($("#col41").val()) - parseValue($("#col42").val());
+        // Nếu cần, gán kết quả vào một phần tử nào đó, ví dụ:
+        $("#col43").val(valuecol43).change(); // Gán kết quả vào ô có id 'result'
+        formatNumber(document.getElementById('col43'));
+
+    };
     $(document).ready(function () {
         Sumcol27();
-        $("#path").val(getPathFromURL())
+        $("#path").val(getPathFromURL());
+        const today = new Date().toISOString().split('T')[0];
+        $('#ngayky').val(today);
+        $("#tab2").hide();
+        TinhTongPhuluc1();
+        TinhTongPhuluc2();
+        TinhTongPhuluc3();
+        TinhTongPhuluc4();
     })
+    function setDefaultValue() {
+        const inputFields = document.querySelectorAll('.myInput');
+        inputFields.forEach(inputField => {
+            if (inputField.value === '') {
+                inputField.value = '0';
+            }
+        });
+    }
+</script>
+<script>
+    function deleterow(button) {
+        // Tìm hàng cha (tr) của nút đã nhấn
+        $(button).closest('tr').remove();
+        TinhTongPhuluc1();
+        TinhTongPhuluc2();
+        TinhTongPhuluc3();
+        TinhTongPhuluc4();
+        //Tính lại số thứ tự
+        updateRowNumbers();
+    }
+    function TinhTongPhuluc1() {
+        let tong = 0;
+
+        $(".ip_ttrcthue").each(function () {
+            // Lấy giá trị của input và loại bỏ định dạng phần nghìn
+            let value = $(this).val().replace(/\./g, ''); // Xóa dấu chấm
+            value = parseFloat(value); // Chuyển đổi thành số
+
+            if (!isNaN(value)) {
+                tong += value; // Cộng dồn vào tổng
+            }
+        });
+
+        // Làm tròn tổng với 2 chữ số thập phân
+        let tongHienTai = parseFloat(tong.toFixed(2));
+        console.log("Tổng:", tongHienTai);
+
+        // Cập nhật giá trị tổng vào input có id "tong1"
+        $("#tong1").val(tongHienTai);
+        formatNumber(document.getElementById('tong1'));
+        return tongHienTai; // Nếu cần trả về tổng
+    }
+    function TinhTongPhuluc2() {
+        let tong = 0;
+
+        $(".ip_tthue").each(function () {
+            // Lấy giá trị của input và loại bỏ định dạng phần nghìn
+            let value = $(this).val().replace(/\./g, ''); // Xóa dấu chấm phần nghìn
+            value = parseFloat(value.replace(',', '.')); // Chuyển đổi thành số, thay dấu phẩy bằng dấu chấm cho thập phân
+
+            if (!isNaN(value)) {
+                tong += value; // Cộng dồn vào tổng
+            }
+        });
+
+        // Làm tròn tổng với 2 chữ số thập phân
+        let tongHienTai = parseFloat(tong.toFixed(2));
+        console.log("Tổng:", tongHienTai);
+
+        // Cập nhật giá trị tổng vào input có id "tong2"
+        $("#tong2").val(tongHienTai);
+        formatNumber(document.getElementById('tong2'));
+        return tongHienTai; // Nếu cần trả về tổng
+    }
+
+
+    function TinhTongPhuluc3() {
+        let tong = 0;
+
+        $(".ip_ttrcthue2").each(function () {
+            // Lấy giá trị của input và loại bỏ định dạng phần nghìn
+            let value = $(this).val().replace(/\./g, ''); // Xóa dấu chấm
+            value = parseFloat(value); // Chuyển đổi thành số
+
+            if (!isNaN(value)) {
+                tong += value; // Cộng dồn vào tổng
+            }
+        });
+        // Làm tròn tổng với 2 chữ số thập phân
+        let tongHienTai = parseFloat(tong.toFixed(2));
+        console.log("Tổng:", tongHienTai);
+
+        // Cập nhật giá trị tổng vào input có id "tong1"
+        $("#tong3").val(tongHienTai);
+        formatNumber(document.getElementById('tong3'));
+        return tongHienTai; // Nếu cần trả về tổng
+    }
+    function TinhTongPhuluc4() {
+        let tong = 0; 
+        var tong3 = parseInt($("#tong3").val().replace(/\./g, ''), 10);
+        // Làm tròn tổng với 2 chữ số thập phân
+        let tongHienTai = tong3 * 0.02;
+        console.log("Tổng:", tongHienTai);
+
+        // Cập nhật giá trị tổng vào input có id "tong2"
+        $("#tong4").val(Math.round(tongHienTai));
+        formatNumber(document.getElementById('tong4'));
+        return tongHienTai; // Nếu cần trả về tổng
+    }
+</script>
+<script>
+    function tinhtong1(dis) {
+        $("#tong1").val($(dis).val());
+        formatNumber(document.getElementById('tong1'));
+    }
+    function tinhtong2(dis) {
+        $("#tong2").val($(dis).val());
+        formatNumber(document.getElementById('tong2'));
+    }
+    function tinhtong3(dis) {
+        $("#tong3").val($(dis).val());
+        formatNumber(document.getElementById('tong3'));
+        TinhTongPhuluc4();
+    }
+    function tinhtong4(dis) {
+        $("#tong4").val($(dis).val());
+        formatNumber(document.getElementById('tong4'));
+    }
 </script>
