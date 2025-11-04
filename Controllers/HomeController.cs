@@ -179,14 +179,14 @@ namespace Taxweb.Controllers
             double[] Thang = { T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12 };
              
              tendaily = string.IsNullOrEmpty(tendaily) ? "Không xác định" : tendaily;
-            int k1 = 0, k2 = 0, k3 = 0, k4 = 0;
+            int k1 = 0, k2 = 0, k3 = 0, k4 = 0,k5=0,k6=0,k7=0,k8=0,k9=0,k10=0,k11=0,k12=0;
             if (kq.Rows.Count == 0)
             {
                 // Kiểm tra và khởi tạo tendaily
                
 
-                query = @"INSERT INTO tbThongTinToKhai (Quy1,Quy2,Quy3,Quy4,T1,T2,T3,T4,T5,T6,T7,T8,T9,T10,T11,T12,NguoiKy,Nam,k1,k2,k3,k4) 
-              VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                query = @"INSERT INTO tbThongTinToKhai (Quy1,Quy2,Quy3,Quy4,T1,T2,T3,T4,T5,T6,T7,T8,T9,T10,T11,T12,NguoiKy,Nam,k1,k2,k3,k4,k5,k6,k7,k8,k9,k10,k11,k12) 
+              VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
              
                 try
@@ -233,6 +233,30 @@ namespace Taxweb.Controllers
                                 int soThang = int.Parse(match.Groups[1].Value);
                                 if (soThang >= 1 && soThang <= 12)
                                     Thang[soThang - 1] = N43;
+                                if (soThang == 1)
+                                    k1 = 1;
+                                if (soThang == 2)
+                                    k2 = 1;
+                                if (soThang == 3)
+                                    k3 = 1;
+                                if (soThang == 4)
+                                    k4 = 1;
+                                if (soThang == 5)
+                                    k5 = 1;
+                                if (soThang == 6)
+                                    k6 = 1;
+                                if (soThang == 7)
+                                    k7 = 1;
+                                if (soThang == 8)
+                                    k8 = 1;
+                                if (soThang == 9)
+                                    k9 = 1;
+                                if (soThang == 10)
+                                    k10 = 1;
+                                if (soThang == 11)
+                                    k11 = 1;
+                                if (soThang == 12)
+                                    k12 = 1;
                             }
                             T1 = Thang[0]; T2 = Thang[1]; T3 = Thang[2]; T4 = Thang[3];
                             T5 = Thang[4]; T6 = Thang[5]; T7 = Thang[6]; T8 = Thang[7];
@@ -263,6 +287,14 @@ namespace Taxweb.Controllers
                         new OleDbParameter("@k2", k2),
                         new OleDbParameter("@k3", k3),
                         new OleDbParameter("@k4", k4),
+                        new OleDbParameter("@k5", k5),
+                        new OleDbParameter("@k6", k6),
+                        new OleDbParameter("@k7", k7),
+                        new OleDbParameter("@k8", k8),
+                        new OleDbParameter("@k9", k9),
+                        new OleDbParameter("@k10", k10),
+                        new OleDbParameter("@k11", k11),
+                        new OleDbParameter("@k12", k12),
                     };
 
                     var rowsAffected = ExecuteQueryResult(query, parameters);
@@ -280,7 +312,7 @@ namespace Taxweb.Controllers
               SET Quy1 = ?, Quy2 = ?, Quy3 = ?, Quy4 = ?,
                   T1 = ?, T2 = ?, T3 = ?, T4 = ?, T5 = ?, T6 = ?,
                   T7 = ?, T8 = ?, T9 = ?, T10 = ?, T11 = ?, T12 = ?,
-                  NguoiKy = ?, Nam = ?,k1=?,k2=?,k3=?,k4=?
+                  NguoiKy = ?, Nam = ?,k1=?,k2=?,k3=?,k4=?,k5=?,k6=?,k7=?,k8=?,k9=?,k10=?,k11=?,k12=?
               WHERE Id = ?"; // Giả sử có trường Id làm khóa chính
 
                 DataRow row = kq.Rows[0];
@@ -308,6 +340,14 @@ namespace Taxweb.Controllers
                 k2 = int.Parse(row.Field<string>("k2"));
                 k3 = int.Parse(row.Field<string>("k3"));
                 k4 = int.Parse(row.Field<string>("k4"));
+                k5 = int.Parse(row.Field<string>("k5"));
+                k6 = int.Parse(row.Field<string>("k6"));
+                k7 = int.Parse(row.Field<string>("k7"));
+                k8 = int.Parse(row.Field<string>("k8"));
+                k9 = int.Parse(row.Field<string>("k9"));
+                k10 = int.Parse(row.Field<string>("k10"));
+                k11 = int.Parse(row.Field<string>("k11"));
+                k12 = int.Parse(row.Field<string>("k12"));
                 // Gán giá trị cho NguoiKy (string)
                 tendaily = tendaily;
 
@@ -363,10 +403,36 @@ namespace Taxweb.Controllers
                             int soThang = int.Parse(match.Groups[1].Value);
                             if (soThang >= 1 && soThang <= 12)
                                 Thang[soThang - 1] = N43;
+                            if (soThang == 1)
+                                k1 = 1;
+                            if (soThang == 2)
+                                k2 = 1;
+                            if (soThang == 3)
+                                k3 = 1;
+                            if (soThang == 4)
+                                k4 = 1;
+                            if (soThang == 5)
+                                k5 = 1;
+                            if (soThang == 6)
+                                k6 = 1;
+                            if (soThang == 7)
+                                k7 = 1;
+                            if (soThang == 8)
+                                k8 = 1;
+                            if (soThang == 9)
+                                k9 = 1;
+                            if (soThang == 10)
+                                k10 = 1;
+                            if (soThang == 11)
+                                k11 = 1;
+                            if (soThang == 12)
+                                k12 = 1;
                         }
                         T1 = Thang[0]; T2 = Thang[1]; T3 = Thang[2]; T4 = Thang[3];
                         T5 = Thang[4]; T6 = Thang[5]; T7 = Thang[6]; T8 = Thang[7];
                         T9 = Thang[8]; T10 = Thang[9]; T11 = Thang[10]; T12 = Thang[11];
+
+
                     }
                 }
                 var parameters = new OleDbParameter[]
@@ -392,7 +458,15 @@ namespace Taxweb.Controllers
         new OleDbParameter("?", k1),
         new OleDbParameter("?", k2),
         new OleDbParameter("?", k3),
-         new OleDbParameter("?", k4),
+        new OleDbParameter("?", k4),
+        new OleDbParameter("?", k5),
+        new OleDbParameter("?", k6),
+        new OleDbParameter("?", k7),
+        new OleDbParameter("?", k8),
+        new OleDbParameter("?", k9),
+        new OleDbParameter("?", k10),
+        new OleDbParameter("?", k11),
+        new OleDbParameter("?", k12),
         new OleDbParameter("?", kq.Rows[0]["Id"]) // Lấy Id từ dòng đầu tiên
                 };
 
@@ -672,6 +746,82 @@ namespace Taxweb.Controllers
 
                     var rowsAffected = ExecuteQueryResult(query, parameters);
                 }
+            }
+            else
+            {
+                string xml1 = ""; string xml2 = ""; string xml3 = ""; string xml4 = "";
+                string xml5 = ""; string xml6 = ""; string xml7 = ""; string xml8 = "";
+                string xml9 = ""; string xml10 = ""; string xml11 = ""; string xml12 = "";
+
+                if (kq.Rows.Count > 0)
+                {
+                    DataRow row = kq.Rows[0];
+
+                    xml1 = row.Field<string>("xml1");
+                    xml2 = row.Field<string>("xml2");
+                    xml3 = row.Field<string>("xml3");
+                    xml4 = row.Field<string>("xml4");
+                    xml5 = row.Field<string>("xml5");
+                    xml6 = row.Field<string>("xml6");
+                    xml7 = row.Field<string>("xml7");
+                    xml8 = row.Field<string>("xml8");
+                    xml9 = row.Field<string>("xml9");
+                    xml10 = row.Field<string>("xml10");
+                    xml11 = row.Field<string>("xml11");
+                    xml12 = row.Field<string>("xml12");
+                }
+                int soThang = 0;
+                Match match = Regex.Match(ky, @"Tháng\s+(\d+)");
+                if (match.Success)
+                {
+                    soThang = int.Parse(match.Groups[1].Value);
+                    if(soThang==1)
+                        xml1 = xmlContent;
+                    if (soThang == 2)
+                        xml2 = xmlContent;
+                    if (soThang == 3)
+                        xml3 = xmlContent;
+                    if (soThang == 4)
+                        xml4 = xmlContent;
+                    if (soThang == 5)
+                        xml5 = xmlContent;
+                    if (soThang == 6)
+                        xml6 = xmlContent;
+                    if (soThang == 7)
+                        xml7 = xmlContent;
+                    if (soThang == 8)
+                        xml8 = xmlContent;
+                    if (soThang == 9)
+                        xml9 = xmlContent;
+                    if (soThang == 10)
+                        xml10 = xmlContent;
+                    if (soThang == 11)
+                        xml11 = xmlContent;
+                    if (soThang == 12)
+                        xml12 = xmlContent;
+
+                }
+                query = @"UPDATE tbThongTinToKhai 
+              SET xml1 = ?,xml2=?,xml3=?,xml4=?,xml5=?,xml6=?,xml7=?,xml8=?,xml9=?,xml10=?,xml11=?,xml12=?
+              WHERE Id = ?"; // Giả sử có trường Id làm khóa chính
+                var parameters = new OleDbParameter[]
+           {
+                    new OleDbParameter("?", xml1!=null?xml1:""),
+                    new OleDbParameter("?", xml2!=null?xml2:""),
+                    new OleDbParameter("?", xml3 != null ? xml3 : ""),
+                    new OleDbParameter("?", xml4 != null ? xml4 : ""),
+                    new OleDbParameter("?", xml5 != null ? xml5 : ""),
+                    new OleDbParameter("?", xml6 != null ? xml6 : ""),
+                    new OleDbParameter("?", xml7 != null ? xml7 : ""),
+                    new OleDbParameter("?", xml8 != null ? xml8 : ""),
+                    new OleDbParameter("?", xml9 != null ? xml9 : ""),
+                    new OleDbParameter("?", xml10 != null ? xml10 : ""),
+                    new OleDbParameter("?", xml11!= null ? xml11 : ""),
+                    new OleDbParameter("?", xml12!= null ? xml12 : ""),
+                    new OleDbParameter("?", kq.Rows[0]["Id"]) // Lấy Id từ dòng đầu tiên
+           };
+
+                var rowsAffected = ExecuteQueryResult(query, parameters);
             }
                 return File(fileBytes, "application/xml", "HSoThueDTu.xml");
         }
@@ -1214,6 +1364,24 @@ namespace Taxweb.Controllers
                             {
                                 ViewBag.khoa = 1;
                                 contentXMl = kq.Rows[0].Field<string>("xml4");
+                            }
+                        }
+                        //Kiểm tra theo tháng
+                        for (int i = 1; i <= 12; i++)
+                        {
+                            string monthKey = "T" + i; // T1, T2, ..., T12
+                            string khoaKey = "k" + i;   // k1, k2, ..., k12
+                            string xmlKey = "xml" + i;   // xml1, xml2, ..., xml12
+
+                            if (ky == monthKey)
+                            {
+                                string khoaValue = kq.Rows[0].Field<string>(khoaKey);
+                                if (khoaValue == "1")
+                                {
+                                    ViewBag.khoa = 1; // Lưu số tháng
+                                    contentXMl = kq.Rows[0].Field<string>(xmlKey); // Lưu nội dung XML
+                                    break; // Thoát khỏi vòng lặp nếu đã tìm thấy
+                                }
                             }
                         }
                     }
