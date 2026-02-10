@@ -1,0 +1,929 @@
+﻿
+
+<div class="fullbox" id="tab1">
+    <div class="mycontainer" style="font-family:'Times New Roman'">
+        <div class="row">
+            <div class="col-10">
+                <div style="
+    font-weight: bold;text-align:center;
+">
+                    CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+                </div>
+                <div style="
+    text-align: center;
+">
+                    Độc lập-Tự do-Hạnh phúc
+                </div>
+                <hr>
+                <div style="
+    font-weight: 600;text-align:center;
+">
+                    BÁO CÁO TÌNH HÌNH TÀI CHÍNH
+                </div>
+                <div style="
+    font-style: italic;text-align:center;
+">
+                    <div>
+                        Tại ngày 31 tháng 12 năm 2024
+                    </div>
+                    (Áp dụng cho doanh nghiệp đáp ứng giả định hoạt động liên tục)
+                </div>
+            </div>
+            <div class="col-2">
+                <div style="
+    font-size: 10px;
+    border: 1px solid;
+    padding: 10px 5px;
+">
+                    <div>
+                        Mẫu số:
+                    </div>
+                    <div style="
+    font-weight: bold;
+">
+                        B 01b – DNN
+                    </div>
+                    <div>
+                        (Ban hành theo Thông tư số 133/2016/TT-BTC Ngày 26/08/2016 của Bộ Tài chính)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <strong>[01]</strong> Tên người nộp thuế:
+            </div>
+            <div class="col-8">
+                <input id="TenCty" class="myinput" />
+            </div>
+            <div class="col-4">
+                <strong>[02]</strong> Mã số thuế:
+            </div>
+            <div class="col-8">
+                <strong></strong>
+            </div>
+            <div class="col-2">
+                <strong>[03]</strong> Địa chỉ:
+            </div>
+            <div class="col-2">
+                <input id="diachi" class="myinput" value="" />
+            </div>
+            <div class="col-2">
+                <strong>[04]</strong> Quận/Huyện:
+            </div>
+            <div class="col-1">
+                <input id="quanhuyen" class="myinput" value="" />
+            </div>
+            <div class="col-3">
+                <strong>[05]</strong> Tỉnh/Thành phố:
+            </div>
+            <div class="col-2">
+                <input id="tinhtp" class="myinput" value="" />
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+<div class="fullbox" id="tab2">
+    <div class="mycontainer" style="font-family:'Times New Roman'">
+
+        <div>
+            <table border="1" cellspacing="0" style="border-collapse:collapse; width:100%; font-family:'Times New Roman'; font-size:14px;" class="table table-bordered">
+                <thead>
+                    <tr style="font-weight:bold; text-align:center; background:#f5f5f5;">
+                        <th>CHỈ TIÊU</th>
+                        <th>Mã số</th>
+                        <th>Thuyết minh</th>
+                        <th>Số cuối năm</th>
+                        <th>Số đầu năm</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr style="font-weight: bold; background: #f5f5f5;">
+                        <td style="text-align:center;">1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>
+                    <!-- TÀI SẢN -->
+                    <tr style="font-weight:bold; background:#e8f3ff;">
+                        <td style="text-align:center;">TÀI SẢN</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <!-- A – TÀI SẢN NGẮN HẠN -->
+                    <tr style="font-weight: bold; background: #e8f3ff;">
+                        <td>A – TÀI SẢN NGẮN HẠN (100 = 110 + 120 + 130 + 140 + 150)</td>
+                        <td>100</td>
+                        <td></td>
+                        <td style="text-align:right;"> <input id="cell_100_cuoi" class="myinput" value="@Model[0][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_100_dau" class="myinput" value="@Model[0][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <!-- I. Tiền -->
+                    <tr style="font-weight:bold;">
+                        <td>I. Tiền và các khoản tương đương tiền</td>
+                        <td>110</td>
+                        <td></td>
+                        <td style="text-align:right;"> <input id="cell_110_cuoi" class="myinput" value="@Model[1][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_110_dau" class="myinput" value="@Model[1][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <!-- II. Đầu tư tài chính -->
+                    <tr style="font-weight: bold; background: #e8f3ff;">
+                        <td>II. Đầu tư tài chính ngắn hạn</td>
+                        <td>120</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_120_cuoi" class="myinput" value="@Model[2][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_120_dau" class="myinput" value="@Model[2][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">1. Chứng khoán kinh doanh</td>
+                        <td>121</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_121_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_121_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">2. Dự phòng giảm giá chứng khoán kinh doanh (*)</td>
+                        <td>122</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_122_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_122_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">3. Đầu tư nắm giữ đến ngày đáo hạn ngắn hạn</td>
+                        <td>123</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_123_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_123_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <!-- III. Các khoản phải thu -->
+                    <tr style="font-weight: bold; background: #e8f3ff;">
+                        <td>III. Các khoản phải thu ngắn hạn</td>
+                        <td>130</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_130_cuoi" class="myinput" value="@Model[5][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_130_dau" class="myinput" value="@Model[5][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">1. Phải thu ngắn hạn của khách hàng</td>
+                        <td>131</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_131_cuoi" class="myinput" value="@Model[6][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_131_dau" class="myinput" value="@Model[6][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">2. Trả trước cho người bán ngắn hạn</td>
+                        <td>132</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_132_cuoi" class="myinput" value="@Model[7][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_132_dau" class="myinput" value="@Model[7][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">3. Phải thu ngắn hạn khác</td>
+                        <td>133</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_133_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_133_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">4. Tài sản thiếu chờ xử lý</td>
+                        <td>134</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_134_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_134_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">5. Dự phòng phải thu ngắn hạn khó đòi (*)</td>
+                        <td>135</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_135_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_135_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <!-- IV. Hàng tồn kho -->
+                    <tr style="font-weight: bold; background: #e8f3ff;">
+                        <td>IV. Hàng tồn kho</td>
+                        <td>140</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_140_cuoi" class="myinput" value="@Model[10][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_140_dau" class="myinput" value="@Model[10][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">1. Hàng tồn kho</td>
+                        <td>141</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_141_cuoi" class="myinput" value="@Model[11][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_141_dau" class="myinput" value="@Model[11][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">2. Dự phòng giảm giá hàng tồn kho (*)</td>
+                        <td>142</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_142_cuoi" class="myinput" value="@Model[12][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_142_dau" class="myinput" value="@Model[12][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <!-- V. Tài sản ngắn hạn khác -->
+                    <tr style="font-weight:bold;">
+                        <td>V. Tài sản ngắn hạn khác</td>
+                        <td>150</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_150_cuoi" class="myinput" value="@Model[13][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_150_dau" class="myinput" value="@Model[13][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">1. Thuế GTGT được khấu trừ</td>
+                        <td>151</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_151_cuoi" class="myinput" value="@Model[14][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_151_dau" class="myinput" value="@Model[14][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">2. Tài sản ngắn hạn khác</td>
+                        <td>152</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_152_cuoi" class="myinput" value="@Model[15][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_152_dau" class="myinput" value="@Model[15][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <!-- B – TÀI SẢN DÀI HẠN -->
+                    <tr style="font-weight:bold;">
+                        <td>B – TÀI SẢN DÀI HẠN (200 = 210+220+230+240+250+260)</td>
+                        <td>200</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_200_cuoi" class="myinput" value="@Model[18][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_200_dau" class="myinput" value="@Model[18][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <!-- I. Các khoản phải thu dài hạn -->
+                    <tr style="font-weight:bold;">
+                        <td>I. Các khoản phải thu dài hạn</td>
+                        <td>210</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_210_cuoi" class="myinput" value=0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_210_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">1. Phải thu dài hạn của khách hàng</td>
+                        <td>211</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_211_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_211_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">2. Trả trước cho người bán dài hạn</td>
+                        <td>212</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_212_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_212_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">3. Phải thu dài hạn nội bộ</td>
+                        <td>213</td>
+                        <td></td>
+                        <td id="cell_213_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_213_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">4. Phải thu dài hạn khác</td>
+                        <td>214</td>
+                        <td></td>
+                        <td id="cell_214_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_214_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">5. Dự phòng phải thu dài hạn khó đòi (*)</td>
+                        <td>215</td>
+                        <td></td>
+                        <td id="cell_215_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_215_dau" style="text-align:right;">0</td>
+                    </tr>
+
+                    <!-- II. Tài sản cố định -->
+                    <tr style="font-weight:bold;">
+                        <td>II. Tài sản cố định</td>
+                        <td>220</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_220_cuoi" class="myinput" value="@Model[19][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_220_dau" class="myinput" value="@Model[19][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">- Nguyên giá</td>
+                        <td>221</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_221_cuoi" class="myinput" value="@Model[20][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_221_dau" class="myinput" value="@Model[20][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">- Giá trị hao mòn lũy kế (*)</td>
+                        <td>222</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_222_cuoi" class="myinput" value="@Model[21][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_222_dau" class="myinput" value="@Model[21][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <!-- III. Bất động sản đầu tư -->
+                    <tr style="font-weight:bold;">
+                        <td>III. Bất động sản đầu tư</td>
+                        <td>230</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_230_cuoi" class="myinput" value="@Model[23][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_230_dau" class="myinput" value="@Model[23][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">- Nguyên giá</td>
+                        <td>231</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_231_cuoi" class="myinput" value="@Model[24][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_231_dau" class="myinput" value="@Model[24][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">- Giá trị hao mòn lũy kế (*)</td>
+                        <td>232</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_232_cuoi" class="myinput" value="@Model[25][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_232_dau" class="myinput" value="@Model[25][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <!-- IV. Tài sản dở dang dài hạn -->
+                    <tr style="font-weight:bold;">
+                        <td>IV. Xây dựng cơ bản dở dang</td>
+                        <td>240</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_240_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_240_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <!-- V. Đầu tư tài chính dài hạn -->
+                    <tr style="font-weight:bold;">
+                        <td>V. Đầu tư tài chính dài hạn</td>
+                        <td>250</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_250_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_250_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">1. Đầu tư góp vốn vào đơn vị khác</td>
+                        <td>251</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_251_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_251_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">2. Dự phòng tổn thất đầu tư vào đơn vị khác (*)</td>
+                        <td>252</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_252_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_252_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">3. Đầu tư nắm giữ đến ngày đáo hạn dài hạn</td>
+                        <td>253</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_253_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_253_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <!-- VI. Tài sản dài hạn khác -->
+                    <tr style="font-weight:bold;">
+                        <td>VI. Tài sản dài hạn khác</td>
+                        <td>260</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_260_dau" class="myinput" value="@Model[29][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_260_dau" class="myinput" value="@Model[29][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <!-- Tổng cộng tài sản -->
+                    <tr style="font-weight:bold; background:#f5f5f5;">
+                        <td>TỔNG CỘNG TÀI SẢN (300=100+200)</td>
+                        <td>300</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_300_cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_300_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <!-- NGUỒN VỐN -->
+                    <tr style="font-weight:bold; background:#e8f3ff;">
+                        <td style="text-align:center;">NGUỒN VỐN</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <!-- C – NỢ PHẢI TRẢ -->
+                    <tr style="font-weight:bold;">
+                        <td>C – NỢ PHẢI TRẢ (400=410+420)</td>
+                        <td>400</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_400_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_400_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <!-- I. Nợ ngắn hạn -->
+                    <tr style="font-weight:bold;">
+                        <td>I. Nợ ngắn hạn</td>
+                        <td>410</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_410_cuoi" class="myinput" value="@Model[34][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_410_dau" class="myinput" value="@Model[34][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <!-- Các chỉ tiêu chi tiết của Nợ ngắn hạn (411-419) -->
+
+                    <tr>
+                        <td style="padding-left:20px;">1. Phải trả người bán ngắn hạn</td>
+                        <td>411</td>
+                        <td></td>
+                        <td id="" style="text-align:right;"><input id="cell_411_cuoi" class="myinput" value="@Model[36][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td id="" style="text-align:right;"><input id="cell_411_dau" class="myinput" value="@Model[36][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">2. Người mua trả tiền trước ngắn hạn</td>
+                        <td>412</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_412_cuoi" class="myinput" value="@Model[37][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_412_dau" class="myinput" value="@Model[37][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">3. Thuế và các khoản phải nộp Nhà nước</td>
+                        <td>413</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_413_cuoi" class="myinput" value="@Model[38][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_413_dau" class="myinput" value="@Model[38][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">4. Phải trả người lao động</td>
+                        <td>414</td>
+                        <td></td>
+                        <td id="cell_414_dau" style="text-align:right;"><input id="cell_414_dau" class="myinput" value="@Model[39][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td id="cell_414_dau" style="text-align:right;"><input id="cell_414_dau" class="myinput" value="@Model[39][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">5. Chi phí phải trả ngắn hạn</td>
+                        <td>415</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_415_cuoi" class="myinput" value="@Model[40][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_415_dau" class="myinput" value="@Model[40][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">6. Phải trả ngắn hạn khác</td>
+                        <td>416</td>
+                        <td></td>
+                        <td istyle="text-align:right;"><input id="cell_416_cuoi" class="myinput" value="@Model[41][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_416_dau" class="myinput" value="@Model[41][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">7. Dự phòng phải trả ngắn hạn</td>
+                        <td>417</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_417_cuoi" class="myinput" value="@Model[45][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_417_dau" class="myinput" value="@Model[45][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">8. Quỹ khen thưởng phúc lợi</td>
+                        <td>418</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_418_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_418_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <!-- II. Nợ dài hạn -->
+                    <tr style="font-weight:bold;">
+                        <td>II. Nợ dài hạn</td>
+                        <td>420</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_420_cuoi" class="myinput" value="@Model[46][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_420_dau" class="myinput" value="@Model[46][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">1. Phải trả người bán dài hạn</td>
+                        <td>421</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_421_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_421_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">2. Người mua trả tiền trước dài hạn </td>
+                        <td>422</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_422_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_422_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">3. Phải trả nội bộ về vốn kinh doanh</td>
+                        <td>423</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_423_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_423_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">4. Phải trả dài hạn khác</td>
+                        <td>424</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_424_cuoi" class="myinput" value="@Model[51][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_424_dau" class="myinput" value="@Model[51][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">5. Vay và nợ thuê tài chính dài hạn</td>
+                        <td>425</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_425_cuoi" class="myinput" value="@Model[47][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_425_dau" class="myinput" value="@Model[47][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">6. Dự phòng phải trả dài hạn</td>
+                        <td>426</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_426_cuoi" class="myinput" value="@Model[52][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_426_dau" class="myinput" value="@Model[52][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">6. Dự phòng phải trả dài hạn</td>
+                        <td>427</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_427_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_427_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <!-- VỐN CHỦ SỞ HỮU -->
+                    <tr style="font-weight:bold;">
+                        <td>D – VỐN CHỦ SỞ HỮU (500=511+512+513+514+515+516+517)</td>
+                        <td>500</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_500_cuoi" class="myinput" value="@Model[53][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_500_dau" class="myinput" value="@Model[53][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;">1. Vốn góp của chủ sở hữu</td>
+                        <td>511</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_511_cuoi" class="myinput" value="@Model[55][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_511_dau" class="myinput" value="@Model[55][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;">2. Thặng dư vốn cổ phần</td>
+                        <td>512</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_512_cuoi" class="myinput" value="@Model[56][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_512_dau" class="myinput" value="@Model[56][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">3. Vốn khác của chủ sở hữu</td>
+                        <td>513</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_513_cuoi" class="myinput" value="@Model[57][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_513_dau" class="myinput" value="@Model[57][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">4. Cổ phiếu quỹ (*)</td>
+                        <td>514</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_514_cuoi" class="myinput" value="@Model[58][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_514_dau" class="myinput" value="@Model[58][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">5. Chênh lệch tỷ giá hối đoái</td>
+                        <td>515</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_515_cuoi" class="myinput" value="@Model[59][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_515_dau" class="myinput" value="@Model[59][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">6. Các quỹ thuộc vốn chủ sở hữu</td>
+                        <td>516</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_516_cuoi" class="myinput" value="@Model[60][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_516_dau" class="myinput" value="@Model[60][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">7. Lợi nhuận sau thuế chưa phân phối</td>
+                        <td>517</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_517_cuoi" class="myinput" value="@Model[61][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_517_dau" class="myinput" value="@Model[61][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <!-- Tổng cộng nguồn vốn -->
+                    <tr style="font-weight:bold; background:#f5f5f5;">
+                        <td>TỔNG CỘNG NGUỒN VỐN (600=400+500)</td>
+                        <td>600</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_600_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_600_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+                </tbody>
+            </table>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+            <div class="container mt-3">
+
+                <div class="row mb-2">
+                    <div class="col-3 text-end">Người lập biểu</div>
+                    <div class="col-3"><input id="nlbieu" type="text" class="form-control"></div>
+
+                    <div class="col-3 text-end">Giám đốc</div>
+                    <div class="col-3"><input id="giamdoc" type="text" class="form-control"></div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-3 text-end">Kế toán trưởng</div>
+                    <div class="col-3"><input id="ketoantruong" type="text" class="form-control"></div>
+
+                    <div class="col-3 text-end">Ngày lập</div>
+                    <div class="col-3"><input id="ngaylap" type="date" class="form-control" value="19/01/2026"></div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-3 text-end">Chứng chỉ hành nghề số</div>
+                    <div class="col-3"><input id="chungchi" type="text" class="form-control"></div>
+                    <div class="col-6"></div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-3 text-end">Đơn vị cung cấp dịch vụ kế toán</div>
+                    <div class="col-9"><input id="dvcc" type="text" class="form-control"></div>
+                </div>
+                <!-- Nút Submit -->
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-primary px-4" onclick="gui()">
+                            Gửi
+                        </button>
+                        <button onclick="exportXML()">
+                            exportXML
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<input id="path" type="hidden" value="@ViewBag.path" />
+<style>
+    textarea {
+        width: 100%; /* Đảm bảo chiếm toàn bộ chiều rộng của ô */
+        box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước */
+        resize: none; /* Ngăn người dùng thay đổi kích thước bằng tay */
+        max-height: 100px; /* Chiều cao tối đa */
+        overflow-y: auto; /* Hiển thị thanh cuộn khi cần */
+    }
+
+    .fullbox ul {
+        background-color: #cdcdcd;
+        margin: 0px;
+        padding: 0px;
+    }
+
+        .fullbox ul li {
+            display: inline-block;
+            margin: 0px;
+            padding: 0px;
+        }
+
+            .fullbox ul li a {
+                display: block;
+                background-color: #8b8b8b;
+                padding: 5px 5px;
+                cursor: pointer;
+                color: white !important;
+            }
+
+                .fullbox ul li a.actv {
+                    background-color: #4e4e4e;
+                }
+
+    .mycontainer {
+        max-width: 70%;
+        width: 70%;
+        margin: 0px auto;
+        background-color: white;
+        padding: 20px 10px;
+    }
+
+    .myinput {
+        width: 100%;
+        max-width: 100%;
+        border: none;
+        border-bottom: 1px solid #eee;
+        outline: none;
+        background-color: transparent;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+        table th {
+            font-weight: bold;
+            text-align: center;
+        }
+
+    .tdwidth {
+        width: 50px;
+    }
+
+    table input {
+        text-align: right;
+    }
+
+    table td, table th {
+        vertical-align: middle;
+    }
+
+    table td {
+        padding: 3px 10px !important;
+    }
+
+    .difftr {
+        background-color: #E8F4FA;
+        color: #084298;
+        font-weight: bold;
+    }
+
+        .difftr input {
+            color: #084298;
+            font-weight: bold;
+            background-color: transparent;
+        }
+
+    body {
+        background-color: #414141;
+    }
+</style>
+<script src="/Scripts/jquery-3.7.0.min.js"></script>
+<script>
+
+   function exportXML() { 
+    const baseUrl = '@Url.Action("CreateTaxXMLFull", "Candoiketoan")';
+       const url = `${baseUrl}?nam=${'@ViewBag.NamTC'}`;
+    window.open(url);
+}
+    function gui() {
+        $('#loadingModal').modal('show');
+
+        var stt = 1;
+
+
+        var datagui = {
+            path: $("#path").val(),
+            nlbieu: $("#nlbieu").val(),
+            giamdoc: $("#giamdoc").val(),
+            ketoantruong: $("#ketoantruong").val(),
+            chungchi: $("#chungchi").val(),
+            dvcc: $("#dvcc").val(),
+            ngayky: $("#ngaylap").val(),
+            nam:'@ViewBag.NamTC'
+        }
+        var dataArray = [];
+
+        $.ajax({
+            url: "/Candoiketoan/CreateData",
+            method: "POST",
+            data: datagui,
+            success: function (res) {
+                alert(res);
+                if (res >= 0) {
+                    $('tr').each(function () {
+                        var maso = 0;
+                        var DauNam = 0;
+                        var CuoiKy = 0;
+
+                        $(this).find('input').each(function (index) {
+
+                            if (index === 0) {
+                                // input đầu tiên (cuối)
+                                maso = $(this).attr('id').split('_')[1];
+                                DauNam = $(this).val();
+                            } else {
+                                // input thứ hai (đầu)
+                                CuoiKy = $(this).val();
+                            }
+
+                        });
+                        if (maso != "0") {
+                            var data = {
+                                path: $("#path").val(),
+                                maso: maso,
+                                DauNam: DauNam,
+                                CuoiKy: CuoiKy,
+                                idparent: res
+                            }
+                            dataArray.push(data);
+                        }
+
+                    });
+                    console.log(dataArray)
+                    $.ajax({
+                        url: "/Candoiketoan/CreateDataChild",
+                        method: "POST",
+                        contentType: "application/json", // ← THÊM DÒNG NÀY
+
+                        data: JSON.stringify({
+                            items: dataArray,
+                            path: escapePath('@ViewBag.path'),
+                            nam: '@ViewBag.NamTC', // Lấy từ form
+                            idparent: res
+                        }),
+
+                        success: function (res) {
+                            stt += 1;
+                            if (stt == 62) {
+                                $('#loadingModal').modal('hide');
+
+                            }
+                            console.log(stt)
+                            //alert(res)
+                        },
+                        error: function (xhr) {
+                            //alert("Có lỗi xảy ra!");
+                        }
+                    });
+                }
+
+
+            },
+            error: function (xhr) {
+                alert("Có lỗi xảy ra!");
+            }
+        });
+    }
+    function escapePath(path) {
+        return path.replace(/\\/g, "\\\\");
+    }
+    function toggle300() {
+        var result1 = Number($("#cell_100_cuoi").val()) + Number($("#cell_200_cuoi").val());
+        var result2 = Number($("#cell_100_dau").val()) + Number($("#cell_200_dau").val());
+        $("#cell_300_cuoi").val(result1);
+        $("#cell_300_dau").val(result2);
+    }
+    function toggle400() {
+        var result1 = Number($("#cell_410_cuoi").val()) + Number($("#cell_420_cuoi").val());
+        var result2 = Number($("#cell_410_dau").val()) + Number($("#cell_420_dau").val());
+        $("#cell_400_cuoi").val(result1);
+        $("#cell_400_dau").val(result2);
+    }
+    function toggle600() {
+        var result1 = Number($("#cell_400_cuoi").val()) + Number($("#cell_500_cuoi").val());
+        var result2 = Number($("#cell_400_dau").val()) + Number($("#cell_500_dau").val());
+        $("#cell_600_cuoi").val(result1);
+        $("#cell_600_dau").val(result2);
+    }
+    $(document).ready(function () {
+        toggle300();
+        toggle400();
+        toggle600();
+    });
+    function formatNumber(input) {
+        let value = parseFloat(input.value.replace(/\./g, '').replace(/,/g, '.'));
+        if (!isNaN(value)) {
+            input.value = value.toLocaleString('de-DE', { minimumFractionDigits: 0, maximumFractionDigits: 0 }); // Định dạng theo số thập phân
+        }
+        setDefaultValue();
+    }
+    // Hàm để xóa định dạng
+    function removeFormat(input) {
+        input.value = input.value.replace(/\./g, ''); // Xóa định dạng khi lấy lại
+    }
+    window.onload = function () {
+        const inputs = document.querySelectorAll('.myinput');
+        inputs.forEach(input => {
+            formatNumber(input); // Định dạng ngay khi tải
+        });
+    };
+    function setDefaultValue() {
+        const inputFields = document.querySelectorAll('.myInput');
+        inputFields.forEach(inputField => {
+            if (inputField.value === '') {
+                inputField.value = '0';
+            }
+        });
+    }
+</script>
+
+<!-- Modal -->
+<div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <h5 class="mt-3">Đang tải...</h5>
+            </div>
+        </div>
+    </div>
+</div>

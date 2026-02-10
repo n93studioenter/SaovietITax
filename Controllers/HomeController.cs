@@ -170,7 +170,7 @@ namespace Taxweb.Controllers
 
             var parameterss = new OleDbParameter[]
             {
-                 new OleDbParameter("?", DateTime.Now.Year.ToString())
+                 new OleDbParameter("?", tbLicence.Rows[0]["NamTC"].ToString())
             };
             var kq = ExecuteQuery(query, parameterss);
             double Quy1 = 0, Quy2 = 0, Quy3 = 0, Quy4 = 0;
@@ -282,7 +282,7 @@ namespace Taxweb.Controllers
                         new OleDbParameter("@T11", T11),
                         new OleDbParameter("@T12", T12),
                         new OleDbParameter("@NguoiKy", tendaily),
-                        new OleDbParameter("@Nam", DateTime.Now.Year),
+                        new OleDbParameter("@Nam", tbLicence.Rows[0]["NamTC"].ToString()),
                         new OleDbParameter("@k1", k1),
                         new OleDbParameter("@k2", k2),
                         new OleDbParameter("@k3", k3),
@@ -336,18 +336,18 @@ namespace Taxweb.Controllers
                 T10 = row.Field<double>("T10");
                 T11 = row.Field<double>("T11");
                 T12 = row.Field<double>("T12");
-                k1 = int.Parse(row.Field<string>("k1"));
-                k2 = int.Parse(row.Field<string>("k2"));
-                k3 = int.Parse(row.Field<string>("k3"));
-                k4 = int.Parse(row.Field<string>("k4"));
-                k5 = int.Parse(row.Field<string>("k5"));
-                k6 = int.Parse(row.Field<string>("k6"));
-                k7 = int.Parse(row.Field<string>("k7"));
-                k8 = int.Parse(row.Field<string>("k8"));
-                k9 = int.Parse(row.Field<string>("k9"));
-                k10 = int.Parse(row.Field<string>("k10"));
-                k11 = int.Parse(row.Field<string>("k11"));
-                k12 = int.Parse(row.Field<string>("k12"));
+                k1 = int.Parse(row.Field<string>("k1").Replace("...","0"));
+                k2 = int.Parse(row.Field<string>("k2").Replace("...", "0"));
+                k3 = int.Parse(row.Field<string>("k3").Replace("...", "0"));
+                k4 = int.Parse(row.Field<string>("k4").Replace("...", "0"));
+                k5 = int.Parse(row.Field<string>("k5").Replace("...", "0"));
+                k6 = int.Parse(row.Field<string>("k6").Replace("...", "0"));
+                k7 = int.Parse(row.Field<string>("k7").Replace("...", "0"));
+                k8 = int.Parse(row.Field<string>("k8").Replace("...", "0"));
+                k9 = int.Parse(row.Field<string>("k9").Replace("...", "0"));
+                k10 = int.Parse(row.Field<string>("k10").Replace("...", "0"));
+                k11 = int.Parse(row.Field<string>("k11").Replace("...", "0"));
+                k12 = int.Parse(row.Field<string>("k12").Replace("...", "0"));
                 // Gán giá trị cho NguoiKy (string)
                 tendaily = tendaily;
 
@@ -485,7 +485,7 @@ namespace Taxweb.Controllers
                     soQuy = int.Parse(match.Groups[1].Value);
 
                 }
-                int year = DateTime.Now.Year;
+                int year = int.Parse(tbLicence.Rows[0]["NamTC"].ToString());
                   
 
                 DateTime startDate = GetStartDateOfQuarter(year, soQuy);
@@ -510,7 +510,7 @@ namespace Taxweb.Controllers
                   
                 }
                 int lastDay = GetLastDayOfMonth(DateTime.Now.Month, soThang);
-                int year = DateTime.Now.Year;
+                int year = int.Parse(tbLicence.Rows[0]["NamTC"].ToString());
                 DateTime fd = new DateTime(year, soThang, 1);
                 DateTime td = new DateTime(year, soThang, lastDay);
                 ct = $@"<KyKKhaiThue>
@@ -563,10 +563,13 @@ namespace Taxweb.Controllers
 <thueSuatSauGiam>8</thueSuatSauGiam>
 <thueGTGTDuocGiam>{item.Field<double>("GT2")}</thueGTGTDuocGiam>
 </BangKeTenHHDV>";
-            }
+            } 
+            double tong3 = double.Parse(tbPL2.AsEnumerable().Sum(m => Math.Round(m.Field<double>("GT1"), MidpointRounding.AwayFromZero)).ToString());
+            double tong33 = double.Parse(tbPL2.AsEnumerable().Sum(m => Math.Round(m.Field<double>("GT2"), MidpointRounding.AwayFromZero)).ToString());
+            // TThue = Math.Round(g.Sum(x => x.TTrcthue) * 0.02, MidpointRounding.AwayFromZero)
+            var tong4 = Math.Round(tong3 * 0.02, MidpointRounding.AwayFromZero);
+            tong4 = tong33;
             dv2 = "";
-            decimal tong3 = decimal.Parse(tbPL2.AsEnumerable().Sum(m => m.Field<double>("GT1")).ToString());
-            var tong4 = Math.Round(tong3 * 0.02m);
             dv2 += $@"<BangKeTenHHDV ID=""ID_1"">
 <tenHHDV>Hàng hóa, dịch vụ bán ra trong kỳ được áp dụng mức thuế suất thuế giá trị gia tăng 8%</tenHHDV>
 <giaTriHHDV>{tbPL2.AsEnumerable().Sum(m => m.Field<double>("GT1"))}</giaTriHHDV>
@@ -574,7 +577,7 @@ namespace Taxweb.Controllers
 <thueSuatSauGiam>8</thueSuatSauGiam>
 <thueGTGTDuocGiam>{tong4}</thueGTGTDuocGiam>
 </BangKeTenHHDV>";
-         
+
             dv2 += $@"<tongCongGiaTriHHDV>{tong3}</tongCongGiaTriHHDV>";
             dv2 += $@"<tongCongThueGTGTDuocGiam>{tong4}</tongCongThueGTGTDuocGiam>";
                 // Tạo XML string đúng y hệt mẫu
@@ -731,6 +734,16 @@ namespace Taxweb.Controllers
                     if (soQuy == 4)
                     {
                         xml4 = xmlContent;
+                    }
+                    if (kq.Rows.Count == 0)
+                    {
+                         query = @"SELECT * FROM tbThongTinToKhai   WHERE  Nam= ?";
+
+                         parameterss = new OleDbParameter[]
+                        {
+                 new OleDbParameter("?", tbLicence.Rows[0]["NamTC"].ToString())
+                        };
+                         kq = ExecuteQuery(query, parameterss);
                     }
                     query = @"UPDATE tbThongTinToKhai 
               SET xml1 = ?,xml2=?,xml3=?,xml4=?
@@ -1286,15 +1299,24 @@ namespace Taxweb.Controllers
         List<Phuluc1> lstPhuluc2 = new List<Phuluc1>();
         public ActionResult Index(string path, string ky)
         {
+            dbPath = path;
+            string query = "SELECT * FROM License";
+            DataTable tbLicence = ExecuteQuery(query, null);
+            string namtc = "";
+            if (tbLicence.Rows.Count > 0)
+            {
+                namtc= tbLicence.Rows[0]["NamTC"].ToString();
+
+            }
             if (!string.IsNullOrEmpty(ky))
             {
                 if (ky.Contains("T"))
                 {
-                    ViewBag.ky = $"Tháng {ky.Replace("T", "")} năm {DateTime.Now.Year}";
+                    ViewBag.ky = $"Tháng {ky.Replace("T", "")} năm {namtc}";
                 }
                 if (ky.Contains("Q"))
                 {
-                    ViewBag.ky = $"Quý {ky.Replace("Q", "")} năm {DateTime.Now.Year}";
+                    ViewBag.ky = $"Quý {ky.Replace("Q", "")} năm {namtc}";
                 }
             }
             else
@@ -1308,8 +1330,8 @@ namespace Taxweb.Controllers
                     if (!string.IsNullOrEmpty(path))
                     {
                         dbPath = path;
-                        string query = "SELECT * FROM License";
-                        DataTable tbLicence = ExecuteQuery(query, null);
+                         query = "SELECT * FROM License";
+                         tbLicence = ExecuteQuery(query, null);
                         if (tbLicence.Rows.Count > 0)
                         {
                             model.TenCty = Helpers.ConvertVniToUnicode(tbLicence.Rows[0].Field<string>("TenCty"));
@@ -1386,7 +1408,7 @@ namespace Taxweb.Controllers
                         }
                     }
 
-                    if (contentXMl == "")
+                    if (string.IsNullOrEmpty(contentXMl))
                     {
                         if (ToKhaiThue.Rows.Count > 0)
                         {
@@ -1499,7 +1521,14 @@ namespace Taxweb.Controllers
                     {
                         //return Redirect("Contact");
                     }
-
+                int thangbd = 0;
+                int thangkt = 0;
+                if (ky.Contains("Q"))
+                {
+                    int quy = int.Parse(ky.Replace("Q", ""));
+                    thangbd = (quy - 1) * 3 + 1;
+                    thangkt = quy * 3;
+                }
                 //Lấy danh sách hoá đơn
                 string sql = @"
 SELECT DISTINCTROW 
@@ -1527,8 +1556,8 @@ FROM
 WHERE 
     Loai = -1 
     AND HD = 1 
-    AND ThangCT >= 7 
-    AND ThangCT <= 9
+    AND ThangCT >= "+ thangbd+@"
+    AND ThangCT <= "+ thangkt+@"
     AND (HDBL = 0 OR KCT = 0) 
     AND (HoaDon.DC = 0 OR HD = 1)
     AND TyLe = 8 
@@ -1560,7 +1589,8 @@ ORDER BY
                 ViewBag.Sum1 = result.Sum(m => m.TTrcthue);
                 ViewBag.Sum2 = result.Sum(m => m.TThue);
                 //Tính đầu ra
-                sql = @"SELECT DISTINCTROW HoaDon.KyHieu,SoHD,ChungTu.NgayCT as NgayPH,MatHang,SoLuong,ThanhTien,KhachHang.Ten,KhachHang.MST,ChungTu.SoHieu,IIF(TK_ID=3007,SoPS,-SoPS) AS Thue,ChungTu.MauSoHD as DiaChi,TyLe,HTTT,MauSo,MaCT,KCT FROM  ((HoaDon INNER JOIN ChungTu ON HoaDon.MaSo=ChungTu.MaSo) LEFT JOIN HethongTK ON ChungTu.MaTKCo=HethongTK.MaSo) LEFT JOIN KhachHang ON HoaDon.MaKhachHang=KhachHang.MaSo  WHERE HoaDon.Loai=1 AND  (ThangCT>=7 AND ThangCT<=9)  AND (HoaDon.DC=0 OR HD=1) and TyLe=8  ORDER BY NgayPH";
+               
+                sql = @"SELECT DISTINCTROW HoaDon.KyHieu,SoHD,ChungTu.NgayCT as NgayPH,MatHang,SoLuong,ThanhTien,KhachHang.Ten,KhachHang.MST,ChungTu.SoHieu,IIF(TK_ID=3007,SoPS,-SoPS) AS Thue,ChungTu.MauSoHD as DiaChi,TyLe,HTTT,MauSo,MaCT,KCT FROM  ((HoaDon INNER JOIN ChungTu ON HoaDon.MaSo=ChungTu.MaSo) LEFT JOIN HethongTK ON ChungTu.MaTKCo=HethongTK.MaSo) LEFT JOIN KhachHang ON HoaDon.MaKhachHang=KhachHang.MaSo  WHERE HoaDon.Loai=1 AND  (ThangCT>="+thangbd+" AND ThangCT<="+thangkt+")  AND (HoaDon.DC=0 OR HD=1) and TyLe=8  ORDER BY NgayPH";
                 DataTable kqdr = ExecuteQuery(sql, null);
                 foreach (DataRow item in kqdr.Rows)
                 {
@@ -1578,13 +1608,15 @@ ORDER BY
               {
                   Tenhang = g.Key,
                   TTrcthue = g.Sum(x => x.TTrcthue),
-                  TThue = g.Sum(x => x.TTrcthue) * 0.02f
+                  TThue = Math.Round(g.Sum(x => x.TTrcthue) * 0.02, MidpointRounding.AwayFromZero)
+
               })
               .ToList();
                     ViewBag.Phuluc2 = result;
+                ViewBag.listra = result;
                 decimal s3 = (decimal)result.Sum(m => m.TTrcthue);
                 ViewBag.Sum3=s3;
-                ViewBag.Sum4 = Math.Round(s3 * 0.02m);
+                ViewBag.Sum4 = (decimal)result.Sum(m => m.TThue);
                 return View(model);
                 }
 

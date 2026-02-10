@@ -1,0 +1,727 @@
+﻿
+
+<div class="fullbox" id="tab1">
+    <div class="mycontainer" style="font-family:'Times New Roman'">
+        <div class="row">
+            <div class="col-10">
+                <div style="
+    font-weight: bold;text-align:center;
+">
+                    CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+                </div>
+                <div style="
+    text-align: center;
+">
+                    Độc lập-Tự do-Hạnh phúc
+                </div>
+                <hr>
+                <div style="
+    font-weight: 600;text-align:center;
+">
+                    BÁO CÁO TÌNH HÌNH TÀI CHÍNH
+                </div>
+                <div style="
+    font-style: italic;text-align:center;
+">
+                    <div>
+                        Tại ngày 31 tháng 12 năm 2024
+                    </div>
+                    (Áp dụng cho doanh nghiệp đáp ứng giả định hoạt động liên tục)
+                </div>
+            </div>
+            <div class="col-2">
+                <div style="
+    font-size: 10px;
+    border: 1px solid;
+    padding: 10px 5px;
+">
+                    <div>
+                        Mẫu số:
+                    </div>
+                    <div style="
+    font-weight: bold;
+">
+                        B 01b – DNN
+                    </div>
+                    <div>
+                        (Ban hành theo Thông tư số 133/2016/TT-BTC Ngày 26/08/2016 của Bộ Tài chính)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <strong>[01]</strong> Tên người nộp thuế:
+            </div>
+            <div class="col-8">
+                <input id="TenCty" class="myinput" />
+            </div>
+            <div class="col-4">
+                <strong>[02]</strong> Mã số thuế:
+            </div>
+            <div class="col-8">
+                <strong></strong>
+            </div>
+            <div class="col-2">
+                <strong>[03]</strong> Địa chỉ:
+            </div>
+            <div class="col-2">
+                <input id="diachi" class="myinput" value="" />
+            </div>
+            <div class="col-2">
+                <strong>[04]</strong> Quận/Huyện:
+            </div>
+            <div class="col-1">
+                <input id="quanhuyen" class="myinput" value="" />
+            </div>
+            <div class="col-3">
+                <strong>[05]</strong> Tỉnh/Thành phố:
+            </div>
+            <div class="col-2">
+                <input id="tinhtp" class="myinput" value="" />
+            </div>
+        </div>
+
+      
+
+    </div>
+</div>
+<div class="fullbox" id="tab2">
+    <div class="mycontainer" style="font-family:'Times New Roman'">
+       
+        <div>
+            <table border="1" cellspacing="0" style="border-collapse:collapse; width:100%; font-family:'Times New Roman'; font-size:14px;" class="table table-bordered">
+                <thead>
+                    <tr style="font-weight:bold; text-align:center; background:#f5f5f5;">
+                        <th>CHỈ TIÊU</th>
+                        <th>Mã số</th>
+                        <th>Thuyết minh</th>
+                        <th>Số cuối năm</th>
+                        <th>Số đầu năm</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr style="font-weight: bold; background: #f5f5f5;">
+                        <td style="text-align:center;">1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>
+                    <!-- TÀI SẢN -->
+                    <tr style="font-weight:bold; background:#e8f3ff;">
+                        <td style="text-align:center;">TÀI SẢN</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <!-- A – TÀI SẢN NGẮN HẠN -->
+                    <tr style="font-weight: bold; background: #e8f3ff;">
+                        <td>A – TÀI SẢN NGẮN HẠN (100 = 110 + 120 + 130 + 140 + 150)</td>
+                        <td>100</td>
+                        <td></td>
+                        <td style="text-align:right;"> <input id="cell_100_cuoi" class="myinput" value="@Model[0][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td id="cell_100_dau" style="text-align:right;">10.735.807.976</td>
+                    </tr>
+
+                    <!-- I. Tiền -->
+                    <tr style="font-weight:bold;">
+                        <td>I. Tiền và các khoản tương đương tiền</td>
+                        <td>110</td>
+                        <td></td>
+                        <td id="cell_110_cuoi" style="text-align:right;">1.643.352.088</td>
+                        <td id="cell_110_dau" style="text-align:right;">1.006.410.597</td>
+                    </tr>
+
+                    <!-- II. Đầu tư tài chính -->
+                    <tr style="font-weight:bold;">
+                        <td>II. Đầu tư tài chính ngắn hạn</td>
+                        <td>120</td>
+                        <td></td>
+                        <td id="cell_120_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_120_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">1. Chứng khoán kinh doanh</td>
+                        <td>121</td>
+                        <td></td>
+                        <td id="cell_121_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_121_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">2. Dự phòng giảm giá chứng khoán kinh doanh (*)</td>
+                        <td>122</td>
+                        <td></td>
+                        <td id="cell_122_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_122_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">3. Đầu tư nắm giữ đến ngày đáo hạn ngắn hạn</td>
+                        <td>123</td>
+                        <td></td>
+                        <td id="cell_123_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_123_dau" style="text-align:right;">0</td>
+                    </tr>
+
+                    <!-- III. Các khoản phải thu -->
+                    <tr style="font-weight:bold;">
+                        <td>III. Các khoản phải thu ngắn hạn</td>
+                        <td>130</td>
+                        <td></td>
+                        <td id="cell_130_cuoi" style="text-align:right;">300.115.794</td>
+                        <td id="cell_130_dau" style="text-align:right;">300.052.500</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">1. Phải thu ngắn hạn của khách hàng</td>
+                        <td>131</td>
+                        <td></td>
+                        <td id="cell_131_cuoi" style="text-align:right;">300.052.500</td>
+                        <td id="cell_131_dau" style="text-align:right;">300.052.500</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">2. Trả trước cho người bán ngắn hạn</td>
+                        <td>132</td>
+                        <td></td>
+                        <td id="cell_132_cuoi" style="text-align:right;">63.294</td>
+                        <td id="cell_132_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">3. Phải thu ngắn hạn khác</td>
+                        <td>133</td>
+                        <td></td>
+                        <td id="cell_133_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_133_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">4. Tài sản thiếu chờ xử lý</td>
+                        <td>134</td>
+                        <td></td>
+                        <td id="cell_134_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_134_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">5. Dự phòng phải thu ngắn hạn khó đòi (*)</td>
+                        <td>135</td>
+                        <td></td>
+                        <td id="cell_135_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_135_dau" style="text-align:right;">0</td>
+                    </tr>
+
+                    <!-- IV. Hàng tồn kho -->
+                    <tr style="font-weight:bold;">
+                        <td>IV. Hàng tồn kho</td>
+                        <td>140</td>
+                        <td></td>
+                        <td id="cell_140_cuoi" style="text-align:right;">8.343.365.072</td>
+                        <td id="cell_140_dau" style="text-align:right;">9.064.217.231</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">1. Hàng tồn kho</td>
+                        <td>141</td>
+                        <td></td>
+                        <td id="cell_141_cuoi" style="text-align:right;">8.343.365.072</td>
+                        <td id="cell_141_dau" style="text-align:right;">9.064.217.231</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">2. Dự phòng giảm giá hàng tồn kho (*)</td>
+                        <td>142</td>
+                        <td></td>
+                        <td id="cell_142_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_142_dau" style="text-align:right;">0</td>
+                    </tr>
+
+                    <!-- V. Tài sản ngắn hạn khác -->
+                    <tr style="font-weight:bold;">
+                        <td>V. Tài sản ngắn hạn khác</td>
+                        <td>150</td>
+                        <td></td>
+                        <td id="cell_150_cuoi" style="text-align:right;">239.105.422</td>
+                        <td id="cell_150_dau" style="text-align:right;">365.127.648</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">1. Thuế GTGT được khấu trừ</td>
+                        <td>151</td>
+                        <td></td>
+                        <td id="cell_151_cuoi" style="text-align:right;">239.105.422</td>
+                        <td id="cell_151_dau" style="text-align:right;">365.127.648</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">2. Tài sản ngắn hạn khác</td>
+                        <td>152</td>
+                        <td></td>
+                        <td id="cell_152_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_152_dau" style="text-align:right;">0</td>
+                    </tr>
+
+                    <!-- B – TÀI SẢN DÀI HẠN -->
+                    <tr style="font-weight:bold;">
+                        <td>B – TÀI SẢN DÀI HẠN (200 = 210+220+230+240+250+260)</td>
+                        <td>200</td>
+                        <td></td>
+                        <td id="cell_200_cuoi" style="text-align:right;">10.067.340</td>
+                        <td id="cell_200_dau" style="text-align:right;">115.875.516</td>
+                    </tr>
+
+                    <!-- I. Các khoản phải thu dài hạn -->
+                    <tr style="font-weight:bold;">
+                        <td>I. Các khoản phải thu dài hạn</td>
+                        <td>210</td>
+                        <td></td>
+                        <td id="cell_210_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_210_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">1. Phải thu dài hạn của khách hàng</td>
+                        <td>211</td>
+                        <td></td>
+                        <td id="cell_211_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_211_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">2. Trả trước cho người bán dài hạn</td>
+                        <td>212</td>
+                        <td></td>
+                        <td id="cell_212_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_212_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">3. Phải thu dài hạn nội bộ</td>
+                        <td>213</td>
+                        <td></td>
+                        <td id="cell_213_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_213_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">4. Phải thu dài hạn khác</td>
+                        <td>214</td>
+                        <td></td>
+                        <td id="cell_214_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_214_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">5. Dự phòng phải thu dài hạn khó đòi (*)</td>
+                        <td>215</td>
+                        <td></td>
+                        <td id="cell_215_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_215_dau" style="text-align:right;">0</td>
+                    </tr>
+
+                    <!-- II. Tài sản cố định -->
+                    <tr style="font-weight:bold;">
+                        <td>II. Tài sản cố định</td>
+                        <td>220</td>
+                        <td></td>
+                        <td id="cell_220_cuoi" style="text-align:right;">8.400.660</td>
+                        <td id="cell_220_dau" style="text-align:right;">109.208.844</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">- Nguyên giá</td>
+                        <td>221</td>
+                        <td></td>
+                        <td id="cell_221_cuoi" style="text-align:right;">1.089.445.454</td>
+                        <td id="cell_221_dau" style="text-align:right;">1.089.445.454</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">- Giá trị hao mòn lũy kế (*)</td>
+                        <td>222</td>
+                        <td></td>
+                        <td id="cell_222_cuoi" style="text-align:right;">(1.081.044.794)</td>
+                        <td id="cell_222_dau" style="text-align:right;">(980.236.610)</td>
+                    </tr>
+
+                    <!-- III. Bất động sản đầu tư -->
+                    <tr style="font-weight:bold;">
+                        <td>III. Bất động sản đầu tư</td>
+                        <td>230</td>
+                        <td></td>
+                        <td id="cell_230_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_230_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">- Nguyên giá</td>
+                        <td>231</td>
+                        <td></td>
+                        <td id="cell_231_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_231_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">- Giá trị hao mòn lũy kế (*)</td>
+                        <td>232</td>
+                        <td></td>
+                        <td id="cell_232_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_232_dau" style="text-align:right;">0</td>
+                    </tr>
+
+                    <!-- IV. Tài sản dở dang dài hạn -->
+                    <tr style="font-weight:bold;">
+                        <td>IV. Tài sản dở dang dài hạn</td>
+                        <td>240</td>
+                        <td></td>
+                        <td id="cell_240_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_240_dau" style="text-align:right;">0</td>
+                    </tr>
+
+                    <!-- V. Đầu tư tài chính dài hạn -->
+                    <tr style="font-weight:bold;">
+                        <td>V. Đầu tư tài chính dài hạn</td>
+                        <td>250</td>
+                        <td></td>
+                        <td id="cell_250_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_250_dau" style="text-align:right;">0</td>
+                    </tr>
+
+                    <!-- VI. Tài sản dài hạn khác -->
+                    <tr style="font-weight:bold;">
+                        <td>VI. Tài sản dài hạn khác</td>
+                        <td>260</td>
+                        <td></td>
+                        <td id="cell_260_cuoi" style="text-align:right;">1.666.680</td>
+                        <td id="cell_260_dau" style="text-align:right;">6.666.672</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">1. Chi phí trả trước dài hạn</td>
+                        <td>261</td>
+                        <td></td>
+                        <td id="cell_261_cuoi" style="text-align:right;">1.666.680</td>
+                        <td id="cell_261_dau" style="text-align:right;">6.666.672</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">2. Tài sản thuế thu nhập hoãn lại</td>
+                        <td>262</td>
+                        <td></td>
+                        <td id="cell_262_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_262_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">3. Tài sản dài hạn khác</td>
+                        <td>263</td>
+                        <td></td>
+                        <td id="cell_263_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_263_dau" style="text-align:right;">0</td>
+                    </tr>
+
+                    <!-- Tổng cộng tài sản -->
+                    <tr style="font-weight:bold; background:#f5f5f5;">
+                        <td>TỔNG CỘNG TÀI SẢN (300=100+200)</td>
+                        <td>300</td>
+                        <td></td>
+                        <td id="cell_300_cuoi" style="text-align:right;">10.536.005.716</td>
+                        <td id="cell_300_dau" style="text-align:right;">10.851.683.492</td>
+                    </tr>
+
+                    <!-- NGUỒN VỐN -->
+                    <tr style="font-weight:bold; background:#e8f3ff;">
+                        <td style="text-align:center;">NGUỒN VỐN</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <!-- C – NỢ PHẢI TRẢ -->
+                    <tr style="font-weight:bold;">
+                        <td>C – NỢ PHẢI TRẢ (400=410+420)</td>
+                        <td>400</td>
+                        <td></td>
+                        <td id="cell_400_cuoi" style="text-align:right;">9.868.699</td>
+                        <td id="cell_400_dau" style="text-align:right;">325.352.842</td>
+                    </tr>
+
+                    <!-- I. Nợ ngắn hạn -->
+                    <tr style="font-weight:bold;">
+                        <td>I. Nợ ngắn hạn</td>
+                        <td>410</td>
+                        <td></td>
+                        <td id="cell_410_cuoi" style="text-align:right;">9.868.699</td>
+                        <td id="cell_410_dau" style="text-align:right;">325.352.842</td>
+                    </tr>
+                    <!-- Các chỉ tiêu chi tiết của Nợ ngắn hạn (411-419) -->
+                    <tr>
+                        <td style="padding-left:20px;">1. Vay và nợ ngắn hạn</td>
+                        <td>411</td>
+                        <td></td>
+                        <td id="cell_411_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_411_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">2. Phải trả người bán ngắn hạn</td>
+                        <td>412</td>
+                        <td></td>
+                        <td id="cell_412_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_412_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">3. Người mua trả tiền trước ngắn hạn</td>
+                        <td>413</td>
+                        <td></td>
+                        <td id="cell_413_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_413_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">4. Thuế và các khoản phải nộp Nhà nước</td>
+                        <td>414</td>
+                        <td></td>
+                        <td id="cell_414_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_414_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">5. Phải trả người lao động</td>
+                        <td>415</td>
+                        <td></td>
+                        <td id="cell_415_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_415_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">6. Chi phí phải trả ngắn hạn</td>
+                        <td>416</td>
+                        <td></td>
+                        <td id="cell_416_cuoi" style="text-align:right;">9.868.699</td>
+                        <td id="cell_416_dau" style="text-align:right;">325.352.842</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">7. Phải trả ngắn hạn khác</td>
+                        <td>417</td>
+                        <td></td>
+                        <td id="cell_417_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_417_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">8. Dự phòng phải trả ngắn hạn</td>
+                        <td>418</td>
+                        <td></td>
+                        <td id="cell_418_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_418_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">9. Quỹ khen thưởng phúc lợi</td>
+                        <td>419</td>
+                        <td></td>
+                        <td id="cell_419_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_419_dau" style="text-align:right;">0</td>
+                    </tr>
+
+                    <!-- II. Nợ dài hạn -->
+                    <tr style="font-weight:bold;">
+                        <td>II. Nợ dài hạn</td>
+                        <td>420</td>
+                        <td></td>
+                        <td id="cell_420_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_420_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">1. Phải trả dài hạn người bán</td>
+                        <td>421</td>
+                        <td></td>
+                        <td id="cell_421_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_421_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">2. Vay và nợ dài hạn</td>
+                        <td>422</td>
+                        <td></td>
+                        <td id="cell_422_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_422_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">3. Thuế thu nhập hoãn lại phải trả</td>
+                        <td>423</td>
+                        <td></td>
+                        <td id="cell_423_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_423_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">4. Dự phòng trợ cấp mất việc làm</td>
+                        <td>424</td>
+                        <td></td>
+                        <td id="cell_424_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_424_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">5. Dự phòng phải trả dài hạn</td>
+                        <td>425</td>
+                        <td></td>
+                        <td id="cell_425_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_425_dau" style="text-align:right;">0</td>
+                    </tr>
+
+                    <!-- VỐN CHỦ SỞ HỮU -->
+                    <tr style="font-weight:bold;">
+                        <td>D – VỐN CHỦ SỞ HỮU (500=511+512+513+514+515+516+517)</td>
+                        <td>500</td>
+                        <td></td>
+                        <td id="cell_500_cuoi" style="text-align:right;">10.526.137.017</td>
+                        <td id="cell_500_dau" style="text-align:right;">10.526.330.650</td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;">1. Vốn góp của chủ sở hữu</td>
+                        <td>511</td>
+                        <td></td>
+                        <td id="cell_511_cuoi" style="text-align:right;">10.000.000.000</td>
+                        <td id="cell_511_dau" style="text-align:right;">10.000.000.000</td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;">2. Thặng dư vốn cổ phần</td>
+                        <td>512</td>
+                        <td></td>
+                        <td id="cell_512_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_512_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">3. Vốn khác của chủ sở hữu</td>
+                        <td>513</td>
+                        <td></td>
+                        <td id="cell_513_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_513_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">4. Cổ phiếu quỹ (*)</td>
+                        <td>514</td>
+                        <td></td>
+                        <td id="cell_514_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_514_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">5. Chênh lệch đánh giá lại tài sản</td>
+                        <td>515</td>
+                        <td></td>
+                        <td id="cell_515_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_515_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">6. Chênh lệch tỷ giá hối đoái</td>
+                        <td>516</td>
+                        <td></td>
+                        <td id="cell_516_cuoi" style="text-align:right;">0</td>
+                        <td id="cell_516_dau" style="text-align:right;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">7. Lợi nhuận sau thuế chưa phân phối</td>
+                        <td>517</td>
+                        <td></td>
+                        <td id="cell_517_cuoi" style="text-align:right;">526.137.017</td>
+                        <td id="cell_517_dau" style="text-align:right;">526.330.650</td>
+                    </tr>
+
+                    <!-- Tổng cộng nguồn vốn -->
+                    <tr style="font-weight:bold; background:#f5f5f5;">
+                        <td>TỔNG CỘNG NGUỒN VỐN (600=400+500)</td>
+                        <td>600</td>
+                        <td></td>
+                        <td id="cell_600_cuoi" style="text-align:right;">10.536.005.716</td>
+                        <td id="cell_600_dau" style="text-align:right;">10.851.683.492</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<style>
+    textarea {
+        width: 100%; /* Đảm bảo chiếm toàn bộ chiều rộng của ô */
+        box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước */
+        resize: none; /* Ngăn người dùng thay đổi kích thước bằng tay */
+        max-height: 100px; /* Chiều cao tối đa */
+        overflow-y: auto; /* Hiển thị thanh cuộn khi cần */
+    }
+
+    .fullbox ul {
+        background-color: #cdcdcd;
+        margin: 0px;
+        padding: 0px;
+    }
+
+        .fullbox ul li {
+            display: inline-block;
+            margin: 0px;
+            padding: 0px;
+        }
+
+            .fullbox ul li a {
+                display: block;
+                background-color: #8b8b8b;
+                padding: 5px 5px;
+                cursor: pointer;
+                color: white !important;
+            }
+
+                .fullbox ul li a.actv {
+                    background-color: #4e4e4e;
+                }
+
+    .mycontainer {
+        max-width: 70%;
+        width: 70%;
+        margin: 0px auto;
+        background-color: white;
+        padding: 20px 10px;
+    }
+
+    .myinput {
+        width: 100%;
+        max-width: 100%;
+        border: none;
+        border-bottom: 1px solid #eee;
+        outline: none;
+        background-color: transparent;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+        table th {
+            font-weight: bold;
+            text-align: center;
+        }
+
+    .tdwidth {
+        width: 50px;
+    }
+
+    table input {
+        text-align: right;
+    }
+
+    table td, table th {
+        vertical-align: middle;
+    }
+
+    table td {
+        padding: 3px 10px !important;
+    }
+
+    .difftr {
+        background-color: #E8F4FA;
+        color: #084298;
+        font-weight: bold;
+    }
+
+        .difftr input {
+            color: #084298;
+            font-weight: bold;
+            background-color: transparent;
+        }
+
+    body {
+        background-color: #414141;
+    }
+</style>
+<script>
+    function formatNumber(input) {
+        let value = parseFloat(input.value.replace(/\./g, '').replace(/,/g, '.'));
+        if (!isNaN(value)) {
+            input.value = value.toLocaleString('de-DE', { minimumFractionDigits: 0, maximumFractionDigits: 0 }); // Định dạng theo số thập phân
+        }
+        setDefaultValue();
+    }
+    // Hàm để xóa định dạng
+    function removeFormat(input) {
+        input.value = input.value.replace(/\./g, ''); // Xóa định dạng khi lấy lại
+    }
+</script>
