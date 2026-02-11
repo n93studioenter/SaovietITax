@@ -44,9 +44,7 @@ namespace Taxweb.Controllers
                 if (!TableExists(conn, "tbCDTSChild"))
                 {
                     CreateTableCDTSchild(conn, "tbCDTSChild");
-                }
-
-
+                } 
 
                 string query = "SELECT * FROM CDTS";
                 DataTable CDTS = ExecuteQuery(query, null);
@@ -55,6 +53,15 @@ namespace Taxweb.Controllers
                  query = "SELECT * FROM License";
                 DataTable data = ExecuteQuery(query, null);
                 ViewBag.NamTC = data.Rows[0]["NamTC"].ToString();
+
+                query = "SELECT * FROM KQKD";
+                DataTable KQKD = ExecuteQuery(query, null);
+                ViewBag.KQKD= KQKD.AsEnumerable().ToList();
+
+                query = "SELECT * FROM KQKD";
+                DataTable LCTT = ExecuteQuery(query, null);
+                ViewBag.LCTT = LCTT.AsEnumerable().ToList();
+
                 return View(model);
             }
             return View();
@@ -391,140 +398,140 @@ namespace Taxweb.Controllers
         <ct600>
         </ct600>
       </ThuyetMinh>
-      <SoCuoiNam>
-        <ct100>10525938376</ct100>
-        <ct110>1643352088</ct110>
-        <ct120>0</ct120>
-        <ct121>0</ct121>
-        <ct122>0</ct122>
-        <ct123>0</ct123>
-        <ct130>300115794</ct130>
-        <ct131>300052500</ct131>
-        <ct132>63294</ct132>
-        <ct133>0</ct133>
-        <ct134>0</ct134>
-        <ct135>0</ct135>
-        <ct140>8343365072</ct140>
-        <ct141>8343365072</ct141>
-        <ct142>0</ct142>
-        <ct150>239105422</ct150>
-        <ct151>239105422</ct151>
-        <ct152>0</ct152>
-        <ct200>10067340</ct200>
-        <ct210>0</ct210>
-        <ct211>0</ct211>
-        <ct212>0</ct212>
-        <ct213>0</ct213>
-        <ct214>0</ct214>
-        <ct215>0</ct215>
-        <ct220>8400660</ct220>
-        <ct221>1089445454</ct221>
-        <ct222>-1081044794</ct222>
-        <ct230>0</ct230>
-        <ct231>0</ct231>
-        <ct232>0</ct232>
-        <ct240>0</ct240>
-        <ct250>0</ct250>
-        <ct251>0</ct251>
-        <ct252>0</ct252>
-        <ct253>0</ct253>
-        <ct260>1666680</ct260>
-        <ct300>10536005716</ct300>
-        <ct400>9868699</ct400>
-        <ct410>9868699</ct410>
-        <ct411>0</ct411>
-        <ct412>0</ct412>
-        <ct413>9868699</ct413>
-        <ct414>0</ct414>
-        <ct415>0</ct415>
-        <ct416>0</ct416>
-        <ct417>0</ct417>
-        <ct418>0</ct418>
-        <ct420>0</ct420>
-        <ct421>0</ct421>
-        <ct422>0</ct422>
-        <ct423>0</ct423>
-        <ct424>0</ct424>
-        <ct425>0</ct425>
-        <ct426>0</ct426>
-        <ct427>0</ct427>
-        <ct500>10526137017</ct500>
-        <ct511>10000000000</ct511>
-        <ct512>0</ct512>
-        <ct513>0</ct513>
-        <ct514>0</ct514>
-        <ct515>0</ct515>
-        <ct516>0</ct516>
-        <ct517>526137017</ct517>
-        <ct600>10536005716</ct600>
-      </SoCuoiNam>
-      <SoDauNam>
-        <ct100>10735807976</ct100>
-        <ct110>1006410597</ct110>
-        <ct120>0</ct120>
-        <ct121>0</ct121>
-        <ct122>0</ct122>
-        <ct123>0</ct123>
-        <ct130>300052500</ct130>
-        <ct131>300052500</ct131>
-        <ct132>0</ct132>
-        <ct133>0</ct133>
-        <ct134>0</ct134>
-        <ct135>0</ct135>
-        <ct140>9064217231</ct140>
-        <ct141>9064217231</ct141>
-        <ct142>0</ct142>
-        <ct150>365127648</ct150>
-        <ct151>365127648</ct151>
-        <ct152>0</ct152>
-        <ct200>115875516</ct200>
-        <ct210>0</ct210>
-        <ct211>0</ct211>
-        <ct212>0</ct212>
-        <ct213>0</ct213>
-        <ct214>0</ct214>
-        <ct215>0</ct215>
-        <ct220>109208844</ct220>
-        <ct221>1089445454</ct221>
-        <ct222>-980236610</ct222>
-        <ct230>0</ct230>
-        <ct231>0</ct231>
-        <ct232>0</ct232>
-        <ct240>0</ct240>
-        <ct250>0</ct250>
-        <ct251>0</ct251>
-        <ct252>0</ct252>
-        <ct253>0</ct253>
-        <ct260>6666672</ct260>
-        <ct300>10851683492</ct300>
-        <ct400>325352842</ct400>
-        <ct410>325352842</ct410>
-        <ct411>314559628</ct411>
-        <ct412>0</ct412>
-        <ct413>10793214</ct413>
-        <ct414>0</ct414>
-        <ct415>0</ct415>
-        <ct416>0</ct416>
-        <ct417>0</ct417>
-        <ct418>0</ct418>
-        <ct420>0</ct420>
-        <ct421>0</ct421>
-        <ct422>0</ct422>
-        <ct423>0</ct423>
-        <ct424>0</ct424>
-        <ct425>0</ct425>
-        <ct426>0</ct426>
-        <ct427>0</ct427>
-        <ct500>10526330650</ct500>
-        <ct511>10000000000</ct511>
-        <ct512>0</ct512>
-        <ct513>0</ct513>
-        <ct514>0</ct514>
-        <ct515>0</ct515>
-        <ct516>0</ct516>
-        <ct517>526330650</ct517>
-        <ct600>10851683492</ct600>
-      </SoDauNam>
+    <SoCuoiNam>
+  <ct100>{chkCDtS.Rows[0]["DauNam"].ToString()}</ct100>
+  <ct110>{chkCDtS.Rows[1]["DauNam"].ToString()}</ct110>
+  <ct120>{chkCDtS.Rows[2]["DauNam"].ToString()}</ct120>
+  <ct121>{chkCDtS.Rows[3]["DauNam"].ToString()}</ct121>
+  <ct122>{chkCDtS.Rows[4]["DauNam"].ToString()}</ct122>
+  <ct123>{chkCDtS.Rows[5]["DauNam"].ToString()}</ct123>
+  <ct130>{chkCDtS.Rows[6]["DauNam"].ToString()}</ct130>
+  <ct131>{chkCDtS.Rows[7]["DauNam"].ToString()}</ct131>
+  <ct132>{chkCDtS.Rows[8]["DauNam"].ToString()}</ct132>
+  <ct133>{chkCDtS.Rows[9]["DauNam"].ToString()}</ct133>
+  <ct134>{chkCDtS.Rows[10]["DauNam"].ToString()}</ct134>
+  <ct135>{chkCDtS.Rows[11]["DauNam"].ToString()}</ct135>
+  <ct140>{chkCDtS.Rows[12]["DauNam"].ToString()}</ct140>
+  <ct141>{chkCDtS.Rows[13]["DauNam"].ToString()}</ct141>
+  <ct142>{chkCDtS.Rows[14]["DauNam"].ToString()}</ct142>
+  <ct150>{chkCDtS.Rows[15]["DauNam"].ToString()}</ct150>
+  <ct151>{chkCDtS.Rows[16]["DauNam"].ToString()}</ct151>
+  <ct152>{chkCDtS.Rows[17]["DauNam"].ToString()}</ct152>
+  <ct200>{chkCDtS.Rows[18]["DauNam"].ToString()}</ct200>
+  <ct210>{chkCDtS.Rows[19]["DauNam"].ToString()}</ct210>
+  <ct211>{chkCDtS.Rows[20]["DauNam"].ToString()}</ct211>
+  <ct212>{chkCDtS.Rows[21]["DauNam"].ToString()}</ct212>
+  <ct213>0</ct213>
+  <ct214>0</ct214>
+  <ct215>0</ct215>
+  <ct220>{chkCDtS.Rows[22]["DauNam"].ToString()}</ct220>
+  <ct221>{chkCDtS.Rows[23]["DauNam"].ToString()}</ct221>
+  <ct222>{chkCDtS.Rows[24]["DauNam"].ToString()}</ct222>
+  <ct230>{chkCDtS.Rows[25]["DauNam"].ToString()}</ct230>
+  <ct231>{chkCDtS.Rows[26]["DauNam"].ToString()}</ct231>
+  <ct232>{chkCDtS.Rows[27]["DauNam"].ToString()}</ct232>
+  <ct240>{chkCDtS.Rows[28]["DauNam"].ToString()}</ct240>
+  <ct250>{chkCDtS.Rows[29]["DauNam"].ToString()}</ct250>
+  <ct251>{chkCDtS.Rows[30]["DauNam"].ToString()}</ct251>
+  <ct252>{chkCDtS.Rows[31]["DauNam"].ToString()}</ct252>
+  <ct253>{chkCDtS.Rows[32]["DauNam"].ToString()}</ct253>
+  <ct260>{chkCDtS.Rows[33]["DauNam"].ToString()}</ct260>
+  <ct300>{chkCDtS.Rows[34]["DauNam"].ToString()}</ct300>
+  <ct400>{chkCDtS.Rows[35]["DauNam"].ToString()}</ct400>
+  <ct410>{chkCDtS.Rows[36]["DauNam"].ToString()}</ct410>
+  <ct411>{chkCDtS.Rows[37]["DauNam"].ToString()}</ct411>
+  <ct412>{chkCDtS.Rows[38]["DauNam"].ToString()}</ct412>
+  <ct413>{chkCDtS.Rows[39]["DauNam"].ToString()}</ct413>
+  <ct414>{chkCDtS.Rows[40]["DauNam"].ToString()}</ct414>
+  <ct415>{chkCDtS.Rows[41]["DauNam"].ToString()}</ct415>
+  <ct416>{chkCDtS.Rows[42]["DauNam"].ToString()}</ct416>
+  <ct417>{chkCDtS.Rows[43]["DauNam"].ToString()}</ct417>
+  <ct418>{chkCDtS.Rows[44]["DauNam"].ToString()}</ct418>
+  <ct420>{chkCDtS.Rows[45]["DauNam"].ToString()}</ct420>
+  <ct421>{chkCDtS.Rows[46]["DauNam"].ToString()}</ct421>
+  <ct422>{chkCDtS.Rows[47]["DauNam"].ToString()}</ct422>
+  <ct423>{chkCDtS.Rows[48]["DauNam"].ToString()}</ct423>
+  <ct424>{chkCDtS.Rows[49]["DauNam"].ToString()}</ct424>
+  <ct425>{chkCDtS.Rows[50]["DauNam"].ToString()}</ct425>
+  <ct426>{chkCDtS.Rows[51]["DauNam"].ToString()}</ct426>
+  <ct427>{chkCDtS.Rows[52]["DauNam"].ToString()}</ct427>
+  <ct500>{chkCDtS.Rows[53]["DauNam"].ToString()}</ct500>
+  <ct511>{chkCDtS.Rows[54]["DauNam"].ToString()}</ct511>
+  <ct512>{chkCDtS.Rows[55]["DauNam"].ToString()}</ct512>
+  <ct513>{chkCDtS.Rows[56]["DauNam"].ToString()}</ct513>
+  <ct514>{chkCDtS.Rows[57]["DauNam"].ToString()}</ct514>
+  <ct515>{chkCDtS.Rows[58]["DauNam"].ToString()}</ct515>
+  <ct516>{chkCDtS.Rows[59]["DauNam"].ToString()}</ct516>
+  <ct517>{chkCDtS.Rows[60]["DauNam"].ToString()}</ct517>
+  <ct600>{chkCDtS.Rows[61]["DauNam"].ToString()}</ct600>
+</SoCuoiNam>
+     <SoDauNam>
+  <ct100>{chkCDtS.Rows[0]["CuoiKy"].ToString()}</ct100>
+  <ct110>{chkCDtS.Rows[1]["CuoiKy"].ToString()}</ct110>
+  <ct120>{chkCDtS.Rows[2]["CuoiKy"].ToString()}</ct120>
+  <ct121>{chkCDtS.Rows[3]["CuoiKy"].ToString()}</ct121>
+  <ct122>{chkCDtS.Rows[4]["CuoiKy"].ToString()}</ct122>
+  <ct123>{chkCDtS.Rows[5]["CuoiKy"].ToString()}</ct123>
+  <ct130>{chkCDtS.Rows[6]["CuoiKy"].ToString()}</ct130>
+  <ct131>{chkCDtS.Rows[7]["CuoiKy"].ToString()}</ct131>
+  <ct132>{chkCDtS.Rows[8]["CuoiKy"].ToString()}</ct132>
+  <ct133>{chkCDtS.Rows[9]["CuoiKy"].ToString()}</ct133>
+  <ct134>{chkCDtS.Rows[10]["CuoiKy"].ToString()}</ct134>
+  <ct135>{chkCDtS.Rows[11]["CuoiKy"].ToString()}</ct135>
+  <ct140>{chkCDtS.Rows[12]["CuoiKy"].ToString()}</ct140>
+  <ct141>{chkCDtS.Rows[13]["CuoiKy"].ToString()}</ct141> 
+  <ct142>{chkCDtS.Rows[14]["CuoiKy"].ToString()}</ct142>
+  <ct150>{chkCDtS.Rows[15]["CuoiKy"].ToString()}</ct150>
+  <ct151>{chkCDtS.Rows[16]["CuoiKy"].ToString()}</ct151> 
+  <ct152>{chkCDtS.Rows[17]["CuoiKy"].ToString()}</ct152>
+  <ct200>{chkCDtS.Rows[18]["CuoiKy"].ToString()}</ct200>
+  <ct210>{chkCDtS.Rows[19]["CuoiKy"].ToString()}</ct210>
+  <ct211>{chkCDtS.Rows[20]["CuoiKy"].ToString()}</ct211>
+  <ct212>{chkCDtS.Rows[21]["CuoiKy"].ToString()}</ct212>
+  <ct213>0</ct213>
+  <ct214>0</ct214>
+  <ct215>0</ct215>
+  <ct220>{chkCDtS.Rows[22]["CuoiKy"].ToString()}</ct220>
+  <ct221>{chkCDtS.Rows[23]["CuoiKy"].ToString()}</ct221>
+  <ct222>{chkCDtS.Rows[24]["CuoiKy"].ToString()}</ct222>
+  <ct230>{chkCDtS.Rows[25]["CuoiKy"].ToString()}</ct230>
+  <ct231>{chkCDtS.Rows[26]["CuoiKy"].ToString()}</ct231>
+  <ct232>{chkCDtS.Rows[27]["CuoiKy"].ToString()}</ct232>
+  <ct240>{chkCDtS.Rows[28]["CuoiKy"].ToString()}</ct240>
+  <ct250>{chkCDtS.Rows[29]["CuoiKy"].ToString()}</ct250>
+  <ct251>{chkCDtS.Rows[30]["CuoiKy"].ToString()}</ct251>
+  <ct252>{chkCDtS.Rows[31]["CuoiKy"].ToString()}</ct252>
+  <ct253>{chkCDtS.Rows[32]["CuoiKy"].ToString()}</ct253>
+  <ct260>{chkCDtS.Rows[33]["CuoiKy"].ToString()}</ct260> 
+  <ct300>{chkCDtS.Rows[34]["CuoiKy"].ToString()}</ct300> 
+  <ct400>{chkCDtS.Rows[35]["CuoiKy"].ToString()}</ct400>
+  <ct410>{chkCDtS.Rows[36]["CuoiKy"].ToString()}</ct410> 
+  <ct411>{chkCDtS.Rows[37]["CuoiKy"].ToString()}</ct411>
+  <ct412>{chkCDtS.Rows[38]["CuoiKy"].ToString()}</ct412>
+  <ct413>{chkCDtS.Rows[39]["CuoiKy"].ToString()}</ct413>
+  <ct414>{chkCDtS.Rows[40]["CuoiKy"].ToString()}</ct414>
+  <ct415>{chkCDtS.Rows[41]["CuoiKy"].ToString()}</ct415>
+  <ct416>{chkCDtS.Rows[42]["CuoiKy"].ToString()}</ct416>
+  <ct417>{chkCDtS.Rows[43]["CuoiKy"].ToString()}</ct417>
+  <ct418>{chkCDtS.Rows[44]["CuoiKy"].ToString()}</ct418>
+  <ct420>{chkCDtS.Rows[45]["CuoiKy"].ToString()}</ct420>
+  <ct421>{chkCDtS.Rows[46]["CuoiKy"].ToString()}</ct421>
+  <ct422>{chkCDtS.Rows[47]["CuoiKy"].ToString()}</ct422>
+  <ct423>{chkCDtS.Rows[48]["CuoiKy"].ToString()}</ct423>
+  <ct424>{chkCDtS.Rows[49]["CuoiKy"].ToString()}</ct424>
+  <ct425>{chkCDtS.Rows[50]["CuoiKy"].ToString()}</ct425>
+  <ct426>{chkCDtS.Rows[51]["CuoiKy"].ToString()}</ct426>
+  <ct427>{chkCDtS.Rows[52]["CuoiKy"].ToString()}</ct427>
+  <ct500>{chkCDtS.Rows[53]["CuoiKy"].ToString()}</ct500> 
+  <ct511>{chkCDtS.Rows[54]["CuoiKy"].ToString()}</ct511>  
+  <ct512>{chkCDtS.Rows[55]["CuoiKy"].ToString()}</ct512>
+  <ct513>{chkCDtS.Rows[56]["CuoiKy"].ToString()}</ct513>
+  <ct514>{chkCDtS.Rows[57]["CuoiKy"].ToString()}</ct514>
+  <ct515>{chkCDtS.Rows[58]["CuoiKy"].ToString()}</ct515>
+  <ct516>{chkCDtS.Rows[59]["CuoiKy"].ToString()}</ct516>
+  <ct517>{chkCDtS.Rows[60]["CuoiKy"].ToString()}</ct517>  
+  <ct600>{chkCDtS.Rows[61]["CuoiKy"].ToString()}</ct600>  
+</SoDauNam>
       <nguoiLapBieu>
       </nguoiLapBieu>
       <keToanTruong>
@@ -1656,7 +1663,7 @@ K2BD4WNep8Mug+G9ruJB/VoRzyo=</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds
 
                     using (OleDbCommand command = new OleDbCommand(query, connection))
                     {
-                        // Thêm các tham số vào command
+                        // Thêm các tham số vào command 
                         if (parameters != null)
                         {
                             command.Parameters.AddRange(parameters);

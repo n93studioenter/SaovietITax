@@ -1,7 +1,7 @@
 ﻿
 
 <div class="fullbox" id="tab1">
-    <div class="mycontainer" style="font-family:'Times New Roman'">
+    <div class="mycontainer" >
         <div class="row">
             <div class="col-10">
                 <div style="
@@ -18,7 +18,9 @@
                 <div style="
     font-weight: 600;text-align:center;
 ">
-                    BÁO CÁO TÌNH HÌNH TÀI CHÍNH
+                    <span id="titleName">
+                        BÁO CÁO TÌNH HÌNH TÀI CHÍNH
+                    </span>
                 </div>
                 <div style="
     font-style: italic;text-align:center;
@@ -87,10 +89,10 @@
     </div>
 </div>
 <div class="fullbox" id="tab2">
-    <div class="mycontainer" style="font-family:'Times New Roman'">
+    <div class="mycontainer" >
 
-        <div>
-            <table border="1" cellspacing="0" style="border-collapse:collapse; width:100%; font-family:'Times New Roman'; font-size:14px;" class="table table-bordered">
+        <div id="tb1">
+            <table border="1" cellspacing="0" style="border-collapse:collapse; width:100%;  font-size:14px;" class="table table-bordered">
                 <thead>
                     <tr style="font-weight:bold; text-align:center; background:#f5f5f5;">
                         <th>CHỈ TIÊU</th>
@@ -656,22 +658,1714 @@
                     <div class="col-9"><input id="dvcc" type="text" class="form-control"></div>
                 </div>
                 <!-- Nút Submit -->
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <button type="submit" class="btn btn-primary px-4" onclick="gui()">
-                            Gửi
-                        </button>
-                        <button onclick="exportXML()">
-                            exportXML
-                        </button>
-                    </div>
-                </div>
+
             </div>
 
         </div>
-    </div>
+        <div id="tb2">
+            <table border="1" cellspacing="0" style="border-collapse:collapse; width:100%; font-size:14px;" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            Chỉ tiêu
+                        </th>
+                        <th>
+                            Mã số
+                        </th>
+                        <th>
+                            Thuyết minh
+                        </th>
+                        <th>
+                            Năm nay
+                        </th>
+                        <th>
+                            Năm trước
+                        </th>
 
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center">1 </td>
+                        <td class="text-center">2 </td>
+                        <td class="text-center">3 </td>
+                        <td class="text-center">4 </td>
+                        <td class="text-center">5 </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;"><b>1. Doanh thu bán hàng và cung cấp dịch vụ</b></td>
+                        <td class="text-center">01</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_01cuoi" value="@ViewBag.KQKD[0][7]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;">
+                            <input id="cell_01_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;"><b>2. Các khoản giảm trừ doanh thu</b></td>
+                        <td class="text-center">02</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_02cuoi" value="@ViewBag.KQKD[2][7]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;">
+                            <input id="cell_02_dau" class="myinput"  onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;"><b>3. Doanh thu thuần về bán hàng và cung cấp dịch vụ (10= 01-02)</b></td>
+                        <td class="text-center">10</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_10cuoi" value="@ViewBag.KQKD[3][7]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;">
+                            <input id="cell_10_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;"><b>4. Giá vốn hàng bán</b></td>
+                        <td class="text-center">11</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_11cuoi" value="@ViewBag.KQKD[16][7]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_11_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;"><b>5. Lợi nhuận gộp về bán hàng và cung cấp dịch vụ (20 = 10 - 11)</b></td>
+                        <td class="text-center">20</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_20cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_20_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;"><b>6. Doanh thu hoạt động tài chính</b></td>
+                        <td class="text-center">21</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_21cuoi" value="@ViewBag.KQKD[8][7]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_21_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;"><b>7. Chi phí tài chính</b></td>
+                        <td class="text-center">22</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_22cuoi" value="@ViewBag.KQKD[9][7]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_22_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:40px;"><i>- Trong đó: Chi phí lãi vay</i></td>
+                        <td class="text-center">23</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_23cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_23_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;"><b>8. Chi phí quản lý kinh doanh</b></td>
+                        <td class="text-center">24</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_24cuoi" value="@ViewBag.KQKD[6][7]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_24_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;"><b>9. Lợi nhuận thuần từ hoạt động kinh doanh (30 = 20 + 21 - 22 - 24)</b></td>
+                        <td class="text-center">30</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_30cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_30_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;"><b>10. Thu nhập khác</b></td>
+                        <td class="text-center">31</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_31cuoi" value="@ViewBag.KQKD[10][7]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_31_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;"><b>11. Chi phí khác</b></td>
+                        <td class="text-center">32</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_32cuoi" value="@ViewBag.KQKD[11][7]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_32_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;"><b>12. Lợi nhuận khác (40 = 31 - 32)</b></td>
+                        <td class="text-center">40</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_40cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_40_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;"><b>13. Tổng lợi nhuận kế toán trước thuế (50 = 30 + 40)</b></td>
+                        <td class="text-center">50</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_50cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_50_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;"><b>14. Chi phí thuế TNDN</b></td>
+                        <td class="text-center">51</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_51cuoi" value="@ViewBag.KQKD[14][7]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_51_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;"><b>15. Lợi nhuận sau thuế thu nhập doanh nghiệp (60 = 50 - 51)</b></td>
+                        <td class="text-center">60</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_60cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_60_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div id="tb3">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="text-center">Chỉ tiêu</th>
+                        <th class="text-center">Mã số</th>
+                        <th class="text-center">Thuyết minh</th>
+                        <th class="text-center">Năm nay</th>
+                        <th class="text-center">Năm trước</th>
+                    </tr>
+                    <tr>
+                        <th class="text-center">1</th>
+                        <th class="text-center">2</th>
+                        <th class="text-center">3</th>
+                        <th class="text-center">4</th>
+                        <th class="text-center">5</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <!-- I -->
+                    <tr>
+                        <td><b>I. Lưu chuyển tiền từ hoạt động kinh doanh</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;">1. Tiền thu từ bán hàng, cung cấp dịch vụ và doanh thu khác</td>
+                        <td class="text-center">01</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_01cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_01_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;">2. Tiền chi trả cho người cung cấp hàng hóa, dịch vụ</td>
+                        <td class="text-center">02</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_02cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_02_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;">3. Tiền chi trả cho người lao động</td>
+                        <td class="text-center">03</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_03cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_03_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;">4. Tiền lãi vay đã trả</td>
+                        <td class="text-center">04</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_04cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_04_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;">5. Thuế thu nhập doanh nghiệp đã nộp</td>
+                        <td class="text-center">05</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_05cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_05_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;">6. Tiền thu khác từ hoạt động kinh doanh</td>
+                        <td class="text-center">06</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_06cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_06_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;"><b>7. Tiền chi khác cho hoạt động kinh doanh</b></td>
+                        <td class="text-center">07</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_07cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_07_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;"><b>Lưu chuyển tiền thuần từ hoạt động kinh doanh</b></td>
+                        <td class="text-center">20</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_20cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_20_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <!-- II -->
+                    <tr>
+                        <td><b>II. Lưu chuyển tiền từ hoạt động đầu tư</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;">1. Tiền chi để mua sắm, xây dựng TSCĐ, BĐSĐT và các tài sản dài hạn khác</td>
+                        <td class="text-center">21</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_21cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_21_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;">2. Tiền thu từ thanh lý, nhượng bán TSCĐ, BĐSĐT và các tài sản dài hạn khác</td>
+                        <td class="text-center">22</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_22cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_22_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;">3. Tiền chi cho vay, đầu tư góp vốn vào đơn vị khác</td>
+                        <td class="text-center">23</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_23cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_23_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;">4. Tiền thu hồi cho vay, đầu tư góp vốn vào đơn vị khác</td>
+                        <td class="text-center">24</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_24cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_24_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;">5. Tiền thu lãi cho vay, cổ tức và lợi nhuận được chia</td>
+                        <td class="text-center">25</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_25cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_25_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;"><b>Lưu chuyển tiền thuần từ hoạt động đầu tư</b></td>
+                        <td class="text-center">30</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_30cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_30_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <!-- III -->
+                    <tr>
+                        <td><b>III. Lưu chuyển tiền từ hoạt động tài chính</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;">1. Tiền thu từ phát hành cổ phiếu, nhận vốn góp của chủ sở hữu</td>
+                        <td class="text-center">31</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_31cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_31_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;">2. Tiền trả lại vốn góp cho các chủ sở hữu, mua lại cổ phiếu của doanh nghiệp đã phát hành</td>
+                        <td class="text-center">32</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_32cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_32_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;">3. Tiền thu từ đi vay</td>
+                        <td class="text-center">33</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_33cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_33_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;">4. Tiền trả nợ gốc vay và nợ thuê tài chính</td>
+                        <td class="text-center">34</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_34cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_34_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;">5. Cổ tức, lợi nhuận đã trả cho chủ sở hữu</td>
+                        <td class="text-center">35</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_35cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_35_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-left:20px;"><b>Lưu chuyển tiền thuần từ hoạt động tài chính</b></td>
+                        <td class="text-center">40</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_40cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_40_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <!-- Tổng -->
+                    <tr>
+                        <td><b>Lưu chuyển tiền thuần trong kỳ (50 = 20 + 30 + 40)</b></td>
+                        <td class="text-center">50</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_50cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_50_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Tiền và tương đương tiền đầu kỳ</td>
+                        <td class="text-center">60</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_60cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_60_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Ảnh hưởng của thay đổi tỷ giá hối đoái quy đổi ngoại tệ</td>
+                        <td class="text-center">61</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_61cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_61_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Tiền và tương đương tiền cuối kỳ (70 = 50 + 60 + 61)</b></td>
+                        <td class="text-center">70</td>
+                        <td></td>
+                        <td style="text-align:right;"><input id="cell_70cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_70_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div id="tb4">
+            <!-- ================== NHÓM TÀI SẢN NGẮN HẠN ================== -->
+            <table class="table table-bordered">
+                <tbody>
+
+                    <tr>
+                        <td rowspan="2" class="text-center"><b>Số hiệu<br>tài khoản</b></td>
+                        <td rowspan="2" class="text-center"><b>Tên tài khoản</b></td>
+                        <td colspan="2" class="text-center"><b>Số dư đầu kỳ</b></td>
+                        <td colspan="2" class="text-center"><b>Số phát sinh trong kỳ</b></td>
+                        <td colspan="2" class="text-center"><b>Số dư cuối kỳ</b></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><b>Nợ</b></td>
+                        <td class="text-center"><b>Có</b></td>
+                        <td class="text-center"><b>Nợ</b></td>
+                        <td class="text-center"><b>Có</b></td>
+                        <td class="text-center"><b>Nợ</b></td>
+                        <td class="text-center"><b>Có</b></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">A</td>
+                        <td class="text-center">B</td>
+                        <td class="text-center">1</td>
+                        <td class="text-center">2</td>
+                        <td class="text-center">3</td>
+                        <td class="text-center">4</td>
+                        <td class="text-center">5</td>
+                        <td class="text-center">6</td>
+                    </tr>
+
+                    <!-- 111 -->
+                    <tr>
+                        <td><b>111</b></td>
+                        <td><b>Tiền mặt</b></td>
+                        <td><input id="cell_111_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_111_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_111_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_111_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_111_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_111_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>1111</td>
+                        <td style="padding-left:20px;">Tiền Việt Nam</td>
+                        <td><input id="cell_1111_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1111_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1111_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1111_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1111_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1111_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>1112</td>
+                        <td style="padding-left:20px;">Ngoại tệ</td>
+                        <td><input id="cell_1112_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1112_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1112_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1112_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1112_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1112_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <!-- 112 -->
+                    <tr>
+                        <td><b>112</b></td>
+                        <td><b>Tiền gửi ngân hàng</b></td>
+                        <td><input id="cell_112_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_112_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_112_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_112_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_112_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_112_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>1121</td>
+                        <td style="padding-left:20px;">Tiền Việt Nam</td>
+                        <td><input id="cell_1121_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1121_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1121_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1121_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1121_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1121_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>1122</td>
+                        <td style="padding-left:20px;">Ngoại tệ</td>
+                        <td><input id="cell_1122_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1122_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1122_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1122_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1122_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1122_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+                    <tr>
+                        <td><b>121</b></td>
+                        <td><b>Chứng khoán kinh doanh</b></td>
+                        <td><input id="cell_121_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_121_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_121_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_121_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_121_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_121_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <!-- ===== 128 ===== -->
+                    <tr>
+                        <td><b>128</b></td>
+                        <td><b>Đầu tư nắm giữ đến ngày đáo hạn</b></td>
+                        <td><input id="cell_128_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_128_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_128_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_128_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_128_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_128_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <!-- ===== 131 ===== -->
+                    <tr>
+                        <td><b>131</b></td>
+                        <td><b>Phải thu của khách hàng</b></td>
+                        <td><input id="cell_131_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_131_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_131_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_131_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_131_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_131_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>1311</td>
+                        <td style="padding-left:20px;">Phải thu của khách hàng trong nước</td>
+                        <td><input id="cell_1311_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1311_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1311_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1311_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1311_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1311_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <!-- ===== 136 ===== -->
+                    <tr>
+                        <td><b>136</b></td>
+                        <td><b>Phải thu nội bộ</b></td>
+                        <td><input id="cell_136_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_136_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_136_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_136_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_136_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_136_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <!-- ===== 138 ===== -->
+                    <tr>
+                        <td><b>138</b></td>
+                        <td><b>Phải thu khác</b></td>
+                        <td><input id="cell_138_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_138_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_138_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_138_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_138_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_138_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <!-- ===== 141 ===== -->
+                    <tr>
+                        <td><b>141</b></td>
+                        <td><b>Tạm ứng</b></td>
+                        <td><input id="cell_141_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_141_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_141_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_141_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_141_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_141_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <!-- ===== 142 ===== -->
+                    <tr>
+                        <td><b>142</b></td>
+                        <td><b>Chi phí trả trước ngắn hạn</b></td>
+                        <td><input id="cell_142_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_142_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_142_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_142_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_142_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_142_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+                    <tr>
+                        <td><b>152</b></td>
+                        <td><b>Nguyên liệu, vật liệu</b></td>
+                        <td><input id="cell_152_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_152_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_152_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_152_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_152_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_152_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <!-- ===== 153 ===== -->
+                    <tr>
+                        <td><b>153</b></td>
+                        <td><b>Công cụ, dụng cụ</b></td>
+                        <td><input id="cell_153_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_153_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_153_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_153_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_153_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_153_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <!-- ===== 154 ===== -->
+                    <tr>
+                        <td><b>154</b></td>
+                        <td><b>Chi phí sản xuất, kinh doanh dở dang</b></td>
+                        <td><input id="cell_154_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_154_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_154_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_154_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_154_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_154_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <!-- ===== 155 ===== -->
+                    <tr>
+                        <td><b>155</b></td>
+                        <td><b>Thành phẩm</b></td>
+                        <td><input id="cell_155_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_155_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_155_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_155_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_155_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_155_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <!-- ===== 156 ===== -->
+                    <tr>
+                        <td><b>156</b></td>
+                        <td><b>Hàng hóa</b></td>
+                        <td><input id="cell_156_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_156_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_156_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_156_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_156_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_156_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>1561</td>
+                        <td style="padding-left:20px;">Giá mua hàng hóa</td>
+                        <td><input id="cell_1561_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1561_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1561_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1561_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1561_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1561_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>1562</td>
+                        <td style="padding-left:20px;">Chi phí thu mua</td>
+                        <td><input id="cell_1562_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1562_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1562_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1562_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1562_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_1562_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <!-- ===== 157 ===== -->
+                    <tr>
+                        <td><b>157</b></td>
+                        <td><b>Hàng gửi đi bán</b></td>
+                        <td><input id="cell_157_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_157_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_157_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_157_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_157_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_157_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+                    <tr>
+                        <td><b>211</b></td>
+                        <td><b>Tài sản cố định</b></td>
+                        <td><input id="cell_211_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_211_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_211_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_211_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_211_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_211_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>2111</td>
+                        <td>TSCĐ hữu hình</td>
+                        <td><input id="cell_2111_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2111_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2111_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2111_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2111_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2111_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>2112</td>
+                        <td>TSCĐ thuê tài chính</td>
+                        <td><input id="cell_2112_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2112_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2112_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2112_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2112_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2112_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>2113</td>
+                        <td>TSCĐ vô hình</td>
+                        <td><input id="cell_2113_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2113_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2113_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2113_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2113_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2113_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>214</b></td>
+                        <td><b>Hao mòn TSCĐ</b></td>
+                        <td><input id="cell_214_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_214_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_214_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_214_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_214_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_214_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>2141</td>
+                        <td>Hao mòn TSCĐ hữu hình</td>
+                        <td><input id="cell_2141_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2141_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2141_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2141_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2141_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2141_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>2142</td>
+                        <td>Hao mòn TSCĐ thuê tài chính</td>
+                        <td><input id="cell_2142_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2142_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2142_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2142_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2142_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2142_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>2143</td>
+                        <td>Hao mòn TSCĐ vô hình</td>
+                        <td><input id="cell_2143_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2143_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2143_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2143_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2143_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2143_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>217</td>
+                        <td>Bất động sản đầu tư</td>
+                        <td><input id="cell_217_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_217_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_217_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_217_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_217_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_217_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>228</td>
+                        <td>Đầu tư góp vốn vào đơn vị khác</td>
+                        <td><input id="cell_228_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_228_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_228_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_228_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_228_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_228_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>2281</td>
+                        <td>Đầu tư vào công ty con, liên kết</td>
+                        <td><input id="cell_2281_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2281_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2281_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2281_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2281_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2281_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>2288</td>
+                        <td>Đầu tư khác</td>
+                        <td><input id="cell_2288_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2288_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2288_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2288_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2288_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2288_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>229</td>
+                        <td>Dự phòng tổn thất tài sản</td>
+                        <td><input id="cell_229_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_229_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_229_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_229_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_229_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_229_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>2291</td>
+                        <td>Dự phòng giảm giá chứng khoán kinh doanh</td>
+                        <td><input id="cell_2291_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2291_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2291_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2291_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2291_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2291_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+                    <tr>
+                        <td><b>211</b></td>
+                        <td><b>Tài sản cố định</b></td>
+                        <td><input id="cell_211_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_211_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_211_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_211_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_211_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_211_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>2111</td>
+                        <td>TSCĐ hữu hình</td>
+                        <td><input id="cell_2111_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2111_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2111_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2111_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2111_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2111_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>2112</td>
+                        <td>TSCĐ thuê tài chính</td>
+                        <td><input id="cell_2112_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2112_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2112_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2112_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2112_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2112_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>2113</td>
+                        <td>TSCĐ vô hình</td>
+                        <td><input id="cell_2113_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2113_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2113_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2113_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2113_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2113_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>214</b></td>
+                        <td><b>Hao mòn TSCĐ</b></td>
+                        <td><input id="cell_214_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_214_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_214_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_214_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_214_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_214_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>2141</td>
+                        <td>Hao mòn TSCĐ hữu hình</td>
+                        <td><input id="cell_2141_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2141_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2141_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2141_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2141_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2141_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+
+                    <tr>
+                        <td>33312</td>
+                        <td>Thuế GTGT hàng nhập khẩu</td>
+                        <td><input id="cell_33312_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_33312_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_33312_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_33312_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_33312_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_33312_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3332</td>
+                        <td>Thuế tiêu thụ đặc biệt</td>
+                        <td><input id="cell_3332_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3332_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3332_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3332_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3332_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3332_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3333</td>
+                        <td>Thuế xuất, nhập khẩu</td>
+                        <td><input id="cell_3333_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3333_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3333_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3333_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3333_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3333_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3334</td>
+                        <td>Thuế thu nhập doanh nghiệp</td>
+                        <td><input id="cell_3334_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3334_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3334_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3334_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3334_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3334_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3335</td>
+                        <td>Thuế thu nhập cá nhân</td>
+                        <td><input id="cell_3335_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3335_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3335_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3335_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3335_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3335_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3336</td>
+                        <td>Thuế tài nguyên</td>
+                        <td><input id="cell_3336_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3336_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3336_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3336_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3336_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3336_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3337</td>
+                        <td>Thuế nhà đất, tiền thuê đất</td>
+                        <td><input id="cell_3337_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3337_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3337_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3337_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3337_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3337_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3338</td>
+                        <td>Thuế bảo vệ môi trường và các loại thuế khác</td>
+                        <td><input id="cell_3338_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3338_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3338_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3338_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3338_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3338_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>33381</td>
+                        <td>Thuế bảo vệ môi trường</td>
+                        <td><input id="cell_33381_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_33381_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_33381_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_33381_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_33381_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_33381_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>33382</td>
+                        <td>Các loại thuế khác</td>
+                        <td><input id="cell_33382_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_33382_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_33382_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_33382_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_33382_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_33382_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3339</td>
+                        <td>Phí, lệ phí và các khoản phải nộp khác</td>
+                        <td><input id="cell_3339_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3339_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3339_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3339_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3339_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3339_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>334</b></td>
+                        <td><b>Phải trả người lao động</b></td>
+                        <td><input id="cell_334_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_334_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_334_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_334_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_334_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_334_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>335</td>
+                        <td>Chi phí phải trả</td>
+                        <td><input id="cell_335_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_335_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_335_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_335_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_335_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_335_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>336</td>
+                        <td>Phải trả nội bộ</td>
+                        <td><input id="cell_336_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_336_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_336_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_336_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_336_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_336_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3361</td>
+                        <td>Phải trả nội bộ về vốn kinh doanh</td>
+                        <td><input id="cell_3361_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3361_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3361_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3361_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3361_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3361_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+                    <tr>
+                        <td>3368</td>
+                        <td>Phải trả nội bộ khác</td>
+                        <td><input id="cell_3368_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3368_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3368_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3368_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3368_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3368_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>338</b></td>
+                        <td><b>Phải trả, phải nộp khác</b></td>
+                        <td><input id="cell_338_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_338_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_338_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_338_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_338_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_338_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3381</td>
+                        <td>Tài sản thừa chờ giải quyết</td>
+                        <td><input id="cell_3381_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3381_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3381_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3381_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3381_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3381_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3382</td>
+                        <td>Kinh phí công đoàn</td>
+                        <td><input id="cell_3382_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3382_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3382_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3382_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3382_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3382_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3383</td>
+                        <td>Bảo hiểm xã hội</td>
+                        <td><input id="cell_3383_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3383_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3383_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3383_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3383_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3383_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3384</td>
+                        <td>Bảo hiểm y tế</td>
+                        <td><input id="cell_3384_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3384_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3384_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3384_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3384_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3384_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3385</td>
+                        <td>Bảo hiểm thất nghiệp</td>
+                        <td><input id="cell_3385_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3385_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3385_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3385_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3385_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3385_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3386</td>
+                        <td>Nhận ký quỹ, ký cược</td>
+                        <td><input id="cell_3386_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3386_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3386_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3386_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3386_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3386_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3387</td>
+                        <td>Doanh thu chưa thực hiện</td>
+                        <td><input id="cell_3387_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3387_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3387_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3387_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3387_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3387_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3388</td>
+                        <td>Phải trả, phải nộp khác</td>
+                        <td><input id="cell_3388_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3388_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3388_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3388_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3388_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3388_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>341</b></td>
+                        <td><b>Vay và nợ thuê tài chính</b></td>
+                        <td><input id="cell_341_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_341_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_341_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_341_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_341_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_341_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3411</td>
+                        <td>Các khoản đi vay</td>
+                        <td><input id="cell_3411_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3411_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3411_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3411_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3411_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3411_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3412</td>
+                        <td>Nợ thuê tài chính</td>
+                        <td><input id="cell_3412_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3412_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3412_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3412_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3412_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3412_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>352</b></td>
+                        <td><b>Dự phòng phải trả</b></td>
+                        <td><input id="cell_352_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_352_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_352_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_352_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_352_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_352_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3521</td>
+                        <td>Dự phòng bảo hành sản phẩm, hàng hóa</td>
+                        <td><input id="cell_3521_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3521_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3521_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3521_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3521_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3521_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td>3522</td>
+                        <td>Dự phòng bảo hành công trình xây dựng</td>
+                        <td><input id="cell_3522_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3522_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3522_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3522_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3522_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3522_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+                    <tr>
+                        <td><b>3524</b></td>
+                        <td>Dự phòng phải trả khác</td>
+                        <td><input id="cell_3524_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3524_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3524_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3524_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3524_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3524_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>353</b></td>
+                        <td><b>Quỹ khen thưởng, phúc lợi</b></td>
+                        <td><input id="cell_353_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_353_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_353_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_353_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_353_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_353_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>3531</b></td>
+                        <td>Quỹ khen thưởng</td>
+                        <td><input id="cell_3531_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3531_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3531_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3531_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3531_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3531_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>3532</b></td>
+                        <td>Quỹ phúc lợi</td>
+                        <td><input id="cell_3532_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3532_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3532_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3532_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3532_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3532_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>3533</b></td>
+                        <td>Quỹ phúc lợi đã hình thành TSCĐ</td>
+                        <td><input id="cell_3533_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3533_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3533_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3533_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3533_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3533_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+                    <tr>
+                        <td><b>3534</b></td>
+                        <td>Quỹ thưởng ban quản lý điều hành công ty</td>
+                        <td><input id="cell_3534_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3534_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3534_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3534_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3534_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3534_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>356</b></td>
+                        <td><b>Quỹ phát triển khoa học và công nghệ</b></td>
+                        <td><input id="cell_356_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_356_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_356_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_356_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_356_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_356_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>3561</b></td>
+                        <td>Quỹ phát triển khoa học và công nghệ</td>
+                        <td><input id="cell_3561_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3561_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3561_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3561_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3561_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3561_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>3562</b></td>
+                        <td>Quỹ phát triển khoa học và công nghệ đã hình thành TSCĐ</td>
+                        <td><input id="cell_3562_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3562_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3562_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3562_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3562_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_3562_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>411</b></td>
+                        <td><b>Vốn đầu tư của chủ sở hữu</b></td>
+                        <td><input id="cell_411_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_411_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_411_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_411_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_411_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_411_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+                    <tr>
+                        <td><b>4112</b></td>
+                        <td>Thặng dư vốn cổ phần</td>
+                        <td><input id="cell_4112_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_4112_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_4112_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_4112_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_4112_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_4112_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>4118</b></td>
+                        <td>Vốn khác</td>
+                        <td><input id="cell_4118_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_4118_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_4118_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_4118_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_4118_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_4118_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>413</b></td>
+                        <td>Chênh lệch tỷ giá hối đoái</td>
+                        <td><input id="cell_413_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_413_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_413_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_413_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_413_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_413_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>418</b></td>
+                        <td><b>Các quỹ thuộc vốn chủ sở hữu</b></td>
+                        <td><input id="cell_418_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_418_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_418_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_418_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_418_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_418_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>419</b></td>
+                        <td>Cổ phiếu quỹ</td>
+                        <td><input id="cell_419_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_419_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_419_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_419_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_419_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_419_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>421</b></td>
+                        <td><b>Lợi nhuận sau thuế chưa phân phối</b></td>
+                        <td><input id="cell_421_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_421_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_421_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_421_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_421_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_421_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>4211</b></td>
+                        <td>Lợi nhuận chưa phân phối năm trước</td>
+                        <td><input id="cell_4211_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_4211_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_4211_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_4211_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_4211_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_4211_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>4212</b></td>
+                        <td>Lợi nhuận chưa phân phối năm nay</td>
+                        <td><input id="cell_4212_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_4212_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_4212_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_4212_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_4212_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_4212_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>511</b></td>
+                        <td><b>Doanh thu bán hàng và cung cấp dịch vụ</b></td>
+                        <td><input id="cell_511_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_511_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_511_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_511_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_511_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_511_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>5111</b></td>
+                        <td>Doanh thu bán hàng hóa</td>
+                        <td><input id="cell_5111_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5111_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5111_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5111_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5111_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5111_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>5112</b></td>
+                        <td>Doanh thu bán thành phẩm</td>
+                        <td><input id="cell_5112_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5112_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5112_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5112_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5112_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5112_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>5113</b></td>
+                        <td>Doanh thu cung cấp dịch vụ</td>
+                        <td><input id="cell_5113_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5113_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5113_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5113_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5113_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5113_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+                    <tr>
+                        <td><b>5118</b></td>
+                        <td>Doanh thu khác</td>
+                        <td><input id="cell_5118_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5118_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5118_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5118_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5118_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5118_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>515</b></td>
+                        <td>Doanh thu hoạt động tài chính</td>
+                        <td><input id="cell_515_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_515_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_515_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_515_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_515_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_515_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>611</b></td>
+                        <td>Mua hàng</td>
+                        <td><input id="cell_611_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_611_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_611_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_611_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_611_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_611_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>631</b></td>
+                        <td>Giá thành sản xuất</td>
+                        <td><input id="cell_631_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_631_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_631_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_631_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_631_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_631_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>632</b></td>
+                        <td>Giá vốn hàng bán</td>
+                        <td><input id="cell_632_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_632_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_632_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_632_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_632_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_632_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>635</b></td>
+                        <td>Chi phí tài chính</td>
+                        <td><input id="cell_635_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_635_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_635_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_635_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_635_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_635_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>642</b></td>
+                        <td>Chi phí quản lý kinh doanh</td>
+                        <td><input id="cell_642_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_642_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_642_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_642_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_642_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_642_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>6421</b></td>
+                        <td>Chi phí bán hàng</td>
+                        <td><input id="cell_6421_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_6421_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_6421_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_6421_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_6421_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_6421_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>6422</b></td>
+                        <td>Chi phí quản lý doanh nghiệp</td>
+                        <td><input id="cell_6422_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_6422_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_6422_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_6422_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_6422_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_6422_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>711</b></td>
+                        <td>Thu nhập khác</td>
+                        <td><input id="cell_711_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_711_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_711_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_711_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_711_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_711_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>811</b></td>
+                        <td>Chi phí khác</td>
+                        <td><input id="cell_811_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_811_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_811_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_811_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_811_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_811_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+                    <tr>
+                        <td><b>821</b></td>
+                        <td>Chi phí thuế thu nhập doanh nghiệp</td>
+                        <td><input id="cell_821_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_821_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_821_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_821_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_821_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_821_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>TÀI KHOẢN XÁC ĐỊNH KẾT QUẢ KINH DOANH</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>911</b></td>
+                        <td>Xác định kết quả kinh doanh</td>
+                        <td><input id="cell_911_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_911_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_911_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_911_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_911_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_911_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Tổng cộng</b></td>
+                        <td></td>
+                        <td><input id="cell_total_dk_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_total_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_total_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_total_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_total_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_total_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+        </div>
+        <div class="fullbox" style=" position: sticky; bottom: 0px; background-color: #eee;">
+            <ul class="float-start">
+                <li>
+                    <a id="acl1" onclick="opentab(1)" class="actv">
+                        BCTHTC
+                    </a>
+                </li>
+                <li>
+                    <a id="acl2" onclick="opentab(2)">
+                        BCKQHĐKD
+                    </a>
+                </li>
+                <li>
+                    <a id="acl3" onclick="opentab(3)">
+                        LCTTTT
+                    </a>
+                </li>
+                <li>
+                    <a id="acl4" onclick="opentab(4)">
+                        BCĐTK
+                    </a>
+                </li>
+            </ul>
+            <ul class="float-end">
+                @*<li>
+                    <button type="submit" class="btn btn-primary px-4" onclick="gui()">
+                        Gửi
+                    </button>
+                </li>
+                <li>
+                    <button onclick="exportXML()">
+                        exportXML
+                    </button>
+                </li>*@
+                <li>
+                    <a onclick="ketxuat()">Kết xuất</a>
+                </li>
+            </ul>
+            <div class="clearfix">
+
+            </div>
+        </div>
+    </div>
 </div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <input id="path" type="hidden" value="@ViewBag.path" />
 <style>
     textarea {
@@ -700,6 +2394,7 @@
                 padding: 5px 5px;
                 cursor: pointer;
                 color: white !important;
+                text-decoration: none;
             }
 
                 .fullbox ul li a.actv {
@@ -762,12 +2457,48 @@
 
     body {
         background-color: #414141;
+        font-family: "Times New Roman", sans-serif !important;
     }
 </style>
 <script src="/Scripts/jquery-3.7.0.min.js"></script>
 <script>
+    function opentab(tabNumber) {
+        if (tabNumber == 1) {
+            $("#titleName").html("BÁO CÁO TÌNH HÌNH TÀI CHÍNH")
+        }
+        if (tabNumber == 2) {
+            $("#titleName").html("BÁO CÁO KẾT QUẢ HOẠT ĐỘNG KINH DOANH")
+        }
+        if (tabNumber == 3) {
+            $("#titleName").html("BÁO CÁO LƯU CHUYỂN TIỀN TỆ")
+        }
+        if (tabNumber == 4) {
+            $("#titleName").html("BẢNG CÂN ĐỐI TÀI KHOẢN")
+        }
+        // Ẩn tất cả tab content
+        for (let i = 1; i <= 4; i++) {
+            $("#tb" + i).hide();
+        }
 
-   function exportXML() { 
+        // Hiển thị tab được chọn
+        $("#tb" + tabNumber).show();
+
+        // Xóa class active từ tất cả tab links
+        for (let i = 1; i <= 4; i++) {
+            $("#acl" + i).removeClass("actv");
+        }
+
+        // Thêm class active cho tab link được chọn
+        $("#acl" + tabNumber).addClass("actv");
+    }
+
+    // Có thể gọi trực tiếp:
+    // openTab(1); // Mở tab 1
+    // openTab(2); // Mở tab 2
+    // openTab(3); // Mở tab 3
+    // openTab(4); // Mở tab 4
+   
+   function exportXML() {
     const baseUrl = '@Url.Action("CreateTaxXMLFull", "Candoiketoan")';
        const url = `${baseUrl}?nam=${'@ViewBag.NamTC'}`;
     window.open(url);
@@ -883,6 +2614,7 @@
         $("#cell_600_dau").val(result2);
     }
     $(document).ready(function () {
+        opentab(2);
         toggle300();
         toggle400();
         toggle600();
@@ -912,6 +2644,1273 @@
             }
         });
     }
+
+    function ketxuat() {
+        var test = 1000;
+        var nguoiky = "Lê thành nghiệp"; 
+        const xmlContent = `<?xml version="1.0" encoding="UTF-8" standalone="no"?><HSoThueDTu xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <HSoKhaiThue id="_NODE_TO_SIGN">
+    <TTinChung>
+      <TTinDVu>
+        <maDVu>HTKK</maDVu>
+        <tenDVu>HỖ TRỢ KÊ KHAI THUẾ</tenDVu>
+        <pbanDVu>5.3.1</pbanDVu>
+        <ttinNhaCCapDVu>8B7771255E46CCFB75A8DE7D33CA0D12</ttinNhaCCapDVu>
+      </TTinDVu>
+      <TTinTKhaiThue>
+        <TKhaiThue>
+          <maTKhai>684</maTKhai>
+          <tenTKhai>Bộ báo cáo tài chính (B01b - DNN)(TT133/2016/TT-BTC)</tenTKhai>
+          <moTaBMau>(Ban hành theo Thông tư số 133/2016/TT-BTC ngày 26/8/2016 của Bộ Tài chính)</moTaBMau>
+          <pbanTKhaiXML>2.3.2</pbanTKhaiXML>
+          <loaiTKhai>C</loaiTKhai>
+          <soLan>0</soLan>
+          <KyKKhaiThue>
+            <kieuKy>Y</kieuKy>
+            <kyKKhai>2024</kyKKhai>
+            <kyKKhaiTuNgay>01/01/2024</kyKKhaiTuNgay>
+            <kyKKhaiDenNgay>31/12/2024</kyKKhaiDenNgay>
+            <kyKKhaiTuThang/>
+            <kyKKhaiDenThang/>
+          </KyKKhaiThue>
+          <maCQTNoiNop>71701</maCQTNoiNop>
+          <tenCQTNoiNop>Tp. Vũng Tàu - Đội Thuế liên huyện Vũng Tàu - Côn Đảo</tenCQTNoiNop>
+          <ngayLapTKhai>2025-03-18</ngayLapTKhai>
+          <GiaHan>
+            <maLyDoGiaHan>
+            </maLyDoGiaHan>
+            <lyDoGiaHan>
+            </lyDoGiaHan>
+          </GiaHan>
+          <nguoiKy>${nguoiky}</nguoiKy>
+          <ngayKy>2025-03-18</ngayKy>
+          <nganhNgheKD>
+          </nganhNgheKD>
+        </TKhaiThue>
+        <NNT>
+          <mst>3500807781</mst>
+          <tenNNT>CÔNG TY TNHH THƯƠNG MẠI-XÂY DỰNG ĐỨC THỊNH</tenNNT>
+          <dchiNNT>44 Lê Lai - Phường 3</dchiNNT>
+          <phuongXa>
+          </phuongXa>
+          <maHuyenNNT>71701</maHuyenNNT>
+          <tenHuyenNNT>Thành phố Vũng Tàu</tenHuyenNNT>
+          <maTinhNNT>717</maTinhNNT>
+          <tenTinhNNT>Bà Rịa - Vũng Tàu</tenTinhNNT>
+          <dthoaiNNT>
+          </dthoaiNNT>
+          <faxNNT>
+          </faxNNT>
+          <emailNNT>
+          </emailNNT>
+        </NNT>
+      </TTinTKhaiThue>
+    </TTinChung>
+    <CTieuTKhaiChinh>
+      <bctcDaKiemToan>0</bctcDaKiemToan>
+      <maYKienKToan>0</maYKienKToan>
+      <tenYKienKToan>
+      </tenYKienKToan>
+      <ThuyetMinh>
+        <ct100>
+        </ct100>
+        <ct110>
+        </ct110>
+        <ct120>
+        </ct120>
+        <ct121>
+        </ct121>
+        <ct122>
+        </ct122>
+        <ct123>
+        </ct123>
+        <ct130>
+        </ct130>
+        <ct131>
+        </ct131>
+        <ct132>
+        </ct132>
+        <ct133>
+        </ct133>
+        <ct134>
+        </ct134>
+        <ct135>
+        </ct135>
+        <ct140>
+        </ct140>
+        <ct141>
+        </ct141>
+        <ct142>
+        </ct142>
+        <ct150>
+        </ct150>
+        <ct151>
+        </ct151>
+        <ct152>
+        </ct152>
+        <ct200>
+        </ct200>
+        <ct210>
+        </ct210>
+        <ct211>
+        </ct211>
+        <ct212>
+        </ct212>
+        <ct213>
+        </ct213>
+        <ct214>
+        </ct214>
+        <ct215>
+        </ct215>
+        <ct220>
+        </ct220>
+        <ct221>
+        </ct221>
+        <ct222>
+        </ct222>
+        <ct230>
+        </ct230>
+        <ct231>
+        </ct231>
+        <ct232>
+        </ct232>
+        <ct240>
+        </ct240>
+        <ct250>
+        </ct250>
+        <ct251>
+        </ct251>
+        <ct252>
+        </ct252>
+        <ct253>
+        </ct253>
+        <ct260>
+        </ct260>
+        <ct300>
+        </ct300>
+        <ct400>
+        </ct400>
+        <ct410>
+        </ct410>
+        <ct411>
+        </ct411>
+        <ct412>
+        </ct412>
+        <ct413>
+        </ct413>
+        <ct414>
+        </ct414>
+        <ct415>
+        </ct415>
+        <ct416>
+        </ct416>
+        <ct417>
+        </ct417>
+        <ct418>
+        </ct418>
+        <ct420>
+        </ct420>
+        <ct421>
+        </ct421>
+        <ct422>
+        </ct422>
+        <ct423>
+        </ct423>
+        <ct424>
+        </ct424>
+        <ct425>
+        </ct425>
+        <ct426>
+        </ct426>
+        <ct427>
+        </ct427>
+        <ct500>
+        </ct500>
+        <ct511>
+        </ct511>
+        <ct512>
+        </ct512>
+        <ct513>
+        </ct513>
+        <ct514>
+        </ct514>
+        <ct515>
+        </ct515>
+        <ct516>
+        </ct516>
+        <ct517>
+        </ct517>
+        <ct600>
+        </ct600>
+      </ThuyetMinh>
+      <SoCuoiNam>
+        <ct100>0</ct100>
+        <ct110>${ cleanNumber($("#cell_100_cuoi").val().trim())}</ct110>
+        <ct120>0</ct120>
+        <ct121>0</ct121>
+        <ct122>0</ct122>
+        <ct123>0</ct123>
+        <ct130>0</ct130>
+        <ct131>00ct131>
+        <ct132>63294</ct132>
+        <ct133>0</ct133>
+        <ct134>0</ct134>
+        <ct135>0</ct135>
+        <ct140>0</0>
+        <ct141>8343365072</ct141>
+        <ct142>0</ct142>
+        <ct150>0</ct150>
+        <ct151>0</ct151>
+        <ct152>0</ct152>
+        <ct200>0</ct200>
+        <ct210>0</ct210>
+        <ct211>0</ct211>
+        <ct212>0</ct212>
+        <ct213>0</ct213>
+        <ct214>0</ct214>
+        <ct215>0</ct215>
+        <ct220>0</ct220>
+        <ct221>0</ct221>
+        <ct222>-0</ct222>
+        <ct230>0</ct230>
+        <ct231>0</ct231>
+        <ct232>0</ct232>
+        <ct240>0</ct240>
+        <ct250>0</ct250>
+        <ct251>0</ct251>
+        <ct252>0</ct252>
+        <ct253>0</ct253>
+        <ct260>0</ct260>
+        <ct300>0</ct300>
+        <ct400>0</ct400>
+        <ct410>0</ct410>
+        <ct411>0</ct411>
+        <ct412>0</ct412>
+        <ct413>0</ct413>
+        <ct414>0</ct414>
+        <ct415>0</ct415>
+        <ct416>0</ct416>
+        <ct417>0</ct417>
+        <ct418>0</ct418>
+        <ct420>0</ct420>
+        <ct421>0</ct421>
+        <ct422>0</ct422>
+        <ct423>0</ct423>
+        <ct424>0</ct424>
+        <ct425>0</ct425>
+        <ct426>0</ct426>
+        <ct427>0</ct427>
+        <ct500>0</ct500>
+        <ct511>0</ct511>
+        <ct512>0</ct512>
+        <ct513>0</ct513>
+        <ct514>0</ct514>
+        <ct515>0</ct515>
+        <ct516>0</ct516>
+        <ct517>0</ct517>
+        <ct600>0</ct600>
+      </SoCuoiNam>
+      <SoDauNam>
+        <ct100>0</ct100>
+        <ct110>0</ct110>
+        <ct120>0</ct120>
+        <ct121>0</ct121>
+        <ct122>0</ct122>
+        <ct123>0</ct123>
+        <ct130>0</ct130>
+        <ct131>0</ct131>
+        <ct132>0</ct132>
+        <ct133>0</ct133>
+        <ct134>0</ct134>
+        <ct135>0</ct135>
+        <ct140>0</ct140>
+        <ct141>0</ct141>
+        <ct142>0</ct142>
+        <ct150>0</ct150>
+        <ct151>0</ct151>
+        <ct152>0</ct152>
+        <ct200>0</ct200>
+        <ct210>0</ct210>
+        <ct211>0</ct211>
+        <ct212>0</ct212>
+        <ct213>0</ct213>
+        <ct214>0</ct214>
+        <ct215>0</ct215>
+        <ct220>0</ct220>
+        <ct221>0</ct221>
+        <ct222>-0</ct222>
+        <ct230>0</ct230>
+        <ct231>0</ct231>
+        <ct232>0</ct232>
+        <ct240>0</ct240>
+        <ct250>0</ct250>
+        <ct251>0</ct251>
+        <ct252>0</ct252>
+        <ct253>0</ct253>
+        <ct260>0</ct260>
+        <ct300>0</ct300>
+        <ct400>0</ct400>
+        <ct410>0</ct410>
+        <ct411>0</ct411>
+        <ct412>0</ct412>
+        <ct413>10793214</ct413>
+        <ct414>0</ct414>
+        <ct415>0</ct415>
+        <ct416>0</ct416>
+        <ct417>0</ct417>
+        <ct418>0</ct418>
+        <ct420>0</ct420>
+        <ct421>0</ct421>
+        <ct422>0</ct422>
+        <ct423>0</ct423>
+        <ct424>0</ct424>
+        <ct425>0</ct425>
+        <ct426>0</ct426>
+        <ct427>0</ct427>
+        <ct500>0</ct500>
+        <ct511>0</ct511>
+        <ct512>0</ct512>
+        <ct513>0</ct513>
+        <ct514>0</ct514>
+        <ct515>0</ct515>
+        <ct516>0</ct516>
+        <ct517>0</ct517>
+        <ct600>0</ct600>
+      </SoDauNam>
+      <nguoiLapBieu>
+      </nguoiLapBieu>
+      <keToanTruong>
+      </keToanTruong>
+      <ngayLap>2025-02-14</ngayLap>
+      <nguoiDaiDienTheoPhapLuat>Nguyễn Trường Giang</nguoiDaiDienTheoPhapLuat>
+    </CTieuTKhaiChinh>
+    <PLuc>
+      <PL_KQHDSXKD>
+        <ThuyetMinh>
+          <ct01/>
+          <ct02/>
+          <ct10/>
+          <ct11/>
+          <ct20/>
+          <ct21/>
+          <ct22/>
+          <ct23/>
+          <ct24/>
+          <ct30/>
+          <ct31/>
+          <ct32/>
+          <ct40/>
+          <ct50/>
+          <ct51/>
+          <ct60/>
+        </ThuyetMinh>
+        <NamNay>
+          <ct01>3800823318</ct01>
+          <ct02>0</ct02>
+          <ct10>3800823318</ct10>
+          <ct11>3485810206</ct11>
+          <ct20>315013112</ct20>
+          <ct21>40448614</ct21>
+          <ct22>0</ct22>
+          <ct23>0</ct23>
+          <ct24>537303654</ct24>
+          <ct30>-181841928</ct30>
+          <ct31>232219355</ct31>
+          <ct32>40495575</ct32>
+          <ct40>191723780</ct40>
+          <ct50>9881852</ct50>
+          <ct51>10075485</ct51>
+          <ct60>-193633</ct60>
+        </NamNay>
+        <NamTruoc>
+          <ct01>5334959897</ct01>
+          <ct02>0</ct02>
+          <ct10>5334959897</ct10>
+          <ct11>4967482914</ct11>
+          <ct20>367476983</ct20>
+          <ct21>88313116</ct21>
+          <ct22>0</ct22>
+          <ct23>0</ct23>
+          <ct24>699480366</ct24>
+          <ct30>-243690267</ct30>
+          <ct31>297656339</ct31>
+          <ct32>0</ct32>
+          <ct40>297656339</ct40>
+          <ct50>53966072</ct50>
+          <ct51>10793214</ct51>
+          <ct60>43172858</ct60>
+        </NamTruoc>
+      </PL_KQHDSXKD>
+      <PL_LCTTTT>
+        <ThuyetMinh>
+          <ct01/>
+          <ct02/>
+          <ct03/>
+          <ct04/>
+          <ct05/>
+          <ct06/>
+          <ct07/>
+          <ct20/>
+          <ct21/>
+          <ct22/>
+          <ct23/>
+          <ct24/>
+          <ct25/>
+          <ct30/>
+          <ct31/>
+          <ct32/>
+          <ct33/>
+          <ct34/>
+          <ct35/>
+          <ct40/>
+          <ct50/>
+          <ct60/>
+          <ct61/>
+          <ct70/>
+        </ThuyetMinh>
+        <NamNay>
+          <ct01>4219468120</ct01>
+          <ct02>-3115911325</ct02>
+          <ct03>-422930000</ct03>
+          <ct04>0</ct04>
+          <ct05>-24696000</ct05>
+          <ct06>44465000</ct06>
+          <ct07>-63498375</ct07>
+          <ct20>636897420</ct20>
+          <ct21>0</ct21>
+          <ct22>0</ct22>
+          <ct23>0</ct23>
+          <ct24>0</ct24>
+          <ct25>44071</ct25>
+          <ct30>44071</ct30>
+          <ct31>0</ct31>
+          <ct32>0</ct32>
+          <ct33>0</ct33>
+          <ct34>0</ct34>
+          <ct35>0</ct35>
+          <ct40>0</ct40>
+          <ct50>636941491</ct50>
+          <ct60>1006410597</ct60>
+          <ct61>0</ct61>
+          <ct70>1643352088</ct70>
+        </NamNay>
+        <NamTruoc>
+          <ct01>5898402426</ct01>
+          <ct02>-3566934779</ct02>
+          <ct03>-586650000</ct03>
+          <ct04>0</ct04>
+          <ct05>-2463806</ct05>
+          <ct06>1090975000</ct06>
+          <ct07>-8452000000</ct07>
+          <ct20>-5618671159</ct20>
+          <ct21>0</ct21>
+          <ct22>0</ct22>
+          <ct23>0</ct23>
+          <ct24>0</ct24>
+          <ct25>96399</ct25>
+          <ct30>96399</ct30>
+          <ct31>6500000000</ct31>
+          <ct32>0</ct32>
+          <ct33>0</ct33>
+          <ct34>0</ct34>
+          <ct35>0</ct35>
+          <ct40>6500000000</ct40>
+          <ct50>881425240</ct50>
+          <ct60>124985357</ct60>
+          <ct61>0</ct61>
+          <ct70>1006410597</ct70>
+        </NamTruoc>
+      </PL_LCTTTT>
+      <PL_CDTK>
+        <SoDuDauKy>
+          <No>
+            <ct111>917519211</ct111>
+            <ct1111>917519211</ct1111>
+            <ct1112>0</ct1112>
+            <ct112>88891386</ct112>
+            <ct1121>88891386</ct1121>
+            <ct1122>0</ct1122>
+            <ct121>0</ct121>
+            <ct128>0</ct128>
+            <ct1281>0</ct1281>
+            <ct1288>0</ct1288>
+            <ct131>300052500</ct131>
+            <ct133>365127648</ct133>
+            <ct1331>365127648</ct1331>
+            <ct1332>0</ct1332>
+            <ct136>0</ct136>
+            <ct1361>0</ct1361>
+            <ct1368>0</ct1368>
+            <ct138>0</ct138>
+            <ct1381>0</ct1381>
+            <ct1386>0</ct1386>
+            <ct1388>0</ct1388>
+            <ct141>0</ct141>
+            <ct151>0</ct151>
+            <ct152>0</ct152>
+            <ct153>0</ct153>
+            <ct154>0</ct154>
+            <ct155>0</ct155>
+            <ct156>9064217231</ct156>
+            <ct157>0</ct157>
+            <ct211>1089445454</ct211>
+            <ct2111>1089445454</ct2111>
+            <ct2112>0</ct2112>
+            <ct2113>0</ct2113>
+            <ct214>0</ct214>
+            <ct2141>0</ct2141>
+            <ct2142>0</ct2142>
+            <ct2143>0</ct2143>
+            <ct2147>0</ct2147>
+            <ct217>0</ct217>
+            <ct228>0</ct228>
+            <ct2281>0</ct2281>
+            <ct2288>0</ct2288>
+            <ct229>0</ct229>
+            <ct2291>0</ct2291>
+            <ct2292>0</ct2292>
+            <ct2293>0</ct2293>
+            <ct2294>0</ct2294>
+            <ct241>0</ct241>
+            <ct2411>0</ct2411>
+            <ct2412>0</ct2412>
+            <ct2413>0</ct2413>
+            <ct242>6666672</ct242>
+            <ct331>0</ct331>
+            <ct333>0</ct333>
+            <ct3331>0</ct3331>
+            <ct33311>0</ct33311>
+            <ct33312>0</ct33312>
+            <ct3332>0</ct3332>
+            <ct3333>0</ct3333>
+            <ct3334>0</ct3334>
+            <ct3335>0</ct3335>
+            <ct3336>0</ct3336>
+            <ct3337>0</ct3337>
+            <ct3338>0</ct3338>
+            <ct33381>0</ct33381>
+            <ct33382>0</ct33382>
+            <ct3339>0</ct3339>
+            <ct334>0</ct334>
+            <ct335>0</ct335>
+            <ct336>0</ct336>
+            <ct3361>0</ct3361>
+            <ct3368>0</ct3368>
+            <ct338>0</ct338>
+            <ct3381>0</ct3381>
+            <ct3382>0</ct3382>
+            <ct3383>0</ct3383>
+            <ct3384>0</ct3384>
+            <ct3385>0</ct3385>
+            <ct3386>0</ct3386>
+            <ct3387>0</ct3387>
+            <ct3388>0</ct3388>
+            <ct341>0</ct341>
+            <ct3411>0</ct3411>
+            <ct3412>0</ct3412>
+            <ct352>0</ct352>
+            <ct3521>0</ct3521>
+            <ct3522>0</ct3522>
+            <ct3524>0</ct3524>
+            <ct353>0</ct353>
+            <ct3531>0</ct3531>
+            <ct3532>0</ct3532>
+            <ct3533>0</ct3533>
+            <ct3534>0</ct3534>
+            <ct356>0</ct356>
+            <ct3561>0</ct3561>
+            <ct3562>0</ct3562>
+            <ct411>0</ct411>
+            <ct4111>0</ct4111>
+            <ct4112>0</ct4112>
+            <ct4118>0</ct4118>
+            <ct413>0</ct413>
+            <ct418>0</ct418>
+            <ct419>0</ct419>
+            <ct421>0</ct421>
+            <ct4211>0</ct4211>
+            <ct4212>0</ct4212>
+            <ct511>0</ct511>
+            <ct5111>0</ct5111>
+            <ct5112>0</ct5112>
+            <ct5113>0</ct5113>
+            <ct5118>0</ct5118>
+            <ct515>0</ct515>
+            <ct611>0</ct611>
+            <ct631>0</ct631>
+            <ct632>0</ct632>
+            <ct635>0</ct635>
+            <ct642>0</ct642>
+            <ct6421>0</ct6421>
+            <ct6422>0</ct6422>
+            <ct711>0</ct711>
+            <ct811>0</ct811>
+            <ct821>0</ct821>
+            <ct911>0</ct911>
+            <tongCong>11831920102</tongCong>
+          </No>
+          <Co>
+            <ct111>0</ct111>
+            <ct1111>0</ct1111>
+            <ct1112>0</ct1112>
+            <ct112>0</ct112>
+            <ct1121>0</ct1121>
+            <ct1122>0</ct1122>
+            <ct121>0</ct121>
+            <ct128>0</ct128>
+            <ct1281>0</ct1281>
+            <ct1288>0</ct1288>
+            <ct131>0</ct131>
+            <ct133>0</ct133>
+            <ct1331>0</ct1331>
+            <ct1332>0</ct1332>
+            <ct136>0</ct136>
+            <ct1361>0</ct1361>
+            <ct1368>0</ct1368>
+            <ct138>0</ct138>
+            <ct1381>0</ct1381>
+            <ct1386>0</ct1386>
+            <ct1388>0</ct1388>
+            <ct141>0</ct141>
+            <ct151>0</ct151>
+            <ct152>0</ct152>
+            <ct153>0</ct153>
+            <ct154>0</ct154>
+            <ct155>0</ct155>
+            <ct156>0</ct156>
+            <ct157>0</ct157>
+            <ct211>0</ct211>
+            <ct2111>0</ct2111>
+            <ct2112>0</ct2112>
+            <ct2113>0</ct2113>
+            <ct214>980236610</ct214>
+            <ct2141>980236610</ct2141>
+            <ct2142>0</ct2142>
+            <ct2143>0</ct2143>
+            <ct2147>0</ct2147>
+            <ct217>0</ct217>
+            <ct228>0</ct228>
+            <ct2281>0</ct2281>
+            <ct2288>0</ct2288>
+            <ct229>0</ct229>
+            <ct2291>0</ct2291>
+            <ct2292>0</ct2292>
+            <ct2293>0</ct2293>
+            <ct2294>0</ct2294>
+            <ct241>0</ct241>
+            <ct2411>0</ct2411>
+            <ct2412>0</ct2412>
+            <ct2413>0</ct2413>
+            <ct242>0</ct242>
+            <ct331>314559628</ct331>
+            <ct333>10793214</ct333>
+            <ct3331>0</ct3331>
+            <ct33311>0</ct33311>
+            <ct33312>0</ct33312>
+            <ct3332>0</ct3332>
+            <ct3333>0</ct3333>
+            <ct3334>10793214</ct3334>
+            <ct3335>0</ct3335>
+            <ct3336>0</ct3336>
+            <ct3337>0</ct3337>
+            <ct3338>0</ct3338>
+            <ct33381>0</ct33381>
+            <ct33382>0</ct33382>
+            <ct3339>0</ct3339>
+            <ct334>0</ct334>
+            <ct335>0</ct335>
+            <ct336>0</ct336>
+            <ct3361>0</ct3361>
+            <ct3368>0</ct3368>
+            <ct338>0</ct338>
+            <ct3381>0</ct3381>
+            <ct3382>0</ct3382>
+            <ct3383>0</ct3383>
+            <ct3384>0</ct3384>
+            <ct3385>0</ct3385>
+            <ct3386>0</ct3386>
+            <ct3387>0</ct3387>
+            <ct3388>0</ct3388>
+            <ct341>0</ct341>
+            <ct3411>0</ct3411>
+            <ct3412>0</ct3412>
+            <ct352>0</ct352>
+            <ct3521>0</ct3521>
+            <ct3522>0</ct3522>
+            <ct3524>0</ct3524>
+            <ct353>0</ct353>
+            <ct3531>0</ct3531>
+            <ct3532>0</ct3532>
+            <ct3533>0</ct3533>
+            <ct3534>0</ct3534>
+            <ct356>0</ct356>
+            <ct3561>0</ct3561>
+            <ct3562>0</ct3562>
+            <ct411>10000000000</ct411>
+            <ct4111>10000000000</ct4111>
+            <ct4112>0</ct4112>
+            <ct4118>0</ct4118>
+            <ct413>0</ct413>
+            <ct418>0</ct418>
+            <ct419>0</ct419>
+            <ct421>526330650</ct421>
+            <ct4211>483157792</ct4211>
+            <ct4212>43172858</ct4212>
+            <ct511>0</ct511>
+            <ct5111>0</ct5111>
+            <ct5112>0</ct5112>
+            <ct5113>0</ct5113>
+            <ct5118>0</ct5118>
+            <ct515>0</ct515>
+            <ct611>0</ct611>
+            <ct631>0</ct631>
+            <ct632>0</ct632>
+            <ct635>0</ct635>
+            <ct642>0</ct642>
+            <ct6421>0</ct6421>
+            <ct6422>0</ct6422>
+            <ct711>0</ct711>
+            <ct811>0</ct811>
+            <ct821>0</ct821>
+            <ct911>0</ct911>
+            <tongCong>11831920102</tongCong>
+          </Co>
+        </SoDuDauKy>
+        <SoPhatSinhTrongKy>
+          <No>
+            <ct111>4107723520</ct111>
+            <ct1111>4107723520</ct1111>
+            <ct1112>0</ct1112>
+            <ct112>3097253671</ct112>
+            <ct1121>3097253671</ct1121>
+            <ct1122>0</ct1122>
+            <ct121>0</ct121>
+            <ct128>0</ct128>
+            <ct1281>0</ct1281>
+            <ct1288>0</ct1288>
+            <ct131>154709600</ct131>
+            <ct133>257923776</ct133>
+            <ct1331>257923776</ct1331>
+            <ct1332>0</ct1332>
+            <ct136>0</ct136>
+            <ct1361>0</ct1361>
+            <ct1368>0</ct1368>
+            <ct138>0</ct138>
+            <ct1381>0</ct1381>
+            <ct1386>0</ct1386>
+            <ct1388>0</ct1388>
+            <ct141>0</ct141>
+            <ct151>0</ct151>
+            <ct152>0</ct152>
+            <ct153>0</ct153>
+            <ct154>0</ct154>
+            <ct155>0</ct155>
+            <ct156>2764958047</ct156>
+            <ct157>0</ct157>
+            <ct211>0</ct211>
+            <ct2111>0</ct2111>
+            <ct2112>0</ct2112>
+            <ct2113>0</ct2113>
+            <ct214>0</ct214>
+            <ct2141>0</ct2141>
+            <ct2142>0</ct2142>
+            <ct2143>0</ct2143>
+            <ct2147>0</ct2147>
+            <ct217>0</ct217>
+            <ct228>0</ct228>
+            <ct2281>0</ct2281>
+            <ct2288>0</ct2288>
+            <ct229>0</ct229>
+            <ct2291>0</ct2291>
+            <ct2292>0</ct2292>
+            <ct2293>0</ct2293>
+            <ct2294>0</ct2294>
+            <ct241>0</ct241>
+            <ct2411>0</ct2411>
+            <ct2412>0</ct2412>
+            <ct2413>0</ct2413>
+            <ct242>0</ct242>
+            <ct331>3336647949</ct331>
+            <ct333>413759002</ct333>
+            <ct3331>381663002</ct3331>
+            <ct33311>381663002</ct33311>
+            <ct33312>0</ct33312>
+            <ct3332>0</ct3332>
+            <ct3333>0</ct3333>
+            <ct3334>24696000</ct3334>
+            <ct3335>5400000</ct3335>
+            <ct3336>0</ct3336>
+            <ct3337>0</ct3337>
+            <ct3338>0</ct3338>
+            <ct33381>0</ct33381>
+            <ct33382>0</ct33382>
+            <ct3339>2000000</ct3339>
+            <ct334>422930000</ct334>
+            <ct335>0</ct335>
+            <ct336>0</ct336>
+            <ct3361>0</ct3361>
+            <ct3368>0</ct3368>
+            <ct338>0</ct338>
+            <ct3381>0</ct3381>
+            <ct3382>0</ct3382>
+            <ct3383>0</ct3383>
+            <ct3384>0</ct3384>
+            <ct3385>0</ct3385>
+            <ct3386>0</ct3386>
+            <ct3387>0</ct3387>
+            <ct3388>0</ct3388>
+            <ct341>0</ct341>
+            <ct3411>0</ct3411>
+            <ct3412>0</ct3412>
+            <ct352>0</ct352>
+            <ct3521>0</ct3521>
+            <ct3522>0</ct3522>
+            <ct3524>0</ct3524>
+            <ct353>0</ct353>
+            <ct3531>0</ct3531>
+            <ct3532>0</ct3532>
+            <ct3533>0</ct3533>
+            <ct3534>0</ct3534>
+            <ct356>0</ct356>
+            <ct3561>0</ct3561>
+            <ct3562>0</ct3562>
+            <ct411>0</ct411>
+            <ct4111>0</ct4111>
+            <ct4112>0</ct4112>
+            <ct4118>0</ct4118>
+            <ct413>0</ct413>
+            <ct418>0</ct418>
+            <ct419>0</ct419>
+            <ct421>43366491</ct421>
+            <ct4211>0</ct4211>
+            <ct4212>43366491</ct4212>
+            <ct511>3800823318</ct511>
+            <ct5111>3800823318</ct5111>
+            <ct5112>0</ct5112>
+            <ct5113>0</ct5113>
+            <ct5118>0</ct5118>
+            <ct515>40448614</ct515>
+            <ct611>0</ct611>
+            <ct631>0</ct631>
+            <ct632>3485810206</ct632>
+            <ct635>0</ct635>
+            <ct642>537303654</ct642>
+            <ct6421>233520000</ct6421>
+            <ct6422>303783654</ct6422>
+            <ct711>232219355</ct711>
+            <ct811>40495575</ct811>
+            <ct821>10075485</ct821>
+            <ct911>4073684920</ct911>
+            <tongCong>26820133183</tongCong>
+          </No>
+          <Co>
+            <ct111>3406877298</ct111>
+            <ct1111>3406877298</ct1111>
+            <ct1112>0</ct1112>
+            <ct112>3161158402</ct112>
+            <ct1121>3161158402</ct1121>
+            <ct1122>0</ct1122>
+            <ct121>0</ct121>
+            <ct128>0</ct128>
+            <ct1281>0</ct1281>
+            <ct1288>0</ct1288>
+            <ct131>154709600</ct131>
+            <ct133>383946002</ct133>
+            <ct1331>383946002</ct1331>
+            <ct1332>0</ct1332>
+            <ct136>0</ct136>
+            <ct1361>0</ct1361>
+            <ct1368>0</ct1368>
+            <ct138>0</ct138>
+            <ct1381>0</ct1381>
+            <ct1386>0</ct1386>
+            <ct1388>0</ct1388>
+            <ct141>0</ct141>
+            <ct151>0</ct151>
+            <ct152>0</ct152>
+            <ct153>0</ct153>
+            <ct154>0</ct154>
+            <ct155>0</ct155>
+            <ct156>3485810206</ct156>
+            <ct157>0</ct157>
+            <ct211>0</ct211>
+            <ct2111>0</ct2111>
+            <ct2112>0</ct2112>
+            <ct2113>0</ct2113>
+            <ct214>100808184</ct214>
+            <ct2141>100808184</ct2141>
+            <ct2142>0</ct2142>
+            <ct2143>0</ct2143>
+            <ct2147>0</ct2147>
+            <ct217>0</ct217>
+            <ct228>0</ct228>
+            <ct2281>0</ct2281>
+            <ct2288>0</ct2288>
+            <ct229>0</ct229>
+            <ct2291>0</ct2291>
+            <ct2292>0</ct2292>
+            <ct2293>0</ct2293>
+            <ct2294>0</ct2294>
+            <ct241>0</ct241>
+            <ct2411>0</ct2411>
+            <ct2412>0</ct2412>
+            <ct2413>0</ct2413>
+            <ct242>4999992</ct242>
+            <ct331>3022025027</ct331>
+            <ct333>412834487</ct333>
+            <ct3331>381663002</ct3331>
+            <ct33311>381663002</ct33311>
+            <ct33312>0</ct33312>
+            <ct3332>0</ct3332>
+            <ct3333>0</ct3333>
+            <ct3334>23771485</ct3334>
+            <ct3335>5400000</ct3335>
+            <ct3336>0</ct3336>
+            <ct3337>0</ct3337>
+            <ct3338>0</ct3338>
+            <ct33381>0</ct33381>
+            <ct33382>0</ct33382>
+            <ct3339>2000000</ct3339>
+            <ct334>422930000</ct334>
+            <ct335>0</ct335>
+            <ct336>0</ct336>
+            <ct3361>0</ct3361>
+            <ct3368>0</ct3368>
+            <ct338>0</ct338>
+            <ct3381>0</ct3381>
+            <ct3382>0</ct3382>
+            <ct3383>0</ct3383>
+            <ct3384>0</ct3384>
+            <ct3385>0</ct3385>
+            <ct3386>0</ct3386>
+            <ct3387>0</ct3387>
+            <ct3388>0</ct3388>
+            <ct341>0</ct341>
+            <ct3411>0</ct3411>
+            <ct3412>0</ct3412>
+            <ct352>0</ct352>
+            <ct3521>0</ct3521>
+            <ct3522>0</ct3522>
+            <ct3524>0</ct3524>
+            <ct353>0</ct353>
+            <ct3531>0</ct3531>
+            <ct3532>0</ct3532>
+            <ct3533>0</ct3533>
+            <ct3534>0</ct3534>
+            <ct356>0</ct356>
+            <ct3561>0</ct3561>
+            <ct3562>0</ct3562>
+            <ct411>0</ct411>
+            <ct4111>0</ct4111>
+            <ct4112>0</ct4112>
+            <ct4118>0</ct4118>
+            <ct413>0</ct413>
+            <ct418>0</ct418>
+            <ct419>0</ct419>
+            <ct421>43172858</ct421>
+            <ct4211>43172858</ct4211>
+            <ct4212>0</ct4212>
+            <ct511>3800823318</ct511>
+            <ct5111>3800823318</ct5111>
+            <ct5112>0</ct5112>
+            <ct5113>0</ct5113>
+            <ct5118>0</ct5118>
+            <ct515>40448614</ct515>
+            <ct611>0</ct611>
+            <ct631>0</ct631>
+            <ct632>3485810206</ct632>
+            <ct635>0</ct635>
+            <ct642>537303654</ct642>
+            <ct6421>233520000</ct6421>
+            <ct6422>303783654</ct6422>
+            <ct711>232219355</ct711>
+            <ct811>40495575</ct811>
+            <ct821>10075485</ct821>
+            <ct911>4073684920</ct911>
+            <tongCong>26820133183</tongCong>
+          </Co>
+        </SoPhatSinhTrongKy>
+        <SoDuCuoiKy>
+          <No>
+            <ct111>1618365433</ct111>
+            <ct1111>1618365433</ct1111>
+            <ct1112>0</ct1112>
+            <ct112>24986655</ct112>
+            <ct1121>24986655</ct1121>
+            <ct1122>0</ct1122>
+            <ct121>0</ct121>
+            <ct128>0</ct128>
+            <ct1281>0</ct1281>
+            <ct1288>0</ct1288>
+            <ct131>300052500</ct131>
+            <ct133>239105422</ct133>
+            <ct1331>239105422</ct1331>
+            <ct1332>0</ct1332>
+            <ct136>0</ct136>
+            <ct1361>0</ct1361>
+            <ct1368>0</ct1368>
+            <ct138>0</ct138>
+            <ct1381>0</ct1381>
+            <ct1386>0</ct1386>
+            <ct1388>0</ct1388>
+            <ct141>0</ct141>
+            <ct151>0</ct151>
+            <ct152>0</ct152>
+            <ct153>0</ct153>
+            <ct154>0</ct154>
+            <ct155>0</ct155>
+            <ct156>8343365072</ct156>
+            <ct157>0</ct157>
+            <ct211>1089445454</ct211>
+            <ct2111>1089445454</ct2111>
+            <ct2112>0</ct2112>
+            <ct2113>0</ct2113>
+            <ct214>0</ct214>
+            <ct2141>0</ct2141>
+            <ct2142>0</ct2142>
+            <ct2143>0</ct2143>
+            <ct2147>0</ct2147>
+            <ct217>0</ct217>
+            <ct228>0</ct228>
+            <ct2281>0</ct2281>
+            <ct2288>0</ct2288>
+            <ct229>0</ct229>
+            <ct2291>0</ct2291>
+            <ct2292>0</ct2292>
+            <ct2293>0</ct2293>
+            <ct2294>0</ct2294>
+            <ct241>0</ct241>
+            <ct2411>0</ct2411>
+            <ct2412>0</ct2412>
+            <ct2413>0</ct2413>
+            <ct242>1666680</ct242>
+            <ct331>63294</ct331>
+            <ct333>0</ct333>
+            <ct3331>0</ct3331>
+            <ct33311>0</ct33311>
+            <ct33312>0</ct33312>
+            <ct3332>0</ct3332>
+            <ct3333>0</ct3333>
+            <ct3334>0</ct3334>
+            <ct3335>0</ct3335>
+            <ct3336>0</ct3336>
+            <ct3337>0</ct3337>
+            <ct3338>0</ct3338>
+            <ct33381>0</ct33381>
+            <ct33382>0</ct33382>
+            <ct3339>0</ct3339>
+            <ct334>0</ct334>
+            <ct335>0</ct335>
+            <ct336>0</ct336>
+            <ct3361>0</ct3361>
+            <ct3368>0</ct3368>
+            <ct338>0</ct338>
+            <ct3381>0</ct3381>
+            <ct3382>0</ct3382>
+            <ct3383>0</ct3383>
+            <ct3384>0</ct3384>
+            <ct3385>0</ct3385>
+            <ct3386>0</ct3386>
+            <ct3387>0</ct3387>
+            <ct3388>0</ct3388>
+            <ct341>0</ct341>
+            <ct3411>0</ct3411>
+            <ct3412>0</ct3412>
+            <ct352>0</ct352>
+            <ct3521>0</ct3521>
+            <ct3522>0</ct3522>
+            <ct3524>0</ct3524>
+            <ct353>0</ct353>
+            <ct3531>0</ct3531>
+            <ct3532>0</ct3532>
+            <ct3533>0</ct3533>
+            <ct3534>0</ct3534>
+            <ct356>0</ct356>
+            <ct3561>0</ct3561>
+            <ct3562>0</ct3562>
+            <ct411>0</ct411>
+            <ct4111>0</ct4111>
+            <ct4112>0</ct4112>
+            <ct4118>0</ct4118>
+            <ct413>0</ct413>
+            <ct418>0</ct418>
+            <ct419>0</ct419>
+            <ct421>193633</ct421>
+            <ct4211>0</ct4211>
+            <ct4212>193633</ct4212>
+            <ct511>0</ct511>
+            <ct5111>0</ct5111>
+            <ct5112>0</ct5112>
+            <ct5113>0</ct5113>
+            <ct5118>0</ct5118>
+            <ct515>0</ct515>
+            <ct611>0</ct611>
+            <ct631>0</ct631>
+            <ct632>0</ct632>
+            <ct635>0</ct635>
+            <ct642>0</ct642>
+            <ct6421>0</ct6421>
+            <ct6422>0</ct6422>
+            <ct711>0</ct711>
+            <ct811>0</ct811>
+            <ct821>0</ct821>
+            <ct911>0</ct911>
+            <tongCong>11617244143</tongCong>
+          </No>
+          <Co>
+            <ct111>0</ct111>
+            <ct1111>0</ct1111>
+            <ct1112>0</ct1112>
+            <ct112>0</ct112>
+            <ct1121>0</ct1121>
+            <ct1122>0</ct1122>
+            <ct121>0</ct121>
+            <ct128>0</ct128>
+            <ct1281>0</ct1281>
+            <ct1288>0</ct1288>
+            <ct131>0</ct131>
+            <ct133>0</ct133>
+            <ct1331>0</ct1331>
+            <ct1332>0</ct1332>
+            <ct136>0</ct136>
+            <ct1361>0</ct1361>
+            <ct1368>0</ct1368>
+            <ct138>0</ct138>
+            <ct1381>0</ct1381>
+            <ct1386>0</ct1386>
+            <ct1388>0</ct1388>
+            <ct141>0</ct141>
+            <ct151>0</ct151>
+            <ct152>0</ct152>
+            <ct153>0</ct153>
+            <ct154>0</ct154>
+            <ct155>0</ct155>
+            <ct156>0</ct156>
+            <ct157>0</ct157>
+            <ct211>0</ct211>
+            <ct2111>0</ct2111>
+            <ct2112>0</ct2112>
+            <ct2113>0</ct2113>
+            <ct214>1081044794</ct214>
+            <ct2141>1081044794</ct2141>
+            <ct2142>0</ct2142>
+            <ct2143>0</ct2143>
+            <ct2147>0</ct2147>
+            <ct217>0</ct217>
+            <ct228>0</ct228>
+            <ct2281>0</ct2281>
+            <ct2288>0</ct2288>
+            <ct229>0</ct229>
+            <ct2291>0</ct2291>
+            <ct2292>0</ct2292>
+            <ct2293>0</ct2293>
+            <ct2294>0</ct2294>
+            <ct241>0</ct241>
+            <ct2411>0</ct2411>
+            <ct2412>0</ct2412>
+            <ct2413>0</ct2413>
+            <ct242>0</ct242>
+            <ct331>0</ct331>
+            <ct333>9868699</ct333>
+            <ct3331>0</ct3331>
+            <ct33311>0</ct33311>
+            <ct33312>0</ct33312>
+            <ct3332>0</ct3332>
+            <ct3333>0</ct3333>
+            <ct3334>9868699</ct3334>
+            <ct3335>0</ct3335>
+            <ct3336>0</ct3336>
+            <ct3337>0</ct3337>
+            <ct3338>0</ct3338>
+            <ct33381>0</ct33381>
+            <ct33382>0</ct33382>
+            <ct3339>0</ct3339>
+            <ct334>0</ct334>
+            <ct335>0</ct335>
+            <ct336>0</ct336>
+            <ct3361>0</ct3361>
+            <ct3368>0</ct3368>
+            <ct338>0</ct338>
+            <ct3381>0</ct3381>
+            <ct3382>0</ct3382>
+            <ct3383>0</ct3383>
+            <ct3384>0</ct3384>
+            <ct3385>0</ct3385>
+            <ct3386>0</ct3386>
+            <ct3387>0</ct3387>
+            <ct3388>0</ct3388>
+            <ct341>0</ct341>
+            <ct3411>0</ct3411>
+            <ct3412>0</ct3412>
+            <ct352>0</ct352>
+            <ct3521>0</ct3521>
+            <ct3522>0</ct3522>
+            <ct3524>0</ct3524>
+            <ct353>0</ct353>
+            <ct3531>0</ct3531>
+            <ct3532>0</ct3532>
+            <ct3533>0</ct3533>
+            <ct3534>0</ct3534>
+            <ct356>0</ct356>
+            <ct3561>0</ct3561>
+            <ct3562>0</ct3562>
+            <ct411>10000000000</ct411>
+            <ct4111>10000000000</ct4111>
+            <ct4112>0</ct4112>
+            <ct4118>0</ct4118>
+            <ct413>0</ct413>
+            <ct418>0</ct418>
+            <ct419>0</ct419>
+            <ct421>526330650</ct421>
+            <ct4211>526330650</ct4211>
+            <ct4212>0</ct4212>
+            <ct511>0</ct511>
+            <ct5111>0</ct5111>
+            <ct5112>0</ct5112>
+            <ct5113>0</ct5113>
+            <ct5118>0</ct5118>
+            <ct515>0</ct515>
+            <ct611>0</ct611>
+            <ct631>0</ct631>
+            <ct632>0</ct632>
+            <ct635>0</ct635>
+            <ct642>0</ct642>
+            <ct6421>0</ct6421>
+            <ct6422>0</ct6422>
+            <ct711>0</ct711>
+            <ct811>0</ct811>
+            <ct821>0</ct821>
+            <ct911>0</ct911>
+            <tongCong>11617244143</tongCong>
+          </Co>
+        </SoDuCuoiKy>
+      </PL_CDTK>
+    </PLuc>
+  </HSoKhaiThue></HSoThueDTu>`
+
+        const blob = new Blob([xmlContent], { type: "application/xml" });
+
+        // Tạo URL tạm thời để tải
+        const url = window.URL.createObjectURL(blob);
+
+        // Tạo thẻ <a> ẩn để trigger download
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "BCTC_2024_DucThinh_3500807781.xml";  // tên file tải về
+        document.body.appendChild(link);
+        link.click();
+
+        // Dọn dẹp
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+
+    }
+    function cleanNumber(str) {
+        if (!str) return "0";
+        // Bỏ hết dấu . và , rồi trim
+        return str.replace(/[.,]/g, '').trim() || "0";
+    }
+   
 </script>
 
 <!-- Modal -->
