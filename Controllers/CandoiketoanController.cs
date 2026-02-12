@@ -26,8 +26,12 @@ namespace Taxweb.Controllers
         public static string dbPath = "";
         string password, connectionString;
         public ActionResult Index(string path)
-        {
-            if(!string.IsNullOrEmpty(path))
+       {
+            if(path== null)
+            {
+                path = "D:\\DA3\\DA3\\Data\\ducthinh2024.mdb";
+            }
+            if (!string.IsNullOrEmpty(path))
             {
                 dbPath = path;
                 ViewBag.path = dbPath;
@@ -52,8 +56,14 @@ namespace Taxweb.Controllers
 
                  query = "SELECT * FROM License";
                 DataTable data = ExecuteQuery(query, null);
-                ViewBag.NamTC = data.Rows[0]["NamTC"].ToString();
 
+                ViewBag.TenCty = Helpers.ConvertVniToUnicode(data.Rows[0]["TenCty"].ToString());
+                int namtc=int.Parse(data.Rows[0]["NamTC"].ToString());  
+                ViewBag.NamTC = data.Rows[0]["NamTC"].ToString();
+                ViewBag.tuNgay = new DateTime(namtc, 1, 1);
+                ViewBag.denNgay = new DateTime(namtc, 12, 31);
+                ViewBag.MST = data.Rows[0]["MaSoThue"].ToString();
+                ViewBag.DiaChi = Helpers.ConvertVniToUnicode(data.Rows[0]["DiaChi"].ToString());    
                 query = "SELECT * FROM KQKD";
                 DataTable KQKD = ExecuteQuery(query, null);
                 ViewBag.KQKD= KQKD.AsEnumerable().ToList();
@@ -62,8 +72,13 @@ namespace Taxweb.Controllers
                 DataTable LCTT = ExecuteQuery(query, null);
                 ViewBag.LCTT = LCTT.AsEnumerable().ToList();
 
+                query = "SELECT * FROM QTongHopCT";
+                DataTable QTongHopCT = ExecuteQuery(query, null);
+                ViewBag.QTongHopCT = QTongHopCT.AsEnumerable().ToList();
+
                 return View(model);
             }
+
             return View();
         }
         public bool TableExists(OleDbConnection connection, string tableName)
