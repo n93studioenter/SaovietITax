@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using Taxweb.Models;
 using WebGrease.Activities;
 
 namespace Taxweb.Controllers
@@ -20,6 +21,7 @@ namespace Taxweb.Controllers
         public string CuoiKy { get; set; }
         public int idparent { get; set; } // QUAN TRỌNG: Dùng List<string>
     }
+   
     public class CandoiketoanController : Controller
     {
         // GET: Candoiketoan
@@ -33,7 +35,8 @@ namespace Taxweb.Controllers
             }
             if (!string.IsNullOrEmpty(path))
             {
-                dbPath = path;
+                    BaoCaoCDTSVM baoCaoCDTSVM = new BaoCaoCDTSVM();
+                    dbPath = path;
                 ViewBag.path = dbPath;
                 OleDbConnection conn = null;
                 string password = "1@35^7*9)1";
@@ -41,20 +44,25 @@ namespace Taxweb.Controllers
                 conn = new OleDbConnection(connectionString);
                 conn.Open();
 
-                if (!TableExists(conn, "tbCDTS"))
-                {
-                    CreateTableCDTS(conn, "tbCDTS");
-                }
-                if (!TableExists(conn, "tbCDTSChild"))
-                {
-                    CreateTableCDTSchild(conn, "tbCDTSChild");
-                } 
+                //if (!TableExists(conn, "tbCDTS"))
+                //{
+                //    CreateTableCDTS(conn, "tbCDTS");
+                //}
+                //if (!TableExists(conn, "tbCDTSChild"))
+                //{
+                //    CreateTableCDTSchild(conn, "tbCDTSChild");
+                //} 
 
                 string query = "SELECT * FROM CDTS";
                 DataTable CDTS = ExecuteQuery(query, null);
-                var model= CDTS.AsEnumerable().ToList();
+                baoCaoCDTSVM.CDTS = CDTS.AsEnumerable().Select(r => new CDTSVM
+                {
+                    MaSo = r["MaSo"].ToString(),
+                    CuoiKy = double.Parse(r["CuoiKy"].ToString()),
+                    DauNam = double.Parse(r["DauNam"].ToString()),
+                }).ToList();
 
-                 query = "SELECT * FROM License";
+                query = "SELECT * FROM License";
                 DataTable data = ExecuteQuery(query, null);
 
                 ViewBag.TenCty = Helpers.ConvertVniToUnicode(data.Rows[0]["TenCty"].ToString());
@@ -74,9 +82,18 @@ namespace Taxweb.Controllers
 
                 query = "SELECT * FROM QTongHopCT";
                 DataTable QTongHopCT = ExecuteQuery(query, null);
-                ViewBag.QTongHopCT = QTongHopCT.AsEnumerable().ToList();
-
-                return View(model);
+                ViewBag.QTongHopCT= QTongHopCT.AsEnumerable().ToList();
+                baoCaoCDTSVM.QTongHop = QTongHopCT.AsEnumerable().Select(r => new QTongHopCTVM
+                {
+                    MaSo = r["SoHieu"].ToString(), 
+                    DkNo = double.Parse(r["DkNo"].ToString()),
+                    PsNo = double.Parse(r["PsNo"].ToString()),  
+                    PsCo = double.Parse(r["PsCo"].ToString()),  
+                    CkNo = double.Parse(r["CkNo"].ToString()),  
+                    CkCo = double.Parse(r["CkCo"].ToString()),  
+                }).ToList();
+                ViewBag.number = 10;
+                return View(baoCaoCDTSVM);
             }
 
             return View();

@@ -1,4 +1,5 @@
-﻿
+﻿@model Taxweb.Models.BaoCaoCDTSVM
+
 
 <div class="fullbox" id="tab1">
     <div class="mycontainer">
@@ -90,7 +91,7 @@
 </div>
 <div class="fullbox" id="tab2">
     <div class="mycontainer">
-
+        var
         <div id="tb1">
             <table border="1" cellspacing="0" style="border-collapse:collapse; width:100%;  font-size:14px;" class="table table-bordered">
                 <thead>
@@ -125,8 +126,8 @@
                         <td>A – TÀI SẢN NGẮN HẠN (100 = 110 + 120 + 130 + 140 + 150)</td>
                         <td>100</td>
                         <td></td>
-                        <td style="text-align:right;"> <input id="cell_100_cuoi" class="myinput" value="@Model[0][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_100_dau" class="myinput" value="@Model[0][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"> <input id="cell_100_cuoi" class="myinput" value="@Model.CDTS[0].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_100_dau" class="myinput" value="@Model.CDTS[0].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <!-- I. Tiền -->
@@ -134,8 +135,8 @@
                         <td>I. Tiền và các khoản tương đương tiền</td>
                         <td>110</td>
                         <td></td>
-                        <td style="text-align:right;"> <input id="cell_110_cuoi" class="myinput" value="@Model[1][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_110_dau" class="myinput" value="@Model[1][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"> <input id="cell_110_cuoi" class="myinput" value="@Model.CDTS[1].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_110_dau" class="myinput" value="@Model.CDTS[1].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <!-- II. Đầu tư tài chính -->
@@ -143,8 +144,8 @@
                         <td>II. Đầu tư tài chính ngắn hạn</td>
                         <td>120</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_120_cuoi" class="myinput" value="@Model[2][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_120_dau" class="myinput" value="@Model[2][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_120_cuoi" class="myinput" value="@Model.CDTS[2].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_120_dau" class="myinput" value="@Model.CDTS[2].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">1. Chứng khoán kinh doanh</td>
@@ -173,22 +174,22 @@
                         <td>III. Các khoản phải thu ngắn hạn</td>
                         <td>130</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_130_cuoi" class="myinput" value="@Model[5][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_130_dau" class="myinput" value="@Model[5][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_130_cuoi" class="myinput" value="@Model.CDTS[5].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_130_dau" class="myinput" value="@Model.CDTS[5].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">1. Phải thu ngắn hạn của khách hàng</td>
                         <td>131</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_131_cuoi" class="myinput" value="@Model[6][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_131_dau" class="myinput" value="@Model[6][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_131_cuoi" class="myinput" value="@Model.CDTS[6].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_131_dau" class="myinput" value="@Model.CDTS[6].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">2. Trả trước cho người bán ngắn hạn</td>
                         <td>132</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_132_cuoi" class="myinput" value="@Model[7][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_132_dau" class="myinput" value="@Model[7][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_132_cuoi" class="myinput" value="@Model.CDTS[7].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_132_dau" class="myinput" value="@Model.CDTS[7].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">3. Phải thu ngắn hạn khác</td>
@@ -217,22 +218,22 @@
                         <td>IV. Hàng tồn kho</td>
                         <td>140</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_140_cuoi" class="myinput" value="@Model[10][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_140_dau" class="myinput" value="@Model[10][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_140_cuoi" class="myinput" value="@Model.CDTS[10].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_140_dau" class="myinput" value="@Model.CDTS[10].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">1. Hàng tồn kho</td>
                         <td>141</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_141_cuoi" class="myinput" value="@Model[11][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_141_dau" class="myinput" value="@Model[11][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_141_cuoi" class="myinput" value="@Model.CDTS[11].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_141_dau" class="myinput" value="@Model.CDTS[11].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">2. Dự phòng giảm giá hàng tồn kho (*)</td>
                         <td>142</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_142_cuoi" class="myinput" value="@Model[12][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_142_dau" class="myinput" value="@Model[12][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_142_cuoi" class="myinput" value="@Model.CDTS[12].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_142_dau" class="myinput" value="@Model.CDTS[12].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <!-- V. Tài sản ngắn hạn khác -->
@@ -240,22 +241,22 @@
                         <td>V. Tài sản ngắn hạn khác</td>
                         <td>150</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_150_cuoi" class="myinput" value="@Model[13][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_150_dau" class="myinput" value="@Model[13][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_150_cuoi" class="myinput" value="@Model.CDTS[13].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_150_dau" class="myinput" value="@Model.CDTS[13].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">1. Thuế GTGT được khấu trừ</td>
                         <td>151</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_151_cuoi" class="myinput" value="@Model[14][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_151_dau" class="myinput" value="@Model[14][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_151_cuoi" class="myinput" value="@Model.CDTS[14].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_151_dau" class="myinput" value="@Model.CDTS[14].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">2. Tài sản ngắn hạn khác</td>
                         <td>152</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_152_cuoi" class="myinput" value="@Model[15][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_152_dau" class="myinput" value="@Model[15][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_152_cuoi" class="myinput" value="@Model.CDTS[15].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_152_dau" class="myinput" value="@Model.CDTS[15].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <!-- B – TÀI SẢN DÀI HẠN -->
@@ -263,8 +264,8 @@
                         <td>B – TÀI SẢN DÀI HẠN (200 = 210+220+230+240+250+260)</td>
                         <td>200</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_200_cuoi" class="myinput" value="@Model[18][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_200_dau" class="myinput" value="@Model[18][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_200_cuoi" class="myinput" value="@Model.CDTS[18].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_200_dau" class="myinput" value="@Model.CDTS[18].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <!-- I. Các khoản phải thu dài hạn -->
@@ -316,22 +317,22 @@
                         <td>II. Tài sản cố định</td>
                         <td>220</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_220_cuoi" class="myinput" value="@Model[19][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_220_dau" class="myinput" value="@Model[19][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_220_cuoi" class="myinput" value="@Model.CDTS[19].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_220_dau" class="myinput" value="@Model.CDTS[19].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">- Nguyên giá</td>
                         <td>221</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_221_cuoi" class="myinput" value="@Model[20][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_221_dau" class="myinput" value="@Model[20][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_221_cuoi" class="myinput" value="@Model.CDTS[20].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_221_dau" class="myinput" value="@Model.CDTS[20].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">- Giá trị hao mòn lũy kế (*)</td>
                         <td>222</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_222_cuoi" class="myinput" value="@Model[21][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_222_dau" class="myinput" value="@Model[21][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_222_cuoi" class="myinput" value="@Model.CDTS[21].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_222_dau" class="myinput" value="@Model.CDTS[21].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <!-- III. Bất động sản đầu tư -->
@@ -339,22 +340,22 @@
                         <td>III. Bất động sản đầu tư</td>
                         <td>230</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_230_cuoi" class="myinput" value="@Model[23][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_230_dau" class="myinput" value="@Model[23][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_230_cuoi" class="myinput" value="@Model.CDTS[23].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_230_dau" class="myinput" value="@Model.CDTS[23].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">- Nguyên giá</td>
                         <td>231</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_231_cuoi" class="myinput" value="@Model[24][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_231_dau" class="myinput" value="@Model[24][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_231_cuoi" class="myinput" value="@Model.CDTS[24].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_231_dau" class="myinput" value="@Model.CDTS[24].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">- Giá trị hao mòn lũy kế (*)</td>
                         <td>232</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_232_cuoi" class="myinput" value="@Model[25][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_232_dau" class="myinput" value="@Model[25][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_232_cuoi" class="myinput" value="@Model.CDTS[25].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_232_dau" class="myinput" value="@Model.CDTS[25].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <!-- IV. Tài sản dở dang dài hạn -->
@@ -400,8 +401,8 @@
                         <td>VI. Tài sản dài hạn khác</td>
                         <td>260</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_260_cuoi" class="myinput" value="@Model[29][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_260_dau" class="myinput" value="@Model[29][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_260_cuoi" class="myinput" value="@Model.CDTS[29].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_260_dau" class="myinput" value="@Model.CDTS[29].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <!-- Tổng cộng tài sản -->
@@ -436,8 +437,8 @@
                         <td>I. Nợ ngắn hạn</td>
                         <td>410</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_410_cuoi" class="myinput" value="@Model[34][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_410_dau" class="myinput" value="@Model[34][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_410_cuoi" class="myinput" value="@Model.CDTS[34].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_410_dau" class="myinput" value="@Model.CDTS[34].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <!-- Các chỉ tiêu chi tiết của Nợ ngắn hạn (411-419) -->
 
@@ -445,50 +446,50 @@
                         <td style="padding-left:20px;">1. Phải trả người bán ngắn hạn</td>
                         <td>411</td>
                         <td></td>
-                        <td id="" style="text-align:right;"><input id="cell_411_cuoi" class="myinput" value="@Model[36][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td id="" style="text-align:right;"><input id="cell_411_dau" class="myinput" value="@Model[36][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td id="" style="text-align:right;"><input id="cell_411_cuoi" class="myinput" value="@Model.CDTS[36].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td id="" style="text-align:right;"><input id="cell_411_dau" class="myinput" value="@Model.CDTS[36].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">2. Người mua trả tiền trước ngắn hạn</td>
                         <td>412</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_412_cuoi" class="myinput" value="@Model[37][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_412_dau" class="myinput" value="@Model[37][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_412_cuoi" class="myinput" value="@Model.CDTS[37].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_412_dau" class="myinput" value="@Model.CDTS[37].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">3. Thuế và các khoản phải nộp Nhà nước</td>
                         <td>413</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_413_cuoi" class="myinput" value="@Model[38][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_413_dau" class="myinput" value="@Model[38][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_413_cuoi" class="myinput" value="@Model.CDTS[38].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_413_dau" class="myinput" value="@Model.CDTS[38].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">4. Phải trả người lao động</td>
                         <td>414</td>
                         <td></td>
-                        <td  style="text-align:right;"><input id="cell_414_cuoi" class="myinput" value="@Model[39][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td  style="text-align:right;"><input id="cell_414_dau" class="myinput" value="@Model[39][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_414_cuoi" class="myinput" value="@Model.CDTS[39].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_414_dau" class="myinput" value="@Model.CDTS[39].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">5. Chi phí phải trả ngắn hạn</td>
                         <td>415</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_415_cuoi" class="myinput" value="@Model[40][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_415_dau" class="myinput" value="@Model[40][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_415_cuoi" class="myinput" value="@Model.CDTS[40].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_415_dau" class="myinput" value="@Model.CDTS[40].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">6. Phải trả ngắn hạn khác</td>
                         <td>416</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_416_cuoi" class="myinput" value="@Model[41][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_416_dau" class="myinput" value="@Model[41][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_416_cuoi" class="myinput" value="@Model.CDTS[41].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_416_dau" class="myinput" value="@Model.CDTS[41].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">7. Dự phòng phải trả ngắn hạn</td>
                         <td>417</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_417_cuoi" class="myinput" value="@Model[45][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_417_dau" class="myinput" value="@Model[45][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_417_cuoi" class="myinput" value="@Model.CDTS[45].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_417_dau" class="myinput" value="@Model.CDTS[45].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">8. Quỹ khen thưởng phúc lợi</td>
@@ -503,8 +504,8 @@
                         <td>II. Nợ dài hạn</td>
                         <td>420</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_420_cuoi" class="myinput" value="@Model[46][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_420_dau" class="myinput" value="@Model[46][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_420_cuoi" class="myinput" value="@Model.CDTS[46].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_420_dau" class="myinput" value="@Model.CDTS[46].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">1. Phải trả người bán dài hạn</td>
@@ -531,22 +532,22 @@
                         <td style="padding-left:20px;">4. Phải trả dài hạn khác</td>
                         <td>424</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_424_cuoi" class="myinput" value="@Model[51][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_424_dau" class="myinput" value="@Model[51][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_424_cuoi" class="myinput" value="@Model.CDTS[51].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_424_dau" class="myinput" value="@Model.CDTS[51].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">5. Vay và nợ thuê tài chính dài hạn</td>
                         <td>425</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_425_cuoi" class="myinput" value="@Model[47][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_425_dau" class="myinput" value="@Model[47][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_425_cuoi" class="myinput" value="@Model.CDTS[47].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_425_dau" class="myinput" value="@Model.CDTS[47].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">6. Dự phòng phải trả dài hạn</td>
                         <td>426</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_426_cuoi" class="myinput" value="@Model[52][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_426_dau" class="myinput" value="@Model[52][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_426_cuoi" class="myinput" value="@Model.CDTS[52].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_426_dau" class="myinput" value="@Model.CDTS[52].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">6. Dự phòng phải trả dài hạn</td>
@@ -561,59 +562,59 @@
                         <td>D – VỐN CHỦ SỞ HỮU (500=511+512+513+514+515+516+517)</td>
                         <td>500</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_500_cuoi" class="myinput" value="@Model[53][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_500_dau" class="myinput" value="@Model[53][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_500_cuoi" class="myinput" value="@Model.CDTS[53].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_500_dau" class="myinput" value="@Model.CDTS[53].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <tr>
                         <td style="padding-left:20px;">1. Vốn góp của chủ sở hữu</td>
                         <td>511</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_511_cuoi" class="myinput" value="@Model[55][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_511_dau" class="myinput" value="@Model[55][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_511_cuoi" class="myinput" value="@Model.CDTS[55].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_511_dau" class="myinput" value="@Model.CDTS[55].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <tr>
                         <td style="padding-left:20px;">2. Thặng dư vốn cổ phần</td>
                         <td>512</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_512_cuoi" class="myinput" value="@Model[56][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_512_dau" class="myinput" value="@Model[56][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_512_cuoi" class="myinput" value="@Model.CDTS[56].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_512_dau" class="myinput" value="@Model.CDTS[56].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">3. Vốn khác của chủ sở hữu</td>
                         <td>513</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_513_cuoi" class="myinput" value="@Model[57][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_513_dau" class="myinput" value="@Model[57][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_513_cuoi" class="myinput" value="@Model.CDTS[57].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_513_dau" class="myinput" value="@Model.CDTS[57].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">4. Cổ phiếu quỹ (*)</td>
                         <td>514</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_514_cuoi" class="myinput" value="@Model[58][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_514_dau" class="myinput" value="@Model[58][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_514_cuoi" class="myinput" value="@Model.CDTS[58].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_514_dau" class="myinput" value="@Model.CDTS[58].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">5. Chênh lệch tỷ giá hối đoái</td>
                         <td>515</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_515_cuoi" class="myinput" value="@Model[59][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_515_dau" class="myinput" value="@Model[59][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_515_cuoi" class="myinput" value="@Model.CDTS[59].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_515_dau" class="myinput" value="@Model.CDTS[59].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">6. Các quỹ thuộc vốn chủ sở hữu</td>
                         <td>516</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_516_cuoi" class="myinput" value="@Model[60][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_516_dau" class="myinput" value="@Model[60][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_516_cuoi" class="myinput" value="@Model.CDTS[60].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_516_dau" class="myinput" value="@Model.CDTS[60].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">7. Lợi nhuận sau thuế chưa phân phối</td>
                         <td>517</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_517_cuoi" class="myinput" value="@Model[61][7]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_517_dau" class="myinput" value="@Model[61][6]" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_517_cuoi" class="myinput" value="@Model.CDTS[61].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_517_dau" class="myinput" value="@Model.CDTS[61].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <!-- Tổng cộng nguồn vốn -->
@@ -643,7 +644,7 @@
                     <div class="col-3"><input id="ketoantruong" type="text" class="form-control"></div>
 
                     <div class="col-3 text-end">Ngày lập</div>
-                    <div class="col-3"><input id="ngaylap" type="date" class="form-control" value="19/01/2026"></div>
+                    <div class="col-3"><input id="ngaylap" type="date" class="form-control"></div>
                 </div>
 
                 <div class="row mb-2">
@@ -1396,100 +1397,25 @@
                     <tr>
                         <td><b>156</b></td>
                         <td><b>Hàng hóa</b></td>
-                        <td><input id="cell_156_dk_no" value="@ViewBag.QTongHopCT[26]["DkNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_156_dk_co" value="@ViewBag.QTongHopCT[26]["DkCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_156_ps_no" value="@ViewBag.QTongHopCT[26]["PsNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_156_ps_co" value="@ViewBag.QTongHopCT[26]["PsCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_156_ck_no" value="@ViewBag.QTongHopCT[26]["CkNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_156_ck_co" value="@ViewBag.QTongHopCT[26]["CkCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_156_dk_no" value="@(Model.QTongHop[26].DkNo)" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_156_dk_co" value="@(ViewBag.QTongHopCT[26]["DkCo"])" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_156_ps_no" value="@(ViewBag.QTongHopCT[26]["PsNo"])" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_156_ps_co" value="@(ViewBag.QTongHopCT[26]["PsCo"])" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_156_ck_no" value="@(ViewBag.QTongHopCT[26]["CkNo"])" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_156_ck_co" value="@(ViewBag.QTongHopCT[26]["CkCo"])" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <!-- ===== 157 ===== -->
+
                     <tr>
                         <td><b>157</b></td>
                         <td><b>Hàng gửi đi bán</b></td>
-                        <td><input id="cell_157_dk_no" value="@ViewBag.QTongHopCT[27]["DkNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_157_dk_co" value="@ViewBag.QTongHopCT[27]["DkCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_157_ps_no" value="@ViewBag.QTongHopCT[27]["PsNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_157_ps_co" value="@ViewBag.QTongHopCT[27]["PsCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_157_ck_no" value="@ViewBag.QTongHopCT[27]["CkNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_157_ck_co" value="@ViewBag.QTongHopCT[27]["CkCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                    </tr>
-                    <tr>
-                        <td><b>211</b></td>
-                        <td><b>Tài sản cố định</b></td>
-                        <td><input id="cell_211_dk_no" value="@ViewBag.QTongHopCT[32]["DkNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_211_dk_co" value="@ViewBag.QTongHopCT[32]["DkCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_211_ps_no" value="@ViewBag.QTongHopCT[32]["PsNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_211_ps_co" value="@ViewBag.QTongHopCT[32]["PsCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_211_ck_no" value="@ViewBag.QTongHopCT[32]["CkNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_211_ck_co" value="@ViewBag.QTongHopCT[32]["CkCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                    </tr>
-
-                    <tr>
-                        <td>2111</td>
-                        <td>TSCĐ hữu hình</td>
-                        <td><input id="cell_2111_dk_no" value="@ViewBag.QTongHopCT[33]["DkNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2111_dk_co" value="@ViewBag.QTongHopCT[33]["DkCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2111_ps_no" value="@ViewBag.QTongHopCT[33]["PsNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2111_ps_co" value="@ViewBag.QTongHopCT[33]["PsCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2111_ck_no" value="@ViewBag.QTongHopCT[33]["CkNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2111_ck_co" value="@ViewBag.QTongHopCT[33]["CkCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                    </tr>
-
-                    <tr>
-                        <td>2112</td>
-                        <td>TSCĐ thuê tài chính</td>
-                        <td><input id="cell_2112_dk_no" value="@ViewBag.QTongHopCT[34]["DkNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2112_dk_co" value="@ViewBag.QTongHopCT[34]["DkCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2112_ps_no" value="@ViewBag.QTongHopCT[34]["PsNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2112_ps_co" value="@ViewBag.QTongHopCT[34]["PsCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2112_ck_no" value="@ViewBag.QTongHopCT[34]["CkNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2112_ck_co" value="@ViewBag.QTongHopCT[34]["CkCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                    </tr>
-
-                    <tr>
-                        <td>2113</td>
-                        <td>TSCĐ vô hình</td>
-                        <td><input id="cell_2113_dk_no" value="@ViewBag.QTongHopCT[35]["DkNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2113_dk_co" value="@ViewBag.QTongHopCT[35]["DkCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2113_ps_no" value="@ViewBag.QTongHopCT[35]["PsNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2113_ps_co" value="@ViewBag.QTongHopCT[35]["PsCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2113_ck_no" value="@ViewBag.QTongHopCT[35]["CkNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2113_ck_co" value="@ViewBag.QTongHopCT[35]["CkCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                    </tr>
-
-                    <tr>
-                        <td><b>214</b></td>
-                        <td><b>Hao mòn TSCĐ</b></td>
-                        <td><input id="cell_214_dk_no" value="@ViewBag.QTongHopCT[36]["DkNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_214_dk_co" value="@ViewBag.QTongHopCT[36]["DkCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_214_ps_no" value="@ViewBag.QTongHopCT[36]["PsNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_214_ps_co" value="@ViewBag.QTongHopCT[36]["PsCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_214_ck_no" value="@ViewBag.QTongHopCT[36]["CkNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_214_ck_co" value="@ViewBag.QTongHopCT[36]["CkCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                    </tr>
-
-                    <tr>
-                        <td>2141</td>
-                        <td>Hao mòn TSCĐ hữu hình</td>
-                        <td><input id="cell_2141_dk_no" value="@ViewBag.QTongHopCT[37]["DkNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2141_dk_co" value="@ViewBag.QTongHopCT[37]["DkCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2141_ps_no" value="@ViewBag.QTongHopCT[37]["PsNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2141_ps_co" value="@ViewBag.QTongHopCT[37]["PsCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2141_ck_no" value="@ViewBag.QTongHopCT[37]["CkNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2141_ck_co" value="@ViewBag.QTongHopCT[37]["CkCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                    </tr>
-
-                    <tr>
-                        <td>2142</td>
-                        <td>Hao mòn TSCĐ thuê tài chính</td>
-                        <td><input id="cell_2142_dk_no" value="@ViewBag.QTongHopCT[38]["DkNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2142_dk_co" value="@ViewBag.QTongHopCT[38]["DkCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2142_ps_no" value="@ViewBag.QTongHopCT[38]["PsNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2142_ps_co" value="@ViewBag.QTongHopCT[38]["PsCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2142_ck_no" value="@ViewBag.QTongHopCT[38]["CkNo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2142_ck_co" value="@ViewBag.QTongHopCT[38]["CkCo"]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_157_dk_no" value="@(ViewBag.QTongHopCT[27]["DkNo"])" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_157_dk_co" value="@(ViewBag.QTongHopCT[27]["DkCo"])" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_157_ps_no" value="@(ViewBag.QTongHopCT[27]["PsNo"])" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_157_ps_co" value="@(ViewBag.QTongHopCT[27]["PsCo"])" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_157_ck_no" value="@(ViewBag.QTongHopCT[27]["CkNo"])" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_157_ck_co" value="@(ViewBag.QTongHopCT[27]["CkCo"])" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
                     <tr>
                         <td>2143</td>
@@ -2567,106 +2493,6 @@
         $("#acl" + tabNumber).addClass("actv");
     }
 
-    // Có thể gọi trực tiếp:
-    // openTab(1); // Mở tab 1
-    // openTab(2); // Mở tab 2
-    // openTab(3); // Mở tab 3
-    // openTab(4); // Mở tab 4
-
-   function exportXML() {
-    const baseUrl = '@Url.Action("CreateTaxXMLFull", "Candoiketoan")';
-       const url = `${baseUrl}?nam=${'@ViewBag.NamTC'}`;
-    window.open(url);
-}
-    function gui() {
-        $('#loadingModal').modal('show');
-
-        var stt = 1;
-
-
-        var datagui = {
-            path: $("#path").val(),
-            nlbieu: $("#nlbieu").val(),
-            giamdoc: $("#giamdoc").val(),
-            ketoantruong: $("#ketoantruong").val(),
-            chungchi: $("#chungchi").val(),
-            dvcc: $("#dvcc").val(),
-            ngayky: $("#ngaylap").val(),
-            nam:'@ViewBag.NamTC'
-        }
-        var dataArray = [];
-
-        $.ajax({
-            url: "/Candoiketoan/CreateData",
-            method: "POST",
-            data: datagui,
-            success: function (res) {
-                alert(res);
-                if (res >= 0) {
-                    $('tr').each(function () {
-                        var maso = 0;
-                        var DauNam = 0;
-                        var CuoiKy = 0;
-
-                        $(this).find('input').each(function (index) {
-
-                            if (index === 0) {
-                                // input đầu tiên (cuối)
-                                maso = $(this).attr('id').split('_')[1];
-                                DauNam = $(this).val();
-                            } else {
-                                // input thứ hai (đầu)
-                                CuoiKy = $(this).val();
-                            }
-
-                        });
-                        if (maso != "0") {
-                            var data = {
-                                path: $("#path").val(),
-                                maso: maso,
-                                DauNam: DauNam,
-                                CuoiKy: CuoiKy,
-                                idparent: res
-                            }
-                            dataArray.push(data);
-                        }
-
-                    });
-                    console.log(dataArray)
-                    $.ajax({
-                        url: "/Candoiketoan/CreateDataChild",
-                        method: "POST",
-                        contentType: "application/json", // ← THÊM DÒNG NÀY
-
-                        data: JSON.stringify({
-                            items: dataArray,
-                            path: escapePath('@ViewBag.path'),
-                            nam: '@ViewBag.NamTC', // Lấy từ form
-                            idparent: res
-                        }),
-
-                        success: function (res) {
-                            stt += 1;
-                            if (stt == 62) {
-                                $('#loadingModal').modal('hide');
-
-                            }
-                            console.log(stt)
-                            //alert(res)
-                        },
-                        error: function (xhr) {
-                            //alert("Có lỗi xảy ra!");
-                        }
-                    });
-                }
-
-
-            },
-            error: function (xhr) {
-                alert("Có lỗi xảy ra!");
-            }
-        });
-    }
     function escapePath(path) {
         return path.replace(/\\/g, "\\\\");
     }
@@ -2695,1293 +2521,69 @@
         toggle600();
     });
     function formatNumber(input) {
-        let value = parseFloat(input.value.replace(/\./g, '').replace(/,/g, '.'));
-        if (!isNaN(value)) {
-            input.value = value.toLocaleString('de-DE', { minimumFractionDigits: 0, maximumFractionDigits: 0 }); // Định dạng theo số thập phân
+        if (!(input instanceof HTMLInputElement)) return;
+        if (!input.classList.contains('myinput')) return;
+
+        let raw = String(input.value || '').trim();
+        if (raw === '') {
+            input.value = '0';
+            return;
         }
-        setDefaultValue();
+
+        raw = raw.replace(/[^0-9.,-]/g, '');
+        let num = Number(raw.replace(/\./g, '').replace(/,/g, '.'));
+
+        if (!Number.isFinite(num)) {
+            input.value = '0';
+            return;
+        }
+
+        input.value = num.toLocaleString('de-DE', {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        });
     }
+
+
+
+
     // Hàm để xóa định dạng
     function removeFormat(input) {
         input.value = input.value.replace(/\./g, ''); // Xóa định dạng khi lấy lại
     }
-    window.onload = function () {
-        const inputs = document.querySelectorAll('.myinput');
-        inputs.forEach(input => {
-            formatNumber(input); // Định dạng ngay khi tải
-        });
-    };
+    document.addEventListener('DOMContentLoaded', function () {
+        try {
+            const inputs = document.querySelectorAll('.myinput');
+            if (!inputs.length) return;
+
+            inputs.forEach(input => {
+                if (typeof formatNumber === 'function') {
+                    formatNumber(input);
+                }
+            });
+        } catch (e) {
+            console.error('onload format error:', e);
+        }
+    });
+
     function setDefaultValue() {
-        const inputFields = document.querySelectorAll('.myInput');
-        inputFields.forEach(inputField => {
-            if (inputField.value === '') {
-                inputField.value = '0';
-            }
-        });
+        try {
+            const inputFields = document.querySelectorAll('.myinput'); // đồng bộ class
+            if (!inputFields || inputFields.length === 0) return;
+
+            inputFields.forEach(inputField => {
+                if (!inputField || typeof inputField.value !== 'string') return;
+
+                if (inputField.value.trim() === '') {
+                    inputField.value = '0';
+                }
+            });
+        } catch (e) {
+            console.error('setDefaultValue error:', e);
+        }
     }
 
-    function ketxuat() {
-        var test = 1000;
-        var nguoiky = "Lê thành nghiệp";
-        const xmlContent = `<?xml version="1.0" encoding="UTF-8" standalone="no"?><HSoThueDTu xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <HSoKhaiThue id="_NODE_TO_SIGN">
-   <TTinChung>
-      <TTinDVu>
-        <maDVu>HTKK</maDVu>
-        <tenDVu>HỖ TRỢ KÊ KHAI THUẾ</tenDVu>
-        <pbanDVu>5.3.1</pbanDVu>
-        <ttinNhaCCapDVu>8B7771255E46CCFB75A8DE7D33CA0D12</ttinNhaCCapDVu>
-      </TTinDVu>
-      <TTinTKhaiThue>
-        <TKhaiThue>
-          <maTKhai>684</maTKhai>
-          <tenTKhai>Bộ báo cáo tài chính (B01b - DNN)(TT133/2016/TT-BTC)</tenTKhai>
-          <moTaBMau>(Ban hành theo Thông tư số 133/2016/TT-BTC ngày 26/8/2016 của Bộ Tài chính)</moTaBMau>
-          <pbanTKhaiXML>2.3.2</pbanTKhaiXML>
-          <loaiTKhai>C</loaiTKhai>
-          <soLan>0</soLan>
-          <KyKKhaiThue>
-            <kieuKy>Y</kieuKy>
-            <kyKKhai>2024</kyKKhai>
-          <kyKKhaiTuNgay>@(((DateTime)ViewBag.tuNgay).ToString("dd/MM/yyyy"))</kyKKhaiTuNgay>
-           <kyKKhaiDenNgay>@(((DateTime)ViewBag.denNgay).ToString("dd/MM/yyyy"))</kyKKhaiDenNgay>
-            <kyKKhaiTuThang/>
-            <kyKKhaiDenThang/>
-          </KyKKhaiThue>
-          <maCQTNoiNop>71701</maCQTNoiNop>
-          <tenCQTNoiNop>Tp. Vũng Tàu - Đội Thuế liên huyện Vũng Tàu - Côn Đảo</tenCQTNoiNop>
-          <ngayLapTKhai>2025-03-18</ngayLapTKhai>
-          <GiaHan>
-            <maLyDoGiaHan>
-            </maLyDoGiaHan>
-            <lyDoGiaHan>
-            </lyDoGiaHan>
-          </GiaHan>
-          <nguoiKy>${$("#giamdoc").val()}</nguoiKy>
-          <ngayKy>2025-03-18</ngayKy>
-          <nganhNgheKD>
-          </nganhNgheKD>
-        </TKhaiThue>
-        <NNT>
-           <mst>@Html.Raw(System.Security.SecurityElement.Escape(ViewBag.MST))</mst>
-<tenNNT>@Html.Raw(System.Security.SecurityElement.Escape(ViewBag.TenCty))</tenNNT>
-  <dchiNNT>@Html.Raw(System.Security.SecurityElement.Escape(ViewBag.DiaChi))</dchiNNT>
-          <phuongXa>
-          </phuongXa>
-          <maHuyenNNT>71701</maHuyenNNT>
-          <tenHuyenNNT>Thành phố Vũng Tàu</tenHuyenNNT>
-          <maTinhNNT>717</maTinhNNT>
-          <tenTinhNNT>Bà Rịa - Vũng Tàu</tenTinhNNT>
-          <dthoaiNNT>
-          </dthoaiNNT>
-          <faxNNT>
-          </faxNNT>
-          <emailNNT>
-          </emailNNT>
-        </NNT>
-      </TTinTKhaiThue>
-    </TTinChung>
-    <CTieuTKhaiChinh>
-      <bctcDaKiemToan>0</bctcDaKiemToan>
-      <maYKienKToan>0</maYKienKToan>
-      <tenYKienKToan>
-      </tenYKienKToan>
-      <ThuyetMinh>
-        <ct100>
-        </ct100>
-        <ct110>
-        </ct110>
-        <ct120>
-        </ct120>
-        <ct121>
-        </ct121>
-        <ct122>
-        </ct122>
-        <ct123>
-        </ct123>
-        <ct130>
-        </ct130>
-        <ct131>
-        </ct131>
-        <ct132>
-        </ct132>
-        <ct133>
-        </ct133>
-        <ct134>
-        </ct134>
-        <ct135>
-        </ct135>
-        <ct140>
-        </ct140>
-        <ct141>
-        </ct141>
-        <ct142>
-        </ct142>
-        <ct150>
-        </ct150>
-        <ct151>
-        </ct151>
-        <ct152>
-        </ct152>
-        <ct200>
-        </ct200>
-        <ct210>
-        </ct210>
-        <ct211>
-        </ct211>
-        <ct212>
-        </ct212>
-        <ct213>
-        </ct213>
-        <ct214>
-        </ct214>
-        <ct215>
-        </ct215>
-        <ct220>
-        </ct220>
-        <ct221>
-        </ct221>
-        <ct222>
-        </ct222>
-        <ct230>
-        </ct230>
-        <ct231>
-        </ct231>
-        <ct232>
-        </ct232>
-        <ct240>
-        </ct240>
-        <ct250>
-        </ct250>
-        <ct251>
-        </ct251>
-        <ct252>
-        </ct252>
-        <ct253>
-        </ct253>
-        <ct260>
-        </ct260>
-        <ct300>
-        </ct300>
-        <ct400>
-        </ct400>
-        <ct410>
-        </ct410>
-        <ct411>
-        </ct411>
-        <ct412>
-        </ct412>
-        <ct413>
-        </ct413>
-        <ct414>
-        </ct414>
-        <ct415>
-        </ct415>
-        <ct416>
-        </ct416>
-        <ct417>
-        </ct417>
-        <ct418>
-        </ct418>
-        <ct420>
-        </ct420>
-        <ct421>
-        </ct421>
-        <ct422>
-        </ct422>
-        <ct423>
-        </ct423>
-        <ct424>
-        </ct424>
-        <ct425>
-        </ct425>
-        <ct426>
-        </ct426>
-        <ct427>
-        </ct427>
-        <ct500>
-        </ct500>
-        <ct511>
-        </ct511>
-        <ct512>
-        </ct512>
-        <ct513>
-        </ct513>
-        <ct514>
-        </ct514>
-        <ct515>
-        </ct515>
-        <ct516>
-        </ct516>
-        <ct517>
-        </ct517>
-        <ct600>
-        </ct600>
-      </ThuyetMinh>
-      <SoCuoiNam>
-       <ct100>${cleanNumber($("#cell_100_cuoi").val().trim())}</ct100>
-<ct110>${cleanNumber($("#cell_110_cuoi").val().trim())}</ct110>
-<ct120>${cleanNumber($("#cell_120_cuoi").val().trim())}</ct120>
-<ct121>${cleanNumber($("#cell_121_cuoi").val().trim())}</ct121>
-<ct122>${cleanNumber($("#cell_122_cuoi").val().trim())}</ct122>
-<ct123>${cleanNumber($("#cell_123_cuoi").val().trim())}</ct123>
-<ct130>${cleanNumber($("#cell_130_cuoi").val().trim())}</ct130>
-<ct131>${cleanNumber($("#cell_131_cuoi").val().trim())}</ct131>
-<ct132>${cleanNumber($("#cell_132_cuoi").val().trim())}</ct132>
-<ct133>${cleanNumber($("#cell_133_cuoi").val().trim())}</ct133>
-<ct134>${cleanNumber($("#cell_134_cuoi").val().trim())}</ct134>
-<ct135>${cleanNumber($("#cell_135_cuoi").val().trim())}</ct135>
-<ct140>${cleanNumber($("#cell_140_cuoi").val().trim())}</ct140>
-<ct141>${cleanNumber($("#cell_141_cuoi").val().trim())}</ct141>
-<ct142>${cleanNumber($("#cell_142_cuoi").val().trim())}</ct142>
-<ct150>${cleanNumber($("#cell_150_cuoi").val().trim())}</ct150>
-<ct151>${cleanNumber($("#cell_151_cuoi").val().trim())}</ct151>
-<ct152>${cleanNumber($("#cell_152_cuoi").val().trim())}</ct152>
-<ct200>${cleanNumber($("#cell_200_cuoi").val().trim())}</ct200>
-<ct210>${cleanNumber($("#cell_210_cuoi").val().trim())}</ct210>
-<ct211>${cleanNumber($("#cell_211_cuoi").val().trim())}</ct211>
-<ct212>${cleanNumber($("#cell_212_cuoi").val().trim())}</ct212>
-<ct213>${cleanNumber($("#cell_213_cuoi").val().trim())}</ct213>
-<ct214>${cleanNumber($("#cell_214_cuoi").val().trim())}</ct214>
-<ct215>${cleanNumber($("#cell_215_cuoi").val().trim())}</ct215>
-<ct220>${cleanNumber($("#cell_220_cuoi").val().trim())}</ct220>
-<ct221>${cleanNumber($("#cell_221_cuoi").val().trim())}</ct221>
-<ct222>${cleanNumber($("#cell_222_cuoi").val().trim())}</ct222>
-<ct230>${cleanNumber($("#cell_230_cuoi").val().trim())}</ct230>
-<ct231>${cleanNumber($("#cell_231_cuoi").val().trim())}</ct231>
-<ct232>${cleanNumber($("#cell_232_cuoi").val().trim())}</ct232>
-<ct240>${cleanNumber($("#cell_240_cuoi").val().trim())}</ct240>
-<ct250>${cleanNumber($("#cell_250_cuoi").val().trim())}</ct250>
-<ct251>${cleanNumber($("#cell_251_cuoi").val().trim())}</ct251>
-<ct252>${cleanNumber($("#cell_252_cuoi").val().trim())}</ct252>
-<ct253>${cleanNumber($("#cell_253_cuoi").val().trim())}</ct253>
-<ct260>${cleanNumber($("#cell_260_cuoi").val().trim())}</ct260>
-<ct300>${cleanNumber($("#cell_300_cuoi").val().trim())}</ct300>
-<ct400>${cleanNumber($("#cell_400_cuoi").val().trim())}</ct400>
-<ct410>${cleanNumber($("#cell_410_cuoi").val().trim())}</ct410>
-<ct411>${cleanNumber($("#cell_411_cuoi").val().trim())}</ct411>
-<ct412>${cleanNumber($("#cell_412_cuoi").val().trim())}</ct412>
-<ct413>${cleanNumber($("#cell_413_cuoi").val().trim())}</ct413>
-<ct414>${cleanNumber($("#cell_414_cuoi").val().trim())}</ct414>
-<ct415>${cleanNumber($("#cell_415_cuoi").val().trim())}</ct415>
-<ct416>${cleanNumber($("#cell_416_cuoi").val().trim())}</ct416>
-<ct417>${cleanNumber($("#cell_417_cuoi").val().trim())}</ct417>
-<ct418>${cleanNumber($("#cell_418_cuoi").val().trim())}</ct418>
-<ct420>${cleanNumber($("#cell_420_cuoi").val().trim())}</ct420>
-<ct421>${cleanNumber($("#cell_421_cuoi").val().trim())}</ct421>
-<ct422>${cleanNumber($("#cell_422_cuoi").val().trim())}</ct422>
-<ct423>${cleanNumber($("#cell_423_cuoi").val().trim())}</ct423>
-<ct424>${cleanNumber($("#cell_424_cuoi").val().trim())}</ct424>
-<ct425>${cleanNumber($("#cell_425_cuoi").val().trim())}</ct425>
-<ct426>${cleanNumber($("#cell_426_cuoi").val().trim())}</ct426>
-<ct427>${cleanNumber($("#cell_427_cuoi").val().trim())}</ct427>
-<ct500>${cleanNumber($("#cell_500_cuoi").val().trim())}</ct500>
-<ct511>${cleanNumber($("#cell_511_cuoi").val().trim())}</ct511>
-<ct512>${cleanNumber($("#cell_512_cuoi").val().trim())}</ct512>
-<ct513>${cleanNumber($("#cell_513_cuoi").val().trim())}</ct513>
-<ct514>${cleanNumber($("#cell_514_cuoi").val().trim())}</ct514>
-<ct515>${cleanNumber($("#cell_515_cuoi").val().trim())}</ct515>
-<ct516>${cleanNumber($("#cell_516_cuoi").val().trim())}</ct516>
-<ct517>${cleanNumber($("#cell_517_cuoi").val().trim())}</ct517>
-<ct600>${cleanNumber($("#cell_600_cuoi").val().trim())}</ct600>
 
-      </SoCuoiNam>
-      <SoDauNam>
-        <ct100>${cleanNumber($("#cell_100_dau").val().trim())}</ct100>
-<ct110>${cleanNumber($("#cell_110_dau").val().trim())}</ct110>
-<ct120>${cleanNumber($("#cell_120_dau").val().trim())}</ct120>
-<ct121>${cleanNumber($("#cell_121_dau").val().trim())}</ct121>
-<ct122>${cleanNumber($("#cell_122_dau").val().trim())}</ct122>
-<ct123>${cleanNumber($("#cell_123_dau").val().trim())}</ct123>
-<ct130>${cleanNumber($("#cell_130_dau").val().trim())}</ct130>
-<ct131>${cleanNumber($("#cell_131_dau").val().trim())}</ct131>
-<ct132>${cleanNumber($("#cell_132_dau").val().trim())}</ct132>
-<ct133>${cleanNumber($("#cell_133_dau").val().trim())}</ct133>
-<ct134>${cleanNumber($("#cell_134_dau").val().trim())}</ct134>
-<ct135>${cleanNumber($("#cell_135_dau").val().trim())}</ct135>
-<ct140>${cleanNumber($("#cell_140_dau").val().trim())}</ct140>
-<ct141>${cleanNumber($("#cell_141_dau").val().trim())}</ct141>
-<ct142>${cleanNumber($("#cell_142_dau").val().trim())}</ct142>
-<ct150>${cleanNumber($("#cell_150_dau").val().trim())}</ct150>
-<ct151>${cleanNumber($("#cell_151_dau").val().trim())}</ct151>
-<ct152>${cleanNumber($("#cell_152_dau").val().trim())}</ct152>
-<ct200>${cleanNumber($("#cell_200_dau").val().trim())}</ct200>
-<ct210>${cleanNumber($("#cell_210_dau").val().trim())}</ct210>
-<ct211>${cleanNumber($("#cell_211_dau").val().trim())}</ct211>
-<ct212>${cleanNumber($("#cell_212_dau").val().trim())}</ct212>
-<ct213>${cleanNumber($("#cell_213_dau").val().trim())}</ct213>
-<ct214>${cleanNumber($("#cell_214_dau").val().trim())}</ct214>
-<ct215>${cleanNumber($("#cell_215_dau").val().trim())}</ct215>
-<ct220>${cleanNumber($("#cell_220_dau").val().trim())}</ct220>
-<ct221>${cleanNumber($("#cell_221_dau").val().trim())}</ct221>
-<ct222>${cleanNumber($("#cell_222_dau").val().trim())}</ct222>
-<ct230>${cleanNumber($("#cell_230_dau").val().trim())}</ct230>
-<ct231>${cleanNumber($("#cell_231_dau").val().trim())}</ct231>
-<ct232>${cleanNumber($("#cell_232_dau").val().trim())}</ct232>
-<ct240>${cleanNumber($("#cell_240_dau").val().trim())}</ct240>
-<ct250>${cleanNumber($("#cell_250_dau").val().trim())}</ct250>
-<ct251>${cleanNumber($("#cell_251_dau").val().trim())}</ct251>
-<ct252>${cleanNumber($("#cell_252_dau").val().trim())}</ct252>
-<ct253>${cleanNumber($("#cell_253_dau").val().trim())}</ct253>
-<ct260>${cleanNumber($("#cell_260_dau").val().trim())}</ct260>
-<ct300>${cleanNumber($("#cell_300_dau").val().trim())}</ct300>
-<ct400>${cleanNumber($("#cell_400_dau").val().trim())}</ct400>
-<ct410>${cleanNumber($("#cell_410_dau").val().trim())}</ct410>
-<ct411>${cleanNumber($("#cell_411_dau").val().trim())}</ct411>
-<ct412>${cleanNumber($("#cell_412_dau").val().trim())}</ct412>
-<ct413>${cleanNumber($("#cell_413_dau").val().trim())}</ct413>
-<ct414>${cleanNumber($("#cell_414_dau").val().trim())}</ct414>
-<ct415>${cleanNumber($("#cell_415_dau").val().trim())}</ct415>
-<ct416>${cleanNumber($("#cell_416_dau").val().trim())}</ct416>
-<ct417>${cleanNumber($("#cell_417_dau").val().trim())}</ct417>
-<ct418>${cleanNumber($("#cell_418_dau").val().trim())}</ct418>
-<ct420>${cleanNumber($("#cell_420_dau").val().trim())}</ct420>
-<ct421>${cleanNumber($("#cell_421_dau").val().trim())}</ct421>
-<ct422>${cleanNumber($("#cell_422_dau").val().trim())}</ct422>
-<ct423>${cleanNumber($("#cell_423_dau").val().trim())}</ct423>
-<ct424>${cleanNumber($("#cell_424_dau").val().trim())}</ct424>
-<ct425>${cleanNumber($("#cell_425_dau").val().trim())}</ct425>
-<ct426>${cleanNumber($("#cell_426_dau").val().trim())}</ct426>
-<ct427>${cleanNumber($("#cell_427_dau").val().trim())}</ct427>
-<ct500>${cleanNumber($("#cell_500_dau").val().trim())}</ct500>
-<ct511>${cleanNumber($("#cell_511_dau").val().trim())}</ct511>
-<ct512>${cleanNumber($("#cell_512_dau").val().trim())}</ct512>
-<ct513>${cleanNumber($("#cell_513_dau").val().trim())}</ct513>
-<ct514>${cleanNumber($("#cell_514_dau").val().trim())}</ct514>
-<ct515>${cleanNumber($("#cell_515_dau").val().trim())}</ct515>
-<ct516>${cleanNumber($("#cell_516_dau").val().trim())}</ct516>
-<ct517>${cleanNumber($("#cell_517_dau").val().trim())}</ct517>
-<ct600>${cleanNumber($("#cell_600_dau").val().trim())}</ct600>
-
-      </SoDauNam>
-      <nguoiLapBieu>
-      </nguoiLapBieu>
-      <keToanTruong>
-      </keToanTruong>
-      <ngayLap>2025-02-14</ngayLap>
-      <nguoiDaiDienTheoPhapLuat>${$("#giamdoc").val()}</nguoiDaiDienTheoPhapLuat>
-    </CTieuTKhaiChinh>
-    <PLuc>
-      <PL_KQHDSXKD>
-        <ThuyetMinh>
-          <ct01/>
-          <ct02/>
-          <ct10/>
-          <ct11/>
-          <ct20/>
-          <ct21/>
-          <ct22/>
-          <ct23/>
-          <ct24/>
-          <ct30/>
-          <ct31/>
-          <ct32/>
-          <ct40/>
-          <ct50/>
-          <ct51/>
-          <ct60/>
-        </ThuyetMinh>
-        <NamNay>
-          <ct01>3800823318</ct01>
-          <ct02>0</ct02>
-          <ct10>3800823318</ct10>
-          <ct11>3485810206</ct11>
-          <ct20>315013112</ct20>
-          <ct21>40448614</ct21>
-          <ct22>0</ct22>
-          <ct23>0</ct23>
-          <ct24>537303654</ct24>
-          <ct30>-181841928</ct30>
-          <ct31>232219355</ct31>
-          <ct32>40495575</ct32>
-          <ct40>191723780</ct40>
-          <ct50>9881852</ct50>
-          <ct51>10075485</ct51>
-          <ct60>-193633</ct60>
-        </NamNay>
-        <NamTruoc>
-          <ct01>5334959897</ct01>
-          <ct02>0</ct02>
-          <ct10>5334959897</ct10>
-          <ct11>4967482914</ct11>
-          <ct20>367476983</ct20>
-          <ct21>88313116</ct21>
-          <ct22>0</ct22>
-          <ct23>0</ct23>
-          <ct24>699480366</ct24>
-          <ct30>-243690267</ct30>
-          <ct31>297656339</ct31>
-          <ct32>0</ct32>
-          <ct40>297656339</ct40>
-          <ct50>53966072</ct50>
-          <ct51>10793214</ct51>
-          <ct60>43172858</ct60>
-        </NamTruoc>
-      </PL_KQHDSXKD>
-      <PL_LCTTTT>
-        <ThuyetMinh>
-          <ct01/>
-          <ct02/>
-          <ct03/>
-          <ct04/>
-          <ct05/>
-          <ct06/>
-          <ct07/>
-          <ct20/>
-          <ct21/>
-          <ct22/>
-          <ct23/>
-          <ct24/>
-          <ct25/>
-          <ct30/>
-          <ct31/>
-          <ct32/>
-          <ct33/>
-          <ct34/>
-          <ct35/>
-          <ct40/>
-          <ct50/>
-          <ct60/>
-          <ct61/>
-          <ct70/>
-        </ThuyetMinh>
-        <NamNay>
-          <ct01>4219468120</ct01>
-          <ct02>-3115911325</ct02>
-          <ct03>-422930000</ct03>
-          <ct04>0</ct04>
-          <ct05>-24696000</ct05>
-          <ct06>44465000</ct06>
-          <ct07>-63498375</ct07>
-          <ct20>636897420</ct20>
-          <ct21>0</ct21>
-          <ct22>0</ct22>
-          <ct23>0</ct23>
-          <ct24>0</ct24>
-          <ct25>44071</ct25>
-          <ct30>44071</ct30>
-          <ct31>0</ct31>
-          <ct32>0</ct32>
-          <ct33>0</ct33>
-          <ct34>0</ct34>
-          <ct35>0</ct35>
-          <ct40>0</ct40>
-          <ct50>636941491</ct50>
-          <ct60>1006410597</ct60>
-          <ct61>0</ct61>
-          <ct70>1643352088</ct70>
-        </NamNay>
-        <NamTruoc>
-          <ct01>5898402426</ct01>
-          <ct02>-3566934779</ct02>
-          <ct03>-586650000</ct03>
-          <ct04>0</ct04>
-          <ct05>-2463806</ct05>
-          <ct06>1090975000</ct06>
-          <ct07>-8452000000</ct07>
-          <ct20>-5618671159</ct20>
-          <ct21>0</ct21>
-          <ct22>0</ct22>
-          <ct23>0</ct23>
-          <ct24>0</ct24>
-          <ct25>96399</ct25>
-          <ct30>96399</ct30>
-          <ct31>6500000000</ct31>
-          <ct32>0</ct32>
-          <ct33>0</ct33>
-          <ct34>0</ct34>
-          <ct35>0</ct35>
-          <ct40>6500000000</ct40>
-          <ct50>881425240</ct50>
-          <ct60>124985357</ct60>
-          <ct61>0</ct61>
-          <ct70>1006410597</ct70>
-        </NamTruoc>
-      </PL_LCTTTT>
-      <PL_CDTK>
-        <SoDuDauKy>
-          <No>
-            <ct111>917519211</ct111>
-            <ct1111>917519211</ct1111>
-            <ct1112>0</ct1112>
-            <ct112>88891386</ct112>
-            <ct1121>88891386</ct1121>
-            <ct1122>0</ct1122>
-            <ct121>0</ct121>
-            <ct128>0</ct128>
-            <ct1281>0</ct1281>
-            <ct1288>0</ct1288>
-            <ct131>300052500</ct131>
-            <ct133>365127648</ct133>
-            <ct1331>365127648</ct1331>
-            <ct1332>0</ct1332>
-            <ct136>0</ct136>
-            <ct1361>0</ct1361>
-            <ct1368>0</ct1368>
-            <ct138>0</ct138>
-            <ct1381>0</ct1381>
-            <ct1386>0</ct1386>
-            <ct1388>0</ct1388>
-            <ct141>0</ct141>
-            <ct151>0</ct151>
-            <ct152>0</ct152>
-            <ct153>0</ct153>
-            <ct154>0</ct154>
-            <ct155>0</ct155>
-            <ct156>9064217231</ct156>
-            <ct157>0</ct157>
-            <ct211>1089445454</ct211>
-            <ct2111>1089445454</ct2111>
-            <ct2112>0</ct2112>
-            <ct2113>0</ct2113>
-            <ct214>0</ct214>
-            <ct2141>0</ct2141>
-            <ct2142>0</ct2142>
-            <ct2143>0</ct2143>
-            <ct2147>0</ct2147>
-            <ct217>0</ct217>
-            <ct228>0</ct228>
-            <ct2281>0</ct2281>
-            <ct2288>0</ct2288>
-            <ct229>0</ct229>
-            <ct2291>0</ct2291>
-            <ct2292>0</ct2292>
-            <ct2293>0</ct2293>
-            <ct2294>0</ct2294>
-            <ct241>0</ct241>
-            <ct2411>0</ct2411>
-            <ct2412>0</ct2412>
-            <ct2413>0</ct2413>
-            <ct242>6666672</ct242>
-            <ct331>0</ct331>
-            <ct333>0</ct333>
-            <ct3331>0</ct3331>
-            <ct33311>0</ct33311>
-            <ct33312>0</ct33312>
-            <ct3332>0</ct3332>
-            <ct3333>0</ct3333>
-            <ct3334>0</ct3334>
-            <ct3335>0</ct3335>
-            <ct3336>0</ct3336>
-            <ct3337>0</ct3337>
-            <ct3338>0</ct3338>
-            <ct33381>0</ct33381>
-            <ct33382>0</ct33382>
-            <ct3339>0</ct3339>
-            <ct334>0</ct334>
-            <ct335>0</ct335>
-            <ct336>0</ct336>
-            <ct3361>0</ct3361>
-            <ct3368>0</ct3368>
-            <ct338>0</ct338>
-            <ct3381>0</ct3381>
-            <ct3382>0</ct3382>
-            <ct3383>0</ct3383>
-            <ct3384>0</ct3384>
-            <ct3385>0</ct3385>
-            <ct3386>0</ct3386>
-            <ct3387>0</ct3387>
-            <ct3388>0</ct3388>
-            <ct341>0</ct341>
-            <ct3411>0</ct3411>
-            <ct3412>0</ct3412>
-            <ct352>0</ct352>
-            <ct3521>0</ct3521>
-            <ct3522>0</ct3522>
-            <ct3524>0</ct3524>
-            <ct353>0</ct353>
-            <ct3531>0</ct3531>
-            <ct3532>0</ct3532>
-            <ct3533>0</ct3533>
-            <ct3534>0</ct3534>
-            <ct356>0</ct356>
-            <ct3561>0</ct3561>
-            <ct3562>0</ct3562>
-            <ct411>0</ct411>
-            <ct4111>0</ct4111>
-            <ct4112>0</ct4112>
-            <ct4118>0</ct4118>
-            <ct413>0</ct413>
-            <ct418>0</ct418>
-            <ct419>0</ct419>
-            <ct421>0</ct421>
-            <ct4211>0</ct4211>
-            <ct4212>0</ct4212>
-            <ct511>0</ct511>
-            <ct5111>0</ct5111>
-            <ct5112>0</ct5112>
-            <ct5113>0</ct5113>
-            <ct5118>0</ct5118>
-            <ct515>0</ct515>
-            <ct611>0</ct611>
-            <ct631>0</ct631>
-            <ct632>0</ct632>
-            <ct635>0</ct635>
-            <ct642>0</ct642>
-            <ct6421>0</ct6421>
-            <ct6422>0</ct6422>
-            <ct711>0</ct711>
-            <ct811>0</ct811>
-            <ct821>0</ct821>
-            <ct911>0</ct911>
-            <tongCong>11831920102</tongCong>
-          </No>
-          <Co>
-            <ct111>0</ct111>
-            <ct1111>0</ct1111>
-            <ct1112>0</ct1112>
-            <ct112>0</ct112>
-            <ct1121>0</ct1121>
-            <ct1122>0</ct1122>
-            <ct121>0</ct121>
-            <ct128>0</ct128>
-            <ct1281>0</ct1281>
-            <ct1288>0</ct1288>
-            <ct131>0</ct131>
-            <ct133>0</ct133>
-            <ct1331>0</ct1331>
-            <ct1332>0</ct1332>
-            <ct136>0</ct136>
-            <ct1361>0</ct1361>
-            <ct1368>0</ct1368>
-            <ct138>0</ct138>
-            <ct1381>0</ct1381>
-            <ct1386>0</ct1386>
-            <ct1388>0</ct1388>
-            <ct141>0</ct141>
-            <ct151>0</ct151>
-            <ct152>0</ct152>
-            <ct153>0</ct153>
-            <ct154>0</ct154>
-            <ct155>0</ct155>
-            <ct156>0</ct156>
-            <ct157>0</ct157>
-            <ct211>0</ct211>
-            <ct2111>0</ct2111>
-            <ct2112>0</ct2112>
-            <ct2113>0</ct2113>
-            <ct214>980236610</ct214>
-            <ct2141>980236610</ct2141>
-            <ct2142>0</ct2142>
-            <ct2143>0</ct2143>
-            <ct2147>0</ct2147>
-            <ct217>0</ct217>
-            <ct228>0</ct228>
-            <ct2281>0</ct2281>
-            <ct2288>0</ct2288>
-            <ct229>0</ct229>
-            <ct2291>0</ct2291>
-            <ct2292>0</ct2292>
-            <ct2293>0</ct2293>
-            <ct2294>0</ct2294>
-            <ct241>0</ct241>
-            <ct2411>0</ct2411>
-            <ct2412>0</ct2412>
-            <ct2413>0</ct2413>
-            <ct242>0</ct242>
-            <ct331>314559628</ct331>
-            <ct333>10793214</ct333>
-            <ct3331>0</ct3331>
-            <ct33311>0</ct33311>
-            <ct33312>0</ct33312>
-            <ct3332>0</ct3332>
-            <ct3333>0</ct3333>
-            <ct3334>10793214</ct3334>
-            <ct3335>0</ct3335>
-            <ct3336>0</ct3336>
-            <ct3337>0</ct3337>
-            <ct3338>0</ct3338>
-            <ct33381>0</ct33381>
-            <ct33382>0</ct33382>
-            <ct3339>0</ct3339>
-            <ct334>0</ct334>
-            <ct335>0</ct335>
-            <ct336>0</ct336>
-            <ct3361>0</ct3361>
-            <ct3368>0</ct3368>
-            <ct338>0</ct338>
-            <ct3381>0</ct3381>
-            <ct3382>0</ct3382>
-            <ct3383>0</ct3383>
-            <ct3384>0</ct3384>
-            <ct3385>0</ct3385>
-            <ct3386>0</ct3386>
-            <ct3387>0</ct3387>
-            <ct3388>0</ct3388>
-            <ct341>0</ct341>
-            <ct3411>0</ct3411>
-            <ct3412>0</ct3412>
-            <ct352>0</ct352>
-            <ct3521>0</ct3521>
-            <ct3522>0</ct3522>
-            <ct3524>0</ct3524>
-            <ct353>0</ct353>
-            <ct3531>0</ct3531>
-            <ct3532>0</ct3532>
-            <ct3533>0</ct3533>
-            <ct3534>0</ct3534>
-            <ct356>0</ct356>
-            <ct3561>0</ct3561>
-            <ct3562>0</ct3562>
-            <ct411>10000000000</ct411>
-            <ct4111>10000000000</ct4111>
-            <ct4112>0</ct4112>
-            <ct4118>0</ct4118>
-            <ct413>0</ct413>
-            <ct418>0</ct418>
-            <ct419>0</ct419>
-            <ct421>526330650</ct421>
-            <ct4211>483157792</ct4211>
-            <ct4212>43172858</ct4212>
-            <ct511>0</ct511>
-            <ct5111>0</ct5111>
-            <ct5112>0</ct5112>
-            <ct5113>0</ct5113>
-            <ct5118>0</ct5118>
-            <ct515>0</ct515>
-            <ct611>0</ct611>
-            <ct631>0</ct631>
-            <ct632>0</ct632>
-            <ct635>0</ct635>
-            <ct642>0</ct642>
-            <ct6421>0</ct6421>
-            <ct6422>0</ct6422>
-            <ct711>0</ct711>
-            <ct811>0</ct811>
-            <ct821>0</ct821>
-            <ct911>0</ct911>
-            <tongCong>11831920102</tongCong>
-          </Co>
-        </SoDuDauKy>
-        <SoPhatSinhTrongKy>
-          <No>
-            <ct111>4107723520</ct111>
-            <ct1111>4107723520</ct1111>
-            <ct1112>0</ct1112>
-            <ct112>3097253671</ct112>
-            <ct1121>3097253671</ct1121>
-            <ct1122>0</ct1122>
-            <ct121>0</ct121>
-            <ct128>0</ct128>
-            <ct1281>0</ct1281>
-            <ct1288>0</ct1288>
-            <ct131>154709600</ct131>
-            <ct133>257923776</ct133>
-            <ct1331>257923776</ct1331>
-            <ct1332>0</ct1332>
-            <ct136>0</ct136>
-            <ct1361>0</ct1361>
-            <ct1368>0</ct1368>
-            <ct138>0</ct138>
-            <ct1381>0</ct1381>
-            <ct1386>0</ct1386>
-            <ct1388>0</ct1388>
-            <ct141>0</ct141>
-            <ct151>0</ct151>
-            <ct152>0</ct152>
-            <ct153>0</ct153>
-            <ct154>0</ct154>
-            <ct155>0</ct155>
-            <ct156>2764958047</ct156>
-            <ct157>0</ct157>
-            <ct211>0</ct211>
-            <ct2111>0</ct2111>
-            <ct2112>0</ct2112>
-            <ct2113>0</ct2113>
-            <ct214>0</ct214>
-            <ct2141>0</ct2141>
-            <ct2142>0</ct2142>
-            <ct2143>0</ct2143>
-            <ct2147>0</ct2147>
-            <ct217>0</ct217>
-            <ct228>0</ct228>
-            <ct2281>0</ct2281>
-            <ct2288>0</ct2288>
-            <ct229>0</ct229>
-            <ct2291>0</ct2291>
-            <ct2292>0</ct2292>
-            <ct2293>0</ct2293>
-            <ct2294>0</ct2294>
-            <ct241>0</ct241>
-            <ct2411>0</ct2411>
-            <ct2412>0</ct2412>
-            <ct2413>0</ct2413>
-            <ct242>0</ct242>
-            <ct331>3336647949</ct331>
-            <ct333>413759002</ct333>
-            <ct3331>381663002</ct3331>
-            <ct33311>381663002</ct33311>
-            <ct33312>0</ct33312>
-            <ct3332>0</ct3332>
-            <ct3333>0</ct3333>
-            <ct3334>24696000</ct3334>
-            <ct3335>5400000</ct3335>
-            <ct3336>0</ct3336>
-            <ct3337>0</ct3337>
-            <ct3338>0</ct3338>
-            <ct33381>0</ct33381>
-            <ct33382>0</ct33382>
-            <ct3339>2000000</ct3339>
-            <ct334>422930000</ct334>
-            <ct335>0</ct335>
-            <ct336>0</ct336>
-            <ct3361>0</ct3361>
-            <ct3368>0</ct3368>
-            <ct338>0</ct338>
-            <ct3381>0</ct3381>
-            <ct3382>0</ct3382>
-            <ct3383>0</ct3383>
-            <ct3384>0</ct3384>
-            <ct3385>0</ct3385>
-            <ct3386>0</ct3386>
-            <ct3387>0</ct3387>
-            <ct3388>0</ct3388>
-            <ct341>0</ct341>
-            <ct3411>0</ct3411>
-            <ct3412>0</ct3412>
-            <ct352>0</ct352>
-            <ct3521>0</ct3521>
-            <ct3522>0</ct3522>
-            <ct3524>0</ct3524>
-            <ct353>0</ct353>
-            <ct3531>0</ct3531>
-            <ct3532>0</ct3532>
-            <ct3533>0</ct3533>
-            <ct3534>0</ct3534>
-            <ct356>0</ct356>
-            <ct3561>0</ct3561>
-            <ct3562>0</ct3562>
-            <ct411>0</ct411>
-            <ct4111>0</ct4111>
-            <ct4112>0</ct4112>
-            <ct4118>0</ct4118>
-            <ct413>0</ct413>
-            <ct418>0</ct418>
-            <ct419>0</ct419>
-            <ct421>43366491</ct421>
-            <ct4211>0</ct4211>
-            <ct4212>43366491</ct4212>
-            <ct511>3800823318</ct511>
-            <ct5111>3800823318</ct5111>
-            <ct5112>0</ct5112>
-            <ct5113>0</ct5113>
-            <ct5118>0</ct5118>
-            <ct515>40448614</ct515>
-            <ct611>0</ct611>
-            <ct631>0</ct631>
-            <ct632>3485810206</ct632>
-            <ct635>0</ct635>
-            <ct642>537303654</ct642>
-            <ct6421>233520000</ct6421>
-            <ct6422>303783654</ct6422>
-            <ct711>232219355</ct711>
-            <ct811>40495575</ct811>
-            <ct821>10075485</ct821>
-            <ct911>4073684920</ct911>
-            <tongCong>26820133183</tongCong>
-          </No>
-          <Co>
-            <ct111>3406877298</ct111>
-            <ct1111>3406877298</ct1111>
-            <ct1112>0</ct1112>
-            <ct112>3161158402</ct112>
-            <ct1121>3161158402</ct1121>
-            <ct1122>0</ct1122>
-            <ct121>0</ct121>
-            <ct128>0</ct128>
-            <ct1281>0</ct1281>
-            <ct1288>0</ct1288>
-            <ct131>154709600</ct131>
-            <ct133>383946002</ct133>
-            <ct1331>383946002</ct1331>
-            <ct1332>0</ct1332>
-            <ct136>0</ct136>
-            <ct1361>0</ct1361>
-            <ct1368>0</ct1368>
-            <ct138>0</ct138>
-            <ct1381>0</ct1381>
-            <ct1386>0</ct1386>
-            <ct1388>0</ct1388>
-            <ct141>0</ct141>
-            <ct151>0</ct151>
-            <ct152>0</ct152>
-            <ct153>0</ct153>
-            <ct154>0</ct154>
-            <ct155>0</ct155>
-            <ct156>3485810206</ct156>
-            <ct157>0</ct157>
-            <ct211>0</ct211>
-            <ct2111>0</ct2111>
-            <ct2112>0</ct2112>
-            <ct2113>0</ct2113>
-            <ct214>100808184</ct214>
-            <ct2141>100808184</ct2141>
-            <ct2142>0</ct2142>
-            <ct2143>0</ct2143>
-            <ct2147>0</ct2147>
-            <ct217>0</ct217>
-            <ct228>0</ct228>
-            <ct2281>0</ct2281>
-            <ct2288>0</ct2288>
-            <ct229>0</ct229>
-            <ct2291>0</ct2291>
-            <ct2292>0</ct2292>
-            <ct2293>0</ct2293>
-            <ct2294>0</ct2294>
-            <ct241>0</ct241>
-            <ct2411>0</ct2411>
-            <ct2412>0</ct2412>
-            <ct2413>0</ct2413>
-            <ct242>4999992</ct242>
-            <ct331>3022025027</ct331>
-            <ct333>412834487</ct333>
-            <ct3331>381663002</ct3331>
-            <ct33311>381663002</ct33311>
-            <ct33312>0</ct33312>
-            <ct3332>0</ct3332>
-            <ct3333>0</ct3333>
-            <ct3334>23771485</ct3334>
-            <ct3335>5400000</ct3335>
-            <ct3336>0</ct3336>
-            <ct3337>0</ct3337>
-            <ct3338>0</ct3338>
-            <ct33381>0</ct33381>
-            <ct33382>0</ct33382>
-            <ct3339>2000000</ct3339>
-            <ct334>422930000</ct334>
-            <ct335>0</ct335>
-            <ct336>0</ct336>
-            <ct3361>0</ct3361>
-            <ct3368>0</ct3368>
-            <ct338>0</ct338>
-            <ct3381>0</ct3381>
-            <ct3382>0</ct3382>
-            <ct3383>0</ct3383>
-            <ct3384>0</ct3384>
-            <ct3385>0</ct3385>
-            <ct3386>0</ct3386>
-            <ct3387>0</ct3387>
-            <ct3388>0</ct3388>
-            <ct341>0</ct341>
-            <ct3411>0</ct3411>
-            <ct3412>0</ct3412>
-            <ct352>0</ct352>
-            <ct3521>0</ct3521>
-            <ct3522>0</ct3522>
-            <ct3524>0</ct3524>
-            <ct353>0</ct353>
-            <ct3531>0</ct3531>
-            <ct3532>0</ct3532>
-            <ct3533>0</ct3533>
-            <ct3534>0</ct3534>
-            <ct356>0</ct356>
-            <ct3561>0</ct3561>
-            <ct3562>0</ct3562>
-            <ct411>0</ct411>
-            <ct4111>0</ct4111>
-            <ct4112>0</ct4112>
-            <ct4118>0</ct4118>
-            <ct413>0</ct413>
-            <ct418>0</ct418>
-            <ct419>0</ct419>
-            <ct421>43172858</ct421>
-            <ct4211>43172858</ct4211>
-            <ct4212>0</ct4212>
-            <ct511>3800823318</ct511>
-            <ct5111>3800823318</ct5111>
-            <ct5112>0</ct5112>
-            <ct5113>0</ct5113>
-            <ct5118>0</ct5118>
-            <ct515>40448614</ct515>
-            <ct611>0</ct611>
-            <ct631>0</ct631>
-            <ct632>3485810206</ct632>
-            <ct635>0</ct635>
-            <ct642>537303654</ct642>
-            <ct6421>233520000</ct6421>
-            <ct6422>303783654</ct6422>
-            <ct711>232219355</ct711>
-            <ct811>40495575</ct811>
-            <ct821>10075485</ct821>
-            <ct911>4073684920</ct911>
-            <tongCong>26820133183</tongCong>
-          </Co>
-        </SoPhatSinhTrongKy>
-        <SoDuCuoiKy>
-          <No>
-            <ct111>1618365433</ct111>
-            <ct1111>1618365433</ct1111>
-            <ct1112>0</ct1112>
-            <ct112>24986655</ct112>
-            <ct1121>24986655</ct1121>
-            <ct1122>0</ct1122>
-            <ct121>0</ct121>
-            <ct128>0</ct128>
-            <ct1281>0</ct1281>
-            <ct1288>0</ct1288>
-            <ct131>300052500</ct131>
-            <ct133>239105422</ct133>
-            <ct1331>239105422</ct1331>
-            <ct1332>0</ct1332>
-            <ct136>0</ct136>
-            <ct1361>0</ct1361>
-            <ct1368>0</ct1368>
-            <ct138>0</ct138>
-            <ct1381>0</ct1381>
-            <ct1386>0</ct1386>
-            <ct1388>0</ct1388>
-            <ct141>0</ct141>
-            <ct151>0</ct151>
-            <ct152>0</ct152>
-            <ct153>0</ct153>
-            <ct154>0</ct154>
-            <ct155>0</ct155>
-            <ct156>8343365072</ct156>
-            <ct157>0</ct157>
-            <ct211>1089445454</ct211>
-            <ct2111>1089445454</ct2111>
-            <ct2112>0</ct2112>
-            <ct2113>0</ct2113>
-            <ct214>0</ct214>
-            <ct2141>0</ct2141>
-            <ct2142>0</ct2142>
-            <ct2143>0</ct2143>
-            <ct2147>0</ct2147>
-            <ct217>0</ct217>
-            <ct228>0</ct228>
-            <ct2281>0</ct2281>
-            <ct2288>0</ct2288>
-            <ct229>0</ct229>
-            <ct2291>0</ct2291>
-            <ct2292>0</ct2292>
-            <ct2293>0</ct2293>
-            <ct2294>0</ct2294>
-            <ct241>0</ct241>
-            <ct2411>0</ct2411>
-            <ct2412>0</ct2412>
-            <ct2413>0</ct2413>
-            <ct242>1666680</ct242>
-            <ct331>63294</ct331>
-            <ct333>0</ct333>
-            <ct3331>0</ct3331>
-            <ct33311>0</ct33311>
-            <ct33312>0</ct33312>
-            <ct3332>0</ct3332>
-            <ct3333>0</ct3333>
-            <ct3334>0</ct3334>
-            <ct3335>0</ct3335>
-            <ct3336>0</ct3336>
-            <ct3337>0</ct3337>
-            <ct3338>0</ct3338>
-            <ct33381>0</ct33381>
-            <ct33382>0</ct33382>
-            <ct3339>0</ct3339>
-            <ct334>0</ct334>
-            <ct335>0</ct335>
-            <ct336>0</ct336>
-            <ct3361>0</ct3361>
-            <ct3368>0</ct3368>
-            <ct338>0</ct338>
-            <ct3381>0</ct3381>
-            <ct3382>0</ct3382>
-            <ct3383>0</ct3383>
-            <ct3384>0</ct3384>
-            <ct3385>0</ct3385>
-            <ct3386>0</ct3386>
-            <ct3387>0</ct3387>
-            <ct3388>0</ct3388>
-            <ct341>0</ct341>
-            <ct3411>0</ct3411>
-            <ct3412>0</ct3412>
-            <ct352>0</ct352>
-            <ct3521>0</ct3521>
-            <ct3522>0</ct3522>
-            <ct3524>0</ct3524>
-            <ct353>0</ct353>
-            <ct3531>0</ct3531>
-            <ct3532>0</ct3532>
-            <ct3533>0</ct3533>
-            <ct3534>0</ct3534>
-            <ct356>0</ct356>
-            <ct3561>0</ct3561>
-            <ct3562>0</ct3562>
-            <ct411>0</ct411>
-            <ct4111>0</ct4111>
-            <ct4112>0</ct4112>
-            <ct4118>0</ct4118>
-            <ct413>0</ct413>
-            <ct418>0</ct418>
-            <ct419>0</ct419>
-            <ct421>193633</ct421>
-            <ct4211>0</ct4211>
-            <ct4212>193633</ct4212>
-            <ct511>0</ct511>
-            <ct5111>0</ct5111>
-            <ct5112>0</ct5112>
-            <ct5113>0</ct5113>
-            <ct5118>0</ct5118>
-            <ct515>0</ct515>
-            <ct611>0</ct611>
-            <ct631>0</ct631>
-            <ct632>0</ct632>
-            <ct635>0</ct635>
-            <ct642>0</ct642>
-            <ct6421>0</ct6421>
-            <ct6422>0</ct6422>
-            <ct711>0</ct711>
-            <ct811>0</ct811>
-            <ct821>0</ct821>
-            <ct911>0</ct911>
-            <tongCong>11617244143</tongCong>
-          </No>
-          <Co>
-            <ct111>0</ct111>
-            <ct1111>0</ct1111>
-            <ct1112>0</ct1112>
-            <ct112>0</ct112>
-            <ct1121>0</ct1121>
-            <ct1122>0</ct1122>
-            <ct121>0</ct121>
-            <ct128>0</ct128>
-            <ct1281>0</ct1281>
-            <ct1288>0</ct1288>
-            <ct131>0</ct131>
-            <ct133>0</ct133>
-            <ct1331>0</ct1331>
-            <ct1332>0</ct1332>
-            <ct136>0</ct136>
-            <ct1361>0</ct1361>
-            <ct1368>0</ct1368>
-            <ct138>0</ct138>
-            <ct1381>0</ct1381>
-            <ct1386>0</ct1386>
-            <ct1388>0</ct1388>
-            <ct141>0</ct141>
-            <ct151>0</ct151>
-            <ct152>0</ct152>
-            <ct153>0</ct153>
-            <ct154>0</ct154>
-            <ct155>0</ct155>
-            <ct156>0</ct156>
-            <ct157>0</ct157>
-            <ct211>0</ct211>
-            <ct2111>0</ct2111>
-            <ct2112>0</ct2112>
-            <ct2113>0</ct2113>
-            <ct214>1081044794</ct214>
-            <ct2141>1081044794</ct2141>
-            <ct2142>0</ct2142>
-            <ct2143>0</ct2143>
-            <ct2147>0</ct2147>
-            <ct217>0</ct217>
-            <ct228>0</ct228>
-            <ct2281>0</ct2281>
-            <ct2288>0</ct2288>
-            <ct229>0</ct229>
-            <ct2291>0</ct2291>
-            <ct2292>0</ct2292>
-            <ct2293>0</ct2293>
-            <ct2294>0</ct2294>
-            <ct241>0</ct241>
-            <ct2411>0</ct2411>
-            <ct2412>0</ct2412>
-            <ct2413>0</ct2413>
-            <ct242>0</ct242>
-            <ct331>0</ct331>
-            <ct333>9868699</ct333>
-            <ct3331>0</ct3331>
-            <ct33311>0</ct33311>
-            <ct33312>0</ct33312>
-            <ct3332>0</ct3332>
-            <ct3333>0</ct3333>
-            <ct3334>9868699</ct3334>
-            <ct3335>0</ct3335>
-            <ct3336>0</ct3336>
-            <ct3337>0</ct3337>
-            <ct3338>0</ct3338>
-            <ct33381>0</ct33381>
-            <ct33382>0</ct33382>
-            <ct3339>0</ct3339>
-            <ct334>0</ct334>
-            <ct335>0</ct335>
-            <ct336>0</ct336>
-            <ct3361>0</ct3361>
-            <ct3368>0</ct3368>
-            <ct338>0</ct338>
-            <ct3381>0</ct3381>
-            <ct3382>0</ct3382>
-            <ct3383>0</ct3383>
-            <ct3384>0</ct3384>
-            <ct3385>0</ct3385>
-            <ct3386>0</ct3386>
-            <ct3387>0</ct3387>
-            <ct3388>0</ct3388>
-            <ct341>0</ct341>
-            <ct3411>0</ct3411>
-            <ct3412>0</ct3412>
-            <ct352>0</ct352>
-            <ct3521>0</ct3521>
-            <ct3522>0</ct3522>
-            <ct3524>0</ct3524>
-            <ct353>0</ct353>
-            <ct3531>0</ct3531>
-            <ct3532>0</ct3532>
-            <ct3533>0</ct3533>
-            <ct3534>0</ct3534>
-            <ct356>0</ct356>
-            <ct3561>0</ct3561>
-            <ct3562>0</ct3562>
-            <ct411>10000000000</ct411>
-            <ct4111>10000000000</ct4111>
-            <ct4112>0</ct4112>
-            <ct4118>0</ct4118>
-            <ct413>0</ct413>
-            <ct418>0</ct418>
-            <ct419>0</ct419>
-            <ct421>526330650</ct421>
-            <ct4211>526330650</ct4211>
-            <ct4212>0</ct4212>
-            <ct511>0</ct511>
-            <ct5111>0</ct5111>
-            <ct5112>0</ct5112>
-            <ct5113>0</ct5113>
-            <ct5118>0</ct5118>
-            <ct515>0</ct515>
-            <ct611>0</ct611>
-            <ct631>0</ct631>
-            <ct632>0</ct632>
-            <ct635>0</ct635>
-            <ct642>0</ct642>
-            <ct6421>0</ct6421>
-            <ct6422>0</ct6422>
-            <ct711>0</ct711>
-            <ct811>0</ct811>
-            <ct821>0</ct821>
-            <ct911>0</ct911>
-            <tongCong>11617244143</tongCong>
-          </Co>
-        </SoDuCuoiKy>
-      </PL_CDTK>
-    </PLuc>
-  </HSoKhaiThue></HSoThueDTu>`
-
-        const blob = new Blob([xmlContent], { type: "application/xml" });
-
-        // Tạo URL tạm thời để tải
-        const url = window.URL.createObjectURL(blob);
-
-        // Tạo thẻ <a> ẩn để trigger download
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = "BCTC_2024_DucThinh_3500807781.xml";  // tên file tải về
-        document.body.appendChild(link);
-        link.click();
-
-        // Dọn dẹp
-        document.body.removeChild(link);
-        window.URL.revokeObjectURL(url);
-
-    }
     function cleanNumber(str) {
         if (!str) return "0";
         // Bỏ hết dấu . và , rồi trim
