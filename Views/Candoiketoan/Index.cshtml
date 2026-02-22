@@ -2635,78 +2635,100 @@
 <script src="/Scripts/jquery-3.7.0.min.js"></script>
 <script>
     $(document).ready(function () {
-        sumAll();   // tính ngay khi mở trang
+        ["dk_no", "dk_co", "ps_no", "ps_co"].forEach(sumAll);
     });
-    function sumAll() {
+    function sumAll(type) {
 
         // ===== 1. cộng con → cha =====
-        $("#tb4 input[id$='_dk_no']").each(function () {
+        $("#tb4 input[id$='_" + type + "']").each(function () {
 
-            const match = this.id.match(/cell_(\d+)_dk_no/);
+            const match = this.id.match(/cell_(\d+)_/);
             if (!match) return;
 
             const acc = match[1];
             const parent = acc.slice(0, -1);
 
-            if ($("#cell_" + parent + "_dk_no").length) {
-                sumChildrenToParent(parent);
+            if ($("#cell_" + parent + "_" + type).length) {
+                sumChildrenToParent(parent, type);
             }
         });
 
-        // ===== 2. tính tổng toàn bảng =====
-        sumTotalDkNo();
+        // ===== 2. tổng toàn bảng =====
+        sumTotal(type);
     }
-    function sumChildrenToParent(parent) {
+    function sumChildrenToParent(parent, type) {
+
         let sum = 0;
 
-        $("#tb4 input[id^='cell_" + parent + "'][id$='_dk_no']").each(function () {
-            const acc = this.id.match(/cell_(\d+)_dk_no/)[1];
+        $("input[id^='cell_" + parent + "'][id$='_" + type + "']").each(function () {
 
-            // chỉ lấy tài khoản con trực tiếp (1111 thuộc 111)
+            const acc = this.id.match(/cell_(\d+)_/)[1];
+
             if (acc.length === parent.length + 1) {
-                sum += cleanToNumber($(this).val());
+                sum += parseNumber(this.value);
             }
         });
 
-        $("#cell_" + parent + "_dk_no").val(sum);
+        const parentInput = $("#cell_" + parent + "_" + type)[0];
+        parentInput.value = sum;
+
+        formatNumber(parentInput);
     }
-    function updateParent(acc) {
-        if (acc.length <= 3) return; // lên tới cấp 3 dừng
+    function updateParent(childInput) {
+
+        const match = childInput.id.match(/cell_(\d+)_(.+)/);
+        if (!match) return;
+
+        const acc = match[1];     // 13811
+        const type = match[2];    // dk_no | dk_co | ps_no...
 
         const parent = acc.slice(0, -1);
 
-        if ($("#cell_" + parent + "_dk_no").length) {
-            sumChildrenToParent(parent);
-            updateParent(parent);
+        if ($("#cell_" + parent + "_" + type).length) {
+
+            sumChildrenToParent(parent, type);
+
+            // đệ quy cập nhật tiếp cha cấp trên
+            updateParent(document.getElementById("cell_" + parent + "_" + type));
         }
+
+        // cập nhật dòng tổng
+        sumTotal(type);
     }
-    function sumTotalDkNo() {
+    function parseNumber(val) {
+        return parseFloat(val.replace(/\./g, '').replace(/,/g, '.')) || 0;
+    }
+    function sumTotal(type) {
+
         let total = 0;
 
-        $("#tb4 input[id$='_dk_no']").each(function () {
+        $("#tb4 input[id$='_" + type + "']").each(function () {
 
-            const match = this.id.match(/cell_(\d+)_dk_no/);
-            if (!match) return;
+            const match = this.id.match(/cell_(\d+)_/);
+            if (!match) return;   // ⭐ tránh lỗi
 
             const acc = match[1];
 
-            // bỏ tài khoản con (dài hơn 3 số)
-            if (acc.length > 3) return;
-
-            total += cleanToNumber($(this).val());
+            if (acc.length === 3) {
+                total += parseNumber(this.value);
+            }
         });
 
-        $("#cell_total_dk_no").val(total);
+        const totalInput = document.getElementById("cell_total_" + type);
+        totalInput.value = total;
+
+        formatNumber(totalInput);
     }
-    $("#tb4").on("input", "input[id$='_dk_no']", function () {
+    $("#tb4").on("blur", "input", function () {
+        if ($(this).val().trim() === "") {
+            $(this).val(0);
+        }
+    });
+    $("#tb4").on("input", "input", function () {
 
-        const match = this.id.match(/cell_(\d+)_dk_no/);
-        if (!match) return;
+        if (!this.id.startsWith("cell_")) return;
 
-        const acc = match[1];
-
-        updateParent(acc);
-        sumTotalDkNo();
+        updateParent(this);
 
     });
     function opentab(tabNumber) {
