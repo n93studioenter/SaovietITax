@@ -87,6 +87,7 @@ namespace Taxweb.Controllers
                 {
                     MaSo = r["SoHieu"].ToString(), 
                     DkNo = double.Parse(r["DkNo"].ToString()),
+                    DkCo = double.Parse(r["DkCo"].ToString()),
                     PsNo = double.Parse(r["PsNo"].ToString()),  
                     PsCo = double.Parse(r["PsCo"].ToString()),  
                     CkNo = double.Parse(r["CkNo"].ToString()),  

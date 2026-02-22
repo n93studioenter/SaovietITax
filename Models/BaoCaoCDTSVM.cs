@@ -20,6 +20,7 @@ namespace Taxweb.Models
     {
         public string MaSo { get; set; }
         public double DkNo { get; set; }
+        public double DkCo { get; set; }
         public double PsNo { get; set; }
         public double PsCo { get; set; }
         public double CkNo { get; set; }
