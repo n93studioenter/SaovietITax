@@ -58,8 +58,8 @@ namespace Taxweb.Controllers
                 baoCaoCDTSVM.CDTS = CDTS.AsEnumerable().Select(r => new CDTSVM
                 {
                     MaSo = r["MaSo"].ToString(),
-                    CuoiKy = double.Parse(r["CuoiKy"].ToString()),
-                    DauNam = double.Parse(r["DauNam"].ToString()),
+                    CuoiKy = Math.Abs(double.Parse(r["CuoiKy"].ToString())),
+                    DauNam = Math.Abs(double.Parse(r["DauNam"].ToString())),
                 }).ToList();
 
                 query = "SELECT * FROM License";
