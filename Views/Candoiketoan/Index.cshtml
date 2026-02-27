@@ -248,14 +248,14 @@
                         <td>151</td>
                         <td></td>
                         <td style="text-align:right;"><input id="cell_151_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="151").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_151_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="151").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_151_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="151").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">2. Tài sản ngắn hạn khác</td>
                         <td>152</td>
                         <td></td>
                         <td style="text-align:right;"><input id="cell_152_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="152").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_152_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="152").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_152_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="152").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <!-- B – TÀI SẢN DÀI HẠN -->
@@ -754,7 +754,7 @@
                         <td style="padding-left:40px;"><i>- Trong đó: Chi phí lãi vay</i></td>
                         <td class="text-center"><b>23</b></td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_23_namnay" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_23_namnay" value="@ViewBag.KQKD[9][7]" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                         <td style="text-align:right;"><input id="cell_23_namtruoc" class="myinput fw-bold" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
@@ -2909,8 +2909,7 @@
         "400": ["410", "420"],
         "410": ["411", "412", "413", "414", "415", "416", "417", "418"],
         "420": ["421", "422", "423", "424", "425", "426", "427",],
-        "500": ["511", "512", "513", "514", "515", "516", "517",],
-        "600": ["400", "500"], 
+        "500": ["511", "512", "513", "514", "515", "516", "517",] 
     };
 
     // ⭐ các dòng dự phòng (*) cần trừ
@@ -2973,9 +2972,31 @@
         var v300 = cleanToNumber(v100) + cleanToNumber(v200);
         $("#cell_300_cuoi").val(v300);
         formatNumber(document.getElementById("cell_300_cuoi"));
+
+
+        var v100r = $("#cell_100_dau").val();
+        var v200r = $("#cell_200_dau").val();
+        var v300r = cleanToNumber(v100r) + cleanToNumber(v200r);
+        $("#cell_300_dau").val(v300r);
+        formatNumber(document.getElementById("cell_300_dau"));
+    }
+    function sum600() {
+        var v100 = $("#cell_400_cuoi").val();
+        var v200 = $("#cell_500_cuoi").val();
+        var v300 = cleanToNumber(v100) + cleanToNumber(v200);
+        $("#cell_600_cuoi").val(v300);
+        formatNumber(document.getElementById("cell_600_cuoi"));
+
+
+        var v100r = $("#cell_400_dau").val();
+        var v200r = $("#cell_500_dau").val();
+        var v300r = cleanToNumber(v100r) + cleanToNumber(v200r);
+        $("#cell_600_dau").val(v300r);
+        formatNumber(document.getElementById("cell_600_dau"));
     }
     function sumtong() {
         sum300();
+        sum600();
     }
     function sumAll(type) {
 
