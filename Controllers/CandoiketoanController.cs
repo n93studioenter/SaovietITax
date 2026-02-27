@@ -31,7 +31,7 @@ namespace Taxweb.Controllers
        {
             if(path== null)
             {
-                path = "D:\\DA3\\DA3\\Data\\ducthinh2024.mdb";
+                path = "D:\\DA3\\DA3\\Data\\Minh Hoang 2024.mdb";
             }
             if (!string.IsNullOrEmpty(path))
             {
@@ -94,8 +94,693 @@ namespace Taxweb.Controllers
                     CkCo = double.Parse(r["CkCo"].ToString()),  
                 }).ToList();
                 ViewBag.number = 10;
+
+
+                query = "SELECT * FROM LCTT";
+                DataTable tbLCTT = ExecuteQuery(query, null);
+                          baoCaoCDTSVM.LCTTs = tbLCTT.AsEnumerable().Select(r => new LCTT
+                {
+                    MaSo = r["MaSo"].ToString(), 
+                    TKNo = r["TKNo"].ToString(),
+                    TKCo = r["TKCo"].ToString(),
+                    KyTruoc = double.Parse(r["KyTruoc"].ToString()), 
+                    KyNay = double.Parse(r["KyNay"].ToString()),
+                    TenE = r["TenE"].ToString(),    
+                          }).ToList();
+
+                string sql01 = @"
+SELECT
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))) AS F1,
+
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))) AS F2
+
+FROM
+    (HeThongTK
+    INNER JOIN ChungTu ON HeThongTK.MaSo = ChungTu.MaTKNo)
+    INNER JOIN HeThongTK AS HeThongTK_1 ON ChungTu.MaTKCo = HeThongTK_1.MaSo
+WHERE
+    (HethongTK.SoHieu LIKE '11%')
+    AND (
+        HethongTK_1.SoHieu LIKE '131%' 
+        OR HethongTK_1.SoHieu LIKE '511%' 
+        OR HethongTK_1.SoHieu LIKE '3331%'
+    )
+    AND ((ThangCT>=1 OR ThangCT=0) AND ThangCT<=12)";
+
+                DataTable dt = ExecuteQuery(sql01, null);
+                 
+                double f2 = 0;
+
+                if (dt.Rows.Count > 0)
+                { 
+                    f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    TTLCTT tTLCTT = new TTLCTT
+                    { 
+                        MaSo = "01",
+                        Namnay = f2
+                    };
+                    baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);   
+                }
+
+                //02
+                string sql02 = @"
+SELECT
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))) AS F1,
+
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))) AS F2
+
+FROM
+    (HeThongTK
+    INNER JOIN ChungTu ON HeThongTK.MaSo = ChungTu.MaTKNo)
+    INNER JOIN HeThongTK AS HeThongTK_1 ON ChungTu.MaTKCo = HeThongTK_1.MaSo
+WHERE
+    (HethongTK.SoHieu LIKE '331%' OR HethongTK.SoHieu LIKE '152%' OR HethongTK.SoHieu LIKE '153%' OR HethongTK.SoHieu LIKE '154%' OR HethongTK.SoHieu LIKE '642%' OR HethongTK.SoHieu LIKE '242%' OR HethongTK.SoHieu LIKE '1331%' OR HethongTK.SoHieu LIKE '632%' OR HethongTK.SoHieu LIKE '152%' )
+    AND (
+        HethongTK_1.SoHieu LIKE '11%'  
+    )
+    AND ((ThangCT>=1 OR ThangCT=0) AND ThangCT<=12)";
+
+                 dt = ExecuteQuery(sql02, null);
+
+                 f2 = 0;
+
+                if (dt.Rows.Count > 0)
+                {
+                    f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    TTLCTT tTLCTT = new TTLCTT
+                    {
+                        MaSo = "02",
+                        Namnay = f2
+                    };
+                    baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
+                }
+
+                //03
+                string sql03 = @"
+SELECT
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))) AS F1,
+
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))) AS F2
+
+FROM
+    (HeThongTK
+    INNER JOIN ChungTu ON HeThongTK.MaSo = ChungTu.MaTKNo)
+    INNER JOIN HeThongTK AS HeThongTK_1 ON ChungTu.MaTKCo = HeThongTK_1.MaSo
+WHERE
+    (HethongTK.SoHieu LIKE '334%' )
+    AND (
+        HethongTK_1.SoHieu LIKE '11%'  
+    )
+    AND ((ThangCT>=1 OR ThangCT=0) AND ThangCT<=12)";
+
+                dt = ExecuteQuery(sql03, null);
+
+                f2 = 0;
+
+                if (dt.Rows.Count > 0)
+                {
+                    f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    TTLCTT tTLCTT = new TTLCTT
+                    {
+                        MaSo = "03",
+                        Namnay = f2
+                    };
+                    baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
+                }
+                //04
+                string sql04 = @"
+SELECT
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))) AS F1,
+
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))) AS F2
+
+FROM
+    (HeThongTK
+    INNER JOIN ChungTu ON HeThongTK.MaSo = ChungTu.MaTKNo)
+    INNER JOIN HeThongTK AS HeThongTK_1 ON ChungTu.MaTKCo = HeThongTK_1.MaSo
+WHERE
+    (HethongTK.SoHieu LIKE '635%' OR HethongTK.SoHieu LIKE '335%')
+    AND (
+        HethongTK_1.SoHieu LIKE '11%'  
+    )
+    AND ((ThangCT>=1 OR ThangCT=0) AND ThangCT<=12)";
+
+                dt = ExecuteQuery(sql04, null);
+
+                f2 = 0;
+
+                if (dt.Rows.Count > 0)
+                {
+                    f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    TTLCTT tTLCTT = new TTLCTT
+                    {
+                        MaSo = "04",
+                        Namnay = f2
+                    };
+                    baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
+                }
+                //05
+                string sql05 = @"
+SELECT
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))) AS F1,
+
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))) AS F2
+
+FROM
+    (HeThongTK
+    INNER JOIN ChungTu ON HeThongTK.MaSo = ChungTu.MaTKNo)
+    INNER JOIN HeThongTK AS HeThongTK_1 ON ChungTu.MaTKCo = HeThongTK_1.MaSo
+WHERE
+    (HethongTK.SoHieu LIKE '3334%')
+    AND (
+        HethongTK_1.SoHieu LIKE '11%'  
+    )
+    AND ((ThangCT>=1 OR ThangCT=0) AND ThangCT<=12)";
+
+                dt = ExecuteQuery(sql05, null);
+
+                f2 = 0;
+
+                if (dt.Rows.Count > 0)
+                {
+                    f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    TTLCTT tTLCTT = new TTLCTT
+                    {
+                        MaSo = "05",
+                        Namnay = f2
+                    };
+                    baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
+                }
+
+                //06
+                string sql06 = @"
+SELECT
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))) AS F1,
+
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))) AS F2
+
+FROM
+    (HeThongTK
+    INNER JOIN ChungTu ON HeThongTK.MaSo = ChungTu.MaTKNo)
+    INNER JOIN HeThongTK AS HeThongTK_1 ON ChungTu.MaTKCo = HeThongTK_1.MaSo
+WHERE
+    (HethongTK.SoHieu LIKE '11%')
+    AND (
+        HethongTK_1.SoHieu LIKE '711%' 
+        OR HethongTK_1.SoHieu LIKE '133%' 
+        OR HethongTK_1.SoHieu LIKE '141%'
+        OR HethongTK_1.SoHieu LIKE '138%'
+        OR HethongTK_1.SoHieu LIKE '338%'
+        OR HethongTK_1.SoHieu LIKE '331%'
+        OR HethongTK_1.SoHieu LIKE '152%'
+        OR HethongTK_1.SoHieu LIKE '153%'
+        OR HethongTK_1.SoHieu LIKE '156%'
+        OR HethongTK_1.SoHieu LIKE '642%'
+         OR HethongTK_1.SoHieu LIKE '334%'
+    )
+    AND ((ThangCT>=1 OR ThangCT=0) AND ThangCT<=12)";
+
+                 dt = ExecuteQuery(sql06, null);
+
+                 f2 = 0;
+
+                if (dt.Rows.Count > 0)
+                {
+                    f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    TTLCTT tTLCTT = new TTLCTT
+                    {
+                        MaSo = "06",
+                        Namnay = f2
+                    };
+                    baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
+                }
+
+                //07
+                string sql07 = @"
+SELECT
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))) AS F1,
+
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))) AS F2
+
+FROM
+    (HeThongTK
+    INNER JOIN ChungTu ON HeThongTK.MaSo = ChungTu.MaTKNo)
+    INNER JOIN HeThongTK AS HeThongTK_1 ON ChungTu.MaTKCo = HeThongTK_1.MaSo
+WHERE
+    (HethongTK.SoHieu LIKE '811%' OR HethongTK.SoHieu LIKE '138%' OR HethongTK.SoHieu LIKE '3331%' OR HethongTK.SoHieu LIKE '3332%' OR HethongTK.SoHieu LIKE '3333%' OR HethongTK.SoHieu LIKE '3335%' OR HethongTK.SoHieu LIKE '3336%' OR HethongTK.SoHieu LIKE '3337%' OR HethongTK.SoHieu LIKE '3338%' OR HethongTK.SoHieu LIKE '3339%' OR HethongTK.SoHieu LIKE '338%'  OR HethongTK.SoHieu LIKE '352%' OR HethongTK.SoHieu LIKE '353%' OR HethongTK.SoHieu LIKE '356%'  OR HethongTK.SoHieu LIKE '131%' OR HethongTK.SoHieu LIKE '515%' )
+    AND (
+        HethongTK_1.SoHieu LIKE '11%'  
+    )
+    AND ((ThangCT>=1 OR ThangCT=0) AND ThangCT<=12)";
+
+                dt = ExecuteQuery(sql07, null);
+
+                f2 = 0;
+
+                if (dt.Rows.Count > 0)
+                {
+                    f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    TTLCTT tTLCTT = new TTLCTT
+                    {
+                        MaSo = "07",
+                        Namnay = f2
+                    };
+                    baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
+                }
+                //21
+                string sql21 = @"
+SELECT
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))) AS F1,
+
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))) AS F2
+
+FROM
+    (HeThongTK
+    INNER JOIN ChungTu ON HeThongTK.MaSo = ChungTu.MaTKNo)
+    INNER JOIN HeThongTK AS HeThongTK_1 ON ChungTu.MaTKCo = HeThongTK_1.MaSo
+WHERE
+    (HethongTK.SoHieu LIKE '211%' OR HethongTK.SoHieu LIKE '217%' OR HethongTK.SoHieu LIKE '241%' OR HethongTK.SoHieu LIKE '3313%' )
+    AND (
+        HethongTK_1.SoHieu LIKE '11%'  
+    )
+    AND ((ThangCT>=1 OR ThangCT=0) AND ThangCT<=12)";
+
+                dt = ExecuteQuery(sql21, null);
+
+                f2 = 0;
+
+                if (dt.Rows.Count > 0)
+                {
+                    f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    TTLCTT tTLCTT = new TTLCTT
+                    {
+                        MaSo = "21",
+                        Namnay = f2
+                    };
+                    baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
+                }
+
+                //22
+                string sql22 = @"
+SELECT
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))) AS F1,
+
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))) AS F2
+
+FROM
+    (HeThongTK
+    INNER JOIN ChungTu ON HeThongTK.MaSo = ChungTu.MaTKNo)
+    INNER JOIN HeThongTK AS HeThongTK_1 ON ChungTu.MaTKCo = HeThongTK_1.MaSo
+WHERE
+    (HethongTK.SoHieu LIKE '11%')
+    AND (
+        HethongTK_1.SoHieu LIKE '7113%' 
+        OR HethongTK_1.SoHieu LIKE '1313%' 
+        OR HethongTK_1.SoHieu LIKE '33313%'
+        OR HethongTK_1.SoHieu LIKE '8113%'
+        OR HethongTK_1.SoHieu LIKE '6323%' 
+    )
+    AND ((ThangCT>=1 OR ThangCT=0) AND ThangCT<=12)";
+
+                dt = ExecuteQuery(sql22, null);
+
+                f2 = 0;
+
+                if (dt.Rows.Count > 0)
+                {
+                    f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    TTLCTT tTLCTT = new TTLCTT
+                    {
+                        MaSo = "22",
+                        Namnay = f2
+                    };
+                    baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
+                }
+                //23
+                string sql23 = @"
+SELECT
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))) AS F1,
+
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))) AS F2
+
+FROM
+    (HeThongTK
+    INNER JOIN ChungTu ON HeThongTK.MaSo = ChungTu.MaTKNo)
+    INNER JOIN HeThongTK AS HeThongTK_1 ON ChungTu.MaTKCo = HeThongTK_1.MaSo
+WHERE
+    (HethongTK.SoHieu LIKE '128%' OR HethongTK.SoHieu LIKE '228%')
+    AND (
+        HethongTK_1.SoHieu LIKE '11%'  
+    )
+    AND ((ThangCT>=1 OR ThangCT=0) AND ThangCT<=12)";
+
+                dt = ExecuteQuery(sql23, null);
+
+                f2 = 0;
+
+                if (dt.Rows.Count > 0)
+                {
+                    f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    TTLCTT tTLCTT = new TTLCTT
+                    {
+                        MaSo = "23",
+                        Namnay = f2
+                    };
+                    baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
+                }
+                //24
+                string sql24 = @"
+SELECT
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))) AS F1,
+
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))) AS F2
+
+FROM
+    (HeThongTK
+    INNER JOIN ChungTu ON HeThongTK.MaSo = ChungTu.MaTKNo)
+    INNER JOIN HeThongTK AS HeThongTK_1 ON ChungTu.MaTKCo = HeThongTK_1.MaSo
+WHERE
+    (HethongTK.SoHieu LIKE '11%')
+    AND (
+        HethongTK_1.SoHieu LIKE '128%' 
+        OR HethongTK_1.SoHieu LIKE '228%'  
+    )
+    AND ((ThangCT>=1 OR ThangCT=0) AND ThangCT<=12)";
+
+                dt = ExecuteQuery(sql24, null);
+
+                f2 = 0;
+
+                if (dt.Rows.Count > 0)
+                {
+                    f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    TTLCTT tTLCTT = new TTLCTT
+                    {
+                        MaSo = "24",
+                        Namnay = f2
+                    };
+                    baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
+                }
+                //25
+                string sql25 = @"
+SELECT
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))) AS F1,
+
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))) AS F2
+
+FROM
+    (HeThongTK
+    INNER JOIN ChungTu ON HeThongTK.MaSo = ChungTu.MaTKNo)
+    INNER JOIN HeThongTK AS HeThongTK_1 ON ChungTu.MaTKCo = HeThongTK_1.MaSo
+WHERE
+    (HethongTK.SoHieu LIKE '11%')
+    AND (
+        HethongTK_1.SoHieu LIKE '515%'  
+    )
+    AND ((ThangCT>=1 OR ThangCT=0) AND ThangCT<=12)";
+
+                dt = ExecuteQuery(sql25, null);
+
+                f2 = 0;
+
+                if (dt.Rows.Count > 0)
+                {
+                    f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    TTLCTT tTLCTT = new TTLCTT
+                    {
+                        MaSo = "25",
+                        Namnay = f2
+                    };
+                    baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
+                }
+                //31
+                string sql31 = @"
+SELECT
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))) AS F1,
+
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))) AS F2
+
+FROM
+    (HeThongTK
+    INNER JOIN ChungTu ON HeThongTK.MaSo = ChungTu.MaTKNo)
+    INNER JOIN HeThongTK AS HeThongTK_1 ON ChungTu.MaTKCo = HeThongTK_1.MaSo
+WHERE
+    (HethongTK.SoHieu LIKE '11%')
+    AND (
+        HethongTK_1.SoHieu LIKE '411%'  
+    )
+    AND ((ThangCT>=1 OR ThangCT=0) AND ThangCT<=12)";
+
+                dt = ExecuteQuery(sql31, null);
+
+                f2 = 0;
+
+                if (dt.Rows.Count > 0)
+                {
+                    f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    TTLCTT tTLCTT = new TTLCTT
+                    {
+                        MaSo = "31",
+                        Namnay = f2
+                    };
+                    baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
+                }
+                //32
+                string sql32 = @"
+SELECT
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))) AS F1,
+
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))) AS F2
+
+FROM
+    (HeThongTK
+    INNER JOIN ChungTu ON HeThongTK.MaSo = ChungTu.MaTKNo)
+    INNER JOIN HeThongTK AS HeThongTK_1 ON ChungTu.MaTKCo = HeThongTK_1.MaSo
+WHERE
+    (HethongTK.SoHieu LIKE '411%' OR HethongTK.SoHieu LIKE '419%')
+    AND (
+        HethongTK_1.SoHieu LIKE '11%'  
+    )
+    AND ((ThangCT>=1 OR ThangCT=0) AND ThangCT<=12)";
+
+                dt = ExecuteQuery(sql32, null);
+
+                f2 = 0;
+
+                if (dt.Rows.Count > 0)
+                {
+                    f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    TTLCTT tTLCTT = new TTLCTT
+                    {
+                        MaSo = "32",
+                        Namnay = f2
+                    };
+                    baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
+                }
+                //33
+                string sql33 = @"
+SELECT
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))) AS F1,
+
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))) AS F2
+
+FROM
+    (HeThongTK
+    INNER JOIN ChungTu ON HeThongTK.MaSo = ChungTu.MaTKNo)
+    INNER JOIN HeThongTK AS HeThongTK_1 ON ChungTu.MaTKCo = HeThongTK_1.MaSo
+WHERE
+    (HethongTK.SoHieu LIKE '11%')
+    AND (
+        HethongTK_1.SoHieu LIKE '341%'  
+    )
+    AND ((ThangCT>=1 OR ThangCT=0) AND ThangCT<=12)";
+
+                dt = ExecuteQuery(sql33, null);
+
+                f2 = 0;
+
+                if (dt.Rows.Count > 0)
+                {
+                    f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    TTLCTT tTLCTT = new TTLCTT
+                    {
+                        MaSo = "33",
+                        Namnay = f2
+                    };
+                    baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
+                }
+
+                //34
+                string sql34 = @"
+SELECT
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))) AS F1,
+
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))) AS F2
+
+FROM
+    (HeThongTK
+    INNER JOIN ChungTu ON HeThongTK.MaSo = ChungTu.MaTKNo)
+    INNER JOIN HeThongTK AS HeThongTK_1 ON ChungTu.MaTKCo = HeThongTK_1.MaSo
+WHERE
+    (HethongTK.SoHieu LIKE '341%')
+    AND (
+        HethongTK_1.SoHieu LIKE '11%'  
+    )
+    AND ((ThangCT>=1 OR ThangCT=0) AND ThangCT<=12)";
+
+                dt = ExecuteQuery(sql34, null);
+
+                f2 = 0;
+
+                if (dt.Rows.Count > 0)
+                {
+                    f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    TTLCTT tTLCTT = new TTLCTT
+                    {
+                        MaSo = "34",
+                        Namnay = f2
+                    };
+                    baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
+                }
+                //35
+                string sql35 = @"
+SELECT
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 OR ThangCT=0) AND ThangCT<1),
+        ChungTu.SoPS, 0))) AS F1,
+
+    IIF(ISNULL(Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))), 0,
+        Sum(IIF(((ThangCT>=1 AND ThangCT<=13) OR (ThangCT>=1 AND ThangCT<=0)),
+        ChungTu.SoPS, 0))) AS F2
+
+FROM
+    (HeThongTK
+    INNER JOIN ChungTu ON HeThongTK.MaSo = ChungTu.MaTKNo)
+    INNER JOIN HeThongTK AS HeThongTK_1 ON ChungTu.MaTKCo = HeThongTK_1.MaSo
+WHERE
+    (HethongTK.SoHieu LIKE '338%' )
+    AND (
+        HethongTK_1.SoHieu LIKE '11%'  
+    )
+    AND ((ThangCT>=1 OR ThangCT=0) AND ThangCT<=12)";
+
+                dt = ExecuteQuery(sql35, null);
+
+                f2 = 0;
+
+                if (dt.Rows.Count > 0)
+                {
+                    f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    TTLCTT tTLCTT = new TTLCTT
+                    {
+                        MaSo = "35",
+                        Namnay = f2
+                    };
+                    baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
+                }
+
                 return View(baoCaoCDTSVM);
             }
+            
+
 
             return View();
         }

@@ -134,8 +134,8 @@
                         <td>I. Tiền và các khoản tương đương tiền</td>
                         <td>110</td>
                         <td></td>
-                        <td style="text-align:right;"> <input id="cell_110_cuoi" class="myinput" value="@Model.CDTS[1].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_110_dau" class="myinput" value="@Model.CDTS[1].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"> <input id="cell_110_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="110").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_110_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="110").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <!-- II. Đầu tư tài chính -->
@@ -180,22 +180,22 @@
                         <td style="padding-left:20px;">1. Phải thu ngắn hạn của khách hàng</td>
                         <td>131</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_131_cuoi" class="myinput" value="@Model.CDTS[6].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_131_dau" class="myinput" value="@Model.CDTS[6].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_131_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="131").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_131_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="131").FirstOrDefault().DauNam" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">2. Trả trước cho người bán ngắn hạn</td>
                         <td>132</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_132_cuoi" class="myinput" value="@Model.CDTS[7].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_132_dau" class="myinput" value="@Model.CDTS[7].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_132_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="132").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_132_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="132").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">3. Phải thu ngắn hạn khác</td>
                         <td>133</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_133_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_133_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_133_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="133").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_133_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="133").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">4. Tài sản thiếu chờ xử lý</td>
@@ -217,22 +217,22 @@
                         <td class="backtim">IV. Hàng tồn kho</td>
                         <td class="backtim">140</td>
                         <td class="backtim"></td>
-                        <td class="backtim" style="text-align:right;"><input id="cell_140_cuoi" disabled class="myinput fw-bold" value="@Model.CDTS[10].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td class="backtim" style="text-align:right;"><input id="cell_140_dau" disabled class="myinput fw-bold" value="@Model.CDTS[10].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td class="backtim" style="text-align:right;"><input id="cell_140_cuoi" disabled class="myinput fw-bold" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td class="backtim" style="text-align:right;"><input id="cell_140_dau" disabled class="myinput fw-bold" value="0"  onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">1. Hàng tồn kho</td>
                         <td>141</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_141_cuoi" class="myinput" value="@Model.CDTS[11].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_141_dau" class="myinput" value="@Model.CDTS[11].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_141_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="141").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_141_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="141").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">2. Dự phòng giảm giá hàng tồn kho (*)</td>
                         <td>142</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_142_cuoi" class="myinput" value="@Model.CDTS[12].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_142_dau" class="myinput" value="@Model.CDTS[12].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_142_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_142_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <!-- V. Tài sản ngắn hạn khác -->
@@ -247,15 +247,15 @@
                         <td style="padding-left:20px;">1. Thuế GTGT được khấu trừ</td>
                         <td>151</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_151_cuoi" class="myinput" value="@Model.CDTS[14].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_151_dau" class="myinput" value="@Model.CDTS[14].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_151_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="151").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_151_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="151").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">2. Tài sản ngắn hạn khác</td>
                         <td>152</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_152_cuoi" class="myinput" value="@Model.CDTS[15].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_152_dau" class="myinput" value="@Model.CDTS[15].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_152_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="152").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_152_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="152").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <!-- B – TÀI SẢN DÀI HẠN -->
@@ -323,15 +323,15 @@
                         <td style="padding-left:20px;">- Nguyên giá</td>
                         <td>221</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_221_cuoi" class="myinput" value="@Model.CDTS[20].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_221_dau" class="myinput" value="@Model.CDTS[20].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_221_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="221").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_221_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="221").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">- Giá trị hao mòn lũy kế (*)</td>
                         <td>222</td>
-                        <td></td>
-                        <td style="text-align:right;"><input id="cell_222_cuoi" class="myinput" value="@Model.CDTS[21].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_222_dau" class="myinput" value="@Model.CDTS[21].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td></td>-
+                        <td style="text-align:right;"><input id="cell_222_cuoi" class="myinput" value="-@Model.CDTS.Where(m=>m.MaSo=="222").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_222_dau" class="myinput" value="-@Model.CDTS.Where(m=>m.MaSo=="222").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <!-- III. Bất động sản đầu tư -->
@@ -346,15 +346,15 @@
                         <td style="padding-left:20px;">- Nguyên giá</td>
                         <td>231</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_231_cuoi" class="myinput" value="@Model.CDTS[24].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_231_dau" class="myinput" value="@Model.CDTS[24].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_231_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="231").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_231_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="231").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">- Giá trị hao mòn lũy kế (*)</td>
                         <td>232</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_232_cuoi" class="myinput" value="@Model.CDTS[25].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_232_dau" class="myinput" value="@Model.CDTS[25].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_232_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_232_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <!-- IV. Tài sản dở dang dài hạn -->
@@ -400,8 +400,8 @@
                         <td class="backtim">VI. Tài sản dài hạn khác</td>
                         <td class="backtim">260</td>
                         <td class="backtim"></td>
-                        <td class="backtim" style="text-align:right;"><input id="cell_260_cuoi" disabled class="myinput fw-bold" value="@Model.CDTS[29].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td class="backtim" style="text-align:right;"><input id="cell_260_dau" disabled class="myinput fw-bold" value="@Model.CDTS[29].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td class="backtim" style="text-align:right;"><input id="cell_260_cuoi" disabled class="myinput fw-bold" value="@Model.CDTS.Where(m=>m.MaSo=="260").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td class="backtim" style="text-align:right;"><input id="cell_260_dau" disabled class="myinput fw-bold" value="@Model.CDTS.Where(m=>m.MaSo=="260").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <!-- Tổng cộng tài sản -->
@@ -445,57 +445,57 @@
                         <td style="padding-left:20px;">1. Phải trả người bán ngắn hạn</td>
                         <td>411</td>
                         <td></td>
-                        <td id="" style="text-align:right;"><input id="cell_411_cuoi" class="myinput" value="@Model.CDTS[36].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td id="" style="text-align:right;"><input id="cell_411_dau" class="myinput" value="@Model.CDTS[36].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td id="" style="text-align:right;"><input id="cell_411_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="411").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td id="" style="text-align:right;"><input id="cell_411_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="411").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">2. Người mua trả tiền trước ngắn hạn</td>
                         <td>412</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_412_cuoi" class="myinput" value="@Model.CDTS[37].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_412_dau" class="myinput" value="@Model.CDTS[37].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_412_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="412").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_412_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="412").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">3. Thuế và các khoản phải nộp Nhà nước</td>
                         <td>413</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_413_cuoi" class="myinput" value="@Model.CDTS[38].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_413_dau" class="myinput" value="@Model.CDTS[38].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_413_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="413").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_413_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="413").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">4. Phải trả người lao động</td>
                         <td>414</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_414_cuoi" class="myinput" value="@Model.CDTS[39].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_414_dau" class="myinput" value="@Model.CDTS[39].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_414_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="414").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_414_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="414").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">5. Chi phí phải trả ngắn hạn</td>
                         <td>415</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_415_cuoi" class="myinput" value="@Model.CDTS[40].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_415_dau" class="myinput" value="@Model.CDTS[40].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_415_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="415").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_415_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="415").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">6. Phải trả ngắn hạn khác</td>
                         <td>416</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_416_cuoi" class="myinput" value="@Model.CDTS[41].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_416_dau" class="myinput" value="@Model.CDTS[41].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_416_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="416").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_416_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="416").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">7. Dự phòng phải trả ngắn hạn</td>
                         <td>417</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_417_cuoi" class="myinput" value="@Model.CDTS[45].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_417_dau" class="myinput" value="@Model.CDTS[45].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_417_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="417").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_417_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="417").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">8. Quỹ khen thưởng phúc lợi</td>
                         <td>418</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_418_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_418_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_418_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="418").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_418_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="418").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <!-- II. Nợ dài hạn -->
@@ -531,22 +531,22 @@
                         <td style="padding-left:20px;">4. Phải trả dài hạn khác</td>
                         <td>424</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_424_cuoi" class="myinput" value="@Model.CDTS[51].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_424_dau" class="myinput" value="@Model.CDTS[51].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_424_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_424_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">5. Vay và nợ thuê tài chính dài hạn</td>
                         <td>425</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_425_cuoi" class="myinput" value="@Model.CDTS[47].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_425_dau" class="myinput" value="@Model.CDTS[47].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_425_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_425_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">6. Dự phòng phải trả dài hạn</td>
                         <td>426</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_426_cuoi" class="myinput" value="@Model.CDTS[52].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_426_dau" class="myinput" value="@Model.CDTS[52].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_426_cuoi" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_426_dau" class="myinput" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">6. Dự phòng phải trả dài hạn</td>
@@ -569,51 +569,51 @@
                         <td style="padding-left:20px;">1. Vốn góp của chủ sở hữu</td>
                         <td>511</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_511_cuoi" class="myinput" value="@Model.CDTS[55].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_511_dau" class="myinput" value="@Model.CDTS[55].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_511_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="511").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_511_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="511").FirstOrDefault().DauNam" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <tr>
                         <td style="padding-left:20px;">2. Thặng dư vốn cổ phần</td>
                         <td>512</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_512_cuoi" class="myinput" value="@Model.CDTS[56].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_512_dau" class="myinput" value="@Model.CDTS[56].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_512_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="512").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_512_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="512").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">3. Vốn khác của chủ sở hữu</td>
                         <td>513</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_513_cuoi" class="myinput" value="@Model.CDTS[57].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_513_dau" class="myinput" value="@Model.CDTS[57].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_513_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="513").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_513_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="513").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">4. Cổ phiếu quỹ (*)</td>
                         <td>514</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_514_cuoi" class="myinput" value="@Model.CDTS[58].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_514_dau" class="myinput" value="@Model.CDTS[58].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_514_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="514").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_514_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="514").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">5. Chênh lệch tỷ giá hối đoái</td>
                         <td>515</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_515_cuoi" class="myinput" value="@Model.CDTS[59].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_515_dau" class="myinput" value="@Model.CDTS[59].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_515_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="515").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_515_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="515").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">6. Các quỹ thuộc vốn chủ sở hữu</td>
                         <td>516</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_516_cuoi" class="myinput" value="@Model.CDTS[60].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_516_dau" class="myinput" value="@Model.CDTS[60].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_516_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="516").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_516_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="516").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;">7. Lợi nhuận sau thuế chưa phân phối</td>
                         <td>517</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_517_cuoi" class="myinput" value="@Model.CDTS[61].CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_517_dau" class="myinput" value="@Model.CDTS[61].DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_517_cuoi" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="517").FirstOrDefault().CuoiKy" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_517_dau" class="myinput" value="@Model.CDTS.Where(m=>m.MaSo=="517").FirstOrDefault().DauNam" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <!-- Tổng cộng nguồn vốn -->
@@ -662,22 +662,22 @@
 
         </div>
         <div id="tb2">
-            <table border="1" cellspacing="0" style="border-collapse:collapse; width:100%; font-size:14px;" class="table table-bordered">
+            <table border="1" cellspacing="0" style="border-collapse: collapse; width: 100%; font-size: 14px; border: 1px solid;" class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>
+                        <th class="backgrey">
                             Chỉ tiêu
                         </th>
-                        <th>
+                        <th class="backgrey">
                             Mã số
                         </th>
-                        <th>
+                        <th class="backgrey">
                             Thuyết minh
                         </th>
-                        <th>
+                        <th class="backgrey">
                             Năm nay
                         </th>
-                        <th>
+                        <th class="backgrey">
                             Năm trước
                         </th>
 
@@ -685,384 +685,448 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="text-center">1 </td>
-                        <td class="text-center">2 </td>
-                        <td class="text-center">3 </td>
-                        <td class="text-center">4 </td>
-                        <td class="text-center">5 </td>
+                        <td class="text-center backgrey"><b>1</b> </td>
+                        <td class="text-center backgrey"><b>2</b> </td>
+                        <td class="text-center backgrey"><b>3</b> </td>
+                        <td class="text-center backgrey"><b>4</b> </td>
+                        <td class="text-center backgrey"><b>5</b> </td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;"><b>1. Doanh thu bán hàng và cung cấp dịch vụ</b></td>
-                        <td class="text-center">01</td>
+                        <td class="text-center"><b>01</b></td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_01cuoi" value="@ViewBag.KQKD[0][7]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_01_namnay" value="@ViewBag.KQKD[0][7]" onchange="onchange10()" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                         <td style="text-align:right;">
-                            <input id="cell_01_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                            <input id="cell_01_namtruoc" class="myinput fw-bold" value="0" onblur="formatNumber(this)" onchange="onchange10()"  onfocus="removeFormat(this)" />
                         </td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;"><b>2. Các khoản giảm trừ doanh thu</b></td>
-                        <td class="text-center">02</td>
+                        <td class="text-center"><b>02</b></td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_02cuoi" value="@ViewBag.KQKD[2][7]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_02_namnay" value="@ViewBag.KQKD[2][7]" onchange="onchange10()" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                         <td style="text-align:right;">
-                            <input id="cell_02_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                            <input id="cell_02_namtruoc" class="myinput fw-bold" value="0" onblur="formatNumber(this)" onchange="onchange10()" onfocus="removeFormat(this)" />
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left:20px;"><b>3. Doanh thu thuần về bán hàng và cung cấp dịch vụ (10= 01-02)</b></td>
-                        <td class="text-center">10</td>
-                        <td></td>
-                        <td style="text-align:right;"><input id="cell_10cuoi" value="@ViewBag.KQKD[3][7]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;">
-                            <input id="cell_10_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        <td class="backtim" style="padding-left:20px;"><b>3. Doanh thu thuần về bán hàng và cung cấp dịch vụ (10= 01-02)</b></td>
+                        <td class="text-center backtim"><b>10</b></td>
+                        <td class="backtim"></td>
+                        <td class="backtim" style="text-align:right;"><input id="cell_10_namnay" disabled value="@ViewBag.KQKD[3][7]" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td class="backtim" style="text-align:right;">
+                            <input id="cell_10_namtruoc" class="myinput fw-bold" value="0" disabled onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                     </tr>
                     <tr>
                         <td style="padding-left:20px;"><b>4. Giá vốn hàng bán</b></td>
-                        <td class="text-center">11</td>
+                        <td class="text-center"><b>11</b></td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_11cuoi" value="@ViewBag.KQKD[16][7]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_11_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_11_namnay" onchange="onchange10()" value="@ViewBag.KQKD[16][7]" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_11_namtruoc" onchange="onchange10()" value="0" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <tr>
-                        <td style="padding-left:20px;"><b>5. Lợi nhuận gộp về bán hàng và cung cấp dịch vụ (20 = 10 - 11)</b></td>
-                        <td class="text-center">20</td>
-                        <td></td>
-                        <td style="text-align:right;"><input id="cell_20cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_20_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td class="backtim" style="padding-left:20px;"><b>5. Lợi nhuận gộp về bán hàng và cung cấp dịch vụ (20 = 10 - 11)</b></td>
+                        <td class="text-center backtim"><b>20</b></td>
+                        <td class="backtim"></td>
+                        <td class="backtim" style="text-align:right;"><input onchange="onchange10()" disabled id="cell_20_namnay" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td class="backtim" style="text-align:right;"><input onchange="onchange10()" disabled id="cell_20_namtruoc" value="0" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <tr>
                         <td style="padding-left:20px;"><b>6. Doanh thu hoạt động tài chính</b></td>
-                        <td class="text-center">21</td>
+                        <td class="text-center"><b>21</b></td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_21cuoi" value="@ViewBag.KQKD[8][7]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_21_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_21_namnay" onchange="onchange10()" value="@ViewBag.KQKD[8][7]" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_21_namtruoc" onchange="onchange10()" class="myinput fw-bold" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <tr>
                         <td style="padding-left:20px;"><b>7. Chi phí tài chính</b></td>
-                        <td class="text-center">22</td>
+                        <td class="text-center"><b>22</b></td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_22cuoi" value="@ViewBag.KQKD[9][7]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_22_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_22_namnay" onchange="onchange10()" value="@ViewBag.KQKD[9][7]" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_22_namtruoc" onchange="onchange10()" class="myinput fw-bold" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <tr>
                         <td style="padding-left:40px;"><i>- Trong đó: Chi phí lãi vay</i></td>
-                        <td class="text-center">23</td>
+                        <td class="text-center"><b>23</b></td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_23cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_23_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_23_namnay" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_23_namtruoc" class="myinput fw-bold" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <tr>
                         <td style="padding-left:20px;"><b>8. Chi phí quản lý kinh doanh</b></td>
-                        <td class="text-center">24</td>
+                        <td class="text-center"><b>24</b></td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_24cuoi" value="@ViewBag.KQKD[6][7]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_24_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_24_namnay" onchange="onchange10()" value="@ViewBag.KQKD[6][7]" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_24_namtruoc" onchange="onchange10()" class="myinput fw-bold" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <tr>
-                        <td style="padding-left:20px;"><b>9. Lợi nhuận thuần từ hoạt động kinh doanh (30 = 20 + 21 - 22 - 24)</b></td>
-                        <td class="text-center">30</td>
-                        <td></td>
-                        <td style="text-align:right;"><input id="cell_30cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_30_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td class="backtim" style="padding-left:20px;"><b>9. Lợi nhuận thuần từ hoạt động kinh doanh (30 = 20 + 21 - 22 - 24)</b></td>
+                        <td class="text-center backtim"><b>30</b></td>
+                        <td class="backtim"></td>
+                        <td class="backtim" style="text-align:right;"><input onchange="onchange10()" disabled id="cell_30_namnay" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td class="backtim" style="text-align:right;"><input disabled id="cell_30_namtruoc" onchange="onchange10()" value="0" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <tr>
                         <td style="padding-left:20px;"><b>10. Thu nhập khác</b></td>
-                        <td class="text-center">31</td>
+                        <td class="text-center"><b>31</b></td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_31cuoi" value="@ViewBag.KQKD[10][7]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_31_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_31_namnay" onchange="onchange10()" value="@ViewBag.KQKD[10][7]" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_31_namtruoc" onchange="onchange10()" class="myinput fw-bold" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <tr>
                         <td style="padding-left:20px;"><b>11. Chi phí khác</b></td>
                         <td class="text-center">32</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_32cuoi" value="@ViewBag.KQKD[11][7]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_32_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_32_namnay" onchange="onchange10()" value="@ViewBag.KQKD[11][7]" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_32_namtruoc" onchange="onchange10()" class="myinput fw-bold" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <tr>
-                        <td style="padding-left:20px;"><b>12. Lợi nhuận khác (40 = 31 - 32)</b></td>
-                        <td class="text-center">40</td>
-                        <td></td>
-                        <td style="text-align:right;"><input id="cell_40cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_40_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td class="backtim" style="padding-left:20px;"><b>12. Lợi nhuận khác (40 = 31 - 32)</b></td>
+                        <td class="text-center backtim"><b>40</b></td>
+                        <td class="backtim"></td>
+                        <td class="backtim" style="text-align:right;"><input  onchange="onchange10()" disabled id="cell_40_namnay" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td class="backtim" style="text-align:right;"><input onchange="onchange10()" disabled id="cell_40_namtruoc" value="0" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <tr>
-                        <td style="padding-left:20px;"><b>13. Tổng lợi nhuận kế toán trước thuế (50 = 30 + 40)</b></td>
-                        <td class="text-center">50</td>
-                        <td></td>
-                        <td style="text-align:right;"><input id="cell_50cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_50_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td class="backtim" style="padding-left:20px;"><b>13. Tổng lợi nhuận kế toán trước thuế (50 = 30 + 40)</b></td>
+                        <td class="text-center backtim"><b>50</b></td>
+                        <td class="backtim"></td>
+                        <td class="backtim" style="text-align:right;"><input  disabled id="cell_50_namnay" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td class="backtim" style="text-align:right;"><input disabled id="cell_50_namtruoc" value="0" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <tr>
                         <td style="padding-left:20px;"><b>14. Chi phí thuế TNDN</b></td>
-                        <td class="text-center">51</td>
+                        <td class="text-center"><b>51</b></td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_51cuoi" value="@ViewBag.KQKD[14][7]" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_51_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_51_namnay" onchange="onchange10()" value="@ViewBag.KQKD[14][7]" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td style="text-align:right;"><input id="cell_51_namtruoc" onchange="onchange10()" class="myinput fw-bold" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                     <tr>
-                        <td style="padding-left:20px;"><b>15. Lợi nhuận sau thuế thu nhập doanh nghiệp (60 = 50 - 51)</b></td>
-                        <td class="text-center">60</td>
-                        <td></td>
-                        <td style="text-align:right;"><input id="cell_60cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
-                        <td style="text-align:right;"><input id="cell_60_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td class="backtim" style="padding-left:20px;"><b>15. Lợi nhuận sau thuế thu nhập doanh nghiệp (60 = 50 - 51)</b></td>
+                        <td class="text-center backtim"><b>60</b></td>
+                        <td class="backtim"></td>
+                        <td  class="backtim"style="text-align:right;"><input disabled id="cell_60_namnay" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
+                        <td class="backtim" style="text-align:right;"><input disabled id="cell_60_namtruoc" value="0" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)" /></td>
                     </tr>
 
                 </tbody>
             </table>
         </div>
         <div id="tb3">
-            <table class="table table-bordered">
+            <table class="table table-bordered" style="border:1px solid">
                 <thead>
                     <tr>
-                        <th class="text-center">Chỉ tiêu</th>
-                        <th class="text-center">Mã số</th>
-                        <th class="text-center">Thuyết minh</th>
-                        <th class="text-center">Năm nay</th>
-                        <th class="text-center">Năm trước</th>
+                        <th class="text-center backgrey">Chỉ tiêu</th>
+                        <th class="text-center backgrey">Mã số</th>
+                        <th class="text-center backgrey">Thuyết minh</th>
+                        <th class="text-center backgrey">Năm nay</th>
+                        <th class="text-center backgrey">Năm trước</th>
                     </tr>
                     <tr>
-                        <th class="text-center">1</th>
-                        <th class="text-center">2</th>
-                        <th class="text-center">3</th>
-                        <th class="text-center">4</th>
-                        <th class="text-center">5</th>
+                        <th class="text-center backgrey">1</th>
+                        <th class="text-center backgrey">2</th>
+                        <th class="text-center backgrey">3</th>
+                        <th class="text-center backgrey">4</th>
+                        <th class="text-center backgrey">5</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <!-- I -->
                     <tr>
-                        <td><b>I. Lưu chuyển tiền từ hoạt động kinh doanh</b></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="backtim"><b>I. Lưu chuyển tiền từ hoạt động kinh doanh</b></td>
+                        <td class="backtim"></td>
+                        <td class="backtim"></td>
+                        <td class="backtim"></td>
+                        <td class="backtim"></td>
                     </tr>
 
                     <tr>
+                        @{
+                            var t1 = Model.TTLCTTs.Where(m => m.MaSo == "01").FirstOrDefault().Namnay;
+                        }
+
                         <td style="padding-left:20px;">1. Tiền thu từ bán hàng, cung cấp dịch vụ và doanh thu khác</td>
                         <td class="text-center">01</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_01cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_01_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_01cuoi" class="myinput" value="@t1" onchange="onchangelctt()" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_01_dau" class="myinput"  value="0" onchange="onchangelctt()" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
+                        @{
+                            var t2 = -Model.TTLCTTs.Where(m => m.MaSo == "02").FirstOrDefault().Namnay;
+                        }
+
                         <td style="padding-left:20px;">2. Tiền chi trả cho người cung cấp hàng hóa, dịch vụ</td>
                         <td class="text-center">02</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_02cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_02_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_02cuoi" value="@t2" class="myinput" onchange="onchangelctt()"  onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_02_dau" value="0" class="myinput" onchange="onchangelctt()"  onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
+                        @{
+                            var t3 = -Model.TTLCTTs.Where(m => m.MaSo == "03").FirstOrDefault().Namnay;
+                        }
                         <td style="padding-left:20px;">3. Tiền chi trả cho người lao động</td>
                         <td class="text-center">03</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_03cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_03_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_03cuoi" value="@t3" class="myinput" onchange="onchangelctt()"  onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_03_dau" value="0" class="myinput" onchange="onchangelctt()"  onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
+                        @{
+                            var t4 = -Model.TTLCTTs.Where(m => m.MaSo == "04").FirstOrDefault().Namnay;
+                        }
                         <td style="padding-left:20px;">4. Tiền lãi vay đã trả</td>
                         <td class="text-center">04</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_04cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_04_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_04cuoi" value="@t4" class="myinput" onchange="onchangelctt()" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_04_dau" value="0" class="myinput" onchange="onchangelctt()" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
+                        @{
+                            var t5 = -Model.TTLCTTs.Where(m => m.MaSo == "05").FirstOrDefault().Namnay;
+                        }
                         <td style="padding-left:20px;">5. Thuế thu nhập doanh nghiệp đã nộp</td>
                         <td class="text-center">05</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_05cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_05_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input value="@t5" id="cell_05cuoi" class="myinput" onchange="onchangelctt()"  onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input value="0" id="cell_05_dau" class="myinput" onchange="onchangelctt()"  onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
+                        @{
+                            var t6 = Model.TTLCTTs.Where(m => m.MaSo == "06").FirstOrDefault().Namnay;
+                        }
                         <td style="padding-left:20px;">6. Tiền thu khác từ hoạt động kinh doanh</td>
                         <td class="text-center">06</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_06cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_06_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_06cuoi" value="@t6" class="myinput" onchange="onchangelctt()"  onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_06_dau" value="0" class="myinput" onchange="onchangelctt()" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
+                        @{
+                            var t7 = -Model.TTLCTTs.Where(m => m.MaSo == "07").FirstOrDefault().Namnay;
+                        }
                         <td style="padding-left:20px;"><b>7. Tiền chi khác cho hoạt động kinh doanh</b></td>
                         <td class="text-center">07</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_07cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_07_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input value="@t7" id="cell_07cuoi" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input value="0" id="cell_07_dau" class="myinput" onchange="onchangelctt()"  onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
-                        <td style="padding-left:20px;"><b>Lưu chuyển tiền thuần từ hoạt động kinh doanh</b></td>
-                        <td class="text-center">20</td>
-                        <td></td>
-                        <td style="text-align:right;"><input id="cell_20cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_20_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+
+                        <td class="backtim" style="padding-left:20px;"><b>Lưu chuyển tiền thuần từ hoạt động kinh doanh</b></td>
+                        <td class="text-center backtim">20</td>
+                        <td class="backtim"></td>
+                        <td class="backtim" style="text-align:right;"><input id="cell_20cuoi" disabled value="0"  onchange="onchangelctt()" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backtim" style="text-align:right;"><input id="cell_20_dau" disabled value="0"onchange="onchangelctt()" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <!-- II -->
                     <tr>
-                        <td><b>II. Lưu chuyển tiền từ hoạt động đầu tư</b></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="backtim"><b>II. Lưu chuyển tiền từ hoạt động đầu tư</b></td>
+                        <td class="backtim"></td>
+                        <td class="backtim"></td>
+                        <td class="backtim"></td>
+                        <td class="backtim"></td>
                     </tr>
 
                     <tr>
+                        @{
+                            var t21 = -Model.TTLCTTs.Where(m => m.MaSo == "21").FirstOrDefault().Namnay;
+                        }
                         <td style="padding-left:20px;">1. Tiền chi để mua sắm, xây dựng TSCĐ, BĐSĐT và các tài sản dài hạn khác</td>
                         <td class="text-center">21</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_21cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_21_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_21cuoi" value="@t21" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_21_dau" value="0" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
+                        @{
+                            var t22 = Model.TTLCTTs.Where(m => m.MaSo == "22").FirstOrDefault().Namnay;
+                        }
                         <td style="padding-left:20px;">2. Tiền thu từ thanh lý, nhượng bán TSCĐ, BĐSĐT và các tài sản dài hạn khác</td>
                         <td class="text-center">22</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_22cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_22_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_22cuoi" value="@t22" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_22_dau" value="0" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
+                        @{
+                            var t23 = -Model.TTLCTTs.Where(m => m.MaSo == "23").FirstOrDefault().Namnay;
+                        }
                         <td style="padding-left:20px;">3. Tiền chi cho vay, đầu tư góp vốn vào đơn vị khác</td>
                         <td class="text-center">23</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_23cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_23_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_23cuoi" value="@t23" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_23_dau" value="0" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
+                        @{
+                            var t24 = Model.TTLCTTs.Where(m => m.MaSo == "24").FirstOrDefault().Namnay;
+                        }
                         <td style="padding-left:20px;">4. Tiền thu hồi cho vay, đầu tư góp vốn vào đơn vị khác</td>
                         <td class="text-center">24</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_24cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_24_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_24cuoi" value="@t24" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_24_dau" value="0" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
+                        @{
+                            var t25 = Model.TTLCTTs.Where(m => m.MaSo == "25").FirstOrDefault().Namnay;
+                        }
                         <td style="padding-left:20px;">5. Tiền thu lãi cho vay, cổ tức và lợi nhuận được chia</td>
                         <td class="text-center">25</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_25cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_25_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input value="@t25" id="cell_25cuoi" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input value="0"  id="cell_25_dau" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
-                        <td style="padding-left:20px;"><b>Lưu chuyển tiền thuần từ hoạt động đầu tư</b></td>
-                        <td class="text-center">30</td>
-                        <td></td>
-                        <td style="text-align:right;"><input id="cell_30cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_30_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                      
+                        <td class="backtim" style="padding-left:20px;"><b>Lưu chuyển tiền thuần từ hoạt động đầu tư</b></td>
+                        <td class="text-center backtim">30</td>
+                        <td class="backtim"></td>
+                        <td class="backtim" style="text-align:right;"><input disabled  id="cell_30cuoi"  onchange="onchangelctt()" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backtim" style="text-align:right;"><input disabled id="cell_30_dau"   onchange="onchangelctt()" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <!-- III -->
                     <tr>
-                        <td><b>III. Lưu chuyển tiền từ hoạt động tài chính</b></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="backtim"><b>III. Lưu chuyển tiền từ hoạt động tài chính</b></td>
+                        <td class="backtim"></td>
+                        <td class="backtim"></td>
+                        <td class="backtim"></td>
+                        <td class="backtim"></td>
                     </tr>
 
                     <tr>
+                        @{
+                            var t31 = Model.TTLCTTs.Where(m => m.MaSo == "31").FirstOrDefault().Namnay;
+                        }
                         <td style="padding-left:20px;">1. Tiền thu từ phát hành cổ phiếu, nhận vốn góp của chủ sở hữu</td>
                         <td class="text-center">31</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_31cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_31_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input value="@t31" id="cell_31cuoi" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input value="0" id="cell_31_dau" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
+                        @{
+                            var t32 = -Model.TTLCTTs.Where(m => m.MaSo == "32").FirstOrDefault().Namnay;
+                        }
                         <td style="padding-left:20px;">2. Tiền trả lại vốn góp cho các chủ sở hữu, mua lại cổ phiếu của doanh nghiệp đã phát hành</td>
                         <td class="text-center">32</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_32cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_32_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input value="@t32" id="cell_32cuoi" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input value="0" id="cell_32_dau" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
+                        @{
+                            var t33 = Model.TTLCTTs.Where(m => m.MaSo == "33").FirstOrDefault().Namnay;
+                        }
                         <td style="padding-left:20px;">3. Tiền thu từ đi vay</td>
                         <td class="text-center">33</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_33cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_33_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input value="@t33" id="cell_33cuoi" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input value="0" id="cell_33_dau" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
+                        @{
+                            var t34 = -Model.TTLCTTs.Where(m => m.MaSo == "34").FirstOrDefault().Namnay;
+                        }
                         <td style="padding-left:20px;">4. Tiền trả nợ gốc vay và nợ thuê tài chính</td>
                         <td class="text-center">34</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_34cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_34_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input value="@t34" id="cell_34cuoi" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input value="0" id="cell_34_dau" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
+                        @{
+                            var t35 = -Model.TTLCTTs.Where(m => m.MaSo == "35").FirstOrDefault().Namnay;
+                        }
                         <td style="padding-left:20px;">5. Cổ tức, lợi nhuận đã trả cho chủ sở hữu</td>
                         <td class="text-center">35</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_35cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_35_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input value="@t35" id="cell_35cuoi" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input value="0" id="cell_35_dau" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
-                        <td style="padding-left:20px;"><b>Lưu chuyển tiền thuần từ hoạt động tài chính</b></td>
-                        <td class="text-center">40</td>
-                        <td></td>
-                        <td style="text-align:right;"><input id="cell_40cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_40_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backtim" style="padding-left:20px;"><b>Lưu chuyển tiền thuần từ hoạt động tài chính</b></td>
+                        <td class="text-center backtim">40</td>
+                        <td class="backtim"></td>
+                        <td class="backtim" style="text-align:right;"><input id="cell_40cuoi" disabled onchange="onchangelctt()" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backtim" style="text-align:right;"><input id="cell_40_dau" disabled onchange="onchangelctt()" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <!-- Tổng -->
                     <tr>
-                        <td><b>Lưu chuyển tiền thuần trong kỳ (50 = 20 + 30 + 40)</b></td>
-                        <td class="text-center">50</td>
-                        <td></td>
-                        <td style="text-align:right;"><input id="cell_50cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_50_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        @{
+                            var t50 = Model.LCTTs.Where(m => m.TenE.Contains("Cash flow in current period")).FirstOrDefault().KyNay;
+                        }
+                        <td class="backtim"><b>Lưu chuyển tiền thuần trong kỳ (50 = 20 + 30 + 40)</b></td>
+                        <td class="text-center backtim">50</td>
+                        <td class="backtim"></td>
+                        <td class="backtim" style="text-align:right;"><input disabled id="cell_50cuoi" value="@t50" onchange="onchangelctt()" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backtim" style="text-align:right;"><input disabled id="cell_50_dau" value="0" onchange="onchangelctt()" class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
+                        @{
+                            var t60 = Model.LCTTs.Where(m => m.TenE.Contains("Opening balance")).FirstOrDefault().KyNay;
+                        }
                         <td>Tiền và tương đương tiền đầu kỳ</td>
                         <td class="text-center">60</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_60cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_60_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_60cuoi" onchange="onchangelctt()" value="@t60" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_60_dau" onchange="onchangelctt()" value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
+                        @{
+                            var t61 = Model.LCTTs.Where(m => m.TKNo == "11" && m.TKCo == "413").FirstOrDefault().KyNay;
+                        }
                         <td>Ảnh hưởng của thay đổi tỷ giá hối đoái quy đổi ngoại tệ</td>
                         <td class="text-center">61</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_61cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_61_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_61cuoi" onchange="onchangelctt()" value="@t61" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_61_dau" onchange="onchangelctt()" value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
-                        <td><b>Tiền và tương đương tiền cuối kỳ (70 = 50 + 60 + 61)</b></td>
-                        <td class="text-center">70</td>
-                        <td></td>
-                        <td style="text-align:right;"><input id="cell_70cuoi" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td style="text-align:right;"><input id="cell_70_dau" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backtim"><b>Tiền và tương đương tiền cuối kỳ (70 = 50 + 60 + 61)</b></td>
+                        <td class="text-center backtim">70</td>
+                        <td class="backtim"></td>
+                        <td class="backtim" style="text-align:right;"><input id="cell_70cuoi" disabled class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backtim" style="text-align:right;"><input id="cell_70_dau" disabled class="myinput fw-bold" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
                 </tbody>
             </table>
@@ -1070,12 +1134,12 @@
         </div>
         <div id="tb4">
             <!-- ================== NHÓM TÀI SẢN NGẮN HẠN ================== -->
-            <table class="table table-bordered">
+            <table class="table table-bordered" style="border:1px solid">
                 <tbody>
 
                     <tr class="backgrey">
-                        <td  rowspan="2" class="text-center backgrey"><b>Số hiệu<br>tài khoản</b></td>
-                        <td  rowspan="2" class="text-center backgrey backgrey"><b>Tên tài khoản</b></td>
+                        <td width="100" rowspan="2" class="text-center backgrey"><b>Số hiệu<br>tài khoản</b></td>
+                        <td   rowspan="2" class="text-center backgrey backgrey"><b>Tên tài khoản</b></td>
                         <td  colspan="2" class="text-center backgrey"><b>Số dư đầu kỳ</b></td>
                         <td  colspan="2" class="text-center backgrey"><b>Số phát sinh trong kỳ</b></td>
                         <td  colspan="2" class="text-center backgrey"><b>Số dư cuối kỳ</b></td>
@@ -1224,14 +1288,14 @@
                     </tr>
 
                     <tr>
-                        <td>133</td>
-                        <td style="padding-left:20px;"><b>Thuế GTGT được khấu trừ</b></td>
-                        <td><input id="cell_133_dk_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="133").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_133_dk_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="133").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_133_ps_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="133").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_133_ps_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="133").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_133_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="133").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_133_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="133").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue">133</td>
+                        <td class="backblue" style="padding-left:20px;"><b>Thuế GTGT được khấu trừ</b></td>
+                        <td class="backblue"><input id="cell_133_dk_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="133").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_133_dk_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="133").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_133_ps_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="133").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_133_ps_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="133").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_133_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="133").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_133_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="133").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
                     <tr>
                         <td>1331</td>
@@ -1256,14 +1320,14 @@
 
                     <!-- ===== 136 ===== -->
                     <tr>
-                        <td><b>136</b></td>
-                        <td><b>Phải thu nội bộ</b></td>
-                        <td><input id="cell_136_dk_no" value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_136_dk_co" value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_136_ps_no" value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_136_ps_co" value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_136_ck_no" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_136_ck_co" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><b>136</b></td>
+                        <td class="backblue"><b>Phải thu nội bộ</b></td>
+                        <td class="backblue"><input id="cell_136_dk_no" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_136_dk_co" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_136_ps_no" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_136_ps_co" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_136_ck_no" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_136_ck_co" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
@@ -1288,14 +1352,14 @@
                     </tr>
                     <!-- ===== 138 ===== -->
                     <tr>
-                        <td><b>138</b></td>
-                        <td><b>Phải thu khác</b></td>
-                        <td><input id="cell_138_dk_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="138").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_138_dk_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="138").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_138_ps_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="138").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_138_ps_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="138").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_138_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="138").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_138_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="138").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><b>138</b></td>
+                        <td class="backblue"><b>Phải thu khác</b></td>
+                        <td class="backblue"><input id="cell_138_dk_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="138").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_138_dk_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="138").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_138_ps_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="138").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_138_ps_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="138").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_138_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="138").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_138_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="138").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
@@ -1434,14 +1498,14 @@
                     </tr>
 
                     <tr>
-                        <td><b>211</b></td>
-                        <td><b>Tài sản cố định</b></td>
-                        <td><input id="cell_211_dk_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="211").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_211_dk_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="211").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_211_ps_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="211").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_211_ps_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="211").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_211_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="211").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_211_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="211").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><b>211</b></td>
+                        <td class="backblue"><b>Tài sản cố định</b></td>
+                        <td class="backblue"><input id="cell_211_dk_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="211").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_211_dk_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="211").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_211_ps_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="211").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_211_ps_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="211").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_211_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="211").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_211_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="211").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
@@ -1477,14 +1541,14 @@
 
 
                     <tr>
-                        <td><b>214</b></td>
-                        <td><b>Hao mòn TSCĐ</b></td>
-                        <td><input id="cell_214_dk_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="214").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_214_dk_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="214").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_214_ps_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="214").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_214_ps_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="214").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_214_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="214").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_214_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="214").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><b>214</b></td>
+                        <td class="backblue"><b>Hao mòn TSCĐ</b></td>
+                        <td class="backblue"><input id="cell_214_dk_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="214").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_214_dk_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="214").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_214_ps_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="214").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_214_ps_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="214").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_214_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="214").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_214_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="214").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
@@ -1546,14 +1610,14 @@
 
 
                     <tr>
-                        <td><b>228</b></td>
-                        <td><b>Đầu tư góp vốn vào đơn vị khác</b></td>
-                        <td><input id="cell_228_dk_no" value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_228_dk_co" value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_228_ps_no" value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_228_ps_co" value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_228_ck_no" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_228_ck_co" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><b>228</b></td>
+                        <td class="backblue"><b>Đầu tư góp vốn vào đơn vị khác</b></td>
+                        <td class="backblue"><input id="cell_228_dk_no" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_228_dk_co" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_228_ps_no" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_228_ps_co" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_228_ck_no" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_228_ck_co" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
@@ -1578,14 +1642,14 @@
                         <td><input id="cell_2288_ck_co" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
                     <tr>
-                        <td><b>229</b></td>
-                        <td><b>Dự phòng tổn thất tài sản</b></td>
-                        <td><input id="cell_229_dk_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="229").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_229_dk_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="229").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_229_ps_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="229").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_229_ps_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="229").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_229_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="229").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_229_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="229").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><b>229</b></td>
+                        <td class="backblue"><b>Dự phòng tổn thất tài sản</b></td>
+                        <td class="backblue"><input id="cell_229_dk_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="229").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_229_dk_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="229").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_229_ps_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="229").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_229_ps_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="229").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_229_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="229").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_229_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="229").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
 
@@ -1631,14 +1695,14 @@
                         <td><input id="cell_2294_ck_co" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
                     <tr>
-                        <td><b>241</b></td>
-                        <td><b>Xây dựng cơ bản dở dang</b></td>
-                        <td><input id="cell_241_dk_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="241").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_241_dk_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="241").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_241_ps_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="241").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_241_ps_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="241").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_241_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="241").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_241_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="241").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><b>241</b></td>
+                        <td class="backblue"><b>Xây dựng cơ bản dở dang</b></td>
+                        <td class="backblue"><input id="cell_241_dk_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="241").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_241_dk_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="241").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_241_ps_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="241").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_241_ps_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="241").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_241_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="241").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_241_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="241").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
@@ -1686,15 +1750,15 @@
                     </tr>
 
                     <tr>
-                        <td>
+                        <td class="backblue">
                         </td>
-                        <td><b>LOẠI TÀI KHOẢN NỢ PHẢI TRẢ</b> </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="backblue"><b>LOẠI TÀI KHOẢN NỢ PHẢI TRẢ</b> </td>
+                        <td class="backblue"></td>
+                        <td class="backblue"></td>
+                        <td class="backblue"></td>
+                        <td class="backblue"></td>
+                        <td class="backblue"></td>
+                        <td class="backblue"></td>
                     </tr>
                     <tr>
                         <td><b>331</b></td>
@@ -1708,25 +1772,25 @@
                     </tr>
 
                     <tr>
-                        <td><b>333</b></td>
-                        <td><b>Thuế và các khoản phải nộp Nhà nước</b></td>
-                        <td><input id="cell_333_dk_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="333").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_333_dk_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="333").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_333_ps_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="333").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_333_ps_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="333").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_333_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="333").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_333_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="333").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><b>333</b></td>
+                        <td class="backblue"><b>Thuế và các khoản phải nộp Nhà nước</b></td>
+                        <td class="backblue"><input id="cell_333_dk_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="333").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_333_dk_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="333").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_333_ps_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="333").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_333_ps_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="333").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_333_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="333").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_333_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="333").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
-                        <td><b>3331</b></td>
-                        <td>Thuế giá trị gia tăng phải nộp</td>
-                        <td><input id="cell_3331_dk_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3331").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_3331_dk_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3331").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_3331_ps_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3331").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_3331_ps_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3331").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_3331_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3331").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_3331_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3331").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><b>3331</b></td>
+                        <td class="backblue">Thuế giá trị gia tăng phải nộp</td>
+                        <td class="backblue"><input id="cell_3331_dk_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3331").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_3331_dk_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3331").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_3331_ps_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3331").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_3331_ps_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3331").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_3331_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3331").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_3331_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3331").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
@@ -1817,14 +1881,14 @@
                     </tr>
 
                     <tr>
-                        <td>3338</td>
-                        <td>Thuế bảo vệ môi trường và các loại thuế khác</td>
-                        <td><input id="cell_3338_dk_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3338").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_3338_dk_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3338").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_3338_ps_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3338").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_3338_ps_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3338").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_3338_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3338").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_3338_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3338").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue" >3338</td>
+                        <td class="backblue">Thuế bảo vệ môi trường và các loại thuế khác</td>
+                        <td class="backblue"><input id="cell_3338_dk_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3338").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_3338_dk_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3338").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_3338_ps_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3338").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_3338_ps_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3338").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_3338_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3338").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_3338_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="3338").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
@@ -2014,14 +2078,14 @@
                     </tr>
 
                     <tr>
-                        <td><b>341</b></td>
-                        <td><b>Vay và nợ thuê tài chính</b></td>
-                        <td><input id="cell_341_dk_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="341").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_341_dk_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="341").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_341_ps_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="341").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_341_ps_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="341").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_341_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="341").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_341_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="341").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><b>341</b></td>
+                        <td class="backblue"><b>Vay và nợ thuê tài chính</b></td>
+                        <td class="backblue"><input id="cell_341_dk_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="341").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_341_dk_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="341").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_341_ps_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="341").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_341_ps_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="341").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_341_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="341").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_341_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="341").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
@@ -2047,14 +2111,14 @@
                     </tr>
 
                     <tr>
-                        <td><b>352</b></td>
-                        <td><b>Dự phòng phải trả</b></td>
-                        <td><input id="cell_352_dk_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="352").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_352_dk_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="352").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_352_ps_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="352").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_352_ps_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="352").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_352_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="352").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_352_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="352").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><b>352</b></td>
+                        <td class="backblue"><b>Dự phòng phải trả</b></td>
+                        <td class="backblue"><input id="cell_352_dk_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="352").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_352_dk_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="352").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_352_ps_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="352").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_352_ps_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="352").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_352_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="352").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_352_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="352").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
 
@@ -2091,14 +2155,14 @@
                     </tr>
 
                     <tr>
-                        <td><b>353</b></td>
-                        <td><b>Quỹ khen thưởng, phúc lợi</b></td>
-                        <td><input id="cell_353_dk_no" value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_353_dk_co" value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_353_ps_no" value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_353_ps_co" value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_353_ck_no" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_353_ck_co" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><b>353</b></td>
+                        <td class="backblue"><b>Quỹ khen thưởng, phúc lợi</b></td>
+                        <td class="backblue"><input id="cell_353_dk_no" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_353_dk_co" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_353_ps_no" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_353_ps_co" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_353_ck_no" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_353_ck_co" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
@@ -2145,14 +2209,14 @@
                     </tr>
 
                     <tr>
-                        <td><b>356</b></td>
-                        <td><b>Quỹ phát triển khoa học và công nghệ</b></td>
-                        <td><input id="cell_356_dk_no" value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_356_dk_co" value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_356_ps_no" value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_356_ps_co" value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_356_ck_no" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_356_ck_co" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><b>356</b></td>
+                        <td class="backblue"><b>Quỹ phát triển khoa học và công nghệ</b></td>
+                        <td class="backblue"><input id="cell_356_dk_no" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_356_dk_co" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_356_ps_no" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_356_ps_co" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_356_ck_no" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_356_ck_co" disabled value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                     <tr>
@@ -2178,14 +2242,14 @@
                     </tr>
 
                     <tr>
-                        <td><b>411</b></td>
-                        <td><b>Vốn đầu tư của chủ sở hữu</b></td>
-                        <td><input id="cell_411_dk_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="411").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_411_dk_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="411").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_411_ps_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="411").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_411_ps_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="411").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_411_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="411").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_411_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="411").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><b>411</b></td>
+                        <td class="backblue"><b>Vốn đầu tư của chủ sở hữu</b></td>
+                        <td class="backblue"><input id="cell_411_dk_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="411").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_411_dk_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="411").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_411_ps_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="411").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_411_ps_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="411").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_411_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="411").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_411_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="411").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
                     <tr>
                         <td><b>4111</b></td>
@@ -2249,14 +2313,14 @@
                         <td><input id="cell_419_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="419").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
                     <tr>
-                        <td><b>421</b></td>
-                        <td><b>Lợi nhuận sau thuế chưa phân phối</b></td>
-                        <td><input id="cell_421_dk_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="421").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_421_dk_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="421").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_421_ps_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="421").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_421_ps_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="421").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_421_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="421").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_421_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="421").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><b>421</b></td>
+                        <td class="backblue"><b>Lợi nhuận sau thuế chưa phân phối</b></td>
+                        <td class="backblue"><input id="cell_421_dk_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="421").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_421_dk_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="421").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_421_ps_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="421").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_421_ps_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="421").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_421_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="421").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_421_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="421").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
                     <tr>
                         <td><b>4211</b></td>
@@ -2279,26 +2343,26 @@
                         <td><input id="cell_4212_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="4212").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td>
+                        <td class="backblue"></td>
+                        <td class="backblue">
                             <b>LOẠI TÀI KHOẢN DOANH THU</b>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="backblue"></td>
+                        <td class="backblue"></td>
+                        <td class="backblue"></td>
+                        <td class="backblue"></td>
+                        <td class="backblue"></td>
+                        <td class="backblue"></td>
                     </tr>
                     <tr>
-                        <td><b>511</b></td>
-                        <td><b>Doanh thu bán hàng và cung cấp dịch vụ</b></td>
-                        <td><input id="cell_511_dk_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="511").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_511_dk_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="511").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_511_ps_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="511").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_511_ps_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="511").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_511_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="511").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_511_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="511").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><b>511</b></td>
+                        <td class="backblue"><b>Doanh thu bán hàng và cung cấp dịch vụ</b></td>
+                        <td class="backblue"><input id="cell_511_dk_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="511").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_511_dk_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="511").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_511_ps_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="511").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_511_ps_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="511").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_511_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="511").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td class="backblue"><input id="cell_511_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="511").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
                     <tr>
                         <td><b>5111</b></td>
@@ -2422,7 +2486,7 @@
                         <td><input id="cell_6422_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="6422").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
                     <tr>
-                        <td><b>711</b></td>
+                        <td ><b>711</b></td>
                         <td>Thu nhập khác</td>
                         <td><input id="cell_711_dk_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="711").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td><input id="cell_711_dk_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="711").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
@@ -2453,15 +2517,15 @@
                         <td><input id="cell_821_ck_no" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="821").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td><input id="cell_821_ck_co" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="821").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
-                    <tr>
-                        <td><b>TÀI KHOẢN XÁC ĐỊNH KẾT QUẢ KINH DOANH</b></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr >
+                        <td class="backblue"><b>TÀI KHOẢN XÁC ĐỊNH KẾT QUẢ KINH DOANH</b></td>
+                        <td class="backblue"></td>
+                        <td class="backblue"></td>
+                        <td class="backblue"></td>
+                        <td class="backblue"></td>
+                        <td class="backblue"></td>
+                        <td class="backblue"></td>
+                        <td class="backblue"></td>
                     </tr>
 
                     <tr>
@@ -2584,7 +2648,6 @@
         width: 100%;
         max-width: 100%;
         border: none;
-        border-bottom: 1px solid #eee;
         outline: none;
         background-color: transparent;
     }
@@ -2632,6 +2695,188 @@
     }
 </style>
 <script src="/Scripts/jquery-3.7.0.min.js"></script>
+
+@*Xử lý cho kqhdkd*@
+<script>
+    function onchange10() {
+        var v1 = $("#cell_01_namnay").val(); 
+        var v2 = $("#cell_02_namnay").val();
+        var result1 = cleanToNumber(v1) - cleanToNumber(v2); 
+        $("#cell_10_namnay").val(result1);
+        formatNumber(document.getElementById("cell_10_namnay"));
+        //Tính cho 10 right
+        var v1r = $("#cell_01_namtruoc").val();
+        var v2r = $("#cell_02_namtruoc").val();
+        var result1r = cleanToNumber(v1r) - cleanToNumber(v2r);
+        $("#cell_10_namtruoc").val(result1r);
+        formatNumber(document.getElementById("cell_10_namtruoc"));
+
+
+
+        //Tính cho 20
+        var v11 = $("#cell_11_namnay").val();
+        var v20 = result1 - cleanToNumber(v11); 
+        $("#cell_20_namnay").val(v20);
+        formatNumber(document.getElementById("cell_20_namnay"));
+        //Tính cho 20 right
+        var v11r = $("#cell_11_namtruoc").val();
+        var v20r = result1r - cleanToNumber(v11r);
+        $("#cell_20_namtruoc").val(v20r);
+        formatNumber(document.getElementById("cell_20_namtruoc"));
+
+
+
+        //Tính cho 30
+        v21 = $("#cell_21_namnay").val(); 
+        v22 = $("#cell_22_namnay").val(); 
+        v23 = $("#cell_23_namnay").val(); 
+        v24 = $("#cell_24_namnay").val(); 
+        var v30 = v20 + cleanToNumber(v21) - cleanToNumber(v22)-cleanToNumber(v24); 
+        $("#cell_30_namnay").val(v30);
+        formatNumber(document.getElementById("cell_30_namnay"));
+        //Tính cho 30 right
+        v21r = $("#cell_21_namtruoc").val();
+        v22r = $("#cell_22_namtruoc").val();
+        v23r = $("#cell_23_namtruoc").val();
+        v24r = $("#cell_24_namtruoc").val();
+        var v30r = v20r + cleanToNumber(v21r) - cleanToNumber(v22r) - cleanToNumber(v24r);
+        $("#cell_30_namtruoc").val(v30r);
+        formatNumber(document.getElementById("cell_30_namtruoc"));
+
+
+
+
+        //Tính cho 40
+        v31 = $("#cell_31_namnay").val();
+        v32 = $("#cell_32_namnay").val(); 
+        v40 = cleanToNumber(v31) - cleanToNumber(v32); 
+        $("#cell_40_namnay").val(v40);
+        formatNumber(document.getElementById("cell_40_namnay"));
+        //Tính cho 40 right
+        v31r = $("#cell_31_namtruoc").val();
+        v32r = $("#cell_32_namtruoc").val();
+        v40r = cleanToNumber(v31r) - cleanToNumber(v32r);
+        $("#cell_40_namtruoc").val(v40r);
+        formatNumber(document.getElementById("cell_40_namtruoc"));
+
+
+
+        //Tính cho 50  
+        v50 = v30 + v40;
+        $("#cell_50_namnay").val(v50);
+        formatNumber(document.getElementById("cell_50_namnay"));
+        //Tính cho 50  right
+        v50r = v30r + v40r;
+        $("#cell_50_namtruoc").val(v50r);
+        formatNumber(document.getElementById("cell_50_namtruoc"));
+
+
+
+        //Tính cho 60
+        v51 = $("#cell_51_namnay").val();
+        var v60 = v50 - cleanToNumber(v51);
+        $("#cell_60_namnay").val(v60);
+        formatNumber(document.getElementById("cell_60_namnay"));
+        //Tính cho 60 right
+        v51r = $("#cell_51_namtruoc").val();
+        var v60r = v50r - cleanToNumber(v51r);
+        $("#cell_60_namtruoc").val(v60r);
+        formatNumber(document.getElementById("cell_60_namtruoc"));
+
+    }
+
+    function onchangelctt() {
+        var v1 = $("#cell_01cuoi").val();
+        var v2 = $("#cell_02cuoi").val();
+        var v3 = $("#cell_03cuoi").val();
+        var v4 = $("#cell_04cuoi").val();
+        var v5 = $("#cell_05cuoi").val();
+        var v6 = $("#cell_06cuoi").val();
+        var v7 = $("#cell_07cuoi").val();
+
+        var result1 = cleanToNumber(v1) + cleanToNumber(v2) + cleanToNumber(v3) + cleanToNumber(v4) + cleanToNumber(v5) + cleanToNumber(v6) + cleanToNumber(v7);
+        $("#cell_20cuoi").val(result1);
+        formatNumber(document.getElementById("cell_20cuoi"));
+        //20 dau
+        var v1r = $("#cell_01_dau").val();
+        var v2r = $("#cell_02_dau").val();
+        var v3r = $("#cell_03_dau").val();
+        var v4r = $("#cell_04_dau").val();
+        var v5r = $("#cell_05_dau").val();
+        var v6r = $("#cell_06_dau").val();
+        var v7r = $("#cell_07_dau").val();
+
+        var result1r = cleanToNumber(v1r) + cleanToNumber(v2r) + cleanToNumber(v3r) + cleanToNumber(v4r) + cleanToNumber(v5r) + cleanToNumber(v6r) + cleanToNumber(v7r);
+        $("#cell_20_dau").val(result1r);
+        formatNumber(document.getElementById("cell_20_dau"));
+
+        //30 cuối
+        var v21 = $("#cell_21cuoi").val();
+        var v22 = $("#cell_22cuoi").val();
+        var v23 = $("#cell_23cuoi").val();
+        var v24 = $("#cell_23cuoi").val();
+        var v25 = $("#cell_25cuoi").val(); 
+        var result30 = cleanToNumber(v21) + cleanToNumber(v22) + cleanToNumber(v23) + cleanToNumber(v24) + cleanToNumber(v25);
+        $("#cell_30cuoi").val(result30);
+        formatNumber(document.getElementById("cell_30cuoi"));
+
+        //30 đầu
+        var v21r = $("#cell_21_dau").val();
+        var v22r = $("#cell_22_dau").val();
+        var v23r = $("#cell_23_dau").val();
+        var v24r = $("#cell_23_dau").val();
+        var v25r = $("#cell_25_dau").val();
+        var result30r = cleanToNumber(v21r) + cleanToNumber(v22r) + cleanToNumber(v23r) + cleanToNumber(v24r) + cleanToNumber(v25r); 
+        $("#cell_30_dau").val(result30r);
+        formatNumber(document.getElementById("cell_30_dau"));
+
+        //40 cuối
+        var v31 = $("#cell_31cuoi").val();
+        var v32 = $("#cell_32cuoi").val();
+        var v33 = $("#cell_33cuoi").val();
+        var v34 = $("#cell_34cuoi").val();
+        var v35 = $("#cell_35cuoi").val(); 
+        var v36 = $("#cell_36cuoi").val();
+        var result40 = cleanToNumber(v31) + cleanToNumber(v32) + cleanToNumber(v33) + cleanToNumber(v34) + cleanToNumber(v35) + cleanToNumber(v36);
+        $("#cell_40cuoi").val(result40);
+        formatNumber(document.getElementById("cell_40cuoi"));
+
+        //40 đầu
+        var v31r = $("#cell_31_dau").val();
+        var v32r = $("#cell_32_dau").val();
+        var v33r = $("#cell_33_dau").val();
+        var v34r = $("#cell_34_dau").val();
+        var v35r = $("#cell_35_dau").val();
+        var v36r = $("#cell_36_dau").val();
+        var result40r = cleanToNumber(v31r) + cleanToNumber(v32r) + cleanToNumber(v33r) + cleanToNumber(v34r) + cleanToNumber(v35r) + cleanToNumber(v36r);
+        $("#cell_40_dau").val(result40r);
+        formatNumber(document.getElementById("cell_40_dau"));
+
+        //50 cuối
+        var result50 = result40 + result1 + result30;
+        $("#cell_50cuoi").val(result50);
+        formatNumber(document.getElementById("cell_50cuoi"));
+
+        //50 đầu
+        var result50r = result40r + result1r + result30r;
+        $("#cell_50_dau").val(result50r);
+        formatNumber(document.getElementById("cell_50_dau"));
+
+        //70 cuối
+        var v60 = $("#cell_60cuoi").val();
+        var v61 = $("#cell_61cuoi").val();
+        var result70 = result50 + cleanToNumber(v60) + cleanToNumber(v61) 
+        $("#cell_70cuoi").val(result70);
+        formatNumber(document.getElementById("cell_70cuoi"));
+
+        //70 đầu
+        var v60r = $("#cell_60_dau").val();
+        var v61r = $("#cell_61_dau").val();
+        var result70r = result50r + cleanToNumber(v60r) + cleanToNumber(v61r)
+        $("#cell_70_dau").val(result70r);
+        formatNumber(document.getElementById("cell_70_dau"));
+    }
+</script>
 <script>
     $(document).ready(function () {
         ["dk_no", "dk_co", "ps_no", "ps_co", "ck_no", "ck_co"].forEach(sumAll);
@@ -2646,6 +2891,9 @@
         $(document).on("focus", "input", function () {
             $(this).select();
         });
+        onchange10();
+        onchangelctt();
+        sumtong();
     });
     const cdtsTree = {
         "100": ["110", "120", "130", "140", "150"],
@@ -2658,16 +2906,15 @@
         "220": ["221", "222"],
         "230": ["231", "232"],
         "250": ["251", "252", "253"],
-        "300": ["100", "200"],
         "400": ["410", "420"],
         "410": ["411", "412", "413", "414", "415", "416", "417", "418"],
         "420": ["421", "422", "423", "424", "425", "426", "427",],
         "500": ["511", "512", "513", "514", "515", "516", "517",],
-        "600": ["400", "500"],
+        "600": ["400", "500"], 
     };
 
     // ⭐ các dòng dự phòng (*) cần trừ
-    const subtractRows = ["122", "135","142","215","222","232","252","514"];
+    const subtractRows = ["122", "135","142","215","252","514"];
     function sumChildren(parent, type) {
 
         if (!cdtsTree[parent]) return;
@@ -2707,7 +2954,7 @@
         sumChildren(parent, type);
 
         // cập nhật tiếp cha cấp trên
-        updateCDTS(parent, type);
+        updateCDTS(parent, type); 
     }
    $("#tb_cdts").on("input", "input", function () {
 
@@ -2717,8 +2964,19 @@
         const code = match[1];
         const type = match[2];
 
-        updateCDTS(code, type);
-    });
+       updateCDTS(code, type);
+       sumtong();
+   });
+    function sum300() {
+        var v100 = $("#cell_100_cuoi").val();
+        var v200 = $("#cell_200_cuoi").val();
+        var v300 = cleanToNumber(v100) + cleanToNumber(v200);
+        $("#cell_300_cuoi").val(v300);
+        formatNumber(document.getElementById("cell_300_cuoi"));
+    }
+    function sumtong() {
+        sum300();
+    }
     function sumAll(type) {
 
         // ===== 1. cộng con → cha =====
@@ -2736,7 +2994,7 @@
         });
 
         // ===== 2. tổng toàn bảng =====
-        sumTotal(type);
+        sumTotal(type); 
     }
     function sumChildrenToParent(parent, type) {
 
@@ -2944,9 +3202,9 @@
     }
     $(document).ready(function () {
         opentab(1);
-        toggle300();
-        toggle400();
-        toggle600();
+        //toggle300();
+        //toggle400();
+        //toggle600();
     });
     function formatNumber(input) {
         let value = parseFloat(input.value.replace(/\./g, '').replace(/,/g, '.'));
@@ -3361,40 +3619,40 @@
           <ct60/>
         </ThuyetMinh>
         <NamNay>
-          <ct01>3800823318</ct01>
-          <ct02>0</ct02>
-          <ct10>3800823318</ct10>
-          <ct11>3485810206</ct11>
-          <ct20>315013112</ct20>
-          <ct21>40448614</ct21>
-          <ct22>0</ct22>
-          <ct23>0</ct23>
-          <ct24>537303654</ct24>
-          <ct30>-181841928</ct30>
-          <ct31>232219355</ct31>
-          <ct32>40495575</ct32>
-          <ct40>191723780</ct40>
-          <ct50>9881852</ct50>
-          <ct51>10075485</ct51>
-          <ct60>-193633</ct60>
+          <ct01>${cleanNumber($("#cell_01_namnay").val().trim())}</ct01>
+          <ct02>${cleanNumber($("#cell_02_namnay").val().trim())}</ct02>
+          <ct10>${cleanNumber($("#cell_10_namnay").val().trim())}</ct10>
+          <ct11>${cleanNumber($("#cell_11_namnay").val().trim())}</ct11>
+          <ct20>${cleanNumber($("#cell_20_namnay").val().trim())}</ct20>
+          <ct21>${cleanNumber($("#cell_21_namnay").val().trim())}</ct21>
+          <ct22>${cleanNumber($("#cell_22_namnay").val().trim())}</ct22>
+          <ct23>${cleanNumber($("#cell_23_namnay").val().trim())}</ct23>
+          <ct24>${cleanNumber($("#cell_24_namnay").val().trim())}</ct24>
+          <ct30>${cleanNumber($("#cell_30_namnay").val().trim())}</ct30>
+          <ct31>${cleanNumber($("#cell_31_namnay").val().trim())}</ct31>
+          <ct32>${cleanNumber($("#cell_32_namnay").val().trim())}</ct32>
+          <ct40>${cleanNumber($("#cell_40_namnay").val().trim())}</ct40>
+          <ct50>${cleanNumber($("#cell_50_namnay").val().trim())}</ct50>
+          <ct51>${cleanNumber($("#cell_51_namnay").val().trim())}</ct51>
+          <ct60>${cleanNumber($("#cell_60_namnay").val().trim())}</ct60>
         </NamNay>
         <NamTruoc>
-          <ct01>5334959897</ct01>
-          <ct02>0</ct02>
-          <ct10>5334959897</ct10>
-          <ct11>4967482914</ct11>
-          <ct20>367476983</ct20>
-          <ct21>88313116</ct21>
-          <ct22>0</ct22>
-          <ct23>0</ct23>
-          <ct24>699480366</ct24>
-          <ct30>-243690267</ct30>
-          <ct31>297656339</ct31>
-          <ct32>0</ct32>
-          <ct40>297656339</ct40>
-          <ct50>53966072</ct50>
-          <ct51>10793214</ct51>
-          <ct60>43172858</ct60>
+          <ct01>${cleanNumber($("#cell_01_namtruoc").val().trim())}</ct01>
+          <ct02>${cleanNumber($("#cell_02_namtruoc").val().trim())}</ct02>
+          <ct10>${cleanNumber($("#cell_10_namtruoc").val().trim())}</ct10>
+          <ct11>${cleanNumber($("#cell_11_namtruoc").val().trim())}</ct11>
+          <ct20>${cleanNumber($("#cell_20_namtruoc").val().trim())}</ct20>
+          <ct21>${cleanNumber($("#cell_21_namtruoc").val().trim())}</ct21>
+          <ct22>${cleanNumber($("#cell_22_namtruoc").val().trim())}</ct22>
+          <ct23>${cleanNumber($("#cell_23_namtruoc").val().trim())}</ct23>
+          <ct24>${cleanNumber($("#cell_24_namtruoc").val().trim())}</ct24>
+          <ct30>${cleanNumber($("#cell_30_namtruoc").val().trim())}</ct30>
+          <ct31>${cleanNumber($("#cell_31_namtruoc").val().trim())}</ct31>
+          <ct32>${cleanNumber($("#cell_32_namtruoc").val().trim())}</ct32>
+          <ct40>${cleanNumber($("#cell_40_namtruoc").val().trim())}</ct40>
+          <ct50>${cleanNumber($("#cell_50_namtruoc").val().trim())}</ct50>
+          <ct51>${cleanNumber($("#cell_51_namtruoc").val().trim())}</ct51>
+          <ct60>${cleanNumber($("#cell_60_namtruoc").val().trim())}</ct60>
         </NamTruoc>
       </PL_KQHDSXKD>
       <PL_LCTTTT>
@@ -3425,56 +3683,56 @@
           <ct70/>
         </ThuyetMinh>
         <NamNay>
-          <ct01>4219468120</ct01>
-          <ct02>-3115911325</ct02>
-          <ct03>-422930000</ct03>
-          <ct04>0</ct04>
-          <ct05>-24696000</ct05>
-          <ct06>44465000</ct06>
-          <ct07>-63498375</ct07>
-          <ct20>636897420</ct20>
-          <ct21>0</ct21>
-          <ct22>0</ct22>
-          <ct23>0</ct23>
-          <ct24>0</ct24>
-          <ct25>44071</ct25>
-          <ct30>44071</ct30>
-          <ct31>0</ct31>
-          <ct32>0</ct32>
-          <ct33>0</ct33>
-          <ct34>0</ct34>
-          <ct35>0</ct35>
-          <ct40>0</ct40>
-          <ct50>636941491</ct50>
-          <ct60>1006410597</ct60>
-          <ct61>0</ct61>
-          <ct70>1643352088</ct70>
+          <ct01>${cleanNumber($("#cell_01cuoi").val().trim())}</ct01>
+          <ct02>${cleanNumber($("#cell_02cuoi").val().trim())}</ct02>
+          <ct03>${cleanNumber($("#cell_03cuoi").val().trim())}</ct03>
+          <ct04>${cleanNumber($("#cell_04cuoi").val().trim())}</ct04>
+          <ct05>${cleanNumber($("#cell_05cuoi").val().trim())}</ct05>
+          <ct06>${cleanNumber($("#cell_06cuoi").val().trim())}</ct06>
+          <ct07>${cleanNumber($("#cell_07cuoi").val().trim())}</ct07>
+          <ct20>${cleanNumber($("#cell_20cuoi").val().trim())}</ct20>
+          <ct21>${cleanNumber($("#cell_21cuoi").val().trim())}</ct21>
+          <ct22>${cleanNumber($("#cell_22cuoi").val().trim())}</ct22>
+          <ct23>${cleanNumber($("#cell_23cuoi").val().trim())}</ct23>
+          <ct24>${cleanNumber($("#cell_24cuoi").val().trim())}</ct24>
+          <ct25>${cleanNumber($("#cell_25cuoi").val().trim())}</ct25>
+          <ct30>${cleanNumber($("#cell_30cuoi").val().trim())}</ct30>
+          <ct31>${cleanNumber($("#cell_31cuoi").val().trim())}</ct31>
+          <ct32>${cleanNumber($("#cell_32cuoi").val().trim())}</ct32>
+          <ct33>${cleanNumber($("#cell_33cuoi").val().trim())}</ct33>
+          <ct34>${cleanNumber($("#cell_34cuoi").val().trim())}</ct34>
+          <ct35>${cleanNumber($("#cell_35cuoi").val().trim())}</ct35>
+          <ct40>${cleanNumber($("#cell_40cuoi").val().trim())}</ct40>
+          <ct50>${cleanNumber($("#cell_50cuoi").val().trim())}</ct50>
+          <ct60>${cleanNumber($("#cell_60cuoi").val().trim())}</ct60>
+          <ct61>${cleanNumber($("#cell_61cuoi").val().trim())}</ct61>
+          <ct70>${cleanNumber($("#cell_70cuoi").val().trim())}</ct70>
         </NamNay>
         <NamTruoc>
-          <ct01>5898402426</ct01>
-          <ct02>-3566934779</ct02>
-          <ct03>-586650000</ct03>
-          <ct04>0</ct04>
-          <ct05>-2463806</ct05>
-          <ct06>1090975000</ct06>
-          <ct07>-8452000000</ct07>
-          <ct20>-5618671159</ct20>
-          <ct21>0</ct21>
-          <ct22>0</ct22>
-          <ct23>0</ct23>
-          <ct24>0</ct24>
-          <ct25>96399</ct25>
-          <ct30>96399</ct30>
-          <ct31>6500000000</ct31>
-          <ct32>0</ct32>
-          <ct33>0</ct33>
-          <ct34>0</ct34>
-          <ct35>0</ct35>
-          <ct40>6500000000</ct40>
-          <ct50>881425240</ct50>
-          <ct60>124985357</ct60>
-          <ct61>0</ct61>
-          <ct70>1006410597</ct70>
+          <ct01>${cleanNumber($("#cell_01_dau").val().trim())}</ct01>
+          <ct02>${cleanNumber($("#cell_02_dau").val().trim())}</ct02>
+          <ct03>${cleanNumber($("#cell_03_dau").val().trim())}</ct03>
+          <ct04>${cleanNumber($("#cell_04_dau").val().trim())}</ct04>
+          <ct05>${cleanNumber($("#cell_05_dau").val().trim())}</ct05>
+          <ct06>${cleanNumber($("#cell_06_dau").val().trim())}</ct06>
+          <ct07>${cleanNumber($("#cell_07_dau").val().trim())}</ct07>
+          <ct20>${cleanNumber($("#cell_20_dau").val().trim())}</ct20>
+          <ct21>${cleanNumber($("#cell_21_dau").val().trim())}</ct21>
+          <ct22>${cleanNumber($("#cell_22_dau").val().trim())}</ct22>
+          <ct23>${cleanNumber($("#cell_23_dau").val().trim())}</ct23>
+          <ct24>${cleanNumber($("#cell_24_dau").val().trim())}</ct24>
+          <ct25>${cleanNumber($("#cell_25_dau").val().trim())}</ct25>
+          <ct30>${cleanNumber($("#cell_30_dau").val().trim())}</ct30>
+          <ct31>${cleanNumber($("#cell_31_dau").val().trim())}</ct31>
+          <ct32>${cleanNumber($("#cell_32_dau").val().trim())}</ct32>
+          <ct33>${cleanNumber($("#cell_33_dau").val().trim())}</ct33>
+          <ct34>${cleanNumber($("#cell_34_dau").val().trim())}</ct34>
+          <ct35>${cleanNumber($("#cell_35_dau").val().trim())}</ct35>
+          <ct40>${cleanNumber($("#cell_40_dau").val().trim())}</ct40>
+          <ct50>${cleanNumber($("#cell_50_dau").val().trim())}</ct50>
+          <ct60>${cleanNumber($("#cell_60_dau").val().trim())}</ct60>
+          <ct61>${cleanNumber($("#cell_61_dau").val().trim())}</ct61>
+          <ct70>${cleanNumber($("#cell_70_dau").val().trim())}</ct70>
         </NamTruoc>
       </PL_LCTTTT>
       <PL_CDTK>
@@ -3532,7 +3790,7 @@
 <ct2412>${cleanNumber($("#cell_2412_dk_no").val().trim())}</ct2412>
 <ct2413>${cleanNumber($("#cell_2413_dk_no").val().trim())}</ct2413>
 <ct242>${cleanNumber($("#cell_242_dk_no").val().trim())}</ct242>
-           <ct331>${cleanNumber($("#cell_331_dk_no").val().trim())}</ct331>
+<ct331>${cleanNumber($("#cell_331_dk_no").val().trim())}</ct331>
 <ct333>${cleanNumber($("#cell_333_dk_no").val().trim())}</ct333>
 <ct3331>${cleanNumber($("#cell_3331_dk_no").val().trim())}</ct3331>
 <ct33311>${cleanNumber($("#cell_33311_dk_no").val().trim())}</ct33311>
@@ -3603,10 +3861,10 @@
 <ct811>${cleanNumber($("#cell_811_dk_no").val().trim())}</ct811>
 <ct821>${cleanNumber($("#cell_821_dk_no").val().trim())}</ct821>
 <ct911>${cleanNumber($("#cell_911_dk_no").val().trim())}</ct911>
-            <tongCong>11831920102</tongCong>
-          </No>
-          <Co>
-           <ct111>${cleanNumber($("#cell_111_dk_co").val().trim())}</ct111>
+<tongCong>11831920102</tongCong>
+</No>
+<Co>
+ <ct111>${cleanNumber($("#cell_111_dk_co").val().trim())}</ct111>
 <ct1111>${cleanNumber($("#cell_1111_dk_co").val().trim())}</ct1111>
 <ct1112>${cleanNumber($("#cell_1112_dk_co").val().trim())}</ct1112>
 <ct112>${cleanNumber($("#cell_112_dk_co").val().trim())}</ct112>
@@ -3658,7 +3916,7 @@
 <ct2412>${cleanNumber($("#cell_2412_dk_co").val().trim())}</ct2412>
 <ct2413>${cleanNumber($("#cell_2413_dk_co").val().trim())}</ct2413>
 <ct242>${cleanNumber($("#cell_242_dk_co").val().trim())}</ct242>
-           <ct331>${cleanNumber($("#cell_331_dk_co").val().trim())}</ct331>
+ <ct331>${cleanNumber($("#cell_331_dk_co").val().trim())}</ct331>
 <ct333>${cleanNumber($("#cell_333_dk_co").val().trim())}</ct333>
 <ct3331>${cleanNumber($("#cell_3331_dk_co").val().trim())}</ct3331>
 <ct33311>${cleanNumber($("#cell_33311_dk_co").val().trim())}</ct33311>
@@ -3729,12 +3987,12 @@
 <ct811>${cleanNumber($("#cell_811_dk_co").val().trim())}</ct811>
 <ct821>${cleanNumber($("#cell_821_dk_co").val().trim())}</ct821>
 <ct911>${cleanNumber($("#cell_911_dk_co").val().trim())}</ct911>
-            <tongCong>11831920102</tongCong>
-          </Co>
-        </SoDuDauKy>
-        <SoPhatSinhTrongKy>
-          <No>
-           <ct111>${cleanNumber($("#cell_111_ps_no").val().trim())}</ct111>
+<tongCong>11831920102</tongCong>
+</Co>
+</SoDuDauKy>
+<SoPhatSinhTrongKy>
+<No>
+<ct111>${cleanNumber($("#cell_111_ps_no").val().trim())}</ct111>
 <ct1111>${cleanNumber($("#cell_1111_ps_no").val().trim())}</ct1111>
 <ct1112>${cleanNumber($("#cell_1112_ps_no").val().trim())}</ct1112>
 <ct112>${cleanNumber($("#cell_112_ps_no").val().trim())}</ct112>
@@ -3857,10 +4115,10 @@
 <ct811>${cleanNumber($("#cell_811_ps_no").val().trim())}</ct811>
 <ct821>${cleanNumber($("#cell_821_ps_no").val().trim())}</ct821>
 <ct911>${cleanNumber($("#cell_911_ps_no").val().trim())}</ct911>
-            <tongCong>26820133183</tongCong>
-          </No>
-          <Co>
-           <ct111>${cleanNumber($("#cell_111_ps_co").val().trim())}</ct111>
+ <tongCong>26820133183</tongCong>
+</No>
+<Co>
+<ct111>${cleanNumber($("#cell_111_ps_co").val().trim())}</ct111>
 <ct1111>${cleanNumber($("#cell_1111_ps_co").val().trim())}</ct1111>
 <ct1112>${cleanNumber($("#cell_1112_ps_co").val().trim())}</ct1112>
 <ct112>${cleanNumber($("#cell_112_ps_co").val().trim())}</ct112>
@@ -3983,12 +4241,12 @@
 <ct811>${cleanNumber($("#cell_811_ps_co").val().trim())}</ct811>
 <ct821>${cleanNumber($("#cell_821_ps_co").val().trim())}</ct821>
 <ct911>${cleanNumber($("#cell_911_ps_co").val().trim())}</ct911>
-            <tongCong>26820133183</tongCong>
-          </Co>
-        </SoPhatSinhTrongKy>
-        <SoDuCuoiKy>
-          <No>
-            <ct111>${cleanNumber($("#cell_111_ck_no").val().trim())}</ct111>
+<tongCong>26820133183</tongCong>
+</Co>
+</SoPhatSinhTrongKy>
+<SoDuCuoiKy>
+<No>
+<ct111>${cleanNumber($("#cell_111_ck_no").val().trim())}</ct111>
 <ct1111>${cleanNumber($("#cell_1111_ck_no").val().trim())}</ct1111>
 <ct1112>${cleanNumber($("#cell_1112_ck_no").val().trim())}</ct1112>
 <ct112>${cleanNumber($("#cell_112_ck_no").val().trim())}</ct112>
@@ -4111,10 +4369,10 @@
 <ct811>${cleanNumber($("#cell_811_ck_no").val().trim())}</ct811>
 <ct821>${cleanNumber($("#cell_821_ck_no").val().trim())}</ct821>
 <ct911>${cleanNumber($("#cell_911_ck_no").val().trim())}</ct911>
-            <tongCong>11617244143</tongCong>
-          </No>
-          <Co>
-            <ct111>${cleanNumber($("#cell_111_ck_co").val().trim())}</ct111>
+<tongCong>11617244143</tongCong>
+</No>
+<Co>
+<ct111>${cleanNumber($("#cell_111_ck_co").val().trim())}</ct111>
 <ct1111>${cleanNumber($("#cell_1111_ck_co").val().trim())}</ct1111>
 <ct1112>${cleanNumber($("#cell_1112_ck_co").val().trim())}</ct1112>
 <ct112>${cleanNumber($("#cell_112_ck_co").val().trim())}</ct112>
@@ -4282,9 +4540,9 @@
         background-color: #D7D7D7!important;
     }
     .backblue {
-        background-color: #CCFFFF!important;
+        background-color: #2adbdb !important;
     }
     .backtim {
-        background-color: #E9F5FE !important;
+        background-color: #bfd7e9 !important;
     }
 </style>
