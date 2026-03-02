@@ -1,0 +1,6 @@
+﻿@using (Html.BeginForm("UploadXml", "BuildXMl", FormMethod.Post,
+        new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="xmlFile" accept=".xml" />
+    <button type="submit">Load XML</button>
+}
