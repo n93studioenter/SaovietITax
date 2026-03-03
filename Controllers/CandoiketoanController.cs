@@ -31,7 +31,7 @@ namespace Taxweb.Controllers
        {
             if(path== null)
             {
-                path = "D:\\DA3\\DA3\\Data\\Dang Gia Thinh KT2025.mdb";
+                path = "D:\\DA3\\DA3\\Data\\Vuon Pho 2024.mdb";
             }
             if (!string.IsNullOrEmpty(path))
             {
@@ -166,7 +166,7 @@ FROM
     INNER JOIN ChungTu ON HeThongTK.MaSo = ChungTu.MaTKNo)
     INNER JOIN HeThongTK AS HeThongTK_1 ON ChungTu.MaTKCo = HeThongTK_1.MaSo
 WHERE
-    (HethongTK.SoHieu LIKE '331%' OR HethongTK.SoHieu LIKE '152%' OR HethongTK.SoHieu LIKE '153%' OR HethongTK.SoHieu LIKE '154%' OR HethongTK.SoHieu LIKE '642%' OR HethongTK.SoHieu LIKE '242%' OR HethongTK.SoHieu LIKE '1331%' OR HethongTK.SoHieu LIKE '632%' OR HethongTK.SoHieu LIKE '152%' )
+    (HethongTK.SoHieu LIKE '331%' OR HethongTK.SoHieu LIKE '152%' OR HethongTK.SoHieu LIKE '153%' OR HethongTK.SoHieu LIKE '154%' OR HethongTK.SoHieu LIKE '156%' OR HethongTK.SoHieu LIKE '642%' OR HethongTK.SoHieu LIKE '242%' OR HethongTK.SoHieu LIKE '1331%' OR HethongTK.SoHieu LIKE '632%' OR HethongTK.SoHieu LIKE '152%' )
     AND (
         HethongTK_1.SoHieu LIKE '11%'  
     )
