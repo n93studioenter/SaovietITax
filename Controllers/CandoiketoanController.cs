@@ -31,7 +31,7 @@ namespace Taxweb.Controllers
        {
             if(path== null)
             {
-                path = "D:\\DA3\\DA3\\Data\\Vuon Pho 2024.mdb";
+                path = "D:\\DA3\\DA3\\Data\\Phat Dat Vung Tau 25.mdb";
             }
             if (!string.IsNullOrEmpty(path))
             {
@@ -94,6 +94,15 @@ namespace Taxweb.Controllers
                     CkCo = double.Parse(r["CkCo"].ToString()),  
                 }).ToList();
                 ViewBag.number = 10;
+
+                query = "SELECT * FROM HeThongTK";
+                DataTable tbHTTK = ExecuteQuery(query, null);
+                baoCaoCDTSVM.HTTKs = tbHTTK.AsEnumerable().Select(r => new HTTK
+                {
+                    MaSo = r["MaSo"].ToString(),
+                    SoHieu = r["SoHieu"].ToString(), 
+                    TenTK=Helpers.ConvertVniToUnicode(r["Ten"].ToString()),
+                }).ToList();
 
 
                 query = "SELECT * FROM LCTT";
@@ -756,7 +765,7 @@ FROM
     INNER JOIN ChungTu ON HeThongTK.MaSo = ChungTu.MaTKNo)
     INNER JOIN HeThongTK AS HeThongTK_1 ON ChungTu.MaTKCo = HeThongTK_1.MaSo
 WHERE
-    (HethongTK.SoHieu LIKE '338%' )
+    (HethongTK.SoHieu LIKE '421%' )
     AND (
         HethongTK_1.SoHieu LIKE '11%'  
     )
@@ -779,8 +788,7 @@ WHERE
 
                 return View(baoCaoCDTSVM);
             }
-            
-
+             
 
             return View();
         }

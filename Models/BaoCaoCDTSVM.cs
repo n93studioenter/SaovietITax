@@ -11,6 +11,7 @@ namespace Taxweb.Models
         public List<QTongHopCTVM> QTongHop { get; set; }
         public List<LCTT> LCTTs { get; set; }
         public List<TTLCTT> TTLCTTs { get; set; }=new List<TTLCTT>();
+        public List<HTTK> HTTKs { get; set; }   
     }
     public class CDTSVM
     {
@@ -32,6 +33,12 @@ namespace Taxweb.Models
         public double KyTruoc { get; set; }
         public double KyNay { get; set; }
         public string TenE { get; set; }
+    }
+    public class HTTK
+    {
+        public string MaSo { get; set; }
+        public string SoHieu { get; set; }
+        public string TenTK { get; set; }
     }
     public class QTongHopCTVM
     {
