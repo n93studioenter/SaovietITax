@@ -31,7 +31,7 @@ namespace Taxweb.Controllers
        {
             if(path== null)
             {
-                path = "D:\\DA3\\DA3\\Data\\Phat Dat Vung Tau 25.mdb";
+                path = "D:\\DA3\\DA3\\Data\\ducthinh2024.mdb";
             }
             if (!string.IsNullOrEmpty(path))
             {
@@ -58,8 +58,8 @@ namespace Taxweb.Controllers
                 baoCaoCDTSVM.CDTS = CDTS.AsEnumerable().Select(r => new CDTSVM
                 {
                     MaSo = r["MaSo"].ToString(),
-                    CuoiKy = Math.Abs(double.Parse(r["CuoiKy"].ToString())),
-                    DauNam = Math.Abs(double.Parse(r["DauNam"].ToString())),
+                    CuoiKy = double.Parse(r["CuoiKy"].ToString()),
+                    DauNam = double.Parse(r["DauNam"].ToString()),
                 }).ToList();
 
                 query = "SELECT * FROM License";
@@ -149,10 +149,15 @@ WHERE
                 if (dt.Rows.Count > 0)
                 { 
                     f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+
+                    var qr1 = "SELECT * FROM LCTT where MaSo=1";
+                    DataTable lc01 = ExecuteQuery(qr1, null);
+                    double sumKyNay = lc01.AsEnumerable().Sum(r => r.Field<double>("KyNay"));
+
                     TTLCTT tTLCTT = new TTLCTT
                     { 
                         MaSo = "01",
-                        Namnay = f2
+                        Namnay = sumKyNay
                     };
                     baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);   
                 }
@@ -188,10 +193,14 @@ WHERE
                 if (dt.Rows.Count > 0)
                 {
                     f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    var qr1 = "SELECT * FROM LCTT where MaSo=2";
+                    DataTable lc01 = ExecuteQuery(qr1, null);
+                    double sumKyNay = lc01.AsEnumerable().Sum(r => r.Field<double>("KyNay"));
+
                     TTLCTT tTLCTT = new TTLCTT
                     {
                         MaSo = "02",
-                        Namnay = f2
+                        Namnay = -sumKyNay
                     };
                     baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
                 }
