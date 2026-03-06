@@ -431,13 +431,13 @@
                     </tr>
 
                     <!-- VIII. Tài sản khác -->
-                    <tr  style="font-weight:bold; background:#e8f3ff;">
+                    <tr style="font-weight:bold; background:#e8f3ff;">
                         <td class="backtim">VIII. Tài sản khác</td>
                         <td class="backtim">180</td>
                         <td class="backtim"></td>
                         <td class="backtim" style="text-align:right;">
                             @{ var cdts181 = Model.CDTS.Where(m => m.MaSo == "151").FirstOrDefault(); }
-                            @{ var cdts182 = Model.CDTS.Where(m => m.MaSo == "260").FirstOrDefault(); } 
+                            @{ var cdts182 = Model.CDTS.Where(m => m.MaSo == "260").FirstOrDefault(); }
                             <input id="cell_180a_cuoi" disabled class="myinput fw-bold" value="@(cdts181 != null ? cdts181.CuoiKy+cdts182.CuoiKy : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                         <td class="backtim" style="text-align:right;">
@@ -450,7 +450,7 @@
                         <td>181</td>
                         <td></td>
                         <td style="text-align:right;">
-                          
+
                             <input id="cell_181a_cuoi" class="myinput" value="@(cdts181 != null ? cdts181.CuoiKy : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                         <td style="text-align:right;">
@@ -463,7 +463,7 @@
                         <td>182</td>
                         <td></td>
                         <td style="text-align:right;">
-                           
+
                             <input id="cell_182a_cuoi" class="myinput" value="@(cdts182 != null ? cdts182.CuoiKy : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                         <td style="text-align:right;">
@@ -506,10 +506,15 @@
                             @{ var cdts313 = Model.CDTS.Where(m => m.MaSo == "413").FirstOrDefault(); }
                             @{ var cdts314 = Model.CDTS.Where(m => m.MaSo == "414").FirstOrDefault(); }
                             @{ var cdts315 = Model.CDTS.Where(m => m.MaSo == "415").FirstOrDefault(); }
-                            <input id="cell_300a_cuoi" disabled class="myinput fw-bold" value="@(cdts311 != null ? cdts311.CuoiKy+cdts312.CuoiKy+cdts313.CuoiKy+cdts314.CuoiKy+cdts315.CuoiKy : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                            @{ var cdts316 = Model.CDTS.Where(m => m.MaSo == "416").FirstOrDefault(); }
+                            @{ var cdts317 = Model.CDTS.Where(m => m.MaSo == "423").FirstOrDefault(); }
+                            @{ var cdts318 = Model.CDTS.Where(m => m.MaSo == "417").FirstOrDefault(); }
+                            @{ var cdts319 = Model.CDTS.Where(m => m.MaSo == "418").FirstOrDefault(); }
+                            @{ var cdts320 = Model.CDTS.Where(m => m.MaSo == "427").FirstOrDefault(); }
+                            <input id="cell_300a_cuoi" disabled class="myinput fw-bold" value="@(cdts311 != null ? cdts311.CuoiKy+cdts312.CuoiKy+cdts313.CuoiKy+cdts314.CuoiKy+cdts315.CuoiKy+cdts316.CuoiKy+cdts317.CuoiKy+cdts318.CuoiKy+cdts319.CuoiKy+cdts320.CuoiKy : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                         <td style="text-align:right;">
-                            <input id="cell_300a_dau" disabled class="myinput fw-bold" value="@(cdts311 != null ? cdts311.DauNam+cdts312.DauNam+cdts313.DauNam+cdts314.DauNam+cdts315.DauNam: 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                            <input id="cell_300a_dau" disabled class="myinput fw-bold" value="@(cdts311 != null ? cdts311.DauNam+cdts312.DauNam+cdts313.DauNam+cdts314.DauNam+cdts315.DauNam+cdts316.DauNam+cdts317.DauNam+cdts318.DauNam+cdts319.DauNam+cdts320.DauNam: 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                     </tr>
 
@@ -518,7 +523,7 @@
                         <td>311</td>
                         <td></td>
                         <td style="text-align:right;">
-                            
+
                             <input id="cell_311a_cuoi" class="myinput" value="@(cdts311 != null ? cdts311.CuoiKy : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                         <td style="text-align:right;">
@@ -531,7 +536,7 @@
                         <td>312</td>
                         <td></td>
                         <td style="text-align:right;">
-                           
+
                             <input id="cell_312a_cuoi" class="myinput" value="@(cdts312 != null ? cdts312.CuoiKy : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                         <td style="text-align:right;">
@@ -544,7 +549,7 @@
                         <td>313</td>
                         <td></td>
                         <td style="text-align:right;">
-                           
+
                             <input id="cell_313a_cuoi" class="myinput" value="@(cdts313 != null ? cdts313.CuoiKy : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                         <td style="text-align:right;">
@@ -557,7 +562,7 @@
                         <td>314</td>
                         <td></td>
                         <td style="text-align:right;">
-                           
+
                             <input id="cell_314a_cuoi" class="myinput" value="@(cdts314 != null ? cdts314.CuoiKy : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                         <td style="text-align:right;">
@@ -570,14 +575,73 @@
                         <td>315</td>
                         <td></td>
                         <td style="text-align:right;">
-                          
+
                             <input id="cell_315a_cuoi" class="myinput" value="@(cdts315 != null ? cdts315.CuoiKy : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                         <td style="text-align:right;">
                             <input id="cell_315a_dau" class="myinput" value="@(cdts315 != null ? cdts315.DauNam : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                     </tr>
+                    <tr>
+                        <td style="padding-left:20px;">6. Vay và nợ thuê tài chính</td>
+                        <td>316</td>
+                        <td></td>
+                        <td style="text-align:right;">
 
+                            <input id="cell_316a_cuoi" class="myinput" value="@(cdts316 != null ? cdts316.CuoiKy : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+                        <td style="text-align:right;">
+                            <input id="cell_316a_dau" class="myinput" value="@(cdts316 != null ? cdts316.DauNam : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">7. Phải trả nội bộ về vốn kinh doanh</td>
+                        <td>317</td>
+                        <td></td>
+                        <td style="text-align:right;">
+
+                            <input id="cell_317a_cuoi" class="myinput" value="@(cdts317 != null ? cdts317.CuoiKy : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+                        <td style="text-align:right;">
+                            <input id="cell_317a_dau" class="myinput" value="@(cdts317 != null ? cdts317.DauNam : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">8. Dự phòng phải trả</td>
+                        <td>318</td>
+                        <td></td>
+                        <td style="text-align:right;">
+
+                            <input id="cell_318a_cuoi" class="myinput" value="@(cdts318 != null ? cdts318.CuoiKy : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+                        <td style="text-align:right;">
+                            <input id="cell_318a_dau" class="myinput" value="@(cdts318 != null ? cdts318.DauNam : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">9. Quỹ khen thưởng, phúc lợi</td>
+                        <td>319</td>
+                        <td></td>
+                        <td style="text-align:right;">
+
+                            <input id="cell_319a_cuoi" class="myinput" value="@(cdts319 != null ? cdts319.CuoiKy : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+                        <td style="text-align:right;">
+                            <input id="cell_319a_dau" class="myinput" value="@(cdts319 != null ? cdts319.DauNam : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px;">10. Quỹ phát triển khoa học và công nghệ</td>
+                        <td>320</td>
+                        <td></td>
+                        <td style="text-align:right;">
+
+                            <input id="cell_320a_cuoi" class="myinput" value="@(cdts320 != null ? cdts320.CuoiKy : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+                        <td style="text-align:right;">
+                            <input id="cell_320a_dau" class="myinput" value="@(cdts320 != null ? cdts320.DauNam : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                        </td>
+                    </tr>
                     <!-- II. Vốn chủ sở hữu -->
                     <tr style="font-weight:bold; background:#fff2cc;">
                         <td>II. Vốn chủ sở hữu</td>
@@ -2142,15 +2206,15 @@
                     <tr>
                         @{
                             var item60 = (Model != null && Model.LCTTs != null)
-                                ? Model.LCTTs.FirstOrDefault(m => m.MaSo == "60")
-                                : null;
+? Model.LCTTs.FirstOrDefault(t => t.MaSo == "60")
+: null;
 
-                            var t60 = item60 != null ? item60.KyNay : 0;
+                            var kyNay60 = item60 != null ? item60.KyNay : 0;
                         }
                         <td>Tiền và tương đương tiền đầu kỳ</td>
                         <td class="text-center">60</td>
                         <td></td>
-                        <td style="text-align:right;"><input id="cell_60cuoi" onchange="onchangelctt()" value="@t60" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td style="text-align:right;"><input id="cell_60cuoi" onchange="onchangelctt()" value="@item60" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td style="text-align:right;"><input id="cell_60_dau" onchange="onchangelctt()" value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
@@ -2239,23 +2303,7 @@
                         <td><input id="cell_1112_ps_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="1112").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td><input id="cell_1112_ck_no" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="1112").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td><input id="cell_1112_ck_co" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo=="1112").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                    </tr>
-                    @*@{
-                        var remain = Model.HTTKs.Where(m => m.SoHieu.StartsWith("111") && m.SoHieu.Length > 3 && m.SoHieu != "1111" && m.SoHieu != "1112").ToList();
-                        foreach (var it in remain)
-                        {
-                            <tr>
-                                <td>@it.SoHieu</td>
-                                <td style="padding-left:20px;">@it.TenTK</td>
-                                <td><input id="@( "cell_" + it.SoHieu + "_dk_no" )" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo==it.SoHieu).DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                                <td><input id="@( "cell_" + it.SoHieu + "_dk_co" )" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo==it.SoHieu).DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                                <td><input id="@( "cell_" + it.SoHieu + "_ps_no" )" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo==it.SoHieu).PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                                <td><input id="@( "cell_" + it.SoHieu + "_ps_co" )" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo==it.SoHieu).PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                                <td><input id="@( "cell_" + it.SoHieu + "_ck_no" )" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo==it.SoHieu).CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                                <td><input id="@( "cell_" + it.SoHieu + "_ck_co" )" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo==it.SoHieu).CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                            </tr>
-                        }
-                    }*@
+                    </tr> 
 
                     <!-- 112 -->
                     <tr>
@@ -4016,11 +4064,11 @@
         "210": ["211", "212", "213", "214", "215"],
         "220": ["221", "222"],
         "230": ["231", "232"],
-        "250": ["251", "252", "253"], 
+        "250": ["251", "252", "253"],
         "400": ["410", "420"],
         "410": ["411", "412", "413", "414", "415", "416", "417", "418"],
         "420": ["421", "422", "423", "424", "425", "426", "427",],
-        "500": ["511", "512", "513", "514", "515", "516", "517",] 
+        "500": ["511", "512", "513", "514", "515", "516", "517",]
     };
     const cdtsTree2 = {
         "100": ["110", "120", "130", "140", "150"],
@@ -4035,7 +4083,7 @@
         "220": ["221", "222"],
         "230": ["231", "232"],
         "250": ["251", "252", "253"],
-        "300": ["311", "312", "313", "314", "315"],
+        "300": ["311", "312", "313", "314", "315", "316", "317", "318", "319", "320"],
         "400": ["410", "420"],
         "410": ["411", "412", "413", "414", "415", "416", "417", "418"],
         "420": ["421", "422", "423", "424", "425", "426", "427",],
@@ -4125,7 +4173,7 @@
         sumChildren(parent, type);
 
         // cập nhật tiếp cha cấp trên
-        updateCDTS(parent, type); 
+        updateCDTS(parent, type);
     }
     function updateCDTS2(code, type) {
 
@@ -4153,7 +4201,7 @@
         if (!match) return;
         const code = match[1];      // mã số, ví dụ 110
         const hasA = match[2];      // "a" hoặc rỗng
-        const type = match[3];      // cuoi hoặc dau 
+        const type = match[3];      // cuoi hoặc dau
         updateCDTS2(code, type);
         sumtong();
     });
@@ -4255,7 +4303,7 @@
         });
 
         // ===== 2. tổng toàn bảng =====
-        sumTotal(type); 
+        sumTotal(type);
     }
     function sumChildrenToParent(parent, type) {
 
@@ -4400,10 +4448,10 @@
         $("#cell_300_cuoi").val(result1);
         $("#cell_300_dau").val(result2);
     }
-   
+
     function toggle300() {
         // Hàm helper: chuyển chuỗi kiểu VN ("1.000.000") thành số nguyên
-      
+
 
         // Lấy giá trị và clean
         var val100Cuoi = $("#cell_100_cuoi").val();
@@ -4927,110 +4975,132 @@
                     <ct500>
                     </ct500>
                 </ThuyetMinh>
-                <SoCuoiNam>
-                    <ct110>2209126591</ct110>
-                    <ct120>0</ct120>
-                    <ct121>0</ct121>
-                    <ct122>0</ct122>
-                    <ct123>0</ct123>
-                    <ct124>0</ct124>
-                    <ct130>589577620</ct130>
-                    <ct131>589577620</ct131>
-                    <ct132>0</ct132>
-                    <ct133>0</ct133>
-                    <ct134>0</ct134>
-                    <ct135>0</ct135>
-                    <ct136>0</ct136>
-                    <ct140>819167502</ct140>
-                    <ct141>819167502</ct141>
-                    <ct142>0</ct142>
-                    <ct150>421234376</ct150>
-                    <ct151>886043771</ct151>
-                    <ct152>-464809395</ct152>
-                    <ct160>0</ct160>
-                    <ct161>0</ct161>
-                    <ct162>0</ct162>
-                    <ct170>0</ct170>
-                    <ct180>12906668</ct180>
-                    <ct181>0</ct181>
-                    <ct182>12906668</ct182>
-                    <ct200>4052012757</ct200>
-                    <ct300>260026894</ct300>
-                    <ct311>206853352</ct311>
-                    <ct312>0</ct312>
-                    <ct313>42743060</ct313>
-                    <ct314>0</ct314>
-                    <ct315>10430482</ct315>
-                    <ct316>0</ct316>
-                    <ct317>0</ct317>
-                    <ct318>0</ct318>
-                    <ct319>0</ct319>
-                    <ct320>0</ct320>
-                    <ct400>3791985863</ct400>
-                    <ct411>3700000000</ct411>
-                    <ct412>0</ct412>
-                    <ct413>0</ct413>
-                    <ct414>0</ct414>
-                    <ct415>0</ct415>
-                    <ct416>0</ct416>
-                    <ct417>91985863</ct417>
-                    <ct500>4052012757</ct500>
-                </SoCuoiNam>
-                <SoDauNam>
-                    <ct110>985312453</ct110>
-                    <ct120>0</ct120>
-                    <ct121>0</ct121>
-                    <ct122>0</ct122>
-                    <ct123>0</ct123>
-                    <ct124>0</ct124>
-                    <ct130>1221520570</ct130>
-                    <ct131>1221520570</ct131>
-                    <ct132>0</ct132>
-                    <ct133>0</ct133>
-                    <ct134>0</ct134>
-                    <ct135>0</ct135>
-                    <ct136>0</ct136>
-                    <ct140>983754466</ct140>
-                    <ct141>983754466</ct141>
-                    <ct142>0</ct142>
-                    <ct150>547812056</ct150>
-                    <ct151>886043771</ct151>
-                    <ct152>-338231715</ct152>
-                    <ct160>0</ct160>
-                    <ct161>0</ct161>
-                    <ct162>0</ct162>
-                    <ct170>0</ct170>
-                    <ct180>22362422</ct180>
-                    <ct181>17545172</ct181>
-                    <ct182>4817250</ct182>
-                    <ct200>3760761967</ct200>
-                    <ct300>151557698</ct300>
-                    <ct311>149644991</ct311>
-                    <ct312>0</ct312>
-                    <ct313>1885746</ct313>
-                    <ct314>0</ct314>
-                    <ct315>26961</ct315>
-                    <ct316>0</ct316>
-                    <ct317>0</ct317>
-                    <ct318>0</ct318>
-                    <ct319>0</ct319>
-                    <ct320>0</ct320>
-                    <ct400>3609204269</ct400>
-                    <ct411>3700000000</ct411>
-                    <ct412>0</ct412>
-                    <ct413>0</ct413>
-                    <ct414>0</ct414>
-                    <ct415>0</ct415>
-                    <ct416>0</ct416>
-                    <ct417>-90795731</ct417>
-                    <ct500>3760761967</ct500>
-                </SoDauNam>
-                <nguoiLapBieu>
-                </nguoiLapBieu>
-                <keToanTruong>
-                </keToanTruong>
-                <ngayLap>2025-03-12</ngayLap>
-                <nguoiDaiDienTheoPhapLuat>NGUYỄN HỮU TRƯỜNG</nguoiDaiDienTheoPhapLuat>
+             <SoCuoiNam>
+    <ct110>${cleanNumber($("#cell_110a_cuoi").val().trim())}</ct110>
+    <ct120>${cleanNumber($("#cell_120a_cuoi").val().trim())}</ct120>
+    <ct121>${cleanNumber($("#cell_121a_cuoi").val().trim())}</ct121>
+    <ct122>${cleanNumber($("#cell_122a_cuoi").val().trim())}</ct122>
+    <ct123>${cleanNumber($("#cell_123a_cuoi").val().trim())}</ct123>
+    <ct124>${cleanNumber($("#cell_124a_cuoi").val().trim())}</ct124>
+
+    <ct130>${cleanNumber($("#cell_130a_cuoi").val().trim())}</ct130>
+    <ct131>${cleanNumber($("#cell_131a_cuoi").val().trim())}</ct131>
+    <ct132>${cleanNumber($("#cell_132a_cuoi").val().trim())}</ct132>
+    <ct133>${cleanNumber($("#cell_133a_cuoi").val().trim())}</ct133>
+    <ct134>${cleanNumber($("#cell_134a_cuoi").val().trim())}</ct134>
+    <ct135>${cleanNumber($("#cell_135a_cuoi").val().trim())}</ct135>
+    <ct136>${cleanNumber($("#cell_136a_cuoi").val().trim())}</ct136>
+
+    <ct140>${cleanNumber($("#cell_140a_cuoi").val().trim())}</ct140>
+    <ct141>${cleanNumber($("#cell_141a_cuoi").val().trim())}</ct141>
+    <ct142>${cleanNumber($("#cell_142a_cuoi").val().trim())}</ct142>
+
+    <ct150>${cleanNumber($("#cell_150a_cuoi").val().trim())}</ct150>
+    <ct151>${cleanNumber($("#cell_151a_cuoi").val().trim())}</ct151>
+    <ct152>${cleanNumber($("#cell_152a_cuoi").val().trim())}</ct152>
+
+    <ct160>${cleanNumber($("#cell_160a_cuoi").val().trim())}</ct160>
+    <ct161>${cleanNumber($("#cell_161a_cuoi").val().trim())}</ct161>
+    <ct162>${cleanNumber($("#cell_162a_cuoi").val().trim())}</ct162>
+
+    <ct170>${cleanNumber($("#cell_170a_cuoi").val().trim())}</ct170>
+
+    <ct180>${cleanNumber($("#cell_180a_cuoi").val().trim())}</ct180>
+    <ct181>${cleanNumber($("#cell_181a_cuoi").val().trim())}</ct181>
+    <ct182>${cleanNumber($("#cell_182a_cuoi").val().trim())}</ct182>
+
+    <ct200>${cleanNumber($("#total_200a_cuoi").val().trim())}</ct200>
+
+    <ct300>${cleanNumber($("#cell_300a_cuoi").val().trim())}</ct300>
+
+    <ct311>${cleanNumber($("#cell_311a_cuoi").val().trim())}</ct311>
+    <ct312>${cleanNumber($("#cell_312a_cuoi").val().trim())}</ct312>
+    <ct313>${cleanNumber($("#cell_313a_cuoi").val().trim())}</ct313>
+    <ct314>${cleanNumber($("#cell_314a_cuoi").val().trim())}</ct314>
+    <ct315>${cleanNumber($("#cell_315a_cuoi").val().trim())}</ct315>
+    <ct316>${cleanNumber($("#cell_316a_cuoi").val().trim())}</ct316>
+    <ct317>${cleanNumber($("#cell_317a_cuoi").val().trim())}</ct317>
+    <ct318>${cleanNumber($("#cell_318a_cuoi").val().trim())}</ct318>
+    <ct319>${cleanNumber($("#cell_319a_cuoi").val().trim())}</ct319>
+    <ct320>${cleanNumber($("#cell_320a_cuoi").val().trim())}</ct320>
+
+    <ct400>${cleanNumber($("#cell_400a_cuoi").val().trim())}</ct400>
+
+    <ct411>${cleanNumber($("#cell_411a_cuoi").val().trim())}</ct411>
+    <ct412>${cleanNumber($("#cell_412a_cuoi").val().trim())}</ct412>
+    <ct413>${cleanNumber($("#cell_413a_cuoi").val().trim())}</ct413>
+    <ct414>${cleanNumber($("#cell_414a_cuoi").val().trim())}</ct414>
+    <ct415>${cleanNumber($("#cell_415a_cuoi").val().trim())}</ct415>
+    <ct416>${cleanNumber($("#cell_416a_cuoi").val().trim())}</ct416>
+    <ct417>${cleanNumber($("#cell_417a_cuoi").val().trim())}</ct417>
+
+    <ct500>${cleanNumber($("#total_500a_cuoi").val().trim())}</ct500>
+</SoCuoiNam>
+               <SoDauNam>
+    <ct110>${cleanNumber($("#cell_110a_dau").val() || 0)}</ct110>
+    <ct120>${cleanNumber($("#cell_120a_dau").val() || 0)}</ct120>
+    <ct121>${cleanNumber($("#cell_121a_dau").val() || 0)}</ct121>
+    <ct122>${cleanNumber($("#cell_122a_dau").val() || 0)}</ct122>
+    <ct123>${cleanNumber($("#cell_123a_dau").val() || 0)}</ct123>
+    <ct124>${cleanNumber($("#cell_124a_dau").val() || 0)}</ct124>
+
+    <ct130>${cleanNumber($("#cell_130a_dau").val() || 0)}</ct130>
+    <ct131>${cleanNumber($("#cell_131a_dau").val() || 0)}</ct131>
+    <ct132>${cleanNumber($("#cell_132a_dau").val() || 0)}</ct132>
+    <ct133>${cleanNumber($("#cell_133a_dau").val() || 0)}</ct133>
+    <ct134>${cleanNumber($("#cell_134a_dau").val() || 0)}</ct134>
+    <ct135>${cleanNumber($("#cell_135a_dau").val() || 0)}</ct135>
+    <ct136>${cleanNumber($("#cell_136a_dau").val() || 0)}</ct136>
+
+    <ct140>${cleanNumber($("#cell_140a_dau").val() || 0)}</ct140>
+    <ct141>${cleanNumber($("#cell_141a_dau").val() || 0)}</ct141>
+    <ct142>${cleanNumber($("#cell_142a_dau").val() || 0)}</ct142>
+
+    <ct150>${cleanNumber($("#cell_150a_dau").val() || 0)}</ct150>
+    <ct151>${cleanNumber($("#cell_151a_dau").val() || 0)}</ct151>
+    <ct152>${cleanNumber($("#cell_152a_dau").val() || 0)}</ct152>
+
+    <ct160>${cleanNumber($("#cell_160a_dau").val() || 0)}</ct160>
+    <ct161>${cleanNumber($("#cell_161a_dau").val() || 0)}</ct161>
+    <ct162>${cleanNumber($("#cell_162a_dau").val() || 0)}</ct162>
+
+    <ct170>${cleanNumber($("#cell_170a_dau").val() || 0)}</ct170>
+
+    <ct180>${cleanNumber($("#cell_180a_dau").val() || 0)}</ct180>
+    <ct181>${cleanNumber($("#cell_181a_dau").val() || 0)}</ct181>
+    <ct182>${cleanNumber($("#cell_182a_dau").val() || 0)}</ct182>
+
+    <ct200>${cleanNumber($("#total_200a_dau").val() || 0)}</ct200>
+
+    <ct300>${cleanNumber($("#cell_300a_dau").val() || 0)}</ct300>
+
+    <ct311>${cleanNumber($("#cell_311a_dau").val() || 0)}</ct311>
+    <ct312>${cleanNumber($("#cell_312a_dau").val() || 0)}</ct312>
+    <ct313>${cleanNumber($("#cell_313a_dau").val() || 0)}</ct313>
+    <ct314>${cleanNumber($("#cell_314a_dau").val() || 0)}</ct314>
+    <ct315>${cleanNumber($("#cell_315a_dau").val() || 0)}</ct315>
+    <ct316>${cleanNumber($("#cell_316a_dau").val() || 0)}</ct316>
+    <ct317>${cleanNumber($("#cell_317a_dau").val() || 0)}</ct317>
+    <ct318>${cleanNumber($("#cell_318a_dau").val() || 0)}</ct318>
+    <ct319>${cleanNumber($("#cell_319a_dau").val() || 0)}</ct319>
+    <ct320>${cleanNumber($("#cell_320a_dau").val() || 0)}</ct320>
+
+    <ct400>${cleanNumber($("#cell_400a_dau").val() || 0)}</ct400>
+
+    <ct411>${cleanNumber($("#cell_411a_dau").val() || 0)}</ct411>
+    <ct412>${cleanNumber($("#cell_412a_dau").val() || 0)}</ct412>
+    <ct413>${cleanNumber($("#cell_413a_dau").val() || 0)}</ct413>
+    <ct414>${cleanNumber($("#cell_414a_dau").val() || 0)}</ct414>
+    <ct415>${cleanNumber($("#cell_415a_dau").val() || 0)}</ct415>
+    <ct416>${cleanNumber($("#cell_416a_dau").val() || 0)}</ct416>
+    <ct417>${cleanNumber($("#cell_417a_dau").val() || 0)}</ct417>
+
+    <ct500>${cleanNumber($("#total_500a_dau").val() || 0)}</ct500>
+</SoDauNam>
+                <nguoiLapBieu>${$("#nlbieu").val()}</nguoiLapBieu>
+                <keToanTruong>${$("#ketoantruong").val()}</keToanTruong>
+                <ngayLap>${$("#ngaylap").val()}</ngayLap>
+                <nguoiDaiDienTheoPhapLuat>${$("#giamdoc").val()}</nguoiDaiDienTheoPhapLuat>
             </CTieuTKhaiChinh>
               `;
         }
@@ -6007,7 +6077,7 @@
         // Tạo thẻ <a> ẩn để trigger download
         const link = document.createElement("a");
         link.href = url;
-        link.download = "BCTC_2024_DucThinh_3500807781.xml";  // tên file tải về
+        link.download = '@ViewBag.Tenfile'+".xml";  // tên file tải về
         document.body.appendChild(link);
         link.click();
 

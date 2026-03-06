@@ -31,7 +31,7 @@ namespace Taxweb.Controllers
        {
             if(path== null)
             {
-                path = "D:\\DA3\\DA3\\Data\\Dat Loi 24.mdb";
+                path = "D:\\DA3\\DA3\\Data\\Thanh Xuan 2025.mdb";
             }
             if (!string.IsNullOrEmpty(path))
             {
@@ -66,6 +66,17 @@ namespace Taxweb.Controllers
                 DataTable data = ExecuteQuery(query, null);
 
                 ViewBag.TenCty = Helpers.ConvertVniToUnicode(data.Rows[0]["TenCty"].ToString());
+                try
+                {
+                    string tenfile = Path.GetFileNameWithoutExtension(path);
+                    string tenbc = $"BCTC_{data.Rows[0]["NamTC"].ToString()}_{tenfile}_{data.Rows[0]["MaSoThue"].ToString()}";
+                    ViewBag.Tenfile= tenbc;
+                }
+                catch(Exception ex)
+                {
+                    
+                }
+
                 int namtc=int.Parse(data.Rows[0]["NamTC"].ToString());  
                 ViewBag.NamTC = data.Rows[0]["NamTC"].ToString();
                 ViewBag.tuNgay = new DateTime(namtc, 1, 1);
