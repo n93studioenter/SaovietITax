@@ -31,7 +31,7 @@ namespace Taxweb.Controllers
        {
             if(path== null)
             {
-                path = "D:\\DA3\\DA3\\Data\\Phat Dat Vung Tau 25.mdb";
+                path = "D:\\DA3\\DA3\\Data\\Dat Loi 24.mdb";
             }
             if (!string.IsNullOrEmpty(path))
             {
