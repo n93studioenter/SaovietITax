@@ -212,10 +212,10 @@
 
                     <!-- III. Các khoản phải thu ngắn hạn -->
                     <tr style="font-weight:bold; background:#e8f3ff;">
-                        <td>III. Các khoản phải thu</td>
-                        <td>130</td>
-                        <td></td>
-                        <td style="text-align:right;">
+                        <td class="backtim">III. Các khoản phải thu</td>
+                        <td class="backtim">130</td>
+                        <td class="backtim"></td>
+                        <td class="backtim" style="text-align:right;">
                             @{ var cdts130 = Model.CDTS.Where(m => m.MaSo == "130").FirstOrDefault(); }
                             @{ var cdts131 = Model.CDTS.Where(m => m.MaSo == "131").FirstOrDefault(); }
                             @{ var cdts132 = Model.CDTS.Where(m => m.MaSo == "132").FirstOrDefault(); }
@@ -225,7 +225,7 @@
                             @{ var cdts136 = Model.CDTS.Where(m => m.MaSo == "135").FirstOrDefault(); }
                             <input id="cell_130a_cuoi" disabled class="myinput fw-bold" value="@(cdts130 != null ? cdts131.CuoiKy+cdts132.CuoiKy+cdts133.CuoiKy+cdts134.CuoiKy+cdts135.CuoiKy+cdts136.CuoiKy : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
-                        <td style="text-align:right;">
+                        <td class="backtim" style="text-align:right;">
                             <input id="cell_130a_dau" disabled class="myinput fw-bold" value="@(cdts130 != null ? cdts131.DauNam : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                     </tr>
@@ -309,15 +309,15 @@
                     </tr>
 
                     <!-- IV. Hàng tồn kho -->
-                    <tr style="font-weight:bold; background:#e8f3ff;">
-                        <td>IV. Hàng tồn kho</td>
-                        <td>140</td>
-                        <td></td>
-                        <td style="text-align:right;">
+                    <tr class="backtim" style="font-weight:bold; background:#e8f3ff;">
+                        <td class="backtim">IV. Hàng tồn kho</td>
+                        <td class="backtim">140</td>
+                        <td class="backtim"></td>
+                        <td class="backtim" style="text-align:right;">
                             @{ var cdts140 = Model.CDTS.Where(m => m.MaSo == "140").FirstOrDefault(); }
                             <input id="cell_140a_cuoi" disabled class="myinput fw-bold" value="@(cdts140 != null ? cdts140.CuoiKy : 1512282319)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
-                        <td style="text-align:right;">
+                        <td class="backtim" style="text-align:right;">
                             <input id="cell_140a_dau" disabled class="myinput fw-bold" value="@(cdts140 != null ? cdts140.DauNam : 1225684945)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                     </tr>
@@ -350,14 +350,14 @@
 
                     <!-- V. Tài sản ngắn hạn khác -->
                     <tr style="font-weight:bold; background:#e8f3ff;">
-                        <td>V. Tài sản ngắn hạn khác</td>
-                        <td>150</td>
-                        <td></td>
-                        <td style="text-align:right;">
+                        <td class="backtim">V. Tài sản ngắn hạn khác</td>
+                        <td class="backtim">150</td>
+                        <td class="backtim"></td>
+                        <td class="backtim" style="text-align:right;">
                             @{ var cdts150 = Model.CDTS.Where(m => m.MaSo == "220").FirstOrDefault(); }
                             <input id="cell_150a_cuoi" disabled class="myinput fw-bold" value="@(cdts150 != null ? cdts150.CuoiKy : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
-                        <td style="text-align:right;">
+                        <td class="backtim" style="text-align:right;">
                             <input id="cell_150a_dau" disabled class="myinput fw-bold" value="@(cdts150 != null ? cdts150.DauNam : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                     </tr>
@@ -386,15 +386,15 @@
                         </td>
                     </tr>
                     <!-- VI. Bất động sản đầu tư -->
-                    <tr style="font-weight:bold; background:#e8f3ff;">
-                        <td>VI. Bất động sản đầu tư</td>
-                        <td>160</td>
-                        <td></td>
-                        <td style="text-align:right;">
+                    <tr class="backtim" style="font-weight:bold; background:#e8f3ff;">
+                        <td class="backtim">VI. Bất động sản đầu tư</td>
+                        <td class="backtim">160</td>
+                        <td class="backtim"></td>
+                        <td class="backtim" style="text-align:right;">
                             @{ var cdts160 = Model.CDTS.Where(m => m.MaSo == "231").FirstOrDefault(); }
                             <input id="cell_160a_cuoi" disabled class="myinput fw-bold" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
-                        <td style="text-align:right;">
+                        <td class="backtim" style="text-align:right;">
                             <input id="cell_160a_dau" disabled class="myinput fw-bold" value="0" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                     </tr>
@@ -649,15 +649,15 @@
                         </td>
                     </tr>
                     <!-- II. Vốn chủ sở hữu -->
-                    <tr style="font-weight:bold; background:#fff2cc;">
-                        <td>II. Vốn chủ sở hữu</td>
-                        <td>400</td>
-                        <td></td>
-                        <td style="text-align:right;">
+                    <tr class="backtim" style="font-weight:bold; background:#fff2cc;">
+                        <td class="backtim">II. Vốn chủ sở hữu</td>
+                        <td class="backtim">400</td>
+                        <td class="backtim"></td>
+                        <td class="backtim" style="text-align:right;">
                             @{ var cdts400 = Model.CDTS.Where(m => m.MaSo == "500").FirstOrDefault(); }
                             <input id="cell_400a_cuoi" disabled class="myinput fw-bold" value="@(cdts400 != null ? cdts400.CuoiKy : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
-                        <td style="text-align:right;">
+                        <td class="backtim" style="text-align:right;">
                             <input id="cell_400a_dau" disabled class="myinput fw-bold" value="@(cdts400 != null ? cdts400.DauNam : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                     </tr>
@@ -1006,7 +1006,7 @@
                     </tr>
 
                     <!-- V. Tài sản ngắn hạn khác -->
-                    <tr style="font-weight:bold;">
+                    <tr  style="font-weight:bold;">
                         <td class="backtim">V. Tài sản ngắn hạn khác</td>
                         <td class="backtim">150</td>
                         <td class="backtim"></td>
