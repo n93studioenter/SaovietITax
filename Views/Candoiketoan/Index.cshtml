@@ -3937,7 +3937,7 @@
 <script>
     function thuyetminhtc() {
 
-        $('#loading').show();
+        $('#loadingModal').modal('toggle');
 
         $.ajax({
             url: '/Candoiketoan/ExportThuyetMinhBaoCaoTaiChinh',
@@ -3947,7 +3947,7 @@
             },
             success: function (data, status, xhr) {
 
-                $('#loading').hide();
+                $('#loadingModal').modal('hide');
 
                 // Lấy tên file từ header
                 var fileName = "Thuyet_Minh_BCTC.xlsx";
@@ -3980,7 +3980,7 @@
             },
             error: function (xhr) {
 
-                $('#loading').hide();
+                $('#loadingModal').hide();
 
                 console.error("Export lỗi:", xhr);
 
