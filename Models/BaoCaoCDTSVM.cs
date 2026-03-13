@@ -40,6 +40,12 @@ namespace Taxweb.Models
         public string SoHieu { get; set; }
         public string TenTK { get; set; }
     }
+    public class HTTKFull
+    {
+        public string MaSo { get; set; }
+        public string SoHieu { get; set; }
+        public string TenTK { get; set; }
+    }
     public class QTongHopCTVM
     {
         public string MaSo { get; set; }

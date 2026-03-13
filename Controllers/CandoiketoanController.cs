@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -31,7 +32,7 @@ namespace Taxweb.Controllers
        {
             if(path== null)
             {
-                path = "D:\\DA3\\DA3\\Data\\Thanh Xuan 2025.mdb";
+                path = "D:\\DA3\\DA3\\Data\\Vuon Pho 2024.mdb";
             }
             if (!string.IsNullOrEmpty(path))
             {
@@ -108,12 +109,14 @@ namespace Taxweb.Controllers
 
                 query = "SELECT * FROM HeThongTK";
                 DataTable tbHTTK = ExecuteQuery(query, null);
+                ViewBag.HTTK = tbHTTK.AsEnumerable().ToList();
                 baoCaoCDTSVM.HTTKs = tbHTTK.AsEnumerable().Select(r => new HTTK
                 {
                     MaSo = r["MaSo"].ToString(),
                     SoHieu = r["SoHieu"].ToString(), 
                     TenTK=Helpers.ConvertVniToUnicode(r["Ten"].ToString()),
                 }).ToList();
+                 
 
 
                 query = "SELECT * FROM LCTT";
@@ -247,10 +250,13 @@ WHERE
                 if (dt.Rows.Count > 0)
                 {
                     f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    var qr1 = "SELECT * FROM LCTT where MaSo=3";
+                    DataTable lc01 = ExecuteQuery(qr1, null);
+                    double sumKyNay = lc01.AsEnumerable().Sum(r => r.Field<double>("KyNay"));
                     TTLCTT tTLCTT = new TTLCTT
                     {
                         MaSo = "03",
-                        Namnay = f2
+                        Namnay = -sumKyNay
                     };
                     baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
                 }
@@ -285,10 +291,14 @@ WHERE
                 if (dt.Rows.Count > 0)
                 {
                     f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    var qr1 = "SELECT * FROM LCTT where MaSo=4";
+                    DataTable lc01 = ExecuteQuery(qr1, null);
+                    double sumKyNay = lc01.AsEnumerable().Sum(r => r.Field<double>("KyNay"));
                     TTLCTT tTLCTT = new TTLCTT
                     {
                         MaSo = "04",
-                        Namnay = f2
+
+                        Namnay = -sumKyNay
                     };
                     baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
                 }
@@ -323,10 +333,13 @@ WHERE
                 if (dt.Rows.Count > 0)
                 {
                     f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    var qr1 = "SELECT * FROM LCTT where MaSo=5";
+                    DataTable lc01 = ExecuteQuery(qr1, null);
+                    double sumKyNay = lc01.AsEnumerable().Sum(r => r.Field<double>("KyNay"));
                     TTLCTT tTLCTT = new TTLCTT
                     {
                         MaSo = "05",
-                        Namnay = f2
+                        Namnay = -sumKyNay
                     };
                     baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
                 }
@@ -372,10 +385,13 @@ WHERE
                 if (dt.Rows.Count > 0)
                 {
                     f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    var qr1 = "SELECT * FROM LCTT where MaSo=6";
+                    DataTable lc01 = ExecuteQuery(qr1, null);
+                    double sumKyNay = lc01.AsEnumerable().Sum(r => r.Field<double>("KyNay"));
                     TTLCTT tTLCTT = new TTLCTT
                     {
                         MaSo = "06",
-                        Namnay = f2
+                        Namnay = sumKyNay
                     };
                     baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
                 }
@@ -411,10 +427,13 @@ WHERE
                 if (dt.Rows.Count > 0)
                 {
                     f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    var qr1 = "SELECT * FROM LCTT where MaSo=7";
+                    DataTable lc01 = ExecuteQuery(qr1, null);
+                    double sumKyNay = lc01.AsEnumerable().Sum(r => r.Field<double>("KyNay"));
                     TTLCTT tTLCTT = new TTLCTT
                     {
                         MaSo = "07",
-                        Namnay = f2
+                        Namnay = -sumKyNay
                     };
                     baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
                 }
@@ -2429,6 +2448,308 @@ K2BD4WNep8Mug+G9ruJB/VoRzyo=</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds
             }
 
             return dataTable; // Trả về DataTable chứa dữ liệu
+        }
+
+        public ActionResult ExportThuyetMinhBaoCaoTaiChinh()
+        {
+            string path = Server.MapPath("~/Template/Thuyết minh BCTC theo Thông tư 133.xlsx");
+
+            using (var workbook = new XLWorkbook(path))
+            {
+                var ws = workbook.Worksheet("Sheet1");
+
+                // ===== ĐỔ DỮ LIỆU =====
+                var query = "SELECT * FROM QTongHopCT";
+                DataTable QTongHopCT = ExecuteQuery(query, null);
+                List<QTongHopCTVM> lstQTongHopCT = QTongHopCT.AsEnumerable().Select(row => new QTongHopCTVM
+                {
+                    MaSo = row["SoHieu"].ToString(),
+                    DkNo = double.Parse(row["DkNo"].ToString()), 
+                    DkCo = double.Parse(row["DkCo"].ToString()),
+                    PsNo = double.Parse(row["PsNo"].ToString()),
+                    PsCo = double.Parse(row["PsCo"].ToString()),   
+                    CkNo = double.Parse(row["CkNo"].ToString()),   
+                    CkCo = double.Parse(row["CkCo"].ToString()),   
+
+                }).ToList();
+                //01. Các khoản tiền và tương đương tiền		
+                // Tiền mặt: cuối năm
+                ws.Cell("G40").Value = lstQTongHopCT.Where(m=>m.MaSo=="111").FirstOrDefault().CkNo;
+                ws.Cell("I40").Value = lstQTongHopCT.Where(m => m.MaSo == "111").FirstOrDefault().DkNo;
+                //Tiền gửi ngân hàng
+                ws.Cell("G41").Value = lstQTongHopCT.Where(m => m.MaSo == "112").FirstOrDefault().CkNo;
+                ws.Cell("I41").Value = lstQTongHopCT.Where(m => m.MaSo == "112").FirstOrDefault().DkNo;
+
+                //04. Hàng tồn kho
+                ws.Cell("G79").Value = lstQTongHopCT.Where(m => m.MaSo == "152").FirstOrDefault().CkNo;
+                ws.Cell("I79").Value = lstQTongHopCT.Where(m => m.MaSo == "152").FirstOrDefault().DkNo;
+                ws.Cell("G80").Value = lstQTongHopCT.Where(m => m.MaSo == "153").FirstOrDefault().CkNo;
+                ws.Cell("I80").Value = lstQTongHopCT.Where(m => m.MaSo == "153").FirstOrDefault().DkNo;
+                ws.Cell("G83").Value = lstQTongHopCT.Where(m => m.MaSo == "156").FirstOrDefault().CkNo;
+                ws.Cell("I83").Value = lstQTongHopCT.Where(m => m.MaSo == "156").FirstOrDefault().DkNo;
+
+                //08. Chi phí trả trước
+                ws.Cell("G133").Value = lstQTongHopCT.Where(m => m.MaSo == "242").FirstOrDefault().CkNo;
+                ws.Cell("I133").Value = lstQTongHopCT.Where(m => m.MaSo == "242").FirstOrDefault().DkNo;
+
+                //10. Thuế và các khoản phải nộp nhà nước.
+               // ws.Cell("G152").Value = lstQTongHopCT.Where(m => m.MaSo == "3331").FirstOrDefault().CkCo;
+                //ws.Cell("I152").Value = lstQTongHopCT.Where(m => m.MaSo == "3331").FirstOrDefault().DkCo;
+                var item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "3331");
+                ws.Cell("G152").Value = (item != null && item.CkCo != 0) ? item.CkCo.ToString() : "";
+                ws.Cell("I152").Value = (item != null && item.DkCo != 0) ? item.DkCo.ToString() : "";
+
+                item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "3332");
+                ws.Cell("G153").Value = (item != null && item.CkCo != 0) ? item.CkCo.ToString() : "";
+                ws.Cell("I153").Value = (item != null && item.DkCo != 0) ? item.DkCo.ToString() : ""; 
+
+                ws.Cell("G154").Value = lstQTongHopCT.Where(m => m.MaSo == "3333").FirstOrDefault().CkCo;
+                ws.Cell("I154").Value = lstQTongHopCT.Where(m => m.MaSo == "3333").FirstOrDefault().DkCo;
+                ws.Cell("G155").Value = lstQTongHopCT.Where(m => m.MaSo == "3334").FirstOrDefault().CkCo;
+                ws.Cell("I155").Value = lstQTongHopCT.Where(m => m.MaSo == "3334").FirstOrDefault().DkCo;
+                ws.Cell("G156").Value = lstQTongHopCT.Where(m => m.MaSo == "3335").FirstOrDefault().CkCo;
+                ws.Cell("I156").Value = lstQTongHopCT.Where(m => m.MaSo == "3335").FirstOrDefault().DkCo;
+                ws.Cell("G157").Value = lstQTongHopCT.Where(m => m.MaSo == "3336").FirstOrDefault().CkCo;
+                ws.Cell("I157").Value = lstQTongHopCT.Where(m => m.MaSo == "3336").FirstOrDefault().DkCo;
+                ws.Cell("G158").Value = lstQTongHopCT.Where(m => m.MaSo == "3337").FirstOrDefault().CkCo;
+                ws.Cell("I158").Value = lstQTongHopCT.Where(m => m.MaSo == "3337").FirstOrDefault().DkCo;
+                ws.Cell("G159").Value = lstQTongHopCT.Where(m => m.MaSo == "3338").FirstOrDefault().CkCo;
+                ws.Cell("I159").Value = lstQTongHopCT.Where(m => m.MaSo == "3338").FirstOrDefault().DkCo;
+                ws.Cell("G160").Value = lstQTongHopCT.Where(m => m.MaSo == "3339").FirstOrDefault().CkCo;
+                ws.Cell("I160").Value = lstQTongHopCT.Where(m => m.MaSo == "3339").FirstOrDefault().DkCo;
+
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+
+                    return File(
+                        stream.ToArray(),
+                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                        "TM2024.xlsx"
+                    );
+                }
+            }
+        }
+
+        [HttpGet]
+        public ActionResult ExportThuyetMinhBaoCaoTaiChinh2()
+        {
+            using (var workbook = new XLWorkbook())
+            {
+                var ws = workbook.Worksheets.Add("TM 2024");
+
+                // Thiết lập font chung
+                ws.Style.Font.FontName = "Times New Roman";
+                ws.Style.Font.FontSize = 11;
+
+                // Điều chỉnh độ rộng cột (tùy chọn)
+                ws.Column(1).Width = 4;
+                ws.Column(2).Width = 45;
+                ws.Column(5).Width = 18;
+                ws.Column(6).Width = 18;
+
+                int row = 1;
+
+                // ────────────────────────────────────────────────
+                // Phần đầu - Tiêu đề
+                // ────────────────────────────────────────────────
+                ws.Cell(row, 1).Value = "Đơn vị báo cáo: CÔNG TY TNHH MTV VƯỜN PHỐ VŨNG TÀU";
+                ws.Range(row, 1, row, 6).Merge().Style.Font.Bold = true;
+                row++;
+
+                ws.Cell(row, 1).Value = "Địa chỉ: Số 412/32 Lê Hồng Phong - P.Thắng Tam - TP Vũng Tàu - BRVT";
+                ws.Range(row, 1, row, 6).Merge();
+                row++;
+
+                ws.Cell(row, 1).Value = "Mẫu số B09 - DNN";
+                ws.Range(row, 1, row, 6).Merge().Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+                row++;
+
+                ws.Cell(row, 1).Value = "(Ban hành theo Thông tư số 133/2016/TT-BTC ngày 26/8/2016 của Bộ Tài chính)";
+                ws.Range(row, 1, row, 6).Merge().Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                row += 2;
+
+                ws.Cell(row, 1).Value = "BẢN THUYẾT MINH BÁO CÁO TÀI CHÍNH";
+                ws.Range(row, 1, row, 6).Merge().Style.Font.FontSize = 14;
+                ws.Range(row, 1, row, 6).Style.Font.Bold = true;
+                ws.Range(row, 1, row, 6).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                row++;
+
+                ws.Cell(row, 1).Value = "Năm 2024";
+                ws.Range(row, 1, row, 6).Merge().Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                row += 2;
+
+                // ────────────────────────────────────────────────
+                // I. Đặc điểm hoạt động
+                // ────────────────────────────────────────────────
+                ws.Cell(row++, 1).Value = "I. Đặc điểm hoạt động của Doanh nghiệp";
+                ws.Range(row - 1, 1, row - 1, 6).Style.Font.Bold = true;
+
+                AddKeyValue(ws, ref row, "1. Hình thức sở hữu vốn:", "Công ty TNHH");
+                AddKeyValue(ws, ref row, "2. Lĩnh vực kinh doanh:", "Dịch vụ");
+                AddKeyValue(ws, ref row, "3. Ngành nghề kinh doanh:", "Dịch vụ ăn uống");
+                AddKeyValue(ws, ref row, "4. Chu kỳ sản xuất kinh doanh thông thường", "12 tháng");
+                AddKeyValue(ws, ref row, "5. Đặc điểm hoạt động của Doanh nghiệp trong năm tài chính có ảnh hưởng đến Báo cáo tài chính", "");
+                AddKeyValue(ws, ref row, "6. Tuyên bố về khả năng so sánh thông tin trên Báo cáo tài chính", "So sánh được");
+
+                row++;
+
+                // II. Kỳ kế toán
+                ws.Cell(row++, 1).Value = "II. Kỳ kế toán, Đơn vị tiền tệ sử dụng trong kế toán";
+                ws.Range(row - 1, 1, row - 1, 6).Style.Font.Bold = true;
+
+                AddKeyValue(ws, ref row, "1. Kỳ kế toán năm (bắt đầu từ ngày", "01/01 kết thúc vào ngày 31/12)");
+                AddKeyValue(ws, ref row, "2. Đơn vị tiền tệ sử dụng trong kế toán:", "VNĐ.");
+
+                row++;
+
+                // III. Chuẩn mực kế toán
+                ws.Cell(row++, 1).Value = "III. Chuẩn mực và chế độ kế toán áp dụng";
+                ws.Range(row - 1, 1, row - 1, 6).Style.Font.Bold = true;
+
+                ws.Cell(row, 2).Value = "Báo cáo tài chính được lập và trình bày phù hợp, tuân thủ chuẩn mực kế toán và chế độ kế toán doanh nghiệp vừa và nhỏ";
+                ws.Range(row, 2, row, 6).Merge();
+                row += 2;
+
+                // IV. Chính sách kế toán
+                ws.Cell(row++, 1).Value = "IV. Các chính sách kế toán áp dụng";
+                ws.Range(row - 1, 1, row - 1, 6).Style.Font.Bold = true;
+
+                string[] policies = new[]
+                {
+                    "- Tỷ giá hối đoái áp dụng trong kế toán: Theo tỷ giá giao dịch thực tế tại NH thường xuyên giao dịch : Ngân hàng Sacombank- CN Vũng Tàu",
+                    "- Nguyên tắc chuyển đổi BCTC lập bằng ngoại tệ sang Việt Nam Đồng",
+                    "- Nguyên tắc ghi nhận các khoản tiền và các khoản tương đương tiền: tiền bao gồm tiền tại quỹ và tiền gửi không kỳ hạn",
+                    "- Nguyên tắc kế toán các khoản đầu tư tài chính",
+                    "- Nguyên tắc kế toán nợ phải thu",
+                    "- Nguyên tắc ghi nhận hàng tồn kho: Theo giá gốc, tính giá theo Bình quân gia quyền, Hạch toán theo kê khai thường xuyên",
+                    "- Nguyên tắc ghi nhận và các phương pháp tính KH TSCĐ: Khấu hao theo đường thẳng.",
+                    "- Nguyên tắc kế toán Nợ phải trả",
+                    "- Nguyên tắc ghi nhận và vốn hoá các khoản chi phí đi vay",
+                    "- Nguyên tắc ghi nhận vốn chủ sở hữu: ghi nhận theo vốn thực góp. LN sau thuế ghi nhận : lợi nhuận - thuế TNDN và các khoản điều chỉnh hồi tố",
+                    "- Nguyên tắc và phương pháp ghi nhận doanh thu: tuân thủ đầy đủ điều kiện ghi nhận doanh thu,doanh thu tài chính theo thông báo lãi của NH,",
+                    "- Nguyên tắc kế toán chi phí: Phù hợp với doanh thu, ghi nhận đầy đủ chi phí quản lý và CP bán hàng."
+                };
+
+                foreach (var p in policies)
+                {
+                    ws.Cell(row++, 2).Value = p;
+                }
+                row++;
+
+                // ────────────────────────────────────────────────
+                // 01. Tiền và tương đương tiền
+                // ────────────────────────────────────────────────
+                AddTableHeader(ws, ref row, "01. Các khoản tiền và tương đương tiền", "Cuối năm", "Đầu năm");
+
+                AddMoneyRow(ws, ref row, "- Tiền mặt:", 1_264_445_595, 1_418_065_894);
+                AddMoneyRow(ws, ref row, "- Tiền gửi ngân hàng", 53_896_369, 31_938_416);
+                AddMoneyRow(ws, ref row, "Cộng", 1_318_341_964, 1_450_004_310, true);
+                row++;
+
+                // 04. Hàng tồn kho (ví dụ)
+                AddTableHeader(ws, ref row, "04. Hàng tồn kho", "Cuối năm", "Đầu năm");
+                AddMoneyRow(ws, ref row, "- Nguyên liệu, vật liệu", 541_500_274, 447_333_748);
+                AddMoneyRow(ws, ref row, "- Công cụ dụng cụ", 10_376_057, 20_469_932);
+                AddMoneyRow(ws, ref row, "- Hàng hoá", 960_405_988, 757_881_265);
+                AddMoneyRow(ws, ref row, "Cộng", 1_512_282_319, 1_225_684_945, true);
+                row++;
+
+                // 13. Vốn chủ sở hữu
+                ws.Cell(row++, 1).Value = "13. Vốn chủ sở hữu";
+                ws.Range(row - 1, 1, row - 1, 6).Style.Font.Bold = true;
+
+                ws.Cell(row, 2).Value = "Nội dung";
+                ws.Cell(row, 3).Value = "Vốn góp của chủ sở hữu";
+                ws.Cell(row, 5).Value = "Lợi nhuận sau thuế chưa phân phối và các quỹ";
+                ws.Cell(row, 6).Value = "Cộng";
+                ws.Row(row).Style.Font.Bold = true;
+                row++;
+
+                var vonData = new[]
+                {
+                    new { Label = "Số dư đầu năm", VonGop = "", LN = 124_934_224L, Tong = 2_624_934_224L },
+                    new { Label = "Tăng vốn trong năm", VonGop = "", LN = 152_114_180L, Tong = 152_114_180L },
+                    new { Label = "Giảm vốn trong năm", VonGop = "", LN = -9_019_161L, Tong = -9_019_161L },
+                    new { Label = "Số dư cuối năm", VonGop = "2,500,000,000", LN = 268_029_243L, Tong = 2_768_029_243L }
+                };
+
+                foreach (var item in vonData)
+                {
+                    ws.Cell(row, 2).Value = item.Label;
+                    ws.Cell(row, 3).Value = item.VonGop;
+                    ws.Cell(row, 5).Value = item.LN;
+                    ws.Cell(row, 6).Value = item.Tong;
+
+                    if (!string.IsNullOrEmpty(item.VonGop)) ws.Cell(row, 3).Style.NumberFormat.Format = "#,##0";
+                    ws.Range(row, 5, row, 6).Style.NumberFormat.Format = "#,##0";
+                    row++;
+                }
+
+                // ... bạn có thể tiếp tục thêm các bảng khác tương tự (doanh thu, giá vốn, thuế TNDN, v.v.)
+
+                // Phần cuối
+                row += 3;
+                ws.Cell(row, 2).Value = "Lập ngày 15 tháng 03 năm 2025";
+                ws.Range(row, 2, row, 6).Merge().Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+                row++;
+
+                ws.Cell(row, 2).Value = "Người lập biểu                  KẾ TOÁN TRƯỞNG                  Giám đốc";
+                ws.Range(row, 2, row, 6).Merge().Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                row++;
+
+                ws.Cell(row, 5).Value = "BÙI NGỌC THÂU";
+                ws.Cell(row, 5).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+                // Tự động điều chỉnh cột (tùy chọn)
+                ws.Columns().AdjustToContents();
+
+                // Xuất file
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var bytes = stream.ToArray();
+
+                    return File(
+                        bytes,
+                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                        "test_export.xlsx"
+                    );
+                }
+            }
+        }
+
+        // Helper methods
+        private void AddKeyValue(IXLWorksheet ws, ref int row, string key, string value)
+        {
+            ws.Cell(row, 2).Value = key;
+            ws.Cell(row, 4).Value = value;
+            row++;
+        }
+
+        private void AddTableHeader(IXLWorksheet ws, ref int row, string title, string col5 = "Cuối năm", string col6 = "Đầu năm")
+        {
+            ws.Cell(row++, 1).Value = title;
+            ws.Range(row - 1, 1, row - 1, 6).Style.Font.Bold = true;
+
+            ws.Cell(row, 2).Value = "";
+            ws.Cell(row, 5).Value = col5;
+            ws.Cell(row, 6).Value = col6;
+            ws.Row(row++).Style.Font.Bold = true;
+        }
+
+        private void AddMoneyRow(IXLWorksheet ws, ref int row, string label, long namNay, long namTruoc, bool bold = false)
+        {
+            ws.Cell(row, 2).Value = label;
+            ws.Cell(row, 5).Value = namNay;
+            ws.Cell(row, 6).Value = namTruoc;
+            ws.Range(row, 5, row, 6).Style.NumberFormat.Format = "#,##0";
+
+            if (bold)
+            {
+                ws.Row(row).Style.Font.Bold = true;
+            }
+            row++;
         }
     }
 }
