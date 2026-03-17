@@ -740,10 +740,13 @@ WHERE
                 if (dt.Rows.Count > 0)
                 {
                     f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    var qr1 = "SELECT * FROM LCTT where MaSo=33";
+                    DataTable lc01 = ExecuteQuery(qr1, null);
+                    double sumKyNay = lc01.AsEnumerable().Sum(r => r.Field<double>("KyNay"));
                     TTLCTT tTLCTT = new TTLCTT
                     {
                         MaSo = "33",
-                        Namnay = f2
+                        Namnay = sumKyNay
                     };
                     baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
                 }
@@ -2474,38 +2477,58 @@ K2BD4WNep8Mug+G9ruJB/VoRzyo=</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds
                 }).ToList();
                  query = "SELECT * FROM License";
                  DataTable tbli = ExecuteQuery(query, null);
+                int ntc = int.Parse(tbli.Rows[0]["NamTC"].ToString());
                 ws.Cell("B2").Value = $"Đơn vị báo cáo: {Helpers.ConvertVniToUnicode(tbli.Rows[0]["Tencty"].ToString())}";
                 ws.Cell("B3").Value = $"Địa chỉ: {Helpers.ConvertVniToUnicode(tbli.Rows[0]["DiaChi"].ToString())}";
+                ws.Cell("B7").Value = $"Năm {ntc}";
                 //01. Các khoản tiền và tương đương tiền		
                 // Tiền mặt: cuối năm
-                ws.Cell("G40").Value = lstQTongHopCT.Where(m=>m.MaSo=="111").FirstOrDefault().CkNo;
-                ws.Cell("I40").Value = lstQTongHopCT.Where(m => m.MaSo == "111").FirstOrDefault().DkNo;
+                 var  item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "111");
+                ws.Cell("G40").Value = (item != null && item.CkNo != 0) ? (double?)item.CkNo : null;
+                ws.Cell("I40").Value = (item != null && item.DkNo != 0) ? (double?)item.DkNo : null;
                 //Tiền gửi ngân hàng
-                ws.Cell("G41").Value = lstQTongHopCT.Where(m => m.MaSo == "112").FirstOrDefault().CkNo;
-                ws.Cell("I41").Value = lstQTongHopCT.Where(m => m.MaSo == "112").FirstOrDefault().DkNo;
+                item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "112");
+                ws.Cell("G41").Value = (item != null && item.CkNo != 0) ? (double?)item.CkNo : null;
+                ws.Cell("I41").Value = (item != null && item.DkNo != 0) ? (double?)item.DkNo : null; 
 
                 //03. Các khoản phải thu (Tuỳ theo yêu cầu quản lý của DN, có thể 
-                var item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "131");
-                ws.Cell("G59").Value = (item != null && item.PsCo != 0) ? (double?)item.CkNo : null;
+                 item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "131");
+                ws.Cell("G59").Value = (item != null && item.CkNo != 0) ? (double?)item.CkNo : null;
                 ws.Cell("I59").Value = (item != null && item.DkNo != 0) ? (double?)item.DkNo : null;
 
+                item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "331");
+                ws.Cell("G61").Value = (item != null && item.CkNo != 0) ? (double?)item.CkNo : null;
+                ws.Cell("I61").Value = (item != null && item.DkNo != 0) ? (double?)item.DkNo : null;
+
+                item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "138");
+                ws.Cell("G67").Value = (item != null && item.CkNo != 0) ? (double?)item.CkNo : null;
+                ws.Cell("I67").Value = (item != null && item.DkNo != 0) ? (double?)item.DkNo : null;
                 //04. Hàng tồn kho
-                ws.Cell("G79").Value = lstQTongHopCT.Where(m => m.MaSo == "152").FirstOrDefault().CkNo;
-                ws.Cell("I79").Value = lstQTongHopCT.Where(m => m.MaSo == "152").FirstOrDefault().DkNo;
-                ws.Cell("G80").Value = lstQTongHopCT.Where(m => m.MaSo == "153").FirstOrDefault().CkNo;
-                ws.Cell("I80").Value = lstQTongHopCT.Where(m => m.MaSo == "153").FirstOrDefault().DkNo;
-                ws.Cell("G83").Value = lstQTongHopCT.Where(m => m.MaSo == "156").FirstOrDefault().CkNo;
-                ws.Cell("I83").Value = lstQTongHopCT.Where(m => m.MaSo == "156").FirstOrDefault().DkNo;
+                item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "152");
+                ws.Cell("G79").Value = (item != null && item.CkNo != 0) ? (double?)item.CkNo : null;
+                ws.Cell("I79").Value = (item != null && item.DkNo != 0) ? (double?)item.DkNo : null;
+                item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "153");
+                ws.Cell("G80").Value = (item != null && item.CkNo != 0) ? (double?)item.CkNo : null;
+                ws.Cell("I80").Value = (item != null && item.DkNo != 0) ? (double?)item.DkNo : null; 
+                item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "154");
+                ws.Cell("G81").Value = (item != null && item.CkNo != 0) ? (double?)item.CkNo : null;
+                ws.Cell("I81").Value = (item != null && item.DkNo != 0) ? (double?)item.DkNo : null;
+                item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "156");
+                ws.Cell("G83").Value = (item != null && item.CkNo != 0) ? (double?)item.CkNo : null;
+                ws.Cell("I83").Value = (item != null && item.DkNo != 0) ? (double?)item.DkNo : null; 
 
                 //05. Tăng, giảm TSCĐ (chi tiết từng loại tài sản theo yêu cầu quản lý của DN)
                 item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "2111");
                 ws.Cell("F96").Value = (item != null && item.DkNo != 0) ? (double?)item.DkNo : null;
                 ws.Cell("I96").Value = (item != null && item.CkNo != 0) ? (double?)item.CkNo : null;
- 
+                ws.Cell("G96").Value = (item != null && item.PsNo != 0) ? (double?)item.PsNo : null;
+                ws.Cell("H97").Value = (item != null && item.PsCo != 0) ? (double?)item.PsCo : null;
+
                 item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "2141");
                 ws.Cell("F97").Value = (item != null && item.DkCo != 0) ? (double?)item.DkCo : null;
                 ws.Cell("I97").Value = (item != null && item.CkCo != 0) ? (double?)item.CkCo : null;
-                ws.Cell("G97").Value = (item != null && item.PsCo != 0) ? (double?)item.PsCo : null;
+                ws.Cell("G97").Value = (item != null && item.PsNo != 0) ? (double?)item.PsNo : null;
+                ws.Cell("H97").Value = (item != null && item.PsCo != 0) ? (double?)item.PsCo : null;
 
                 //08. Chi phí trả trước
                 ws.Cell("G133").Value = lstQTongHopCT.Where(m => m.MaSo == "242").FirstOrDefault().CkNo;
@@ -2515,6 +2538,11 @@ K2BD4WNep8Mug+G9ruJB/VoRzyo=</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds
                 item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "331");
                 ws.Cell("G137").Value = (item != null && item.CkCo != 0) ? (double?)item.CkCo : null;
                 ws.Cell("I137").Value = (item != null && item.DkCo != 0) ? (double?)item.DkCo : null;
+                item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "1312");
+                ws.Cell("G139").Value = (item != null && item.CkCo != 0) ? (double?)item.CkCo : null;
+                ws.Cell("I139").Value = (item != null && item.DkCo != 0) ? (double?)item.DkCo : null;
+
+
                 item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "335");
                 ws.Cell("G142").Value = (item != null && item.CkCo != 0) ? (double?)item.CkCo : null;
                 ws.Cell("I142").Value = (item != null && item.DkCo != 0) ? (double?)item.DkCo : null;
@@ -2537,42 +2565,71 @@ K2BD4WNep8Mug+G9ruJB/VoRzyo=</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds
 
                 item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "3334");
                 ws.Cell("G155").Value = (item != null && item.CkCo != 0) ? (double?)item.CkCo : null;
-                ws.Cell("I155").Value = (item != null && item.DkCo != 0) ? (double?)item.DkCo : null;
+                //Chú ý
+                ws.Cell("I155").Value = item == null ? null : (double?)(item.DkCo - item.DkNo);
 
                 item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "3335");
-                ws.Cell("G156").Value = (item != null && item.CkCo != 0) ? (double?)item.CkCo : null;
-                ws.Cell("I156").Value = (item != null && item.DkCo != 0) ? (double?)item.DkCo : null;
+                ws.Cell("G156").Value = (item != null && item.CkCo != 0) ? (double?)item.CkCo : null; 
+                ws.Cell("I156").Value = item == null ? null : (double?)(item.DkCo - item.DkNo);
 
                 item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "3336");
-                ws.Cell("G157").Value = (item != null && item.CkCo != 0) ? (double?)item.CkCo : null;
-                ws.Cell("I157").Value = (item != null && item.DkCo != 0) ? (double?)item.DkCo : null;
+                ws.Cell("G157").Value = (item != null && item.CkCo != 0) ? (double?)item.CkCo : null; 
+                ws.Cell("I157").Value = item == null ? null : (double?)(item.DkCo - item.DkNo);
 
                 item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "3337");
-                ws.Cell("G158").Value = (item != null && item.CkCo != 0) ? (double?)item.CkCo : null;
-                ws.Cell("I158").Value = (item != null && item.DkCo != 0) ? (double?)item.DkCo : null;
-
+                ws.Cell("G158").Value = (item != null && item.CkCo != 0) ? (double?)item.CkCo : null; 
+                ws.Cell("I158").Value = item == null ? null : (double?)(item.DkCo - item.DkNo);
                 item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "3338");
-                ws.Cell("G159").Value = (item != null && item.CkCo != 0) ? (double?)item.CkCo : null;
-                ws.Cell("I159").Value = (item != null && item.DkCo != 0) ? (double?)item.DkCo : null;
-
+                ws.Cell("G159").Value = (item != null && item.CkCo != 0) ? (double?)item.CkCo : null; 
+                ws.Cell("I159").Value = item == null ? null : (double?)(item.DkCo - item.DkNo);
                 item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "3339");
-                ws.Cell("G160").Value = (item != null && item.CkCo != 0) ? (double?)item.CkCo : null;
-                ws.Cell("I160").Value = (item != null && item.DkCo != 0) ? (double?)item.DkCo : null;
+                ws.Cell("G160").Value = (item != null && item.CkCo != 0) ? (double?)item.CkCo : null; 
+                ws.Cell("I160").Value = item == null ? null : (double?)(item.DkCo - item.DkNo);
+                //11. Vay nợ thuê tài chính
+                item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "341");
+                ws.Cell("F167").Value = (item != null && item.CkCo != 0) ? (double?)item.CkCo : null;
+                ws.Cell("G167").Value = (item != null && item.PsCo != 0) ? (double?)item.PsCo : null;
+                ws.Cell("H167").Value = (item != null && item.PsNo != 0) ? (double?)item.PsNo : null; 
+                ws.Cell("I167").Value = item == null ? null : (double?)(item.DkCo - item.DkNo);
+
+                //12. Dự phòng phải trả
+                item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "3521");
+                if (item == null)
+                {
+                    item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "352");
+                }
+                ws.Cell("G175").Value = (item != null && item.CkCo != 0) ? (double?)item.DkCo : null;
+                ws.Cell("I175").Value = (item != null && item.PsCo != 0) ? (double?)item.CkCo : null;
+
+                item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "3522");
+                ws.Cell("G175").Value = (item != null && item.CkCo != 0) ? (double?)item.DkCo : null;
+                ws.Cell("I176").Value = (item != null && item.PsCo != 0) ? (double?)item.CkCo : null;
+                item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "3523");
+                ws.Cell("G177").Value = (item != null && item.CkCo != 0) ? (double?)item.DkCo : null;
+                ws.Cell("I177").Value = (item != null && item.PsCo != 0) ? (double?)item.CkCo : null;
 
 
                 //13. Vốn chủ sở hữu.
                 //Số dư đầu năm
-                item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "411");
-                ws.Cell("E185").Value = (item != null && item.DkCo != 0) ? (double?)item.DkCo : null;
+                item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "411"); 
+                ws.Cell("E185").Value = item == null ? null : (double?)(item.DkCo - item.DkNo);
+                ws.Cell("E186").Value = (item != null && item.DkCo != 0) ? (double?)item.PsCo : null;
+                ws.Cell("E187").Value = (item != null && item.DkCo != 0) ? (double?)item.PsNo : null;
 
                 item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "421");
-                ws.Cell("H185").Value = (item != null && item.DkCo != 0) ? (double?)item.DkCo : null;
+               // ws.Cell("H185").Value = (item != null && item.DkCo != 0) ? (double?)item.DkCo : null;
+                ws.Cell("H185").Value = item == null ? null : (double?)(item.DkCo - item.DkNo);
 
                 item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "4212");
-                ws.Cell("H186").Value = (item != null && item.PsCo != 0) ? (double?)item.PsCo : null;
-
-                item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "4218");
-                ws.Cell("H187").Value = (item != null && item.PsNo != 0) ? (double?)item.PsNo : null;
+                if(item.CkCo - item.CkNo > 0)
+                {
+                    ws.Cell("H186").Value = (item != null && item.CkCo != 0) ? (double?)item.CkCo : null;
+                }
+                else
+                {
+                    ws.Cell("H187").Value = (item != null && item.CkNo != 0) ? (double?)item.CkNo : null;
+                }
+               
 
 
                 // VI. Thông tin bổ sung cho các khoản mục trình bày trong Báo cáo kết quả hoạt động kinh doanh.
@@ -2642,6 +2699,23 @@ K2BD4WNep8Mug+G9ruJB/VoRzyo=</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds
                     DataTable httkall = ExecuteQuery(qr, null);
                     var getDkCoKyTrc = httkall.AsEnumerable().Where(m => m["SoHieu"].ToString() == "515").FirstOrDefault()["PSNLK" + (namtc - 1).ToString()];
                     ws.Cell("I235").Value = (getDkCoKyTrc != null && (double)getDkCoKyTrc != 0) ? (double?)getDkCoKyTrc : null;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
+                //5. Chi phí tài chính
+                item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "635");
+                ws.Cell("G243").Value = (item != null && item.PsNo != 0) ? (double?)item.PsNo : null;
+                try
+                {
+                    query = "SELECT * FROM License";
+                    DataTable data = ExecuteQuery(query, null);
+                    int namtc = int.Parse(data.Rows[0]["NamTC"].ToString());
+                    string qr = "SELECT * FROM HeThongTK";
+                    DataTable httkall = ExecuteQuery(qr, null);
+                    var getDkCoKyTrc = httkall.AsEnumerable().Where(m => m["SoHieu"].ToString() == "635").FirstOrDefault()["PSCLK" + (namtc - 1).ToString()];
+                    ws.Cell("I243").Value = (getDkCoKyTrc != null && (double)getDkCoKyTrc != 0) ? (double?)getDkCoKyTrc : null;
                 }
                 catch (Exception ex)
                 {

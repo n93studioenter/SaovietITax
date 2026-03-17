@@ -2,8 +2,8 @@
 <!-- https://go.microsoft.com/fwlink/?LinkID=208121. -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>D:\DA3\Public</_PublishTargetUrl>
-    <History>True|2026-02-28T03:46:36.7091499Z||;True|2026-01-19T16:31:23.0396933+07:00||;True|2025-11-07T16:07:56.2797331+07:00||;True|2025-11-07T14:59:30.9123991+07:00||;True|2025-11-07T14:57:26.6986318+07:00||;True|2025-11-07T14:00:55.9682343+07:00||;True|2025-11-07T11:15:05.9647180+07:00||;True|2025-11-03T09:50:40.7937992+07:00||;True|2025-11-03T09:09:16.8397437+07:00||;True|2025-10-31T15:30:21.0190272+07:00||;True|2025-10-28T16:33:04.5457181+07:00||;True|2025-10-28T14:16:08.9327730+07:00||;True|2025-10-28T09:07:20.0988297+07:00||;True|2025-10-28T09:06:32.8165044+07:00||;True|2025-10-28T09:04:59.4432833+07:00||;True|2025-10-28T09:04:09.2303844+07:00||;True|2025-10-28T09:03:13.3707297+07:00||;True|2025-10-28T08:54:41.2083321+07:00||;True|2025-10-28T08:52:43.8856645+07:00||;True|2025-10-28T08:48:15.0266565+07:00||;True|2025-10-28T08:43:18.8930187+07:00||;True|2025-10-25T09:13:03.7884088+07:00||;</History>
+    <_PublishTargetUrl>C:\Users\Public\SaoVietPublic</_PublishTargetUrl>
+    <History>True|2026-03-13T10:27:41.4725470Z||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -13,14 +13,44 @@
     <File Include="bin/Antlr3.Runtime.pdb">
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
+    <File Include="bin/ClosedXML.dll">
+      <publishTime>05/15/2025 03:51:28</publishTime>
+    </File>
+    <File Include="bin/ClosedXML.Parser.dll">
+      <publishTime>04/04/2025 06:11:52</publishTime>
+    </File>
+    <File Include="bin/ClosedXML.pdb">
+      <publishTime>05/15/2025 03:51:28</publishTime>
+    </File>
+    <File Include="bin/DocumentFormat.OpenXml.dll">
+      <publishTime>10/16/2024 02:18:56</publishTime>
+    </File>
+    <File Include="bin/DocumentFormat.OpenXml.Framework.dll">
+      <publishTime>10/16/2024 02:18:56</publishTime>
+    </File>
+    <File Include="bin/EPPlus.dll">
+      <publishTime>09/21/2022 19:21:24</publishTime>
+    </File>
+    <File Include="bin/ExcelNumberFormat.dll">
+      <publishTime>10/02/2020 15:42:28</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Bcl.HashCode.dll">
+      <publishTime>11/17/2020 04:15:16</publishTime>
+    </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>09/05/2018 16:10:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IO.RecyclableMemoryStream.dll">
+      <publishTime>03/11/2021 06:48:48</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>04/11/2022 19:09:46</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>03/08/2023 07:09:56</publishTime>
+    </File>
+    <File Include="bin/RBush.dll">
+      <publishTime>11/18/2024 22:48:48</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>08/08/2018 05:38:48</publishTime>
@@ -169,6 +199,24 @@
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
       <publishTime>08/08/2018 12:18:16</publishTime>
     </File>
+    <File Include="bin/SixLabors.Fonts.dll">
+      <publishTime>08/11/2023 19:04:56</publishTime>
+    </File>
+    <File Include="bin/System.Buffers.dll">
+      <publishTime>02/19/2020 17:05:18</publishTime>
+    </File>
+    <File Include="bin/System.ComponentModel.Annotations.dll">
+      <publishTime>05/15/2018 20:29:36</publishTime>
+    </File>
+    <File Include="bin/System.Memory.dll">
+      <publishTime>05/08/2022 10:31:02</publishTime>
+    </File>
+    <File Include="bin/System.Numerics.Vectors.dll">
+      <publishTime>05/15/2018 20:29:44</publishTime>
+    </File>
+    <File Include="bin/System.Runtime.CompilerServices.Unsafe.dll">
+      <publishTime>11/15/2019 15:37:58</publishTime>
+    </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>05/27/2022 23:41:54</publishTime>
     </File>
@@ -191,10 +239,10 @@
       <publishTime>05/27/2022 23:42:50</publishTime>
     </File>
     <File Include="bin/Taxweb.dll">
-      <publishTime>02/28/2026 10:46:36</publishTime>
+      <publishTime>03/13/2026 17:27:41</publishTime>
     </File>
     <File Include="bin/Taxweb.pdb">
-      <publishTime>02/28/2026 10:46:36</publishTime>
+      <publishTime>03/13/2026 17:27:41</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
@@ -373,6 +421,9 @@
     <File Include="Scripts/modernizr-2.8.3.js">
       <publishTime>10/25/2025 09:10:58</publishTime>
     </File>
+    <File Include="Template/Thuyết minh BCTC theo Thông tư 133.xlsx">
+      <publishTime>03/13/2026 16:31:38</publishTime>
+    </File>
     <File Include="Views/BuildXMl/EditXml.cshtml">
       <publishTime>02/10/2026 14:20:26</publishTime>
     </File>
@@ -380,7 +431,7 @@
       <publishTime>02/10/2026 11:24:25</publishTime>
     </File>
     <File Include="Views/Candoiketoan/Index.cshtml">
-      <publishTime>02/27/2026 16:34:09</publishTime>
+      <publishTime>03/13/2026 17:18:51</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>10/25/2025 09:10:53</publishTime>
@@ -404,7 +455,7 @@
       <publishTime>10/25/2025 09:10:53</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/28/2025 08:52:43</publishTime>
+      <publishTime>03/13/2026 17:26:25</publishTime>
     </File>
   </ItemGroup>
 </Project>
