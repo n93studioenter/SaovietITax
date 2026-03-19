@@ -2613,8 +2613,8 @@ K2BD4WNep8Mug+G9ruJB/VoRzyo=</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds
                 //Số dư đầu năm
                 item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "411"); 
                 ws.Cell("E185").Value = item == null ? null : (double?)(item.DkCo - item.DkNo);
-                ws.Cell("E186").Value = (item != null && item.DkCo != 0) ? (double?)item.PsCo : null;
-                ws.Cell("E187").Value = (item != null && item.DkCo != 0) ? (double?)item.PsNo : null;
+                ws.Cell("E186").Value = (item != null && item.PsCo != 0) ? (double?)item.PsCo : null;
+                ws.Cell("E187").Value = (item != null && item.PsNo != 0) ? (double?)item.PsNo : null;
 
                 item = lstQTongHopCT.FirstOrDefault(m => m.MaSo == "421");
                // ws.Cell("H185").Value = (item != null && item.DkCo != 0) ? (double?)item.DkCo : null;
