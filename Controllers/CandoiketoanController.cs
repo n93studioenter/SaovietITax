@@ -782,10 +782,13 @@ WHERE
                 if (dt.Rows.Count > 0)
                 {
                     f2 = Convert.ToDouble(dt.Rows[0]["F2"]);
+                    var qr1 = "SELECT * FROM LCTT where MaSo=34";
+                    DataTable lc01 = ExecuteQuery(qr1, null);
+                    double sumKyNay = lc01.AsEnumerable().Sum(r => r.Field<double>("KyNay"));
                     TTLCTT tTLCTT = new TTLCTT
                     {
                         MaSo = "34",
-                        Namnay = f2
+                        Namnay = sumKyNay
                     };
                     baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
                 }
@@ -2656,7 +2659,7 @@ K2BD4WNep8Mug+G9ruJB/VoRzyo=</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds
                     DataTable httkall = ExecuteQuery(qr, null);
                     var getDkCoKyTrc = httkall.AsEnumerable().Where(m => m["SoHieu"].ToString() == "5111").FirstOrDefault()["PSCLK" + (namtc - 1).ToString()];
                     ws.Cell("I209").Value = (getDkCoKyTrc != null && (double)getDkCoKyTrc!=0) ? (double?)getDkCoKyTrc : null;
-                    getDkCoKyTrc = httkall.AsEnumerable().Where(m => m["SoHieu"].ToString() == "5112").FirstOrDefault()["PSCLK" + (namtc - 1).ToString()];
+                    //getDkCoKyTrc = httkall.AsEnumerable().Where(m => m["SoHieu"].ToString() == "5112").FirstOrDefault()["PSCLK" + (namtc - 1).ToString()];
                     ws.Cell("I210").Value = (getDkCoKyTrc != null && (double)getDkCoKyTrc != 0) ? (double?)getDkCoKyTrc : null;
                     getDkCoKyTrc = httkall.AsEnumerable().Where(m => m["SoHieu"].ToString() == "5113").FirstOrDefault()["PSCLK" + (namtc - 1).ToString()];
                     ws.Cell("I211").Value = (getDkCoKyTrc != null && (double)getDkCoKyTrc != 0) ? (double?)getDkCoKyTrc : null;

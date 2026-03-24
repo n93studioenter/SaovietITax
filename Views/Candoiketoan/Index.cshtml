@@ -223,10 +223,11 @@
                             @{ var cdts134 = Model.CDTS.Where(m => m.MaSo == "133").FirstOrDefault(); }
                             @{ var cdts135 = Model.CDTS.Where(m => m.MaSo == "134").FirstOrDefault(); }
                             @{ var cdts136 = Model.CDTS.Where(m => m.MaSo == "135").FirstOrDefault(); }
-                            <input id="cell_130a_cuoi" disabled class="myinput fw-bold" value="@(cdts130 != null ? cdts131.CuoiKy + cdts132.CuoiKy + cdts133.CuoiKy + cdts134.CuoiKy + cdts135.CuoiKy + (cdts136 != null ? cdts136.CuoiKy : 0) : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+
+                            <input id="cell_130a_cuoi" disabled class="myinput fw-bold" value="@(cdts130 != null ? cdts131.CuoiKy + cdts132.CuoiKy + (cdts133!=null?cdts133.CuoiKy:0) + cdts134.CuoiKy + cdts135.CuoiKy + (cdts136 != null ? cdts136.CuoiKy : 0) : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                         <td class="backtim" style="text-align:right;">
-                            <input id="cell_130a_dau" disabled class="myinput fw-bold" value="@(cdts130 != null ? cdts131.DauNam + cdts132.DauNam + cdts133.DauNam + cdts134.DauNam + cdts135.DauNam + (cdts136 != null ? cdts136.DauNam : 0) : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                            <input id="cell_130a_dau" disabled class="myinput fw-bold" value="@(cdts130 != null ? cdts131.DauNam + cdts132.DauNam + (cdts133!=null?cdts133.DauNam:0) + cdts134.DauNam + cdts135.DauNam + (cdts136 != null ? cdts136.DauNam : 0) : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                     </tr>
 
@@ -517,10 +518,10 @@
                             @{ var cdts318 = Model.CDTS.Where(m => m.MaSo == "417").FirstOrDefault(); }
                             @{ var cdts319 = Model.CDTS.Where(m => m.MaSo == "418").FirstOrDefault(); }
                             @{ var cdts320 = Model.CDTS.Where(m => m.MaSo == "427").FirstOrDefault(); }
-                            <input id="cell_300a_cuoi" disabled class="myinput fw-bold" value="@(cdts311 != null ? cdts311.CuoiKy + cdts312.CuoiKy + cdts313.CuoiKy + cdts314.CuoiKy + cdts315.CuoiKy + cdts316.CuoiKy + cdts317.CuoiKy + cdts318.CuoiKy + cdts319.CuoiKy + cdts320.CuoiKy : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                            <input id="cell_300a_cuoi" disabled class="myinput fw-bold" value="@(cdts311 != null ? cdts311.CuoiKy + cdts312.CuoiKy + cdts313.CuoiKy + cdts314.CuoiKy + cdts315.CuoiKy + cdts316.CuoiKy + (cdts317!=null?cdts317.CuoiKy:0) + cdts318.CuoiKy + cdts319.CuoiKy + (cdts320!=null?cdts320.CuoiKy:0) : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                         <td style="text-align:right;">
-                            <input id="cell_300a_dau" disabled class="myinput fw-bold" value="@(cdts311 != null ? cdts311.DauNam + cdts312.DauNam + cdts313.DauNam + cdts314.DauNam + cdts315.DauNam + cdts316.DauNam + cdts317.DauNam + cdts318.DauNam + cdts319.DauNam + cdts320.DauNam : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                            <input id="cell_300a_dau" disabled class="myinput fw-bold" value="@(cdts311 != null ? cdts311.DauNam + cdts312.DauNam + cdts313.DauNam + cdts314.DauNam + cdts315.DauNam + cdts316.DauNam + (cdts317!=null?cdts317.DauNam:0) + cdts318.DauNam + cdts319.DauNam + (cdts320!=null?cdts320.DauNam:0) : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                     </tr>
 
@@ -2709,14 +2710,18 @@
                         <td><input id="cell_2111_ck_co" value="@Model.QTongHop.FirstOrDefault(m => m.MaSo == "2111").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
                     <tr>
+                        @{
+                            var tk2112 = Model.QTongHop.FirstOrDefault(m => m.MaSo == "2112");
+                        }
+
                         <td>2112</td>
                         <td>TSCĐ thuê tài chính</td>
-                        <td><input id="cell_2112_dk_no" value="@Model.QTongHop.FirstOrDefault(m => m.MaSo == "2112").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2112_dk_co" value="@Model.QTongHop.FirstOrDefault(m => m.MaSo == "2112").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2112_ps_no" value="@Model.QTongHop.FirstOrDefault(m => m.MaSo == "2112").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2112_ps_co" value="@Model.QTongHop.FirstOrDefault(m => m.MaSo == "2112").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2112_ck_no" value="@Model.QTongHop.FirstOrDefault(m => m.MaSo == "2112").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_2112_ck_co" value="@Model.QTongHop.FirstOrDefault(m => m.MaSo == "2112").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2112_dk_no" value="@(tk2112!=null?tk2112.DkNo:0)" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2112_dk_co" value="@(tk2112!=null?tk2112.DkCo:0)" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2112_ps_no" value="@(tk2112!=null?tk2112.PsNo:0)" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2112_ps_co" value="@(tk2112!=null?tk2112.PsCo:0)" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2112_ck_no" value="@(tk2112!=null?tk2112.CkNo:0)" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_2112_ck_co" value="@(tk2112!=null?tk2112.CkCo:0)" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
                     <tr>
                         <td>2113</td>
@@ -3625,14 +3630,18 @@
                         <td><input id="cell_5111_ck_co" value="@Model.QTongHop.FirstOrDefault(m => m.MaSo == "5111").CkCo" class="myinput"></td>
                     </tr>
                     <tr>
+                        @{ 
+                            var tk5112 = Model.QTongHop.FirstOrDefault(m => m.MaSo == "5112");
+                        }
+
                         <td><b>5112</b></td>
                         <td>Doanh thu bán thành phẩm</td>
-                        <td><input id="cell_5112_dk_no" value="@Model.QTongHop.FirstOrDefault(m => m.MaSo == "5112").DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_5112_dk_co" value="@Model.QTongHop.FirstOrDefault(m => m.MaSo == "5112").DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_5112_ps_no" value="@Model.QTongHop.FirstOrDefault(m => m.MaSo == "5112").PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_5112_ps_co" value="@Model.QTongHop.FirstOrDefault(m => m.MaSo == "5112").PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_5112_ck_no" value="@Model.QTongHop.FirstOrDefault(m => m.MaSo == "5112").CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input id="cell_5112_ck_co" value="@Model.QTongHop.FirstOrDefault(m => m.MaSo == "5112").CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5112_dk_no" value="@(tk5112 != null?tk5112.DkNo:0)" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5112_dk_co" value="@(tk5112 != null?tk5112.DkCo:0)" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5112_ps_no" value="@(tk5112 != null?tk5112.PsNo:0)" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5112_ps_co" value="@(tk5112 != null?tk5112.PsCo:0)" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5112_ck_no" value="@(tk5112 != null?tk5112.CkNo:0)" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input id="cell_5112_ck_co" value="@(tk5112 != null?tk5112.CkCo:0)" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
                     <tr>
                         <td><b>5113</b></td>
