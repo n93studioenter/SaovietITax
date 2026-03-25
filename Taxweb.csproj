@@ -174,9 +174,11 @@
     <Compile Include="Controllers\CandoiketoanController.cs" />
     <Compile Include="Controllers\Helpers.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Bangkehoadon.cs" />
     <Compile Include="Models\BaoCaoCDTSVM.cs" />
     <Compile Include="Models\Noidungtax.cs" />
     <Compile Include="Models\XmlEditVM.cs" />
@@ -237,6 +239,7 @@
     <Content Include="Views\BuildXMl\Index.cshtml" />
     <Content Include="Views\BuildXMl\EditXml.cshtml" />
     <Content Include="Template\Thuyết minh BCTC theo Thông tư 133.xlsx" />
+    <Content Include="Views\Reports\Bangkehoadon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
