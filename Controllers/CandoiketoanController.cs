@@ -21,13 +21,21 @@ namespace Taxweb.Controllers
         public string DauNam { get; set; }
         public string CuoiKy { get; set; }
         public int idparent { get; set; } // QUAN TRỌNG: Dùng List<string>
-    }
-   
+    } 
     public class CandoiketoanController : Controller
     {
         // GET: Candoiketoan
         public static string dbPath = "";
         string password, connectionString;
+
+        public ActionResult ToggleTM(int id)
+        {
+            string query = "SELECT * FROM LCTT";
+            DataTable tbLCTT = ExecuteQuery(query, null);
+            var model = tbLCTT.AsEnumerable().Where(m => m["MaSo"].ToString()==id.ToString()).ToList();
+            return PartialView(model);
+        }
+
         public ActionResult Index(string path)
        {
             if(path== null)

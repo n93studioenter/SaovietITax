@@ -80,14 +80,14 @@ namespace Taxweb.Controllers
                   KyHieu = r.Field<string>("KyHieu"),
                     SoHD = r.Field<string>("SoHD"), 
                     NgayPH = DateTime.Parse(r["NgayPH"].ToString()),
-                    MatHang = r.Field<string>("MatHang"),
+                    MatHang = Helpers.ConvertVniToUnicode(r.Field<string>("MatHang")),
                     SoLuong = int.Parse(r["SoLuong"].ToString() ),
                     ThanhTien = double.Parse(r["ThanhTien"].ToString()),
-                    Ten = r.Field<string>("Ten"),
+                    Ten = Helpers.ConvertVniToUnicode(r.Field<string>("Ten")),
                     MST = r.Field<string>("MST"),
                     SoHieu = r.Field<string>("SoHieu"),
                     SoPS = double.Parse(r["SoPS"].ToString()),
-                    DiaChi = r.Field<string>("DiaChi"),
+                    DiaChi = Helpers.ConvertVniToUnicode(r.Field<string>("DiaChi")),
                     TyLe = int.Parse(r["TyLe"].ToString()),
                     HTTT = r.Field<string>("HTTT"),
                     MauSo = int.Parse(r["MauSo"].ToString()),
@@ -95,6 +95,12 @@ namespace Taxweb.Controllers
                     KCT = int.Parse(r["KCT"].ToString()), 
 
               }).ToList();
+                ViewBag.Loai1 = model.Where(m => m.TyLe == 0 && m.HTTT != "5").ToList();
+                ViewBag.Loai2 = model.Where(m => m.TyLe ==5 ).ToList();
+                ViewBag.Loai3 = model.Where(m => m.TyLe == 8 ).ToList();
+                ViewBag.Loai4 = model.Where(m => m.TyLe == 10 ).ToList();
+                ViewBag.Loai5 = model.Where(m => m.TyLe == 0 && m.HTTT == "5").ToList();
+                return View(model);
             }
             return View();
         }

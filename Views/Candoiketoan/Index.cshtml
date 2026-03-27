@@ -43,10 +43,10 @@
                     </div>
                     <select id="mauBCTC" style="font-weight:bold;" onchange="chonmaubctc()">
                         <option value="B01a" selected>B01a – DNN</option>
-                        <option value="B01b" >B01b – DNN</option>
+                        <option value="B01b">B01b – DNN</option>
                     </select>
                     <script>
-                        
+
                         function chonmaubctc() {
                             if ($("#mauBCTC").val() == "B01a") {
                                 $("#tb_cdtsa").show();
@@ -75,7 +75,7 @@
                 <strong>[02]</strong> Mã số thuế:
             </div>
             <div class="col-8">
-                <input id="MstCty"  value="@ViewBag.MST" style="border:none;outline:none;"/>
+                <input id="MstCty" value="@ViewBag.MST" style="border:none;outline:none;" />
             </div>
             <div class="col-2">
                 <strong>[03]</strong> Địa chỉ:
@@ -485,10 +485,10 @@
                         <td></td>
                         <td style="text-align:right;">
                             @{ var total200 = Model.CDTS.Where(m => m.MaSo == "200").FirstOrDefault(); }
-                            <input id="total_200a_cuoi" disabled class="myinput fw-bold" value="@(total200 != null ? total200.CuoiKy : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                            <input style="color:red" id="total_200a_cuoi" disabled class="myinput fw-bold" value="@(total200 != null ? total200.CuoiKy : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                         <td style="text-align:right;">
-                            <input id="total_200a_dau" disabled class="myinput fw-bold" value="@(total200 != null ? total200.DauNam : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                            <input style="color:red" id="total_200a_dau" disabled class="myinput fw-bold" value="@(total200 != null ? total200.DauNam : 0)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                     </tr>
 
@@ -774,10 +774,10 @@
                         <td></td>
                         <td style="text-align:right;">
                             @{ var total500 = Model.CDTS.Where(m => m.MaSo == "600").FirstOrDefault(); }
-                            <input id="total_500a_cuoi" disabled class="myinput fw-bold" value="@(total500 != null ? total500.CuoiKy : 2861581045)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                            <input style="color:red" id="total_500a_cuoi" disabled class="myinput fw-bold" value="@(total500 != null ? total500.CuoiKy : 2861581045)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                         <td style="text-align:right;">
-                            <input id="total_500a_dau" disabled class="myinput fw-bold" value="@(total500 != null ? total500.DauNam : 2716710067)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
+                            <input style="color:red" id="total_500a_dau" disabled class="myinput fw-bold" value="@(total500 != null ? total500.DauNam : 2716710067)" onblur="formatNumber(this)" onfocus="removeFormat(this)" />
                         </td>
                     </tr>
                 </tbody>
@@ -1992,7 +1992,7 @@
 
                         <td style="padding-left:20px;">1. Tiền thu từ bán hàng, cung cấp dịch vụ và doanh thu khác</td>
                         <td class="text-center">01</td>
-                        <td></td>
+                        <td onclick="togletm(1)"></td>
                         <td style="text-align:right;"><input id="cell_01cuoi" class="myinput" value="@t1" onchange="onchangelctt()" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td style="text-align:right;"><input id="cell_01_dau" class="myinput" value="0" onchange="onchangelctt()" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
@@ -2004,7 +2004,7 @@
 
                         <td style="padding-left:20px;">2. Tiền chi trả cho người cung cấp hàng hóa, dịch vụ</td>
                         <td class="text-center">02</td>
-                        <td></td>
+                        <td onclick="togletm(2)"></td>
                         <td style="text-align:right;"><input id="cell_02cuoi" value="@t2" class="myinput" onchange="onchangelctt()" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td style="text-align:right;"><input id="cell_02_dau" value="0" class="myinput" onchange="onchangelctt()" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
@@ -2015,7 +2015,7 @@
                         }
                         <td style="padding-left:20px;">3. Tiền chi trả cho người lao động</td>
                         <td class="text-center">03</td>
-                        <td></td>
+                        <td onclick="togletm(3)"></td>
                         <td style="text-align:right;"><input id="cell_03cuoi" value="@t3" class="myinput" onchange="onchangelctt()" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td style="text-align:right;"><input id="cell_03_dau" value="0" class="myinput" onchange="onchangelctt()" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
@@ -2026,7 +2026,7 @@
                         }
                         <td style="padding-left:20px;">4. Tiền lãi vay đã trả</td>
                         <td class="text-center">04</td>
-                        <td></td>
+                        <td onclick="togletm(4)"></td>
                         <td style="text-align:right;"><input id="cell_04cuoi" value="@t4" class="myinput" onchange="onchangelctt()" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td style="text-align:right;"><input id="cell_04_dau" value="0" class="myinput" onchange="onchangelctt()" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
@@ -2037,7 +2037,7 @@
                         }
                         <td style="padding-left:20px;">5. Thuế thu nhập doanh nghiệp đã nộp</td>
                         <td class="text-center">05</td>
-                        <td></td>
+                        <td onclick="togletm(5)"></td>
                         <td style="text-align:right;"><input value="@t5" id="cell_05cuoi" class="myinput" onchange="onchangelctt()" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td style="text-align:right;"><input value="0" id="cell_05_dau" class="myinput" onchange="onchangelctt()" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
@@ -2048,7 +2048,7 @@
                         }
                         <td style="padding-left:20px;">6. Tiền thu khác từ hoạt động kinh doanh</td>
                         <td class="text-center">06</td>
-                        <td></td>
+                        <td onclick="togletm(6)"></td>
                         <td style="text-align:right;"><input id="cell_06cuoi" value="@t6" class="myinput" onchange="onchangelctt()" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td style="text-align:right;"><input id="cell_06_dau" value="0" class="myinput" onchange="onchangelctt()" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
@@ -2059,7 +2059,7 @@
                         }
                         <td style="padding-left:20px;"><b>7. Tiền chi khác cho hoạt động kinh doanh</b></td>
                         <td class="text-center">07</td>
-                        <td></td>
+                        <td onclick="togletm(7)"></td>
                         <td style="text-align:right;"><input value="@t7" id="cell_07cuoi" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td style="text-align:right;"><input value="0" id="cell_07_dau" class="myinput" onchange="onchangelctt()" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
@@ -2088,7 +2088,7 @@
                         }
                         <td style="padding-left:20px;">1. Tiền chi để mua sắm, xây dựng TSCĐ, BĐSĐT và các tài sản dài hạn khác</td>
                         <td class="text-center">21</td>
-                        <td></td>
+                        <td onclick="togletm(21)"></td>
                         <td style="text-align:right;"><input id="cell_21cuoi" value="@t21" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td style="text-align:right;"><input id="cell_21_dau" value="0" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
@@ -2099,7 +2099,7 @@
                         }
                         <td style="padding-left:20px;">2. Tiền thu từ thanh lý, nhượng bán TSCĐ, BĐSĐT và các tài sản dài hạn khác</td>
                         <td class="text-center">22</td>
-                        <td></td>
+                        <td onclick="togletm(22)"></td>
                         <td style="text-align:right;"><input id="cell_22cuoi" value="@t22" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td style="text-align:right;"><input id="cell_22_dau" value="0" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
@@ -2110,7 +2110,7 @@
                         }
                         <td style="padding-left:20px;">3. Tiền chi cho vay, đầu tư góp vốn vào đơn vị khác</td>
                         <td class="text-center">23</td>
-                        <td></td>
+                        <td onclick="togletm(23)"></td>
                         <td style="text-align:right;"><input id="cell_23cuoi" value="@t23" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td style="text-align:right;"><input id="cell_23_dau" value="0" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
@@ -2121,7 +2121,7 @@
                         }
                         <td style="padding-left:20px;">4. Tiền thu hồi cho vay, đầu tư góp vốn vào đơn vị khác</td>
                         <td class="text-center">24</td>
-                        <td></td>
+                        <td onclick="togletm(24)"></td>
                         <td style="text-align:right;"><input id="cell_24cuoi" value="@t24" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td style="text-align:right;"><input id="cell_24_dau" value="0" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
@@ -2132,7 +2132,7 @@
                         }
                         <td style="padding-left:20px;">5. Tiền thu lãi cho vay, cổ tức và lợi nhuận được chia</td>
                         <td class="text-center">25</td>
-                        <td></td>
+                        <td onclick="togletm(25)"></td>
                         <td style="text-align:right;"><input value="@t25" id="cell_25cuoi" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td style="text-align:right;"><input value="0" id="cell_25_dau" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
@@ -2161,7 +2161,7 @@
                         }
                         <td style="padding-left:20px;">1. Tiền thu từ phát hành cổ phiếu, nhận vốn góp của chủ sở hữu</td>
                         <td class="text-center">31</td>
-                        <td></td>
+                        <td onclick="togletm(31)"></td>
                         <td style="text-align:right;"><input value="@t31" id="cell_31cuoi" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td style="text-align:right;"><input value="0" id="cell_31_dau" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
@@ -2172,7 +2172,7 @@
                         }
                         <td style="padding-left:20px;">2. Tiền trả lại vốn góp cho các chủ sở hữu, mua lại cổ phiếu của doanh nghiệp đã phát hành</td>
                         <td class="text-center">32</td>
-                        <td></td>
+                        <td onclick="togletm(32)"></td>
                         <td style="text-align:right;"><input value="@t32" id="cell_32cuoi" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td style="text-align:right;"><input value="0" id="cell_32_dau" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
@@ -2183,7 +2183,7 @@
                         }
                         <td style="padding-left:20px;">3. Tiền thu từ đi vay</td>
                         <td class="text-center">33</td>
-                        <td></td>
+                        <td onclick="togletm(33)"></td>
                         <td style="text-align:right;"><input value="@t33" id="cell_33cuoi" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td style="text-align:right;"><input value="0" id="cell_33_dau" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
@@ -2194,7 +2194,7 @@
                         }
                         <td style="padding-left:20px;">4. Tiền trả nợ gốc vay và nợ thuê tài chính</td>
                         <td class="text-center">34</td>
-                        <td></td>
+                        <td onclick="togletm(34)"></td>
                         <td style="text-align:right;"><input value="@t34" id="cell_34cuoi" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td style="text-align:right;"><input value="0" id="cell_34_dau" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
@@ -2205,7 +2205,7 @@
                         }
                         <td style="padding-left:20px;">5. Cổ tức, lợi nhuận đã trả cho chủ sở hữu</td>
                         <td class="text-center">35</td>
-                        <td></td>
+                        <td onclick="togletm(35)"></td>
                         <td style="text-align:right;"><input value="@t35" id="cell_35cuoi" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td style="text-align:right;"><input value="0" id="cell_35_dau" onchange="onchangelctt()" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
@@ -2235,7 +2235,7 @@
                         }
                         <td>Tiền và tương đương tiền đầu kỳ</td>
                         <td class="text-center">60</td>
-                        <td></td>
+                        <td onclick="togletm(60)"></td>
                         <td style="text-align:right;"><input id="cell_60cuoi" onchange="onchangelctt()" value="@t60" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td style="text-align:right;"><input id="cell_60_dau" onchange="onchangelctt()" value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
@@ -2248,7 +2248,7 @@
                         }
                         <td>Ảnh hưởng của thay đổi tỷ giá hối đoái quy đổi ngoại tệ</td>
                         <td class="text-center">61</td>
-                        <td></td>
+                        <td onclick="togletm(61)"></td>
                         <td style="text-align:right;"><input id="cell_61cuoi" onchange="onchangelctt()" value="@t61" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td style="text-align:right;"><input id="cell_61_dau" onchange="onchangelctt()" value="0" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
@@ -2394,21 +2394,21 @@
 
 
                     @*@{
-                        remain = Model.HTTKs.Where(m => m.SoHieu.StartsWith("112") && m.SoHieu.Length > 3 && m.SoHieu != "1121" && m.SoHieu != "1122").ToList();
-                        foreach (var it in remain)
-                        {
-                            <tr>
-                                <td>@it.SoHieu</td>
-                                <td style="padding-left:20px;">@it.TenTK</td>
-                                <td><input id="@( "cell_" + it.SoHieu + "_dk_no" )" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo==it.SoHieu).DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                                <td><input id="@( "cell_" + it.SoHieu + "_dk_co" )" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo==it.SoHieu).DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                                <td><input id="@( "cell_" + it.SoHieu + "_ps_no" )" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo==it.SoHieu).PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                                <td><input id="@( "cell_" + it.SoHieu + "_ps_co" )" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo==it.SoHieu).PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                                <td><input id="@( "cell_" + it.SoHieu + "_ck_no" )" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo==it.SoHieu).CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                                <td><input id="@( "cell_" + it.SoHieu + "_ck_co" )" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo==it.SoHieu).CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                            </tr>
-                        }
-                    }*@
+                            remain = Model.HTTKs.Where(m => m.SoHieu.StartsWith("112") && m.SoHieu.Length > 3 && m.SoHieu != "1121" && m.SoHieu != "1122").ToList();
+                            foreach (var it in remain)
+                            {
+                                <tr>
+                                    <td>@it.SoHieu</td>
+                                    <td style="padding-left:20px;">@it.TenTK</td>
+                                    <td><input id="@( "cell_" + it.SoHieu + "_dk_no" )" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo==it.SoHieu).DkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                                    <td><input id="@( "cell_" + it.SoHieu + "_dk_co" )" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo==it.SoHieu).DkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                                    <td><input id="@( "cell_" + it.SoHieu + "_ps_no" )" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo==it.SoHieu).PsNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                                    <td><input id="@( "cell_" + it.SoHieu + "_ps_co" )" value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo==it.SoHieu).PsCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                                    <td><input id="@( "cell_" + it.SoHieu + "_ck_no" )" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo==it.SoHieu).CkNo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                                    <td><input id="@( "cell_" + it.SoHieu + "_ck_co" )" disabled value="@Model.QTongHop.FirstOrDefault(m=>m.MaSo==it.SoHieu).CkCo" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                                </tr>
+                            }
+                        }*@
 
                     <tr>
                         <td><b>121</b></td>
@@ -3295,7 +3295,7 @@
 
                     <tr>
                         @{
-                            var tk341= Model.QTongHop.FirstOrDefault(m => m.MaSo == "341");
+                            var tk341 = Model.QTongHop.FirstOrDefault(m => m.MaSo == "341");
                             var tk3411 = Model.QTongHop.FirstOrDefault(m => m.MaSo == "3411");
                             var tk3412 = Model.QTongHop.FirstOrDefault(m => m.MaSo == "3412");
                             var tk3413 = Model.QTongHop.FirstOrDefault(m => m.MaSo == "3413");
@@ -3630,7 +3630,7 @@
                         <td><input id="cell_5111_ck_co" value="@Model.QTongHop.FirstOrDefault(m => m.MaSo == "5111").CkCo" class="myinput"></td>
                     </tr>
                     <tr>
-                        @{ 
+                        @{
                             var tk5112 = Model.QTongHop.FirstOrDefault(m => m.MaSo == "5112");
                         }
 
@@ -3837,12 +3837,41 @@
                         <td><input style="font-size:12px" id="cell_total_dk_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td><input style="font-size:12px" id="cell_total_ps_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                         <td><input style="font-size:12px" id="cell_total_ps_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input style="font-size:12px" id="cell_total_ck_no" disabled class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
-                        <td><input style="font-size:12px" id="cell_total_ck_co" disabled class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input style="font-size:12px" id="cell_total_ck_no" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
+                        <td><input style="font-size:12px" id="cell_total_ck_co" class="myinput" onblur="formatNumber(this)" onfocus="removeFormat(this)"></td>
                     </tr>
 
                 </tbody>
             </table>
+
+        </div>
+        <div id="tb5">
+            <div style="height:100vh">
+                <ul style="margin:0px;padding:0px;">
+                    <li style="display:block">
+                        <div>
+                            <b>
+                                BÁO CÁO TÌNH HÌNH TÀI CHÍNH
+                            </b>
+                        </div>
+                        <div id="rs1">
+
+                        </div>
+                    </li>
+                    <div>
+                        <b>
+                            BÁO CÁO LƯU CHUYỂN TIỀN TỆ
+
+                        </b>
+                    </div>
+                    <li style="display:block">
+                        <div id="rs2">
+                         
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
 
         </div>
         <div class="fullbox" style=" position: sticky; bottom: 0px; background-color: #eee;">
@@ -3867,18 +3896,23 @@
                         BCĐTK
                     </a>
                 </li>
+                <li>
+                    <a id="acl5" onclick="opentab(5)">
+                        Đánh giá
+                    </a>
+                </li>
             </ul>
             <ul class="float-end">
                 @*<li>
-                    <button type="submit" class="btn btn-primary px-4" onclick="gui()">
-                        Gửi
-                    </button>
-                </li>
-                <li>
-                    <button onclick="exportXML()">
-                        exportXML
-                    </button>
-                </li>*@
+                        <button type="submit" class="btn btn-primary px-4" onclick="gui()">
+                            Gửi
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="exportXML()">
+                            exportXML
+                        </button>
+                    </li>*@
                 <li>
                     <a onclick="ketxuat()">Kết xuất</a>
                 </li>
@@ -3988,10 +4022,45 @@
         font-family: "Times New Roman", sans-serif !important;
     }
 </style>
-<script src="/Scripts/jquery-3.7.0.min.js"></script>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Thông tin chi tiết tài khoản <b>LCTT</b></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="contents">
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/Scripts/jquery-3.7.0.min.js"></script>
+<script>
+   
+</script>
 @*Xử lý cho kqhdkd*@
 <script>
+    function togletm(id) {
+        $.ajax({
+            url: '/Candoiketoan/ToggleTM', // URL API export
+            type: 'GET',
+            data: {
+                id: id
+            },
+            dataType: "html",
+            success: function (data) {
+                $("#exampleModal").modal("toggle");
+                $("#contents").html(data)
+            },
+            error: function () {
+                alert('Lỗi khi export XML!');
+                $('#loading').hide();
+            }
+        });
+    }
     function thuyetminhtc() {
 
         $('#loadingModal').modal('toggle');
@@ -4061,9 +4130,9 @@
         $("#tb_cdts").hide();
     });
     function onchange10() {
-        var v1 = $("#cell_01_namnay").val(); 
+        var v1 = $("#cell_01_namnay").val();
         var v2 = $("#cell_02_namnay").val();
-        var result1 = cleanToNumber(v1) - cleanToNumber(v2); 
+        var result1 = cleanToNumber(v1) - cleanToNumber(v2);
         $("#cell_10_namnay").val(result1);
         formatNumber(document.getElementById("cell_10_namnay"));
         //Tính cho 10 right
@@ -4077,7 +4146,7 @@
 
         //Tính cho 20
         var v11 = $("#cell_11_namnay").val();
-        var v20 = result1 - cleanToNumber(v11); 
+        var v20 = result1 - cleanToNumber(v11);
         $("#cell_20_namnay").val(v20);
         formatNumber(document.getElementById("cell_20_namnay"));
         //Tính cho 20 right
@@ -4089,11 +4158,11 @@
 
 
         //Tính cho 30
-        v21 = $("#cell_21_namnay").val(); 
-        v22 = $("#cell_22_namnay").val(); 
-        v23 = $("#cell_23_namnay").val(); 
-        v24 = $("#cell_24_namnay").val(); 
-        var v30 = v20 + cleanToNumber(v21) - cleanToNumber(v22)-cleanToNumber(v24); 
+        v21 = $("#cell_21_namnay").val();
+        v22 = $("#cell_22_namnay").val();
+        v23 = $("#cell_23_namnay").val();
+        v24 = $("#cell_24_namnay").val();
+        var v30 = v20 + cleanToNumber(v21) - cleanToNumber(v22) - cleanToNumber(v24);
         $("#cell_30_namnay").val(v30);
         formatNumber(document.getElementById("cell_30_namnay"));
         //Tính cho 30 right
@@ -4110,8 +4179,8 @@
 
         //Tính cho 40
         v31 = $("#cell_31_namnay").val();
-        v32 = $("#cell_32_namnay").val(); 
-        v40 = cleanToNumber(v31) - cleanToNumber(v32); 
+        v32 = $("#cell_32_namnay").val();
+        v40 = cleanToNumber(v31) - cleanToNumber(v32);
         $("#cell_40_namnay").val(v40);
         formatNumber(document.getElementById("cell_40_namnay"));
         //Tính cho 40 right
@@ -4123,7 +4192,7 @@
 
 
 
-        //Tính cho 50  
+        //Tính cho 50
         v50 = v30 + v40;
         $("#cell_50_namnay").val(v50);
         formatNumber(document.getElementById("cell_50_namnay"));
@@ -4177,7 +4246,7 @@
         var v22 = $("#cell_22cuoi").val();
         var v23 = $("#cell_23cuoi").val();
         var v24 = $("#cell_23cuoi").val();
-        var v25 = $("#cell_25cuoi").val(); 
+        var v25 = $("#cell_25cuoi").val();
         var result30 = cleanToNumber(v21) + cleanToNumber(v22) + cleanToNumber(v23) + cleanToNumber(v24) + cleanToNumber(v25);
         $("#cell_30cuoi").val(result30);
         formatNumber(document.getElementById("cell_30cuoi"));
@@ -4188,7 +4257,7 @@
         var v23r = $("#cell_23_dau").val();
         var v24r = $("#cell_23_dau").val();
         var v25r = $("#cell_25_dau").val();
-        var result30r = cleanToNumber(v21r) + cleanToNumber(v22r) + cleanToNumber(v23r) + cleanToNumber(v24r) + cleanToNumber(v25r); 
+        var result30r = cleanToNumber(v21r) + cleanToNumber(v22r) + cleanToNumber(v23r) + cleanToNumber(v24r) + cleanToNumber(v25r);
         $("#cell_30_dau").val(result30r);
         formatNumber(document.getElementById("cell_30_dau"));
 
@@ -4197,7 +4266,7 @@
         var v32 = $("#cell_32cuoi").val();
         var v33 = $("#cell_33cuoi").val();
         var v34 = $("#cell_34cuoi").val();
-        var v35 = $("#cell_35cuoi").val(); 
+        var v35 = $("#cell_35cuoi").val();
         var v36 = $("#cell_36cuoi").val();
         var result40 = cleanToNumber(v31) + cleanToNumber(v32) + cleanToNumber(v33) + cleanToNumber(v34) + cleanToNumber(v35) + cleanToNumber(v36);
         $("#cell_40cuoi").val(result40);
@@ -4227,7 +4296,7 @@
         //70 cuối
         var v60 = $("#cell_60cuoi").val();
         var v61 = $("#cell_61cuoi").val();
-        var result70 = result50 + cleanToNumber(v60) + cleanToNumber(v61) 
+        var result70 = result50 + cleanToNumber(v60) + cleanToNumber(v61)
         $("#cell_70cuoi").val(result70);
         formatNumber(document.getElementById("cell_70cuoi"));
 
@@ -4256,6 +4325,24 @@
         onchange10();
         onchangelctt();
         sumtong();
+
+        //Đánh giá
+        var vl1 = $.trim($("#total_200a_cuoi").val());
+        var vl2 = $.trim($("#total_500a_cuoi").val()); 
+        if (vl1 === vl2) {
+            $("#rs1").html("Tài sản nguồn vốn  cân bằng");
+        } else {
+            $("#rs1").html("Tài sản nguồn vốn ko cân bằng");
+        }
+
+
+        vl1 = $.trim($("#cell_110a_cuoi").val());
+        vl2 = $.trim($("#cell_70cuoi").val());
+        if (vl1 === vl2) {
+            $("#rs2").html("Tiền và các khoản tương đương tiền  và Tiền và tương đương tiền cuối kỳ lctt cân");
+        } else {
+            $("#rs2").html("Tiền và các khoản tương đương tiền  và Tiền và tương đương tiền cuối kỳ lctt không  cân");
+        }
     });
     const cdtsTree = {
         "100": ["110", "120", "130", "140", "150"],
@@ -4598,7 +4685,7 @@
             $("#titleName").html("BẢNG CÂN ĐỐI TÀI KHOẢN")
         }
         // Ẩn tất cả tab content
-        for (let i = 1; i <= 4; i++) {
+        for (let i = 1; i <= 5; i++) {
             $("#tb" + i).hide();
         }
 
@@ -4606,7 +4693,7 @@
         $("#tb" + tabNumber).show();
 
         // Xóa class active từ tất cả tab links
-        for (let i = 1; i <= 4; i++) {
+        for (let i = 1; i <= 5; i++) {
             $("#acl" + i).removeClass("actv");
         }
 
@@ -6308,11 +6395,13 @@
 </div>
 <style>
     .backgrey {
-        background-color: #D7D7D7!important;
+        background-color: #D7D7D7 !important;
     }
+
     .backblue {
         background-color: #2adbdb !important;
     }
+
     .backtim {
         background-color: #bfd7e9 !important;
     }

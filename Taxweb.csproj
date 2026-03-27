@@ -240,6 +240,7 @@
     <Content Include="Views\BuildXMl\EditXml.cshtml" />
     <Content Include="Template\Thuyết minh BCTC theo Thông tư 133.xlsx" />
     <Content Include="Views\Reports\Bangkehoadon.cshtml" />
+    <Content Include="Views\Candoiketoan\ToggleTM.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
