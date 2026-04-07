@@ -1,0 +1,241 @@
+﻿@model IEnumerable<Taxweb.Models.Bangkehoadon>
+<div style="margin-bottom:10px;">
+    <button onclick="toggleLoai(1)">Loại 1</button>
+    <button onclick="toggleLoai(2)">Loại 2</button>
+    <button onclick="toggleLoai(3)">Loại 3</button>
+    <button onclick="toggleLoai(4)">Loại 4</button>
+    <button onclick="toggleLoai(5)">Loại 5</button>
+</div>
+<div class="table-responsive divtong" style=" height: 100vh; /* bắt buộc có chiều cao */ overflow-y: auto; ">
+    <table class="table table-bordered table-3d ">
+        <thead>
+            <tr>
+                <th>
+                    STT
+                </th>
+                <th>
+                    Ký hiệu hóa đơn
+                </th>
+                <th>
+                    Số hóa đơn
+                </th>
+                <th>
+                    Ngày phát hành
+                </th>
+                <th>
+                    Tên người bán
+                </th>
+                <th>
+                    Mã số thuế
+                </th>
+                <th>
+                    Mặt hàng
+                </th>
+                <th>
+                    Doanh số
+                </th>
+                <th>
+                    Thuế suất
+                </th>
+                <th>
+                    Thuế GTGT
+                </th>
+                <th>
+                    Ghi chú
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var groups = new List<dynamic>
+{
+    new { TyLe = 0, Data = ViewBag.Loai1 },
+    new { TyLe = 5, Data = ViewBag.Loai2 },
+    new { TyLe = 8, Data = ViewBag.Loai3 },
+      new { TyLe = 10, Data = ViewBag.Loai4 },
+        new { TyLe = 0, Data = ViewBag.Loai5 },
+};
+            }
+            @if (Model != null && Model.Count() > 0)
+            {
+                double tongAllTien = 0;
+                double tongAllThue = 0;
+
+                // 🔥 Nhóm 1: Loại 1 → 4
+                var group1 = new List<dynamic>
+    {
+        new { TyLe = 0, Data = ViewBag.Loai1 },
+        new { TyLe = 5, Data = ViewBag.Loai2 },
+        new { TyLe = 8, Data = ViewBag.Loai3 },
+        new { TyLe = 10, Data = ViewBag.Loai4 }
+    };
+
+                // 🔥 Nhóm 2: Loại 5
+                var group2 = new List<dynamic>
+    {
+        new { TyLe = -1, Data = ViewBag.Loai5 } // ví dụ loại khác
+    };
+
+    <tr>
+        <td colspan="11">
+            <b>Hàng hoá, dịch vụ chịu thuế GTGT</b>
+        </td>
+    </tr>
+
+    // ====== HIỂN THỊ LOẠI 1 → 4 ======
+    foreach (var g in group1)
+    {
+        int j = 1;
+        if (g.Data != null && g.Data.Count > 0)
+        {
+            int stt = 1;
+            double tongtien = 0;
+            double tongthue = 0;
+
+            foreach (var item in g.Data)
+            {
+                tongtien += item.ThanhTien;
+                tongthue += item.SoPS;
+
+                tongAllTien += item.ThanhTien;
+                tongAllThue += item.SoPS;
+
+                <tr>
+                    <td>@stt</td>
+                    <td>@item.KyHieu</td>
+                    <td>@item.SoHD</td>
+                    <td>@item.NgayPH.ToString("dd/MM/yyyy")</td>
+                    <td>@item.Ten</td>
+                    <td>@item.MST</td>
+                    <td>@item.MatHang</td>
+                    <td>@item.ThanhTien.ToString("N0")</td>
+                    <td>@item.TyLe</td>
+                    <td>@item.SoPS.ToString("N0")</td>
+                    <td>@item.SoHD</td>
+                </tr>
+
+                stt++;
+            }
+
+            // Tổng từng loại
+            <tr style="font-weight:bold;" id="loai_@j">
+                <td colspan="4"></td>
+                <td><b>Cộng thuế suất @g.TyLe %</b></td>
+                <td></td>
+                <td></td>
+                <td><b>@tongtien.ToString("N0")</b></td>
+                <td></td>
+                <td><b>@tongthue.ToString("N0")</b></td>
+                <td></td>
+            </tr>
+        }
+        j++;
+    }
+
+    // 🔥 TỔNG CỘNG (đặt TRƯỚC Loại 5)
+    <tr style="font-weight:bold; background:#d0d0d0; color:red">
+        <td colspan="7" style="text-align:right">
+            TỔNG CỘNG (0% - 10%)
+        </td>
+        <td>@tongAllTien.ToString("N0")</td>
+        <td></td>
+        <td>@tongAllThue.ToString("N0")</td>
+        <td></td>
+    </tr>
+
+    // ====== LOẠI 5 ======
+    foreach (var g in group2)
+    {
+        if (g.Data != null && g.Data.Count > 0)
+        {
+            int stt = 1;
+            double tongtien = 0;
+            double tongthue = 0;
+
+            foreach (var item in g.Data)
+            {
+                tongtien += item.ThanhTien;
+                tongthue += item.SoPS;
+
+                <tr>
+                    <td>@stt</td>
+                    <td>@item.KyHieu</td>
+                    <td>@item.SoHD</td>
+                    <td>@item.NgayPH.ToString("dd/MM/yyyy")</td>
+                    <td>@item.Ten</td>
+                    <td>@item.MST</td>
+                    <td>@item.MatHang</td>
+                    <td>@item.ThanhTien.ToString("N0")</td>
+                    <td>@item.TyLe</td>
+                    <td>@item.SoPS.ToString("N0")</td>
+                    <td>@item.SoHD</td>
+                </tr>
+
+                stt++;
+            }
+
+            // 🔥 Tổng riêng Loại 5
+            <tr style="font-weight:bold; background:#f5f5f5" id="loai_5">
+                <td colspan="4"></td>
+                <td><b>Cộng loại 5</b></td>
+                <td></td>
+                <td></td>
+                <td><b>@tongtien.ToString("N0")</b></td>
+                <td></td>
+                <td><b>@tongthue.ToString("N0")</b></td>
+                <td></td>
+            </tr>
+        }
+    }
+}
+        </tbody>
+
+    </table>
+</div>
+
+<style>
+    body {
+        font-family: "Times New Roman", Times, serif;
+        background-color: #eee;
+        font-size: 11px;
+    }
+
+    .divtong {
+        background-color: white;
+        border: 1px solid #000000;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        padding: 20px 20px;
+    }
+
+    .table-3d {
+        border-collapse: collapse;
+    }
+
+        .table-3d td {
+            border: 1px dotted #000; /* viền trong */
+        }
+
+        .table-3d thead th {
+            position: sticky;
+            top: 0;
+            background: #d0d0d0; /* bắt buộc để không bị trong suốt */
+            z-index: 2;
+            box-shadow: 0 2px 0 #000;
+        }
+</style>
+<script>
+    function toggleLoai(loai) {
+        alert(loai)
+        const el = document.getElementById("loai_" + loai);
+        if (el) {
+            el.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+            // highlight nhẹ cho dễ nhìn
+            el.classList.add("highlight");
+            setTimeout(() => el.classList.remove("highlight"), 1500);
+        }
+    }
+</script>

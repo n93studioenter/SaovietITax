@@ -796,7 +796,7 @@ WHERE
                     TTLCTT tTLCTT = new TTLCTT
                     {
                         MaSo = "34",
-                        Namnay = sumKyNay
+                        Namnay = -sumKyNay
                     };
                     baoCaoCDTSVM.TTLCTTs.Add(tTLCTT);
                 }
